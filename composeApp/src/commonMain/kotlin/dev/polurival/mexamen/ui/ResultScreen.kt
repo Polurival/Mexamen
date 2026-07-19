@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.polurival.mexamen.domain.AnsweredQuestion
+import dev.polurival.mexamen.domain.DistractorSource
 import dev.polurival.mexamen.domain.QuizResult
 
 @Composable
@@ -35,6 +36,10 @@ fun ResultScreen(
             text = "Resultado: ${result.score}/${result.total}",
             style = MaterialTheme.typography.headlineMedium,
         )
+        if (result.answers.any { it.question.source == DistractorSource.FALLBACK }) {
+            Spacer(Modifier.height(8.dp))
+            OfflineBadge()
+        }
         Spacer(Modifier.height(24.dp))
         LazyColumn(
             modifier = Modifier.weight(1f).fillMaxWidth(),

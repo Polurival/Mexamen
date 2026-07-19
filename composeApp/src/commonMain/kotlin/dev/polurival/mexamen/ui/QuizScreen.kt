@@ -2,6 +2,7 @@ package dev.polurival.mexamen.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,8 +16,10 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.polurival.mexamen.domain.DistractorSource
 
 @Composable
 fun QuizScreen(
@@ -30,11 +33,20 @@ fun QuizScreen(
             .padding(24.dp)
             .verticalScroll(rememberScrollState()),
     ) {
-        Text(
-            text = "Pregunta ${state.index + 1} de ${state.total}",
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Text(
+                text = "Pregunta ${state.index + 1} de ${state.total}",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            if (state.question.source == DistractorSource.FALLBACK) {
+                OfflineBadge()
+            }
+        }
         Spacer(Modifier.height(8.dp))
         LinearProgressIndicator(
             progress = { (state.index + 1).toFloat() / state.total },
