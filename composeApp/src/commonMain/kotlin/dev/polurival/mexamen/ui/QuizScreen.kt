@@ -1,0 +1,106 @@
+package dev.polurival.mexamen.ui
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+
+@Composable
+fun QuizScreen(
+    state: QuizUiState.Question,
+    onSelect: (Int) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(24.dp)
+            .verticalScroll(rememberScrollState()),
+    ) {
+        Text(
+            text = "Pregunta ${state.index + 1} de ${state.total}",
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(Modifier.height(8.dp))
+        LinearProgressIndicator(
+            progress = { (state.index + 1).toFloat() / state.total },
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Spacer(Modifier.height(32.dp))
+        Text(
+            text = state.question.entry.question,
+            style = MaterialTheme.typography.headlineSmall,
+        )
+        Spacer(Modifier.height(32.dp))
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            state.question.options.forEachIndexed { index, option ->
+                OptionCard(
+                    text = option,
+                    highlight = highlightFor(state, index),
+                    enabled = state.selectedIndex == null,
+                    onClick = { onSelect(index) },
+                )
+            }
+        }
+    }
+}
+
+private enum class OptionHighlight { NONE, CORRECT, WRONG }
+
+private fun highlightFor(state: QuizUiState.Question, index: Int): OptionHighlight = when {
+    state.selectedIndex == null -> OptionHighlight.NONE
+    index == state.question.correctIndex -> OptionHighlight.CORRECT
+    index == state.selectedIndex -> OptionHighlight.WRONG
+    else -> OptionHighlight.NONE
+}
+
+@Composable
+private fun OptionCard(
+    text: String,
+    highlight: OptionHighlight,
+    enabled: Boolean,
+    onClick: () -> Unit,
+) {
+    // Карточки после выбора выключены (enabled=false) — задаём и disabled-цвета,
+    // иначе подсветка верного/неверного не видна
+    val (container, content) = when (highlight) {
+        OptionHighlight.NONE -> MaterialTheme.colorScheme.surfaceVariant to
+            MaterialTheme.colorScheme.onSurfaceVariant
+        OptionHighlight.CORRECT -> MaterialTheme.colorScheme.primaryContainer to
+            MaterialTheme.colorScheme.onPrimaryContainer
+        OptionHighlight.WRONG -> MaterialTheme.colorScheme.errorContainer to
+            MaterialTheme.colorScheme.onErrorContainer
+    }
+    val colors = CardDefaults.cardColors(
+        containerColor = container,
+        contentColor = content,
+        disabledContainerColor = container,
+        disabledContentColor = content,
+    )
+    Card(
+        onClick = onClick,
+        enabled = enabled,
+        colors = colors,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
+        )
+    }
+}
