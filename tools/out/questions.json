@@ -1,0 +1,4658 @@
+[
+  {
+    "id": 1,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Aguascalientes?",
+    "answer": "Aguascalientes"
+  },
+  {
+    "id": 2,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Baja California?",
+    "answer": "Mexicali"
+  },
+  {
+    "id": 3,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Baja California Sur?",
+    "answer": "La Paz"
+  },
+  {
+    "id": 4,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Campeche?",
+    "answer": "San Francisco de Campeche"
+  },
+  {
+    "id": 5,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Chihuahua?",
+    "answer": "Chihuahua"
+  },
+  {
+    "id": 6,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Chiapas?",
+    "answer": "Tuxtla Gutiérrez"
+  },
+  {
+    "id": 7,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Coahuila de Zaragoza?",
+    "answer": "Saltillo"
+  },
+  {
+    "id": 8,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Colima?",
+    "answer": "Colima"
+  },
+  {
+    "id": 9,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Durango?",
+    "answer": "Victoria de Durango"
+  },
+  {
+    "id": 10,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Guanajuato?",
+    "answer": "Guanajuato"
+  },
+  {
+    "id": 11,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Guerrero?",
+    "answer": "Chilpancingo de los Bravo"
+  },
+  {
+    "id": 12,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Hidalgo?",
+    "answer": "Pachuca de Soto"
+  },
+  {
+    "id": 13,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Jalisco?",
+    "answer": "Guadalajara"
+  },
+  {
+    "id": 14,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de México?",
+    "answer": "Toluca de Lerdo"
+  },
+  {
+    "id": 15,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Michoacán de Ocampo?",
+    "answer": "Morelia"
+  },
+  {
+    "id": 16,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Morelos?",
+    "answer": "Cuernavaca"
+  },
+  {
+    "id": 17,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Nayarit?",
+    "answer": "Tepic"
+  },
+  {
+    "id": 18,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Nuevo León?",
+    "answer": "Monterrey"
+  },
+  {
+    "id": 19,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Oaxaca?",
+    "answer": "Oaxaca de Juárez"
+  },
+  {
+    "id": 20,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Puebla?",
+    "answer": "Puebla de Zaragoza"
+  },
+  {
+    "id": 21,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Querétaro?",
+    "answer": "Santiago de Querétaro"
+  },
+  {
+    "id": 22,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Quintana Roo?",
+    "answer": "Chetumal"
+  },
+  {
+    "id": 23,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de San Luis Potosí?",
+    "answer": "San Luis Potosí"
+  },
+  {
+    "id": 24,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Sinaloa?",
+    "answer": "Culiacán Rosales"
+  },
+  {
+    "id": 25,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Sonora?",
+    "answer": "Hermosillo"
+  },
+  {
+    "id": 26,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Tabasco?",
+    "answer": "Villahermosa"
+  },
+  {
+    "id": 27,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Tamaulipas?",
+    "answer": "Ciudad Victoria"
+  },
+  {
+    "id": 28,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Tlaxcala?",
+    "answer": "Tlaxcala de Xicohténcatl"
+  },
+  {
+    "id": 29,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Veracruz de Ignacio de la Llave?",
+    "answer": "Xalapa-Enríquez"
+  },
+  {
+    "id": 30,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Yucatán?",
+    "answer": "Mérida"
+  },
+  {
+    "id": 31,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Zacatecas?",
+    "answer": "Zacatecas"
+  },
+  {
+    "id": 32,
+    "section": "ESTADOS Y CAPITALES",
+    "question": "¿Cuál es la capital de Ciudad de México (antes Distrito Federal)?",
+    "answer": "Ciudad de México"
+  },
+  {
+    "id": 33,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Nombre oficial de México",
+    "answer": "Estados Unidos Mexicanos"
+  },
+  {
+    "id": 34,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Qué quiere decir el nombre \"México\"?",
+    "answer": "\"El ombligo de la luna\" o \"el centro del lago de la luna\""
+  },
+  {
+    "id": 35,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Dónde está ubicado México geográficamente?",
+    "answer": "En el sur de América del Norte"
+  },
+  {
+    "id": 36,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Cuál es la extensión territorial de México?",
+    "answer": "1,964,375 km2"
+  },
+  {
+    "id": 37,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Con qué países tiene frontera México?",
+    "answer": "Estados Unidos, Guatemala y Belice"
+  },
+  {
+    "id": 38,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Población de México",
+    "answer": "126,014,024 (Censo INEGI 2020). Información sjueto a cambio."
+  },
+  {
+    "id": 39,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Idiomas nacionales de México",
+    "answer": "Español + 68 lenguas indígenas"
+  },
+  {
+    "id": 40,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Cuántos estados o entidades federativas tiene México?",
+    "answer": "32 (incluyendo la Ciudad de México)"
+  },
+  {
+    "id": 41,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Cuándo cambió el nombre de Distrito Federal a Ciudad de México (CDMX)?",
+    "answer": "29 de enero de 2016"
+  },
+  {
+    "id": 42,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Estado que cambió su nombre en 2016",
+    "answer": "Ciudad de México"
+  },
+  {
+    "id": 43,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Qué presidente realizó el cambio de nombre a la Ciudad de México?",
+    "answer": "Enrique Peña Nieto"
+  },
+  {
+    "id": 44,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Ciudad más poblada de México",
+    "answer": "Ciudad de México (9 209 944 - 2020)"
+  },
+  {
+    "id": 45,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "El estado de la república de mayor extensión territorial",
+    "answer": "Chihuahua"
+  },
+  {
+    "id": 46,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Estados fronterizos o limítrofes al norte del país",
+    "answer": "Baja California, Sonora, Chihuahua, Coahuila, Nuevo León y Tamaulipas"
+  },
+  {
+    "id": 47,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Capital de Tamaulipas",
+    "answer": "Ciudad Victoria"
+  },
+  {
+    "id": 48,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Capital del estado de Nuevo León",
+    "answer": "Monterrey"
+  },
+  {
+    "id": 49,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Los estados del norte de México",
+    "answer": "Baja California, Baja California Sur, Chihuahua, Coahuila, Durango, Nuevo León, Sinaloa, Sonora y Tamaulipas"
+  },
+  {
+    "id": 50,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Estados fronterizos o limítrofes al sur del país",
+    "answer": "Chiapas, Tabasco, Campeche y Quintana Roo"
+  },
+  {
+    "id": 51,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿En qué estado de la república se encuentra la ciudad de Guadalajara?",
+    "answer": "Jalisco"
+  },
+  {
+    "id": 52,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Ubicar en el Mapa a Nuevo León",
+    "answer": "Norte de México al lado de Coahuila"
+  },
+  {
+    "id": 53,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Ubicar en el Mapa a Querétaro",
+    "answer": "Queda justamente después de Guanajuato, En el Centro del País"
+  },
+  {
+    "id": 54,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Ubicar en el Mapa a Puebla",
+    "answer": "Centro del País, Al lado derecho de CDMX, límite con Veracruz"
+  },
+  {
+    "id": 55,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Señale en el mapa donde queda Campeche",
+    "answer": "SurEste del País en el medio de Tabasco y Yucatán"
+  },
+  {
+    "id": 56,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Las tres ciudades más grandes y pobladas del país son",
+    "answer": "CDMX, Guadalajara y Monterrey (antes de 2020). CDMX, Tijuana, Ecatepec de Morelos (según el censo de 2020)"
+  },
+  {
+    "id": 57,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Cuál es la ciudad conocida como la Puerta de Oro del Bajío?",
+    "answer": "Celaya, Guanajuato"
+  },
+  {
+    "id": 58,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿A qué ciudad se le conoce como \"La perla del Bajío\"?",
+    "answer": "León, Guanajuato"
+  },
+  {
+    "id": 59,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿A qué ciudad se le conoce como \"La Bella Airosa\"?",
+    "answer": "Pachuca, Hidalgo"
+  },
+  {
+    "id": 60,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿A qué ciudad se le llama \"Angelópolis\"?",
+    "answer": "Puebla"
+  },
+  {
+    "id": 61,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿A qué ciudad se le llama \"La Sultana del Norte\"?",
+    "answer": "Monterrey"
+  },
+  {
+    "id": 62,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿A qué ciudad se le llama \"La Ciudad blanca\"?",
+    "answer": "Merida, Yucatán"
+  },
+  {
+    "id": 63,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "La palabra \"jarocho\" alude a lo que es propio de:",
+    "answer": "Veracruz"
+  },
+  {
+    "id": 64,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Como se les llama a los habitantes de:",
+    "answer": "CDMX - Chilangos, Culiacán - Culichis, Guadalajara - Tapatíos, Monterrey - Regiomontanos, Aguascalientes - Hidrocálidos, Veracruz - Jarochos"
+  },
+  {
+    "id": 65,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Cuál es el orden de los colores de la bandera?",
+    "answer": "verde, blanco, rojo"
+  },
+  {
+    "id": 66,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Cuáles son los símbolos patrios?",
+    "answer": "La bandera, el himno y el escudo nacionales"
+  },
+  {
+    "id": 67,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Simbolos patrios",
+    "answer": "Bandera: Verde = Esperanza en destino de la raza, Blanco= Pureza de ideales, Rojo = Sangre derramada por héroes de la Patria, Escudo: El águila devorando a la serpiente, Nopal, Islote sobre el agua, Ramas de laurel y encino Himno: Escrito en 1854, se hizo oficial en 1943 El Himno Nacional de México: fue interpretado por vez primera la noche del 15 de septiembre de 1854, en el teatro Santa Anna, que poco después cambio su nombre por el del Teatro Nacional. Letra: Francisco González Bocanegra Compositor Jaime Nunó."
+  },
+  {
+    "id": 68,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Cúal es el significado de el águila y la serpiente que aparecen en el escudo nacional mexicano, incluido en la franja blanca de la bandera?",
+    "answer": "Representan una leyenda prehispánica"
+  },
+  {
+    "id": 69,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Letra y música del Himno Nacional",
+    "answer": "Compuesta por el poeta potosino Francisco González Bocanegra, música del músico español Jaime Nunó"
+  },
+  {
+    "id": 70,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Coro del himno mexicano",
+    "answer": "Mexicanos al grito de guerra, El acero aprestad y el bridón Y retiemble en sus centros la tierra Al sonoro rugir del cañón"
+  },
+  {
+    "id": 71,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Completa la Frase del Himno: Un soldado…..",
+    "answer": "…en cada hijo te dio"
+  },
+  {
+    "id": 72,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Cuándo fué creado el Himno Nacional?",
+    "answer": "En 1854, interpretado públicamente por primera vez en la noche del 15 de septiembre de 1854 en el Gran Teatro de Santa Anna."
+  },
+  {
+    "id": 73,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Cuándo fué declarado oficial el Himno Nacional?",
+    "answer": "El 20 de octubre de 1943, durante la presidencia de Manuél Ávila Camacho"
+  },
+  {
+    "id": 74,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Cuál de los símbolos patrios fue reconocido oficialmente en 1943 durante la presidencia de Manuel Ávila Camacho?",
+    "answer": "El Himno Nacional"
+  },
+  {
+    "id": 75,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "El tema dominante del Himno Nacional Mexicano",
+    "answer": "Una exhortación a la guerra defensiva"
+  },
+  {
+    "id": 76,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Quién escribió la letra del Himno Nacional?",
+    "answer": "El poeta potosino Francisco González Bocanegra"
+  },
+  {
+    "id": 77,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "¿Quién compuso la música del Himno Nacional?",
+    "answer": "El músico español Jaime Nunó"
+  },
+  {
+    "id": 78,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "En el Himno Nacional, la expresión \"Más si osare un extraño enemigo\" ¿Qué significa?",
+    "answer": "Si un enemigo desconocido se atreviera"
+  },
+  {
+    "id": 79,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Árbol nacional",
+    "answer": "Ahuehuete (árbol del Tule)"
+  },
+  {
+    "id": 80,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Animal nacional",
+    "answer": "Águila real"
+  },
+  {
+    "id": 81,
+    "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
+    "question": "Flor nacional",
+    "answer": "Dalia"
+  },
+  {
+    "id": 82,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Qué es México prehispánico?",
+    "answer": "Es la etapa antes de la conquista y colonización española de 1521. México prehispánico Incluye 3 periodos: preclásico, clásico y posclásico."
+  },
+  {
+    "id": 83,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿A qué se le conoce como el hombre de Tepexpan, encontrado en 1947 a las orillas del lago Texcoco?",
+    "answer": "Es un esqueleto precolombino. Fue un hallazgo arqueológico de un esqueleto humano en el Estado de México en 1947. Corresponde a una mujer de aproximadamente 25 años de edad y 1.50 m de estatura. Vivió hace aproximadamente 9000 años. Es el esqueleto más antiguo encontrado hasta ahora en lo que fue Mesoamérica."
+  },
+  {
+    "id": 84,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Objeto comercial de intercambio principal de los pueblos prehispánicos / ¿Con qué comercializaban en la época prehispánica?",
+    "answer": "Cacao"
+  },
+  {
+    "id": 85,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "La base alimenticia de los pueblos mesoamericanos fue",
+    "answer": "Maíz"
+  },
+  {
+    "id": 86,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Periodos de las culturas mesoamericanas",
+    "answer": "Preclásico (olmecas), сlásico (mayas), posclásico (mexica y azteca)"
+  },
+  {
+    "id": 87,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Culturas mexicanas prehispánicas",
+    "answer": "Maya - Azteca - Olmeca"
+  },
+  {
+    "id": 88,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿En qué etapa prehispánica se empezaron a construir los reinos?",
+    "answer": "Preclásica"
+  },
+  {
+    "id": 89,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿En qué etapa prehispánica se empezaron a construir los señoríos?",
+    "answer": "Preclásica"
+  },
+  {
+    "id": 90,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Período en el que más se desarrolló la cultura olmeca",
+    "answer": "Preclásico"
+  },
+  {
+    "id": 91,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Cultura madre",
+    "answer": "Olmeca"
+  },
+  {
+    "id": 92,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "La cultura que adoraba a los jaguares",
+    "answer": "Olmeca"
+  },
+  {
+    "id": 93,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "La tribu más dominante en el periodo preclásico",
+    "answer": "Olmeca"
+  },
+  {
+    "id": 94,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Cultura de las cabezas colosales o cultura del preclásico medio",
+    "answer": "Olmeca"
+  },
+  {
+    "id": 95,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Las mesas de piedra para actos ceremoniales son de la cultura",
+    "answer": "Olmeca"
+  },
+  {
+    "id": 96,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Centro ceremonial más importante de la cultura olmeca",
+    "answer": "La Venta, Tabasco"
+  },
+  {
+    "id": 97,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "La pirámide de la cultura olmeca más antigua, hecha de lodo y tierra",
+    "answer": "La Venta, Tabasco"
+  },
+  {
+    "id": 98,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Centro ceremonial más antiguo de la cultura olmeca",
+    "answer": "San Lorenzo, Veracruz"
+  },
+  {
+    "id": 99,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Primera pirámide mesoamericana construida con triángulos a su alrededor",
+    "answer": "La Venta, Tabasco"
+  },
+  {
+    "id": 100,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Mencione dos de los rasgos característicos de la cultura de Cuicuilco",
+    "answer": "Plataforma Ceremonial (Altar) de base circular y Tumbas en forma de botellón"
+  },
+  {
+    "id": 101,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Los centros ceremoniales olmecas más importantes fueron",
+    "answer": "La Venta, San Lorenzo, Tres Zapotes"
+  },
+  {
+    "id": 102,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Uno de los productos artesanales más finos de México antiguo fue",
+    "answer": "La cerámica anaranjada delgada"
+  },
+  {
+    "id": 103,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Juego de pelota prehispánico que cumplía la función de resolver conflictos de diversa naturaleza fue de",
+    "answer": "maya/teotihuacana/mexica"
+  },
+  {
+    "id": 104,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "El mayor desarrollo de la cultura mesoamericana se dió durante el período",
+    "answer": "Clásico"
+  },
+  {
+    "id": 105,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Civilización que asentó en Chiapas, Yucatán, Veracruz, Guatemala, Belice y Quintana Roo",
+    "answer": "Los mayas"
+  },
+  {
+    "id": 106,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Los mayas se caracterizaban por ser",
+    "answer": "Astrónomos y matemáticos"
+  },
+  {
+    "id": 107,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Qué era la cuenta larga?",
+    "answer": "Un calendario de origen maya"
+  },
+  {
+    "id": 108,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Cuál fue uno de los inventos más trascendentes para la historia intelectual de Mesoamérica?",
+    "answer": "La cuenta larga"
+  },
+  {
+    "id": 109,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿A quién se le atribuye la creación del cero?",
+    "answer": "A los mayas"
+  },
+  {
+    "id": 110,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "La pirámide más alta de México",
+    "answer": "Toniná, Chiapas (75 m de altura)"
+  },
+  {
+    "id": 111,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Chichen Itzá fue una poderosa ciudad",
+    "answer": "maya"
+  },
+  {
+    "id": 112,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿En qué estado se encuentran las ruinas de Palenque?",
+    "answer": "Chiapas"
+  },
+  {
+    "id": 113,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Cultura que se estableció en la ciudad de Palenque",
+    "answer": "maya"
+  },
+  {
+    "id": 114,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Enumere las ciudades mayas",
+    "answer": "Palenque - Calakmul - Uxmal - Chichen Itza"
+  },
+  {
+    "id": 115,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Manuscrito de papel amate o cuero con representaciones pictóricas que relataba asuntos históricos y religiosos del México antiguo",
+    "answer": "Códice"
+  },
+  {
+    "id": 116,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Nombres de centros ceremoniales o ciudades de la cultura maya",
+    "answer": "Palenque, Yaxchilán, Calakmul, Tikal, Toniná, Chichen Itzá, Copán y Uxmal"
+  },
+  {
+    "id": 117,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "La deidad maya del comercio/dios de cacao/sexta deidad maya más comúnmente representada en los códices",
+    "answer": "Ek Chuah"
+  },
+  {
+    "id": 118,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Diosa maya de la Luna",
+    "answer": "Ixchel"
+  },
+  {
+    "id": 119,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Dios del maíz",
+    "answer": "Yum Kaax/Ah Mun (maya) Centéotl (azteca/mexica)"
+  },
+  {
+    "id": 120,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Chaac, dios de la lluvia|Yum Kaax/Ah Mun, dios del maíz| Ahau Kin, dios del sol | Ixchel, diosa de la luna | Buluc Chabtan, dios de la guerra, destrucción y de los sacrificios humanos",
+    "answer": "Son deidades mayas"
+  },
+  {
+    "id": 121,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Serpiente emplumada Maya",
+    "answer": "Kukulkán, pirámide principal del Chichén Itzá."
+  },
+  {
+    "id": 122,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Otro nombre de Kukulkán, Chichén Itzá",
+    "answer": "El Castillo"
+  },
+  {
+    "id": 123,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde están las pirámides del Sol y de la Luna?",
+    "answer": "Teotihuacán (Estado de México)"
+  },
+  {
+    "id": 124,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Cuándo se construyeron las pirámides del Sol y de la Luna?",
+    "answer": "Entre el año 0 y 200 DC"
+  },
+  {
+    "id": 125,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Significado de Teotihuacán / ¿Qué fué Teotihuacan?",
+    "answer": "Ciudad de los dioses. Fue un centro ceremonial y ciudad más grande y poderosa."
+  },
+  {
+    "id": 126,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Teotihuacán fue un centro ceremonial y ciudad más grande y poderosa",
+    "answer": "del periodo clásico"
+  },
+  {
+    "id": 127,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde se ubicaba la Calzada de los Muertos, una avenida principal con 2km de longitud?",
+    "answer": "en Teotihuacán"
+  },
+  {
+    "id": 128,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Cuáles eran los dos grandes grupos étnicos que habitaban en Teotihuacán?",
+    "answer": "Nahuas y otomíes"
+  },
+  {
+    "id": 129,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Tres productos que los teotihuacanos obtenían del maguey",
+    "answer": "Pulque, cordajes y fibras textiles"
+  },
+  {
+    "id": 130,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "La deidad suprema de los teotihuacanos / Deidad del México antiguo conocida como la Serpiente Emplumada",
+    "answer": "Quetzalcóatl"
+  },
+  {
+    "id": 131,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Significado de Quetzalcóatl, la deidad del México antiguo",
+    "answer": "Serpiente emplumada"
+  },
+  {
+    "id": 132,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde se encontraron vestigios de la cultura teotihuacana?",
+    "answer": "En Tikal (Guatemala)"
+  },
+  {
+    "id": 133,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Parque nacional de Tikal",
+    "answer": "Está en Guatemala"
+  },
+  {
+    "id": 134,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde se desarrolló la civilización zapoteca?",
+    "answer": "En los valles de Etla, Tlacolula y Zimatlán en el estado de Oaxaca"
+  },
+  {
+    "id": 135,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Qué es el Monte Albán?",
+    "answer": "La capital antigua de los zapotecos"
+  },
+  {
+    "id": 136,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Edificio público de Monte Albán",
+    "answer": "Edificio de los danzantes"
+  },
+  {
+    "id": 137,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿A qué se debe el nombre del edificio de los danzantes en Monte Albán?",
+    "answer": "A que las figuras esculpidas en sus lápidas parecen moverse o contorsionarse."
+  },
+  {
+    "id": 138,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde se asentaron los mexicas?",
+    "answer": "Tenochtitlán, hoy Ciudad de México"
+  },
+  {
+    "id": 139,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Nombre de altar con cráneos y estacas, construido por varias culturas prehispánicas",
+    "answer": "Tzompantli"
+  },
+  {
+    "id": 140,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Lugar mítico de donde salieron los mexicas y aztecas",
+    "answer": "Aztlán"
+  },
+  {
+    "id": 141,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Qué significa Aztlán?",
+    "answer": "Garza / Lugar de las garzas"
+  },
+  {
+    "id": 142,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Terreno construido sobre las lagunas del Valle de México que sirvió de base al sistema productivo del altiplano central. En la actualidad, se encuentra en Xochimilco, Ciudad de México",
+    "answer": "Chinampa"
+  },
+  {
+    "id": 143,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Cuáles eran las escuelas donde asistían los indios prehispánicos e hijos de los nobles mexicas?",
+    "answer": "Calmécac (para nobles), Telpochcalli (para plebeyos o jóvenes del pueblo)"
+  },
+  {
+    "id": 144,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Los aztecas fueron conocidos por",
+    "answer": "Guerreros, agricultura, comercio, culto religioso y sacrificios humanos"
+  },
+  {
+    "id": 145,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Significado de la palabra \"altépetl\" con la que los tlatoanis denominaban a sus ciudades",
+    "answer": "Cerro de agua"
+  },
+  {
+    "id": 146,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Época prehispánica que tuvo más desarrollo en su cultura:",
+    "answer": "Posclásica"
+  },
+  {
+    "id": 147,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Qué fue Tenochtitlán?",
+    "answer": "Capital de los mexicas"
+  },
+  {
+    "id": 148,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Cuándo se fundó Tenochtitlán?",
+    "answer": "1325"
+  },
+  {
+    "id": 149,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Otro término para referirse a los emperadores mexicas",
+    "answer": "Tlatoani"
+  },
+  {
+    "id": 150,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Cultura con más desarrollo en el posclásico 950 DC-1521 DC",
+    "answer": "Aztecas/mexicas"
+  },
+  {
+    "id": 151,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Quiénes integraron a la triple alianza?",
+    "answer": "Tenochtitlán, Texcoco, Tlacopán. La alianza fue acordada por los tres jefes indígenas del Valle de México en 1427 con fines económicos."
+  },
+  {
+    "id": 152,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Quién fue Chalchiuhtlicue?",
+    "answer": "Diosa de los lagos y corrientes de agua de los mexicas"
+  },
+  {
+    "id": 153,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Diosa de la fertilidad mexica",
+    "answer": "Coatlicue"
+  },
+  {
+    "id": 154,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Dios de la guerra mexica",
+    "answer": "Huitzilopochtli"
+  },
+  {
+    "id": 155,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Deidad azteca relacionada con el sol",
+    "answer": "Tonatiuh"
+  },
+  {
+    "id": 156,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Deidad azteca y mexica de la lluvia y del relámpago",
+    "answer": "Tlalóc"
+  },
+  {
+    "id": 157,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Anfibio representado junto al dios Xólotl",
+    "answer": "Ajolote"
+  },
+  {
+    "id": 158,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Edificio o museo que alberga el centro de Tenochtitlán",
+    "answer": "Templo Mayor"
+  },
+  {
+    "id": 159,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde se asentaron los toltecas?",
+    "answer": "Tula de Allende, estado de Hidalgo"
+  },
+  {
+    "id": 160,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Qué significa \"Tolteca\"?",
+    "answer": "Habitante de Tula"
+  },
+  {
+    "id": 161,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Qué significa \"Tula\" en náhuatl?",
+    "answer": "Juncal, o junto al tular"
+  },
+  {
+    "id": 162,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Ciudad donde se usaba el macabro Tzompantli",
+    "answer": "Tula (aunque el más grande se encuentra en el Templo Mayor, CDMX)"
+  },
+  {
+    "id": 163,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Tribu originaria de Michoacán",
+    "answer": "Purépechas"
+  },
+  {
+    "id": 164,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Los tarascos se destacaron por ser",
+    "answer": "Artesanos, carpinteros y metalurgistas de oro y plata"
+  },
+  {
+    "id": 165,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Cuántas lenguas indígenas existen en México?",
+    "answer": "Más de 60: precisamente 68 lenguas. 10 son las más populares: Náhuatl, Chol, Totonaca, Mazateco, Mixteco, Zapoteco, Otomí, Tzotzil, Tzeltal y Maya."
+  },
+  {
+    "id": 166,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Etnia de Guanajuato",
+    "answer": "Chichimeca Jonaz"
+  },
+  {
+    "id": 167,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Cultura indígena que persiste en el norte del país",
+    "answer": "Tarahumara"
+  },
+  {
+    "id": 168,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿De qué parte del país son los tarahumaras?",
+    "answer": "del norte (Chihuahua)"
+  },
+  {
+    "id": 169,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Tribu indígena de Durango",
+    "answer": "Tepehuanes"
+  },
+  {
+    "id": 170,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Tribu indigena de Coahuila",
+    "answer": "Kikapú y Mascao"
+  },
+  {
+    "id": 171,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Comunidad indígena que habita actualmente en Tabasco",
+    "answer": "Mayas-chontales"
+  },
+  {
+    "id": 172,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Principales tribus indígenas existentes en México:",
+    "answer": "Nahuas, mayas, zapotecos, mixtecos, otomíes, totonacas, tarahumaras"
+  },
+  {
+    "id": 173,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde queda el Valle de Yaqui?",
+    "answer": "Sonora"
+  },
+  {
+    "id": 174,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Cuándo ocurrió el exterminio de los yaquis?",
+    "answer": "1868, según INPI"
+  },
+  {
+    "id": 175,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Qué significa \"papalote\"?",
+    "answer": "Sinonimo de cometa, \"mariposa\" en náhuatl"
+  },
+  {
+    "id": 176,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Cuántas zonas arqueológicas existen según INAH (Instituto Nacional de Antropología e Historia)?",
+    "answer": "193 abiertas al público, pero existen más de 2000"
+  },
+  {
+    "id": 177,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿En qué estado de la república se encuentran las ruinas de Palenque?",
+    "answer": "Chiapas"
+  },
+  {
+    "id": 178,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Las ruinas de Monte Albán se localizan en",
+    "answer": "Oaxaca"
+  },
+  {
+    "id": 179,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿En qué estado se encuentra La Venta?",
+    "answer": "Tabasco"
+  },
+  {
+    "id": 180,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿En qué estado se encuentra Calakmul?",
+    "answer": "Campeche"
+  },
+  {
+    "id": 181,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Zona arqueológica de Morelos",
+    "answer": "Xochicalco"
+  },
+  {
+    "id": 182,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "Dónde se ubica la zona arqueológica de El Tajín?",
+    "answer": "En el estado de Veracruz, cerca de la ciudad de Papantla"
+  },
+  {
+    "id": 183,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde se encuentra la pirámide de los Nichos?",
+    "answer": "En la zona arqueológica El Tajín, Veracruz"
+  },
+  {
+    "id": 184,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde se encuentra la zona arqueológica de Cacaxtla?",
+    "answer": "Tlaxcala"
+  },
+  {
+    "id": 185,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde se encuentra la zona arqueológica de Huatabampo?",
+    "answer": "Sonora"
+  },
+  {
+    "id": 186,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde se encuentra la zona arqueológica de Chalchihuites o Alta Vista?",
+    "answer": "Zacatecas"
+  },
+  {
+    "id": 187,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde se encuentra la zona arqueológica de Villa de Reyes?",
+    "answer": "San Luis Potosí"
+  },
+  {
+    "id": 188,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde se encuentra la zona arqueológica de San Antonio Nogalar?",
+    "answer": "Tamaulipas"
+  },
+  {
+    "id": 189,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿En dónde se encuentra Mitla?",
+    "answer": "Oaxaca"
+  },
+  {
+    "id": 190,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿En qué estado se encuentra ubicado el sitio arqueológico denominado El Sope?",
+    "answer": "en la Ciudad de México (en el parque Chapultepec)."
+  },
+  {
+    "id": 191,
+    "section": "ÉPOCA PREHISPÁNICA",
+    "question": "¿Dónde queda la zona arqueológica o ruinas de Cholula?",
+    "answer": "Puebla"
+  },
+  {
+    "id": 192,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Por qué los conquistadores españoles salieron de España?",
+    "answer": "Para buscar riquezas y así aumentar el poder económico."
+  },
+  {
+    "id": 193,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Razones que promovieron el descubrimiento de América",
+    "answer": "Descubrir nuevas rutas comerciales y expandir el régimen feudal."
+  },
+  {
+    "id": 194,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Con quién hizo alianza Hernán Cortés para conquistar Tenochtitlán?",
+    "answer": "Principalmente con tlaxcaltecas, pero también había fuerza indígena de muchos otros pueblos: Cempoala, Quiahuiztlán, Texcoco, Chalco, Xochimilco, Azcapotzalco y Mixquic. Todos ellos odiaban a los mexicas, por eso se unieron al ejército de Cortés."
+  },
+  {
+    "id": 195,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Nombre del conquistador que derrotó al imperio mexica",
+    "answer": "Hernán Cortés"
+  },
+  {
+    "id": 196,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Intérprete de Hernán Cortés",
+    "answer": "La Malinche / Malinalli / Malintzin o Marina (su nombre cristiano) fue una mujer esclava, dada como tributo a los españoles y jugó un papel importante en la conquista española del imperio mexica. La Malinche sirvió de intérprete, consejera e intermediaria de Hernán Cortés. De ahí surge el término popular \"malinchista\" que se refiere a que uno prefiere lo extranjero a lo propio."
+  },
+  {
+    "id": 197,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Quién fundó Villa Rica de la Veracruz",
+    "answer": "Hernán Cortés"
+  },
+  {
+    "id": 198,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Cuándo se fundó Villa Rica de Veracruz?",
+    "answer": "Se fundó el 22 de abril de 1519, y el 10 de julio de 1519 se instaló como el primer ayuntamiento de México"
+  },
+  {
+    "id": 199,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Primer ayuntamiento de América Continental",
+    "answer": "Villa Rica de la Veracruz"
+  },
+  {
+    "id": 200,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Qué es la Villa Rica de Veracruz?",
+    "answer": "El primer ayuntamiento de América Continental. Este nombre le dió Hernán Cortés. Hoy Ciudad de Veracruz (puerto)"
+  },
+  {
+    "id": 201,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "El palacio de Axayácatl es también conocido como",
+    "answer": "Casas viejas de Axayácatl. Axayácatl era el nombre del padre de Moctezuma. Era la casa de su padre y allí hospedaron los mexicas a Hernán Cortés a su llegada y donde fue asesinado Moctezuma."
+  },
+  {
+    "id": 202,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Cómo se le llama al conjunto habitacional que conformaba el Palacio de Moctezuma?",
+    "answer": "Casas viejas"
+  },
+  {
+    "id": 203,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Qué significa Axayácatl?",
+    "answer": "\"el de la máscara de agua\" o \"el que tiene agua en la cara, el esforzado\"."
+  },
+  {
+    "id": 204,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Fecha cuándo entraron los conquistadores a Tenochtitlán",
+    "answer": "El 8 de noviembre de 1519, Moctezuma pensó que los españoles eran enviados de Quetzalcóatl, por eso los recibió con regalos."
+  },
+  {
+    "id": 205,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Quién era el emperador mexica cuando llegaron los españoles?",
+    "answer": "Moctezuma Xocoyotzin"
+  },
+  {
+    "id": 206,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Batalla donde los aztecas derrotaron a los españoles",
+    "answer": "La Noche Triste, fue el 30 de junio de 1520"
+  },
+  {
+    "id": 207,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Líder prehispánico que lideró la victoria durante la Noche Triste",
+    "answer": "Cuitláhuac (hermano de Moctezuma)"
+  },
+  {
+    "id": 208,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Estrategia militar de la Noche Triste, técnica con la que los mexicas ganaron la batalla de la Noche Triste",
+    "answer": "Emboscada. Esperaron a que todos los españoles durmieran y los atacaron"
+  },
+  {
+    "id": 209,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Nombre del árbol donde lloró Hernán Cortés el día de la Noche Triste",
+    "answer": "Ahuehuete (\"viejo del agua\" en náhuatl)"
+  },
+  {
+    "id": 210,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Nombre del emperador que fue muerto a piedras por su pueblo al ser derrotado por los conquistadores",
+    "answer": "Moctezuma II"
+  },
+  {
+    "id": 211,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Año en el que cayó Tenochtitlán",
+    "answer": "1521 (13 de agosto de 1521)"
+  },
+  {
+    "id": 212,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Cómo cayó Tenochtitlán?",
+    "answer": "Después de reorganizarse y recibir refuerzos haciendo alianzas con tribus locales, Cortés regresó a Tenochtitlán en 1521 y la sitió durante varios meses. Además, los aztecas fueron debilitados por las enfermedades, traídas por los españoles. La ciudad finalmente cayó ante los españoles el 13 de agosto de 1521."
+  },
+  {
+    "id": 213,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Último emperador mexica (azteca)",
+    "answer": "Cuauhtémoc - último emperador del imperio mexica después de la muerte de Cuitláhuac."
+  },
+  {
+    "id": 214,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Qué significa Cuauhtémoc?",
+    "answer": "El águila que desciende / el águila descendida"
+  },
+  {
+    "id": 215,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Por qué le quemaron los pies a Cuauhtémoc?",
+    "answer": "Para confesar que había hecho con el tesoro de Moctezuma."
+  },
+  {
+    "id": 216,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Los últimos tres emperadores/tlatoanis mexicas (aztecas)",
+    "answer": "Moctezuma; Cuitláhuac; Cuauhtémoc"
+  },
+  {
+    "id": 217,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "El Palacio Nacional, sede del Poder Ejecutivo Federal, inicialmente fue construído como",
+    "answer": "Segunda casa de Hernán Cortés o Casas Nuevas"
+  },
+  {
+    "id": 218,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "El periodo fundacional de la conquista fue:",
+    "answer": "1519-1610"
+  },
+  {
+    "id": 219,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Qué es México colonial?",
+    "answer": "La época colonial en México fue el periodo histórico en el que ese país estuvo bajo el dominio de la Corona española. Esa época comenzó tras la victoria de Hernán Cortés sobre el Imperio mexica (después de la caída de Tenochtitlán en 1521) y finalizó con la proclamación de la Independencia de México (1821) después de la Guerra de Independencia."
+  },
+  {
+    "id": 220,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Irrupción de los conquistadores",
+    "answer": "1519-1530"
+  },
+  {
+    "id": 221,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Consolidación de la etapa colonial",
+    "answer": "1530-1560"
+  },
+  {
+    "id": 222,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Conclusión del proceso fundacional",
+    "answer": "1560-1610"
+  },
+  {
+    "id": 223,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Nombre de México durante el periodo colonial",
+    "answer": "Nueva España"
+  },
+  {
+    "id": 224,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Máxima autoridad de la Nueva España",
+    "answer": "Virrey"
+  },
+  {
+    "id": 225,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Primer virrey de la Nueva España",
+    "answer": "Antonio de Mendoza y Pacheco o don Antonio de Mendoza"
+  },
+  {
+    "id": 226,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Segundo virrey de la Nueva España",
+    "answer": "Luis de Velasco y Ruiz de Alarcón"
+  },
+  {
+    "id": 227,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Último virrey de la Nueva España",
+    "answer": "Juan Ruiz de Apodaca (aunque algunas fuentes erróneamente señalan como el último virrey de la Nueva España a Juan O'Donojú, pero él nunca ejerció dicho cargo.)"
+  },
+  {
+    "id": 228,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Por la iniciativa de qué virrey se hizo la Real Academia de Bellas Artes?",
+    "answer": "Matías de Gálvez y Gallardo"
+  },
+  {
+    "id": 229,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Primera intendencia u oficialía de la Nueva España, fundada en 1770",
+    "answer": "Intendencia de Arizpe (hoy territorios de Sonora y Sinaloa)"
+  },
+  {
+    "id": 230,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Fue la primera provincia en ser explorada y fundada en el Norte de México durante el Virreinato de Nueva España.",
+    "answer": "La Nueva Vizcaya"
+  },
+  {
+    "id": 231,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Estados actuales que conformaban la Nueva Vizcaya en la época colonial",
+    "answer": "Durango, Chihuahua, Sinaloa y parte de Coahuila"
+  },
+  {
+    "id": 232,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Quién fue el virrey en el momento de la creación del primer cuerpo de seguridad de la Nueva España?",
+    "answer": "Baltasar de Zúñiga y Guzmán"
+  },
+  {
+    "id": 233,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Fecha de la creación del Virreinato Nueva España",
+    "answer": "8 de marzo de 1535"
+  },
+  {
+    "id": 234,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Quiénes eran los españoles peninsulares?",
+    "answer": "Los españoles nacidos en España"
+  },
+  {
+    "id": 235,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Cómo denominaban a los hijos de los españoles nacidos en la Nueva España?",
+    "answer": "Criollos"
+  },
+  {
+    "id": 236,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Qué es un mestizo?",
+    "answer": "Hijo de español e indígena."
+  },
+  {
+    "id": 237,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Quiénes eran los indígenas?",
+    "answer": "Nativos de la Nueva España, hijos de indígenas"
+  },
+  {
+    "id": 238,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Quiénes se encontraban hasta abajo en la organización social de la Nueva España?",
+    "answer": "Esclavos africanos que realizaban trabajos forzados y los asiaticos que realizaban negocios"
+  },
+  {
+    "id": 239,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿A qué se le llamaba obrajes en la época de la Nueva España?",
+    "answer": "Eran centros artesanales que existieron a mediados del siglo XVI, con 50 trabajadores en promedio, en los cuales se producían textiles, hilos y lana de calidad burda. Estos productos se vendían a indios y mulatos, los cuales no podían pagar el precio del mismo producto importado de Europa. Los trabajadores eran indios y delincuentes condenados por delitos que eran explotados por los obrajeros."
+  },
+  {
+    "id": 240,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Qué era la figura de el visitador?",
+    "answer": "Persona enviada por la corona española con la facultad/autoridad de inspeccionar asuntos en la Nueva España."
+  },
+  {
+    "id": 241,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "La encomienda y el visitador fueron",
+    "answer": "Instituciones coloniales"
+  },
+  {
+    "id": 242,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Qué es la encomienda?",
+    "answer": "La encomienda fue una institución colonial que otorgaba (repartía) tierras e indígenas a los conquistadores españoles."
+  },
+  {
+    "id": 243,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿A quiénes se les llamaba peones en la época colonial?",
+    "answer": "A los trabajadores asalariados de las haciendas"
+  },
+  {
+    "id": 244,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Institución creada para compensar las falencias del sistema judicial en la Nueva España",
+    "answer": "Tribunal de la Acordada"
+  },
+  {
+    "id": 245,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Cuáles fueron las leyes para el buen tratamiento y conservación de los indios?",
+    "answer": "Las Leyes Nuevas o Las 40 Leyes, promulgadas el 20 de noviembre de 1542"
+  },
+  {
+    "id": 246,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Esquema imperial por el cual se exigía el pago de los más ricos para contribuir al imperio",
+    "answer": "Unión de Armas en 1626. Debían aportar dinero/armas para la defensa de la corona española"
+  },
+  {
+    "id": 247,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Nombre del sistema financiero donde se exigía a grandes consorcios contribuir al mantenimiento de la corona:",
+    "answer": "La Real Hacienda / Cajas de la Real Hacienda"
+  },
+  {
+    "id": 248,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "El mineral que más se extraía en la Nueva España era",
+    "answer": "la plata"
+  },
+  {
+    "id": 249,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Primera institución de educación superior destinada a los indígenas o escuela para los nobles indígenas en la época de Virreinato",
+    "answer": "Colegio de la Santa Cruz de Santiago Tlatelolco"
+  },
+  {
+    "id": 250,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Primera escuela elemental",
+    "answer": "San Francisco en Texcoco"
+  },
+  {
+    "id": 251,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Escuela en la época colonial para internado exclusivo para indígenas",
+    "answer": "San José de los naturales"
+  },
+  {
+    "id": 252,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "¿Qué tipos de escuelas existieron durante el virreinato?",
+    "answer": "catecismo, colegios y escuelas / San Francisco en Texcoco (escuela elemental) / San José de los naturales (exclusivo para indígenas / El Colegio de la Santa Cruz de Santiago Tlatelolco (escuela superior para indígenas)"
+  },
+  {
+    "id": 253,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "El principal culto religioso de la sociedad novohispana que perdura en la actualidad",
+    "answer": "La Virgen de Guadalupe, que apareció por primera vez al indio Juan Diego en 1531 en el cerro de Tepeyac (Valle de México)"
+  },
+  {
+    "id": 254,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Año en el que se creó la primera imprenta de la Nueva España, durante el mandado de Don Antonio de Mendoza",
+    "answer": "1539"
+  },
+  {
+    "id": 255,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Primer periodico de México o primer periódico impreso en la Nueva España",
+    "answer": "La Gaceta de México. El primer número que salió a la luz fue el 1 de enero de 1722 y su fundador fue el periodista y religioso Juan Ignacio María de Castorena Ursúa y Goyeneche."
+  },
+  {
+    "id": 256,
+    "section": "LA CONQUISTA Y EL PERIODO COLONIAL",
+    "question": "Nombre del periódico creado en el siglo XVIII en la Nueva España",
+    "answer": "La Gaceta de México"
+  },
+  {
+    "id": 257,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿A quién se le conoce como \"El Padre de la Patria\"?",
+    "answer": "Miguel Hidalgo y Costilla"
+  },
+  {
+    "id": 258,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Imagen presente en el estandarte de Hidalgo (Blasón de Hidalgo)",
+    "answer": "La Virgen de Guadalupe"
+  },
+  {
+    "id": 259,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿En qué consistió la conspiración de Valladolid?",
+    "answer": "Pretendían establecer un congreso soberano que gobernaría a nombre de Fernando VII, organizando una junta nacional gubernativa, y establecer un gobierno americano. Sin embargo, la conjura falló al ser delatada."
+  },
+  {
+    "id": 260,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "La independencia de México inició en",
+    "answer": "1810"
+  },
+  {
+    "id": 261,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿En qué estado fue el Grito de Independencia (Cuna de Independencia)?",
+    "answer": "estado de Guanajuato (ciudad Dolores Hidalgo)"
+  },
+  {
+    "id": 262,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Dónde fue la cuna de la Independencia?",
+    "answer": "en Dolores Hidalgo, estado de Guanajuato"
+  },
+  {
+    "id": 263,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "La frase \"El Indulto es para los criminales, no para los defensores de la patria\" es de",
+    "answer": "Miguel Hidalgo y Costilla"
+  },
+  {
+    "id": 264,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Fecha de la Independencia de México (Grito de Dolores)",
+    "answer": "16 de septiembre de 1810"
+  },
+  {
+    "id": 265,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Mujeres destacadas en la Independencia",
+    "answer": "Josefa Ortiz de Domínguez y Leona Vicario"
+  },
+  {
+    "id": 266,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién fue conocida como \"La Corregidora\"?",
+    "answer": "Josefa Ortiz de Domínguez"
+  },
+  {
+    "id": 267,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién fue Leona Vicario?",
+    "answer": "Una de las mujeres más destacadas de la Guerra de Independencia. Se dedicó a informar a los insurgentes de todos los movimientos que podían interesarles y que ocurrían en la capital del virreinato."
+  },
+  {
+    "id": 268,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién dijo la frase: \"Sin importar el tamaño de la ciudad o pueblo en donde nacen los hombres o mujeres, ellos son finalmente del tamaño de su obra, del tamaño de su voluntad de engrandecer y enriquecer a sus hermanos\"?",
+    "answer": "Ignacio Allende. Líder de la independencia, fusilado junto con Miguel Hidalgo."
+  },
+  {
+    "id": 269,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Creador de un periódico en la época de la Constitución de Cádiz. 2. ¿Quién hizo la ley de imprenta que sale en la Constitución de Cádiz?",
+    "answer": "José Isidro (Isidoro) Morales"
+  },
+  {
+    "id": 270,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Constitución de Cádiz",
+    "answer": "La Constitución política de la Monarquía Española, más conocida como Constitución española de 1812 o Constitución de Cádiz, conocida popularmente como la Pepa. Dividió la Nueva España en 6 provincias."
+  },
+  {
+    "id": 271,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "El Zócalo de la Ciudad de México, también conocido como Plaza de Constitución, se llama así…",
+    "answer": "Por la Constitución de Cádiz"
+  },
+  {
+    "id": 272,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Constitución que dividió a la Nueva España en 6 provincias",
+    "answer": "Constitución de Cádiz en 1812 o Constitución Española, conocida popularmente como la Pepa"
+  },
+  {
+    "id": 273,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién fue el fundador del periódico liberal \"El Pensador Mexicano\"? (Periódico más importante en la época de independencia)",
+    "answer": "José Joaquín Fernández de Lizardi"
+  },
+  {
+    "id": 274,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuál fue el primer periódico de los Insurgentes (época del movimiento independentista)?",
+    "answer": "El Despertador Americano en 1810"
+  },
+  {
+    "id": 275,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Periódico durante el movimiento independentista",
+    "answer": "El Despertador Americano"
+  },
+  {
+    "id": 276,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Texto en el que aparecen la separación de poderes y los derechos de los indígenas",
+    "answer": "Sentimientos de la Nación"
+  },
+  {
+    "id": 277,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién escribió el documento \"Sentimientos de la Nación\"?",
+    "answer": "El cura José María Morelos y Pavón (conocido como el Siervo de la Nación) en 1813. Fue relevante para México porque fue la primera expresión pública del deseo de separarse de España."
+  },
+  {
+    "id": 278,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿En qué documento se puede leer \"Que la América es libre independiente de España y de toda otra Nación, Gobierno o Monarquía, y que así se sancione, ¿dando al Mundo las razones? Que la Esclavitud se proscriba para siempre, y lo mismo la distinción de castas, quedando todos iguales, y sólo distinguirá a un americano de otro el vicio y la virtud.\"",
+    "answer": "\"Sentimientos de la nación\" Fue el cura José María Morelos y Pavón quien por primera vez externo públicamente el deseo de independizarse de España, el 14 de septiembre de 1813, en Chilpancingo."
+  },
+  {
+    "id": 279,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién dijo: \"¡Morir es nada cuando por la patria se muere!\"?",
+    "answer": "José María Morelos y Pavón"
+  },
+  {
+    "id": 280,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Cómo murió José María Morelos",
+    "answer": "Fusilado el 22 de diciembre de 1815 en San Cristóbal de Ecatepec"
+  },
+  {
+    "id": 281,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién dijo la frase: \"La patria es primero\"?",
+    "answer": "Vicente Guerrero"
+  },
+  {
+    "id": 282,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Qué es el Plan de Iguala?",
+    "answer": "Es un documento político proclamado por Agustín de Iturbide, en el cual se declaraba a la Nueva España como país soberano e independiente."
+  },
+  {
+    "id": 283,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "El plan firmado por Iturbide para declarar un país independiente fue:",
+    "answer": "Plan de Iguala"
+  },
+  {
+    "id": 284,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuándo se firmo el tratado o Plan de Iguala?",
+    "answer": "24 de febrero de 1821"
+  },
+  {
+    "id": 285,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Qué personajes proclamaron el Plan de Iguala?",
+    "answer": "Agustín de Iturbide y Vicente Guerrero"
+  },
+  {
+    "id": 286,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuáles fueron los tres principios fundamentales del Plan de Iguala / Tres garantías del Ejército Trigarante?",
+    "answer": "Religión, Independencia y Unión 1. Establecer la religión católica como única. 2. Principio de independencia, tanto de España como de cualquier otra potencia extranjera. 3. La igualdad social para todos los grupos sociales y étnicos del nuevo país."
+  },
+  {
+    "id": 287,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Fecha del abrazo de Acatempan",
+    "answer": "10 de febrero de 1821 (entre Iturbide y Vicente Guerrero)"
+  },
+  {
+    "id": 288,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cómo murió Vicente Guerrero?",
+    "answer": "Fusilado en Oaxaca el 14 de feb. de 1831"
+  },
+  {
+    "id": 289,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "La entrada del Ejército Trigarante a la Ciudad de México",
+    "answer": "27 de septiembre de 1821"
+  },
+  {
+    "id": 290,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Qué fue el Tratado de Córdoba?",
+    "answer": "Documento en el que se acuerda la independencia de México entre Iturbide y O'Donojú, firmado en la ciudad de Córdoba, Veracruz, el 24 de agosto de 1821, por Agustín de Iturbide, (comandante del Ejército Trigarante) y por Juan O'Donojú (jefe político superior de la Provincia de Nueva España). El texto está compuesto por diecisiete artículos que representan una extensión al Plan de Iguala."
+  },
+  {
+    "id": 291,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Nombres de héroes de la Independencia",
+    "answer": "1. Miguel Hidalgo y Costilla. 2. José María Morelos y Pavón. 3. Vicente Guerrero. 4. Agustín de Iturbide. 5. Ignacio Allende. 6. Josefa Ortiz de Domínguez. 7. Francisco Javier Mina 8. Juan Aldama. 9. Epigmenio González."
+  },
+  {
+    "id": 292,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Qué sucedió con Iturbide después de lograr la independencia de México?",
+    "answer": "En 1822, Iturbide se coronó como Agustín I, Emperador de México, en medio del desorden político del país y el desconocimiento de España de la Independencia de México."
+  },
+  {
+    "id": 293,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿De qué se trató el Plan de Casa Mata?",
+    "answer": "Proclamado por el General Santa Anna, fue un plan para desconocer a Iturbide como emperador, anular el impero y reinstalar el Congreso. Declarado el 1 de febrero de 1823 en la Hacienda Casamata, Veracruz."
+  },
+  {
+    "id": 294,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuál fue la primera constitución de México independiente?",
+    "answer": "Constitución Federal de 1824. México fue independiente el 24 de febrero de 1821 con el Plan de Iguala."
+  },
+  {
+    "id": 295,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién fue el primer presidente de México?",
+    "answer": "Guadalupe Victoria (nombre real José Miguel Ramón Adaucto Fernández y Félix)"
+  },
+  {
+    "id": 296,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Nombre y año de la primera constitución independiente",
+    "answer": "La primera Constitución de México es la de 1824, aunque ya con anterioridad, en plena lucha por la independencia, se redactó la Constitución de Apatzingán en 1814. Ahora bien, las raíces ideológicas de ambas constituciones se encuentran tanto en la Constitución de Cádiz de 1812, como en los Sentimientos de la Nación de José María Morelos y Pavón."
+  },
+  {
+    "id": 297,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quiénes integraron al triunvirato a la caída del Imperio del México independiente?",
+    "answer": "Guadalupe Victoria Pedro Celestino Negrete Nicolás Bravo El único triunvirato que ha gobernado México en su historia fue establecido por decreto del Congreso Constituyente el 31 de marzo de 1823. Este triunvirato, conocido como el Supremo Poder Ejecutivo de la Nación Mexicana, estuvo integrado de manera formal por estos tres destacados líderes."
+  },
+  {
+    "id": 298,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿De que se trató el Plan de Ayutla?",
+    "answer": "Proclamado el 1 de marzo de 1854 por Adrian Florencio Villarreal, para dar fin a la dictadura de Antonio López de Santa Anna."
+  },
+  {
+    "id": 299,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién derrotó al Gral. Santa Anna en la Batalla de San Jacinto el 21 de abril de 1836?",
+    "answer": "Gral. Samuel Houston (guerra contra los EE.UU. por Texas)"
+  },
+  {
+    "id": 300,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Estado que declaró su independencia de México en 1841 y se reincorpora al mísmo en 1848.",
+    "answer": "Yucatán"
+  },
+  {
+    "id": 301,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Personaje central de la primera mitad del siglo XIX que ascendió al poder 11 veces (cinco como liberal y seis como conservador)? 2. ¿Quién era presidente de México cuando se perdió Texas (1836)? 3. ¿Quién ordenó escribir el Himno Nacional?",
+    "answer": "Gral. Antonio López de Santa Anna (1794-1876)"
+  },
+  {
+    "id": 302,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿En qué año perdió México el territorio de Texas?",
+    "answer": "En 1836"
+  },
+  {
+    "id": 303,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuántas veces fue presidente Antonio López de Santa Anna",
+    "answer": "Fue presidente de México 11 veces desde 1833 hasta 1855 (aunque sus períodos de presidencia fueron de corta duración)."
+  },
+  {
+    "id": 304,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿A qué se le conoce con el nombre de las 7 leyes?",
+    "answer": "A la Constitución Centralista de los Estados Unidos Mexicanos de 1836"
+  },
+  {
+    "id": 305,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Qué fue la batalla de Chapultepec?",
+    "answer": "Fue un conflicto armado que tuvo lugar el lunes 13 de septiembre de 1847 en el cerro llamado Chapultepec. En el combate intervinieron los ejércitos de Estados Unidos y de México. El motivo de la batalla, y de la invasión en general fue que Estados Unidos deseaba apoderarse del territorio al norte del Río Bravo, incluido Texas."
+  },
+  {
+    "id": 306,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Cadetes militares que defendieron el Castillo de Chapultepec de la invasión norteamericana el 13 de septiembre de 1847 / Nombre de cadetes que enfrentaron a Estados Unidos en CDMX",
+    "answer": "Niños Héroes"
+  },
+  {
+    "id": 307,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Dónde está ubicado el Castillo de Chapultepec?",
+    "answer": "Ciudad de México"
+  },
+  {
+    "id": 308,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Nombres de los Niños Héroes",
+    "answer": "Juan Escutia, Juan de la Barrera, Agustín Melgar, Fernando Montes de Oca, Vicente Suárez y Francisco Márquez."
+  },
+  {
+    "id": 309,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuál es el nombre del niño héroe que se lanzó enrollado en la bandera desde el castillo?",
+    "answer": "Juan Escutia"
+  },
+  {
+    "id": 310,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuál fue el niño héroe más pequeño?",
+    "answer": "Francisco Márquez (12 años)"
+  },
+  {
+    "id": 311,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Tratado Guadalupe-Hidalgo",
+    "answer": "Tratado en el que México cede la mitad de su territorio (California, Arizona, Nuevo México, Texas, Nevada, Utah y partes de Colorado, Wyoming, Kansas y Oklahoma) a Estados Unidos. Firmado el 2 de febrero de 1848, poniendo fin a la guerra con EE.UU."
+  },
+  {
+    "id": 312,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuál fue el tratado que puso fin a la guerra con Estados Unidos?",
+    "answer": "Tratado de Guadalupe Hidalgo"
+  },
+  {
+    "id": 313,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "México perdió la mitad de su territorio a mediados del siglo XIX, como consecuencia del enfrentamiento con:",
+    "answer": "Estados Unidos, 1846-1848."
+  },
+  {
+    "id": 314,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Batallón extranjero que participó en la guerra con EE. UU. en Texas (1846-1848)",
+    "answer": "Batallón de San Patricio (compuesto por cientos de desertores del ejército de los Estados Unidos de origen europeo, principalmente irlandeses y alemanes)."
+  },
+  {
+    "id": 315,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "La Guerra de Reforma o Guerra de los 3 años fue entre:",
+    "answer": "Liberales y conservadores, ganaron los liberales (Benito Juárez)."
+  },
+  {
+    "id": 316,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuál fue la Guerra de los 3 años?",
+    "answer": "La Guerra de los 3 años (1857-1860)."
+  },
+  {
+    "id": 317,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Grupo que promovió el desarrollo económico sin afectar importantemente a la iglesia y a los militares.",
+    "answer": "Conservadores"
+  },
+  {
+    "id": 318,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Grupo que promovió la integración nacional y abrió camino al capitalismo:",
+    "answer": "Liberales (Benito Juárez)"
+  },
+  {
+    "id": 319,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién fue Benito Pablo Juárez García?",
+    "answer": "Presidente de México en varias ocasiones entre 1857 a 1872. Promovió las Leyes de Reforma, entre ellas la separación entre Iglesia y Estado."
+  },
+  {
+    "id": 320,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cómo se conocen las leyes impulsadas por Juan Álvarez, Ignacio Comonfort y Benito Juárez para separar a la Iglesia del Estado?",
+    "answer": "Leyes de Reforma"
+  },
+  {
+    "id": 321,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Presidente mexicano al que se le atribuye la frase \"Entre los individuos como entre las naciones, el respeto al derecho ajeno es la paz\"",
+    "answer": "Benito Juárez"
+  },
+  {
+    "id": 322,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién fue responsable de las Leyes de la Reforma?",
+    "answer": "Benito Juárez"
+  },
+  {
+    "id": 323,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cómo se le llama a Benito Juárez?",
+    "answer": "El Benemérito de las Américas"
+  },
+  {
+    "id": 324,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Nombre de las leyes que contemplaban la libertad de imprenta.",
+    "answer": "1. Ley de Imprenta o Ley Lares promulgada el 23 de abril de 1853. 2. Ley Lafragua o Reglamento de Libertad de Imprenta que entró en vigor el 28 de diciembre de 1855."
+  },
+  {
+    "id": 325,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuándo se firmó la Constitución Mexicana?",
+    "answer": "5 de febrero 1857"
+  },
+  {
+    "id": 326,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Natalicio de Benito Juárez",
+    "answer": "21 de marzo de 1806 en San Pablo Guelatao - Oaxaca"
+  },
+  {
+    "id": 327,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Por qué se presentó la intervención francesa?",
+    "answer": "Porque Benito Juárez deja de pagar la deuda externa."
+  },
+  {
+    "id": 328,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién dirigió la batalla de Puebla y avisó a Benito Juárez del triunfo?",
+    "answer": "Ignacio Zaragoza"
+  },
+  {
+    "id": 329,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Personajes de la intervención francesa",
+    "answer": "Miguel Miramón, Ignacio Zaragoza, Maximiliano de Habsburgo"
+  },
+  {
+    "id": 330,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuándo fue la Batalla de Puebla?",
+    "answer": "5 de mayo de 1862"
+  },
+  {
+    "id": 331,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Qué fue la Batalla de Puebla?",
+    "answer": "Conflicto armado, liderado por Ignacio Zaragoza contra la segunda intervención francesa, siendo México vencedor. Después un nuevo ejército francés regresa y vence a México, luego establece el Segundo Imperio bajo el mando de Maximiliano de Habsburgo."
+  },
+  {
+    "id": 332,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién fue el emperador del Segundo Imperio Mexicano?",
+    "answer": "Maximiliano de Habsburgo"
+  },
+  {
+    "id": 333,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién hizo el trazo de Paseo de la Reforma y cómo se llamó?",
+    "answer": "Maximiliano de Habsburgo en 1864 y se llamó El Paseo de la Emperatriz"
+  },
+  {
+    "id": 334,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuándo y dónde murió Maximiliano de Habsburgo?",
+    "answer": "19 de junio de 1867 en Querétaro"
+  },
+  {
+    "id": 335,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuáles fueron los generales apresados y fusilados con Maximiliano de Habsburgo?",
+    "answer": "Miguel Miramón y Tomás Mejía"
+  },
+  {
+    "id": 336,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Emperador del segundo imperio mexicano 2. ¿Quien murió en el cerro de las Campanas?",
+    "answer": "Maximiliano de Habsburgo"
+  },
+  {
+    "id": 337,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Emperadores de México después de la independencia",
+    "answer": "Agustín de Iturbide y Maximiliano de Habsburgo"
+  },
+  {
+    "id": 338,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Etnia de Benito Juárez?",
+    "answer": "zapoteca"
+  },
+  {
+    "id": 339,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién asumió la presidencia después de la muerte de Benito Juárez?",
+    "answer": "Sebastián Lerdo de Tejada. Era el presidente de la Suprema Corte de Justicia"
+  },
+  {
+    "id": 340,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿En qué año comenzaron las obras del primer ferrocarril en México?",
+    "answer": "1842"
+  },
+  {
+    "id": 341,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿En qué año se inauguró el primer tramo ferroviario en México (Veracruz-El Molino)?",
+    "answer": "1850"
+  },
+  {
+    "id": 342,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Cuál es la avenida más importante de CDMX y qué presidente le dio este nombre?",
+    "answer": "Av. de la Reforma / Sebastián Lerdo de Tejada"
+  },
+  {
+    "id": 343,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "¿Quién puso el nombre de Reforma al Paseo de la Reforma?",
+    "answer": "Presidente Sebastián Lerdo de Tejada (1872-1876). Predecesor: Benito Juárez, Sucesor: Porfirio Díaz"
+  },
+  {
+    "id": 344,
+    "section": "LA INDEPENDENCIA DE MÉXICO",
+    "question": "Primer emperador de México. 2. Quien está relacionado con la palabra Trigarante 3. Comandante al frente del ejército el 27 de septiembre de 1821",
+    "answer": "Agustín de Iturbide"
+  },
+  {
+    "id": 345,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Quién fue Porfirio Díaz?",
+    "answer": "Fue un militar nacido en Oaxaca. Se destacó en la Batalla de Puebla del 5 de mayo. Posteriormente, fue presidente de México en 7 ocasiones"
+  },
+  {
+    "id": 346,
+    "section": "LA REVOLUCIÓN",
+    "question": "Nombre completo de Porfirio Díaz",
+    "answer": "José de la Cruz Porfirio Díaz Mori"
+  },
+  {
+    "id": 347,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿De qué se trató el Plan de Tuxtepec?",
+    "answer": "Un plan elaborado por Porfirio Díaz y algunos militares y porfiristas civiles en 1876 para destituir al gobierno de Sebastián Lerdo de Tejada y evitar su reelección. Se firmó el 10 de enero en Tuxtepec, Oaxaca."
+  },
+  {
+    "id": 348,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cómo se llamó el plan que promovio Porfirio Díaz para evitar la reelección de Benito Juarez?",
+    "answer": "Plan de La Noria o Revolución de La Noria. Fue en 1871 y tenia 3 puntos principales: respetar la constitución de 1857, libertad electoral y \"menos gobierno\"."
+  },
+  {
+    "id": 349,
+    "section": "LA REVOLUCIÓN",
+    "question": "Movimiento político-militar dirigido por Porfirio Díaz en 1871 para impedir la reelección de Benito Juárez",
+    "answer": "Plan de La Noria"
+  },
+  {
+    "id": 350,
+    "section": "LA REVOLUCIÓN",
+    "question": "Presidente mexicano que duró más de treinta años en el poder.",
+    "answer": "Porfirio Díaz (duró 34 años)"
+  },
+  {
+    "id": 351,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cuál fue la etapa pre-revolucionaria?",
+    "answer": "1876-1910 (el Porfiriato)"
+  },
+  {
+    "id": 352,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿A quién se le conoció como \"El llorón de Icamole\"?",
+    "answer": "Porfirio Díaz"
+  },
+  {
+    "id": 353,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué presidente dijo: \"Tan lejos de Dios y tan cerca de Estados Unidos\"?",
+    "answer": "Porfirio Díaz"
+  },
+  {
+    "id": 354,
+    "section": "LA REVOLUCIÓN",
+    "question": "Fin del porfiriato",
+    "answer": "25 de mayo 1911"
+  },
+  {
+    "id": 355,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Quién fue presidente de México de 1880 a 1884?",
+    "answer": "Manuel del Refugio González"
+  },
+  {
+    "id": 356,
+    "section": "LA REVOLUCIÓN",
+    "question": "El Porfiriato se conoce como una época de extensión de",
+    "answer": "Las vías férreas"
+  },
+  {
+    "id": 357,
+    "section": "LA REVOLUCIÓN",
+    "question": "Periódico revolucionario en el Porfiriato",
+    "answer": "El hijo de Ahuizote"
+  },
+  {
+    "id": 358,
+    "section": "LA REVOLUCIÓN",
+    "question": "Obras más importantes del Porfiriato:",
+    "answer": "El teléfono, el sistema ferroviario, el Teatro de Bellas Artes, el Ángel de la Independencia, el Palacio Postal."
+  },
+  {
+    "id": 359,
+    "section": "LA REVOLUCIÓN",
+    "question": "Contribución tecnológica al país durante el gobierno de Porfirio Díaz",
+    "answer": "El teléfono, se hizo el primer enlace telefónico en México el 13 de marzo de 1878; esto sucedió entre las oficinas de correos de la ciudad y la entonces lejana población de Tlalpan. Y el 16 de septiembre de 1878 el presidente Porfirio Díaz inauguró primera línea telefónica privada, realizando una llamada desde el Castillo de Chapultepec hasta Palacio Nacional."
+  },
+  {
+    "id": 360,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué inauguró Porfirio Díaz el 17 de febrero de 1907?",
+    "answer": "El Palacio Postal"
+  },
+  {
+    "id": 361,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Quién fue el Secretario de Instrucción Pública y Bellas Artes de 1901 a 1911",
+    "answer": "Justo Sierra Méndez"
+  },
+  {
+    "id": 362,
+    "section": "LA REVOLUCIÓN",
+    "question": "Principal obra inaugurada durante el mandato de Porfirio Díaz en la capital",
+    "answer": "Palacio Postal / Palacio de Correos"
+  },
+  {
+    "id": 363,
+    "section": "LA REVOLUCIÓN",
+    "question": "Orden cronológico de los eventos",
+    "answer": "Conquista, Independencia y Revolución"
+  },
+  {
+    "id": 364,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué es revolución?",
+    "answer": "Inicia cuando Francisco I. Madero publica el Plan de San Luis Potosí, donde llama a tomar las armas; aparecen personajes como Pascual Orozco, Pancho Villa y Emiliano Zapata; se inicia una lucha en la que los revolucionarios salen victoriosos y Porfirio Díaz renuncia al poder en mayo de 1911."
+  },
+  {
+    "id": 365,
+    "section": "LA REVOLUCIÓN",
+    "question": "Fecha de la Revolución Mexicana",
+    "answer": "20 de noviembre de 1910"
+  },
+  {
+    "id": 366,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué se celebra el 20 de noviembre?",
+    "answer": "Día de la Revolución Mexicana"
+  },
+  {
+    "id": 367,
+    "section": "LA REVOLUCIÓN",
+    "question": "Acontecimiento relacionado con la Industria minera y la Revolución que fue considerado como el inicio de Revolución Mexicana.",
+    "answer": "Huelga Laboral de Cananea, Sonora, ocurrida el 1 de junio de 1906, en contra de la empresa Cananea Consolidated Cooper Company (CCCC). Esta huelga sentó precedentes para la revolución, por lo que a Cananea se le conoce como Cuna de la Revolución."
+  },
+  {
+    "id": 368,
+    "section": "LA REVOLUCIÓN",
+    "question": "\"Las Adelitas\" acompañaron a sus hombres al combate en",
+    "answer": "La Revolución de 1910. Se conoce como adelitas o soldaderas a las mujeres que participaron en la Revolución Mexicana, en los contingentes militares de grupos revolucionarios como soldados, cocineras, enfermeras o ayudantes. ​"
+  },
+  {
+    "id": 369,
+    "section": "LA REVOLUCIÓN",
+    "question": "El lema \"Sufragio efectivo, no reelección\" fue el slogan político de",
+    "answer": "Francisco I. Madero"
+  },
+  {
+    "id": 370,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿De qué se trató el Plan de San Luis Potosí?",
+    "answer": "Francisco I. Madero el 5 de octubre de 1910, convoca a levantarse en armas para evitar la reelección de Porfirio Díaz y derrocar el Porfiriato . Se buscaba lograr elecciones libres y democráticas. El conflicto armado se inició en el norte del país y posteriormente se expandió a otras partes del territorio nacional."
+  },
+  {
+    "id": 371,
+    "section": "LA REVOLUCIÓN",
+    "question": "Nombre del golpe de estado, ocurrido del 9 al 19 de febrero de 1913",
+    "answer": "La Decena Trágica: un golpe militar para derrocar a Francisco I. Madero de la presidencia de México."
+  },
+  {
+    "id": 372,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Quién fue el autor de la traición a Francisco I. Madero?",
+    "answer": "Victoriano Huerta"
+  },
+  {
+    "id": 373,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿A quién mataron junto con Francisco Madero?",
+    "answer": "José María Pino Suárez"
+  },
+  {
+    "id": 374,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Quién se conoce como \"El apóstol de la democracia\"?",
+    "answer": "Francisco I. Madero"
+  },
+  {
+    "id": 375,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿De qué se trató el Plan de Ayala?",
+    "answer": "El Plan proclamado por Emiliano Zapata el 28 de noviembre 1911 para desconocer el gobierno de Francisco I. Madero en 1911 y devolver la propiedad a los campesinos por medio de las armas. Su lema fue: \"Reforma, Libertad, Justicia y Ley\""
+  },
+  {
+    "id": 376,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Quién fue Francisco (Pancho) Villa?",
+    "answer": "Líder de la Revolución Mexicana. Apareció cuando Venustiano Carranza llamó a formar el ejército constitucionalista."
+  },
+  {
+    "id": 377,
+    "section": "LA REVOLUCIÓN",
+    "question": "Nombre completo de Pancho Villa",
+    "answer": "José Doroteo Arango Arámbula"
+  },
+  {
+    "id": 378,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿A quién se le conoce como \"El Centauro del norte\"?",
+    "answer": "Pancho Villa"
+  },
+  {
+    "id": 379,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cuándo y dónde fue asesinado Pancho Villa?",
+    "answer": "Murió en Parral, Chihuahua el 20 de julio de 1923. Fue baleado varias veces en su vehículo y su cadáver fue decapitado."
+  },
+  {
+    "id": 380,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Quién dijo \"Tierra y libertad\"?",
+    "answer": "Emiliano Zapata"
+  },
+  {
+    "id": 381,
+    "section": "LA REVOLUCIÓN",
+    "question": "Nombre del líder agrario que encabezó la Revolución en el estado de Morelos",
+    "answer": "Emiliano Zapata"
+  },
+  {
+    "id": 382,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cuándo y dónde fue asesinado Emiliano Zapata?",
+    "answer": "En la hacienda Chinameca, Morelos, el 10 de abril de 1919"
+  },
+  {
+    "id": 383,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cómo le llamaban a Emiliano Zapata?",
+    "answer": "El Caudillo del Sur"
+  },
+  {
+    "id": 384,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Quién encabezaba el ejército constitucionalista durante la revolución?",
+    "answer": "Venustiano Carranza"
+  },
+  {
+    "id": 385,
+    "section": "LA REVOLUCIÓN",
+    "question": "Plan de Venustiano Carranza para derrocar a Victoriano Huerta",
+    "answer": "Plan de Guadalupe"
+  },
+  {
+    "id": 386,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿De qué se trató el Plan de Guadalupe?",
+    "answer": "Plan para desconocer al gobierno ilegal de Victoriano Huerta por la traición a Madero. El plan fue creado por Venustiano Carranza. Se redactó y firmó el 26 de marzo de 1913 en la Hacienda de Guadalupe en Coahuila."
+  },
+  {
+    "id": 387,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿En qué año se firmó la constitución que nos rige actualmente / Promulgación de la Constitución?",
+    "answer": "05 de febrero 1917 en Queretaro"
+  },
+  {
+    "id": 388,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué presidente fue asesinado en 1928?",
+    "answer": "Álvaro Obregón (17 de julio de 1928)"
+  },
+  {
+    "id": 389,
+    "section": "LA REVOLUCIÓN",
+    "question": "Forma de asesinato común en la revolución:",
+    "answer": "Ley de Fuga"
+  },
+  {
+    "id": 390,
+    "section": "LA REVOLUCIÓN",
+    "question": "Forma de asesinato común en el Porfiriato o método de fusilamiento usado en el Porfiriato",
+    "answer": "Ley de Fuga"
+  },
+  {
+    "id": 391,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿A qué se le conoce como la Ley de Fuga?",
+    "answer": "Un tipo de ejecución usada en el Porfiriato (consistía en hacerle cree a un prisionero que podía escapar para asesinarlo por la espalda)."
+  },
+  {
+    "id": 392,
+    "section": "LA REVOLUCIÓN",
+    "question": "Personajes de la Revolución Mexicana",
+    "answer": "Porfirio Díaz, Francisco Villa (Pancho Villa), Venustiano Carranza, Francisco I. Madero, Emiliano Zapata, Victoriano Huerta, Pino Suarez, Plutarco Elias Calles"
+  },
+  {
+    "id": 393,
+    "section": "LA REVOLUCIÓN",
+    "question": "Figuras femeninas de la Revolución",
+    "answer": "Juana Belén Gutiérrez de Mendoza Dolores Jiménez Muro Hermida Galindo"
+  },
+  {
+    "id": 394,
+    "section": "LA REVOLUCIÓN",
+    "question": "Composición musical característica de la época revolucionaria",
+    "answer": "El Corrido, es una narrativa popular en forma de canción sobre temas políticos, históricos, etc."
+  },
+  {
+    "id": 395,
+    "section": "LA REVOLUCIÓN",
+    "question": "Nombre de un famoso corrido revolucionario",
+    "answer": "La Adelita"
+  },
+  {
+    "id": 396,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Dónde murió Ricardo Flores Magón?",
+    "answer": "En Kansas, Estados Unidos. Fue político y periodista mexicano al que se considera precursor de la Revolución Mexicana."
+  },
+  {
+    "id": 397,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué fue la Guerra Cristera?",
+    "answer": "Conflicto armado 1926-1929 entre el gobierno y milicias de laicos y religiosos que resistían la aplicación de la llamada Ley Calles, que proponía limitar el culto católico en la nación."
+  },
+  {
+    "id": 398,
+    "section": "LA REVOLUCIÓN",
+    "question": "Gobierno que creó Banco de México en 1925",
+    "answer": "Plutarco Elías Calles"
+  },
+  {
+    "id": 399,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cuándo fue el periodo conocido como el Maximato?",
+    "answer": "1928-1934. Se llama así por Plutarco Elías Calles, dado que era conocido como el \"máximo de la revolución\" y fue quien más influencias tenía en ese periodo."
+  },
+  {
+    "id": 400,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué presidentes conformaron el Maximato?",
+    "answer": "Emilio Portes Gil (1928-1930) Pascual Ortiz Rubio (1930 - 1932) Abelardo L. Rodríguez (1932 - 1934)"
+  },
+  {
+    "id": 401,
+    "section": "LA REVOLUCIÓN",
+    "question": "El 18 de marzo de 1938 el presidente Lázaro Cárdenas y Río",
+    "answer": "Nacionalizó la industria petrolera y expropió el petróleo (expropió los bienes a las petroleras extranjeras)"
+  },
+  {
+    "id": 402,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué político comunista ruso recibió asilo político en México?",
+    "answer": "Leon Trotsky"
+  },
+  {
+    "id": 403,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué fue la Ley Calles?",
+    "answer": "Ley expedida para controlar y limitar el culto católico en México, oficialmente llamada Ley de tolerancia de cultos, elaborada durante la presidencia de Plutarco Elías Calles"
+  },
+  {
+    "id": 404,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Quién creó el Banco de México en 1925 (Banco Nacional)?",
+    "answer": "Plutarco Elías Calles"
+  },
+  {
+    "id": 405,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Quién fundó el Partido Nacional Revolucionario en 1929? (Desde 1946 se llama PRI)",
+    "answer": "Plutarco Elías Calles"
+  },
+  {
+    "id": 406,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cómo participó México en la Segunda Guerra Mundial?",
+    "answer": "Con el envío de fuerza aérea expedicionaria Escuadrón 201."
+  },
+  {
+    "id": 407,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿En qué batalla/conflicto bélico internacional participó el \"Escuadrón 201\"?",
+    "answer": "En la Segunda Guerra Mundial"
+  },
+  {
+    "id": 408,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué presidente declaró la guerra contra los llamados países del eje (Alemania, Italia y Japón) durante la Segunda Guerra Mundial?",
+    "answer": "Manuel Ávila Camacho. Mayo de 1942, porque submarinos alemanes le hundieron 2 barcos petroleros (POTRERO DEL LLANO y FAJA DE ORO) que llevaban petróleo de México a USA."
+  },
+  {
+    "id": 409,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qúe presidente inauguró el monumento de la Diana Cazadora?",
+    "answer": "Manuel Ávila Camacho (10 de octubre de 1942). Es una fuente monumental, localizada en la avenida Paseo de la Reforma de la Ciudad de México."
+  },
+  {
+    "id": 410,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cuándo se decreta el derecho al voto de la mujer?",
+    "answer": "17 de octubre de 1953 durante el mandato de Adolfo Ruiz Cortines"
+  },
+  {
+    "id": 411,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿En qué fecha votaron por primera vez las mujeres en México?",
+    "answer": "3 de julio de 1955"
+  },
+  {
+    "id": 412,
+    "section": "LA REVOLUCIÓN",
+    "question": "Fecha de mayor movilización estudiantil en México",
+    "answer": "26 de julio de 1968"
+  },
+  {
+    "id": 413,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cuándo fue la matanza de Tlatelolco?",
+    "answer": "2 de octubre de 1968, durante la presidencia de Gustavo Díaz Ordaz"
+  },
+  {
+    "id": 414,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué es el Tratado de Tlatelolco?",
+    "answer": "Un acuerdo acerca de la no proliferación de las armas nucleares en América Latina, firmado en 1967 y entrado en vigor en 1969."
+  },
+  {
+    "id": 415,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cuándo se firmo el Tratado de Tlatelolco?",
+    "answer": "14 de febrero de 1967"
+  },
+  {
+    "id": 416,
+    "section": "LA REVOLUCIÓN",
+    "question": "El Tratado de Tlatelolco, logro de la diplomacia mexicana, se atañe a:",
+    "answer": "Alfonso Garcia Robles (diplomático) y al presidente Gustavo Diaz Ordaz."
+  },
+  {
+    "id": 417,
+    "section": "LA REVOLUCIÓN",
+    "question": "Presidente al mando durante la matanza de Tlatelolco",
+    "answer": "Gustavo Díaz Ordaz"
+  },
+  {
+    "id": 418,
+    "section": "LA REVOLUCIÓN",
+    "question": "Fecha del temblor por el cual se cayó el Ángel de la Independencia / ¿Cuándo se cayó el Ángel de la Independencia?",
+    "answer": "28 de julio de 1957"
+  },
+  {
+    "id": 419,
+    "section": "LA REVOLUCIÓN",
+    "question": "Presidente que estuvo durante el terremoto de 1985 y mundial 1986",
+    "answer": "Miguel de la Madrid"
+  },
+  {
+    "id": 420,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Quién nacionalizó la Banca?",
+    "answer": "José López Portillo el 1 de septiembre de 1982"
+  },
+  {
+    "id": 421,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué presidente recibió al Papa Juan Pablo II en su primera visita?",
+    "answer": "José López Portillo (primera visita 26 de enero - 1 de febrero de 1979)"
+  },
+  {
+    "id": 422,
+    "section": "LA REVOLUCIÓN",
+    "question": "Terremotos que derribaron iglesias",
+    "answer": "1985 en Colima y 2017 en Puebla"
+  },
+  {
+    "id": 423,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué presidente estuvo durante el terremoto de 1985 y el mundial de 1986?",
+    "answer": "Miguel de la Madrid"
+  },
+  {
+    "id": 424,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cómo se llamó el movimiento civil en Chiapas en los 90s del subcomandante Marcos? Movimiento surgido en enero de 1994",
+    "answer": "Movimiento Zapatista / Conflicto Chiapaneco / Ejército Zapatista de Liberación Nacional (EZLN) Fue un movimiento armado que surgió a raíz de la firma del tratado de libre comercio para hacer frente a las políticas del neoliberalismo. Actualmente se considera un movimiento político."
+  },
+  {
+    "id": 425,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cuándo se inició el Movimiento Zapatista?",
+    "answer": "En 1994"
+  },
+  {
+    "id": 426,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cuándo se firmó el Tratado de Libre Comercio (TLC, NAFTA)?",
+    "answer": "17 de diciembre de 1992"
+  },
+  {
+    "id": 427,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cuándo entró en vigor el Tratado de Libre Comercio (TLC, NAFTA)?",
+    "answer": "1 de enero de 1994"
+  },
+  {
+    "id": 428,
+    "section": "LA REVOLUCIÓN",
+    "question": "Nombre del presidente que firmó el Tratado de Libre Comercio (TLC, NAFTA)",
+    "answer": "Carlos Salinas de Gortari (1992) y Enrique Peña Nieto (2018)"
+  },
+  {
+    "id": 429,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Con qué países celebró México el tratado comercial TLCAN / NAFTA?",
+    "answer": "Con Estados Unidos y Canadá"
+  },
+  {
+    "id": 430,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Cuáles fueron los presidentes de la época del neoliberalismo?",
+    "answer": "Carlos Salinas de Gortari (1988-1994), Ernesto Zedillo (1994-2000), Vicente Fox (2000-2006)"
+  },
+  {
+    "id": 431,
+    "section": "LA REVOLUCIÓN",
+    "question": "Fecha del apagón analógico, era de la tv digital",
+    "answer": "31 de diciembre de 2015 / Fue el inicio de la TV digital"
+  },
+  {
+    "id": 432,
+    "section": "LA REVOLUCIÓN",
+    "question": "Terremoto en Puebla",
+    "answer": "19 de septiembre de 2017"
+  },
+  {
+    "id": 433,
+    "section": "LA REVOLUCIÓN",
+    "question": "¿Qué es caso Ayotzinapa?",
+    "answer": "Desaparición forzada de 43 estudiantes, que sucedió en Iguala el 27 de septiembre de 2014"
+  },
+  {
+    "id": 434,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Superficie total de México (continental, insular y mar territorial)",
+    "answer": "5,114,295 km2"
+  },
+  {
+    "id": 435,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Cuántas penínsulas tiene México?",
+    "answer": "2: Baja California y Yucatán"
+  },
+  {
+    "id": 436,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Nombres de islas de México",
+    "answer": "Isla Marías, Isla Mujeres, Cozumel, Holbox, Isla Guadalupe"
+  },
+  {
+    "id": 437,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Cuántas Sierras Madres tiene México?",
+    "answer": "2: Oriental y Occidental"
+  },
+  {
+    "id": 438,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Sierras de México",
+    "answer": "Sierra Madre Oriental; Sierra Madre Occidental; Sierra del Sur, Sierra de Oaxaca, Sierra de Chiapas"
+  },
+  {
+    "id": 439,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Que es la Peña de Bernal y dónde se encuentra?",
+    "answer": "Es el tercer monolito más grande del mundo. Se encuentra en Querétaro."
+  },
+  {
+    "id": 440,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Ícono turístico de Monterrey",
+    "answer": "El Cerro de la Silla"
+  },
+  {
+    "id": 441,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿A qué se le conoce como Don Goyo y la Mujer Dormida?",
+    "answer": "A los volcanes Popocatépetl e Iztaccíhuatl"
+  },
+  {
+    "id": 442,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Los volcanes del Estado de México y Puebla",
+    "answer": "Popocatépetl e Iztaccíhuatl"
+  },
+  {
+    "id": 443,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Nombre del volcán ubicado entre Morelos, Puebla y Edomex (Estado de México)",
+    "answer": "Popocatépetl (\"cerro que humea\" en nahuatl)"
+  },
+  {
+    "id": 444,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Cuál es la montaña más alta de México?",
+    "answer": "Citlaltépetl (Pico de Orizaba) entre los estados de Veracruz y Puebla"
+  },
+  {
+    "id": 445,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Volcanes o picos más altos de México",
+    "answer": "Pico de Orizaba / Citlaltépetl (5610 m, entre Puebla y Veracruz), Popocatépetl / Don Goyo (5452 m, Puebla, Morelos, Edomex), Nevado de Toluca / Xinantécatl (4559 m, Edomex), Volcán Cierra Negra / Tliltépetl (4580 m, Puebla)"
+  },
+  {
+    "id": 446,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Volcanes del estado de México:",
+    "answer": "1. Popocatépetl e Iztaccíhuatl 2. Xinantécatl (Nevado de Toluca) 3. Jocotitlán o Xocotépetl"
+  },
+  {
+    "id": 447,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Cuáles son los volcanes del Valle de México?",
+    "answer": "1. Teuhtli (CDMX), 2. Tláloc (EDOMEX), 3. Guadalupe o de Borrego (CDMX), 4.Volcán del Ajusco o Xitle (CDMX), 5.Chichinautzin (Morelos), Cuautzin (Morelos, CDMX)"
+  },
+  {
+    "id": 448,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Dónde se puede observar ballenas jorobadas y lobos marinos?",
+    "answer": "Mar de Cortés"
+  },
+  {
+    "id": 449,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Dónde está el Mar de Cortés (Mar Bermejo/Golfo de California)",
+    "answer": "Baja California"
+  },
+  {
+    "id": 450,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Qúe estados rodean el Mar de Cortés?",
+    "answer": "Baja California Norte, Baja California Sur, Sonora y Sinaloa"
+  },
+  {
+    "id": 451,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "El río más largo de México",
+    "answer": "Río Bravo (Río Grande)"
+  },
+  {
+    "id": 452,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Los ríos principales de México",
+    "answer": "río Bravo, río Colorado, río Usumacinta, río Lerma, río Conchos, río Papaloapan, río Balsas, río Nazas, río Grijalva y río Sonora."
+  },
+  {
+    "id": 453,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Ríos limítrofes de Mexico",
+    "answer": "Norte: Rio Bravo; Sur: Rio Usumacinta, Rio Suchiate y Rio Hondo"
+  },
+  {
+    "id": 454,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Los estados que atraviesa el Río Bravo",
+    "answer": "Chihuahua, Coahuila, Tamaulipas, Nuevo León"
+  },
+  {
+    "id": 455,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "El lago más grande de México",
+    "answer": "Lago de Chapala, Jalisco"
+  },
+  {
+    "id": 456,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Qué estados baña el Río Colorado?",
+    "answer": "Baja California y Sonora (En el Golfo de California)"
+  },
+  {
+    "id": 457,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "El parque nacional Los Azufres se encuentra en",
+    "answer": "Michoacán"
+  },
+  {
+    "id": 458,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Dónde se encuentran las Grutas de Cacahuamilpa?",
+    "answer": "Guerrero"
+  },
+  {
+    "id": 459,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Reserva natural en el estado de Sonora",
+    "answer": "Biósfera El Pinacate y Desierto del Altar"
+  },
+  {
+    "id": 460,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Reserva natural del Golfo de Baja California",
+    "answer": "Parque nacional Cabo Pulmo"
+  },
+  {
+    "id": 461,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Reserva natural protegida en el Golfo de México",
+    "answer": "El Arrecife Veracruzano"
+  },
+  {
+    "id": 462,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿En que estado se ubica el Cañón del Sumidero?",
+    "answer": "Chiapas"
+  },
+  {
+    "id": 463,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Dónde queda el santuario de la mariposa monarca?",
+    "answer": "Michoacán y en Estado de México"
+  },
+  {
+    "id": 464,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "En qué estado se encuentra la Selva Lacandona",
+    "answer": "Chiapas"
+  },
+  {
+    "id": 465,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Animales mexicanos en el peligro de extinción",
+    "answer": "Jaguar (ocelote), águila real, mariposa monarca, ajolote, tortuga caguama, guacamaya roja, oso negro, vaquita marina"
+  },
+  {
+    "id": 466,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "El Zócalo de la CDMX es conocido como",
+    "answer": "La Plaza Principal o Plaza de la Constitución"
+  },
+  {
+    "id": 467,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Cómo se le dice a la Ciudad de México, en particular a su centro histórico de CDMX?",
+    "answer": "La Ciudad de los Palacios"
+  },
+  {
+    "id": 468,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Rascacielos de 43 pisos que ha resistido 3 terremotos",
+    "answer": "Torre Latinoamericana"
+  },
+  {
+    "id": 469,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Símbolo de modernización inaugurado en 1950",
+    "answer": "Torre Latinoamericana"
+  },
+  {
+    "id": 470,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "La Plaza de la Constitución (Zócalo) recibe su nombre en honor a cuál constitución?",
+    "answer": "Constitución de Cádiz"
+  },
+  {
+    "id": 471,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "La estructura donde se construiría el Palacio Legislativo Federal de Émile Bénard, se utilizó para edificar el monumento de",
+    "answer": "Monumento a la Revolución"
+  },
+  {
+    "id": 472,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Fué construido para ser el Palacio Legislativo pero terminó siendo / Edificio que iba a ser el Palacio Legislativo y actualmente es:",
+    "answer": "Monumento a la Revolución"
+  },
+  {
+    "id": 473,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Cuándo se inauguró el Ángel de la Independencia?",
+    "answer": "16 de septiembre de 1910"
+  },
+  {
+    "id": 474,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Qué representa el monumento de la Estela de Luz?",
+    "answer": "Festejo del Bicentenario de la Independencia y Centenario de la Revolución Mexicana"
+  },
+  {
+    "id": 475,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Cuál fue el monumento construido para conmemorar el Bicentenario de la Independencia y el Centenario de la Revolución Mexicana?",
+    "answer": "Estela de Luz (inaugurado el 7 de enero de 2012)"
+  },
+  {
+    "id": 476,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Con qué otro nombre se conoce a la Diana Cazadora?",
+    "answer": "La Flechadora de las Estrellas del Norte."
+  },
+  {
+    "id": 477,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Monumento que modernizó a México",
+    "answer": "El Caballito de Reforma"
+  },
+  {
+    "id": 478,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Cuál es la avenida más importante de CDMX?",
+    "answer": "Avenida Reforma"
+  },
+  {
+    "id": 479,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Famoso escultor mexicano especializado en escultura monumental o figuras geométricas de gran tamaño",
+    "answer": "Enrique Carbajal González, mejor conocido como Sebastián, autor del Caballito de Reforma"
+  },
+  {
+    "id": 480,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Nombre del escultor cuyas obras se basan en figuras geométricas de gran tamaño",
+    "answer": "Enrique Carbajal"
+  },
+  {
+    "id": 481,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Localidad de CDMX donde se celebra la Pasión de Cristo",
+    "answer": "Iztapalapa"
+  },
+  {
+    "id": 482,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Cuál es la representación religiosa que se realiza en Iztapalapa?",
+    "answer": "La Pasión de Cristo"
+  },
+  {
+    "id": 483,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Autor de la escultura El Caballito (estatua de Carlos IV)",
+    "answer": "Arquitecto Manuel Tolsá Año de Construcción: 1796-1803 Fecha de Inauguración: 9 de diciembre de 1803"
+  },
+  {
+    "id": 484,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Quién inauguró el Museo de Antropología?",
+    "answer": "Adolfo López Mateo"
+  },
+  {
+    "id": 485,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Nombre de las embarcaciones coloridas con flores que se usan en Xochimilco, populares para turistas",
+    "answer": "Trajineras"
+  },
+  {
+    "id": 486,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Ciudad mexicana con abundante arquitectura colonial",
+    "answer": "Puebla"
+  },
+  {
+    "id": 487,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "El puerto de Acapulco fue un lugar importante durante los siglos XVII y XVIII que controlaba la navegación en",
+    "answer": "Océano Pacífico"
+  },
+  {
+    "id": 488,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "El Puerto de Acapulco se encuentra en",
+    "answer": "Estado de Guerrero"
+  },
+  {
+    "id": 489,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Principales puertos turísticos",
+    "answer": "Cozumel, Acapulco, Mazatlán"
+  },
+  {
+    "id": 490,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Tres destinos de playas en México son",
+    "answer": "Acapulco, Huatulco, Cancún"
+  },
+  {
+    "id": 491,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Cuál es la ciudad 4 veces heroica o 3 veces triunfante?",
+    "answer": "Veracruz"
+  },
+  {
+    "id": 492,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Famoso callejón de Guanajuato",
+    "answer": "Callejón del Beso"
+  },
+  {
+    "id": 493,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Estado con mayor producción de zapatos/calzado",
+    "answer": "Guanajuato"
+  },
+  {
+    "id": 494,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Dónde se encuentra el lugar famoso de clavadistas La Quebrada?",
+    "answer": "Acapulco, Guerrero"
+  },
+  {
+    "id": 495,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Qué son los pueblos mágicos?",
+    "answer": "Pueblos reconocidos por su riqueza histórica y cultural. Programa de la Secretaría de Turismo (SECTUR)"
+  },
+  {
+    "id": 496,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Cuántos pueblos mágicos hay?",
+    "answer": "132(2022) / 177(2023)"
+  },
+  {
+    "id": 497,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Pueblo mágico de San Luís Potosí",
+    "answer": "Xilitla"
+  },
+  {
+    "id": 498,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Pueblo mágico de Zacatecas",
+    "answer": "Jerez de García Salinas"
+  },
+  {
+    "id": 499,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Pueblo mágico de Michoacán",
+    "answer": "Jiquilpan"
+  },
+  {
+    "id": 500,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Pueblos mágicos en el estado de Puebla",
+    "answer": "Xicotepec y Chignahuapan"
+  },
+  {
+    "id": 501,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Dónde se ubica el pueblo mágico Cholula?",
+    "answer": "Puebla"
+  },
+  {
+    "id": 502,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Pueblo mágico del Estado de México",
+    "answer": "Villa del Carbón"
+  },
+  {
+    "id": 503,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "¿Dónde queda pueblo mágico Izamal?",
+    "answer": "Yucatán"
+  },
+  {
+    "id": 504,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Pueblo mágico en Jalisco",
+    "answer": "Tequila"
+  },
+  {
+    "id": 505,
+    "section": "GEOGRAFÍA, CIUDADES, TURISMO",
+    "question": "Pueblos mágicos de Sinaloa",
+    "answer": "El Rosario y Cosalá"
+  },
+  {
+    "id": 506,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Forma de gobierno de México",
+    "answer": "República representativa, democrática, laica y federal"
+  },
+  {
+    "id": 507,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Según la constitución, ¿Cuáles son los poderes máximos?",
+    "answer": "Ejecutivo, legislativo y judicial"
+  },
+  {
+    "id": 508,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Los tres niveles de gobierno en México son",
+    "answer": "Federación, estado y municipio"
+  },
+  {
+    "id": 509,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Qué persona ejerce el poder ejecutivo del país?",
+    "answer": "El presidente de la República"
+  },
+  {
+    "id": 510,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Quién es el máximo comandante de las Fuerzas Armadas?",
+    "answer": "El presidente de la República"
+  },
+  {
+    "id": 511,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Los últimos 5 presidentes de México",
+    "answer": "1. Ernesto Zedillo Ponce de León (1994-2000) 2. Vicente Fox Quesada (2000-2006) 3. Felipe Calderón Hinojosa (2006-2012) 4. Enrique Peña Nieto (2012-2018) 5. Andrés Manuel López Obrador (2018-2024)"
+  },
+  {
+    "id": 512,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuánto tiempo dura el mandato presidencial en México?",
+    "answer": "6 años sin reelección"
+  },
+  {
+    "id": 513,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuándo son las elecciones presidenciales en México?",
+    "answer": "El primer domingo de JUNIO cada 6 años"
+  },
+  {
+    "id": 514,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "\"Los Pinos\" es conocido en la Ciudad de México…",
+    "answer": "Por ser la sede/residencia oficial del Presidente de la República (desde 1934 hasta 2018)"
+  },
+  {
+    "id": 515,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Sede del poder ejecutivo federal",
+    "answer": "Palacio Nacional"
+  },
+  {
+    "id": 516,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuál es la institución de protección al consumidor?",
+    "answer": "la PROFECO (La Procuraduría Federal del Consumidor)"
+  },
+  {
+    "id": 517,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Dónde se hacen las denuncias del consumidor?",
+    "answer": "la PROFECO"
+  },
+  {
+    "id": 518,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Secretaría que se encarga de cobrar impuestos?",
+    "answer": "Secretaría de Hacienda y Crédito Público (SAT forma parte de SHCP)"
+  },
+  {
+    "id": 519,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Qué órgano público otorga las cédulas profesionales?",
+    "answer": "Secretaría de Educación Pública (SEP), mediante la Dirección General de Profesiones"
+  },
+  {
+    "id": 520,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuántos consulados tiene México?",
+    "answer": "67"
+  },
+  {
+    "id": 521,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuántas embajadas tiene México?",
+    "answer": "80"
+  },
+  {
+    "id": 522,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Quién es el canciller actual?",
+    "answer": "Roberto Velasco Álvarez / Juan Ramón de la Fuente (antes)"
+  },
+  {
+    "id": 523,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Quién fue el primer secretario de salud?",
+    "answer": "Gustavo Baz Prada"
+  },
+  {
+    "id": 524,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuál de las siguientes siglas corresponde a un instituto de salud?",
+    "answer": "IMSS"
+  },
+  {
+    "id": 525,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuándo se creó IMSS?",
+    "answer": "El 19 de enero de 1943 (durante la presidencia de Manuel Ávila Camacho)"
+  },
+  {
+    "id": 526,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Qué presidente creó el ISSSTE?",
+    "answer": "Adolfo López Mateos (1958-1964)"
+  },
+  {
+    "id": 527,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cómo se llama el seguro de salud creado en 2004 que ayuda a las personas desempleadas o que trabajan independiente?",
+    "answer": "Seguro Popular de Salud (actualmente no existe)"
+  },
+  {
+    "id": 528,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Qué lugar ocupa México en la economía mundial?",
+    "answer": "16 (información sujeto a cambio) 12 (2023)"
+  },
+  {
+    "id": 529,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Qué productos exporta México?",
+    "answer": "Aceite crudo de petróleo, autopartes y productos de cobre"
+  },
+  {
+    "id": 530,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Nombre científico del petróleo",
+    "answer": "Crudo, crudo petrolífero o petróleo crudo"
+  },
+  {
+    "id": 531,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Quién está en el billete de 100 pesos?",
+    "answer": "Sor Juana Inés de la Cruz"
+  },
+  {
+    "id": 532,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuál de las siguientes aseveraciones sobre México es falsa?",
+    "answer": "México es uno de los países con menor desigualdad social en América Latina"
+  },
+  {
+    "id": 533,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Billetes mexicanos",
+    "answer": "20 - la consumación de la Independencia, 50 - México Antiguo: fundación de Tenochtitlán (reverso - ajolote), 100 - Sor Juana (antes Nezahualcóyotl), 200 - Miguel Hidalgo y José María Morelos, 500 - Benito Juárez, 1000 - Francisco I. Madero, Hermila Galindo y Carmen Serdán"
+  },
+  {
+    "id": 534,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuál es el órgano depositario del Poder Legislativo?",
+    "answer": "El Congreso de la Unión"
+  },
+  {
+    "id": 535,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Quiénes crean y aprueban las leyes en México?",
+    "answer": "Los diputados y senadores del Congreso de la Unión"
+  },
+  {
+    "id": 536,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuántos diputados tiene el Сongreso?",
+    "answer": "500"
+  },
+  {
+    "id": 537,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿A qué entidad representan los diputados del Congreso de la Unión?",
+    "answer": "A los distritos electorales"
+  },
+  {
+    "id": 538,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuántos distritos electorales hay en México?",
+    "answer": "300"
+  },
+  {
+    "id": 539,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿A quién representan los senadores?",
+    "answer": "A las entidades federativas"
+  },
+  {
+    "id": 540,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuántos senadores hay en México?",
+    "answer": "128"
+  },
+  {
+    "id": 541,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Quién imparte la justicia en México?",
+    "answer": "El poder judicial, con división federal y estatal"
+  },
+  {
+    "id": 542,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Estructura del Poder Judicial Mexicano",
+    "answer": "1. Suprema Corte de Justicia. 2.Tribunal Electoral. 3. Los Tribunales de Circuito (Colegiados y Unitarios). 4. Juzgados de Distrito. 5. Consejo de la Judicatura General."
+  },
+  {
+    "id": 543,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuántos magistrados tiene la Corte Suprema de Justicia?",
+    "answer": "11"
+  },
+  {
+    "id": 544,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuántos artículos tiene la Constitución de México?",
+    "answer": "136"
+  },
+  {
+    "id": 545,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cómo se llama la ley fundamental de México?",
+    "answer": "Constitución Política de los Estados Unidos Mexicanos"
+  },
+  {
+    "id": 546,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Qué documento rige a los extranjeros y mexicanos en el territorio nacional o qué documento otorga derechos a los mexicanos?",
+    "answer": "Constitución Política de los Estados Unidos Mexicanos"
+  },
+  {
+    "id": 547,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Artículo de la constitución que prohíbe la esclavitud, habla sobre los derechos humanos y la discriminación",
+    "answer": "Artículo 1"
+  },
+  {
+    "id": 548,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuál es el artículo de la constitución que habla del derecho de los pueblos indígenas? / Artículo de la constitución que establece una nación pluricultural",
+    "answer": "Artículo 2"
+  },
+  {
+    "id": 549,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuál es el artículo de la constitución que rige la educación primaria y secundaria?",
+    "answer": "Artículo 3"
+  },
+  {
+    "id": 550,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cual artículo de la constitución dice que la educación es gratuita y obligatoria?",
+    "answer": "Artículo 3"
+  },
+  {
+    "id": 551,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuál artículo de la constitución habla sobre la libertad de trabajo?",
+    "answer": "Artículo 5"
+  },
+  {
+    "id": 552,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuál artículo de la constitución habla sobre la libertad de expresión?",
+    "answer": "Artículo 6"
+  },
+  {
+    "id": 553,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Artículo de la constitución que se trata sobre el derecho de petición",
+    "answer": "Artículo 8"
+  },
+  {
+    "id": 554,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Artículo de la constitución que trata el derecho de buscar y recibir asilo / refugio",
+    "answer": "Artículo 11"
+  },
+  {
+    "id": 555,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Artículo de la constitución sobre las obligaciones de los ciudadanos",
+    "answer": "Artículo 31"
+  },
+  {
+    "id": 556,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Artículo de la constitución que habla sobre los extranjeros",
+    "answer": "Artículo 33"
+  },
+  {
+    "id": 557,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuál artículo de la constitución trata sobre los derechos de los ciudadanos?",
+    "answer": "Artículo 35"
+  },
+  {
+    "id": 558,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuál es el artículo de la constitución que explica cómo se puede perder la naturalización?",
+    "answer": "Artículo 37"
+  },
+  {
+    "id": 559,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cómo debe ser la educación según la Constitución Mexicana ?",
+    "answer": "Laica, gratuita, obligatoria, pública, universal, inclusiva y de calidad"
+  },
+  {
+    "id": 560,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "El organismo encargado de regular la participación de los partidos políticos en las elecciones es",
+    "answer": "Instituto Nacional Electoral (INE), antes IFE (Instituto Federal Electoral)"
+  },
+  {
+    "id": 561,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuándo se fundó el IFE?",
+    "answer": "11 de octubre de 1990"
+  },
+  {
+    "id": 562,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuándo se fundó el INE?",
+    "answer": "10 de febrero de 2014"
+  },
+  {
+    "id": 563,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿A qué edad se puede votar en México?",
+    "answer": "A los 18 años"
+  },
+  {
+    "id": 564,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuándo se emitió la primera credencial de elector?",
+    "answer": "1990"
+  },
+  {
+    "id": 565,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Fecha de inicio del voto mexicano en el extranjero",
+    "answer": "2005"
+  },
+  {
+    "id": 566,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Fecha en que se estableció el primer registro civil",
+    "answer": "28 de julio de 1859"
+  },
+  {
+    "id": 567,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Fecha en que se expidió la primera acta de nacimiento",
+    "answer": "10 de noviembre de 1859"
+  },
+  {
+    "id": 568,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "¿Cuáles son los partidos políticos principales de México?",
+    "answer": "Partido Acción Nacional (PAN), Partido Revolucionario Institucional (PRI), Partido de la Revolución Democrática (PRD), Partido Verde Ecologista de México (VERDE), Partido del Trabajo (PT), Movimiento Ciudadano, Movimiento de Regeneración Nacional (Morena)."
+  },
+  {
+    "id": 569,
+    "section": "CIVISMO, GOBIERNO, ORGANISMOS PÚBLICOS",
+    "question": "Nombre del partido político que gobernó durante 7 décadas en el siglo XX",
+    "answer": "PRI - Partido Revolucionario Institucional (1930-2000)"
+  },
+  {
+    "id": 570,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Primera institución educativa de 1811, destinada a las ciencias y artes",
+    "answer": "Colegio de Minería"
+  },
+  {
+    "id": 571,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Primer secretario de Educación Pública (1921)",
+    "answer": "José Vasconcelos"
+  },
+  {
+    "id": 572,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Quién dijo la frase \"Yo no vengo a trabajar por la universidad, sino a pedir a la universidad que trabaje por el pueblo\"?",
+    "answer": "José Vasconcelos"
+  },
+  {
+    "id": 573,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿En qué año se creó la Escuela Nacional Preparatoria y quién lo hizo?",
+    "answer": "El 2 de diciembre de 1867 durante el periodo de Benito Juárez, como una de las normas de la Ley Orgánica de Instrucción Pública en México"
+  },
+  {
+    "id": 574,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿En qué año se declaró gratuita y obligatoria la educación elemental?",
+    "answer": "El 2 de diciembre de 1867, durante el mando de Benito Juárez, como una de las normas de la Ley Orgánica de Instrucción Pública en México"
+  },
+  {
+    "id": 575,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Qué dice la constitución sobre cómo debe ser la educación?",
+    "answer": "laica, gratuita, obligatoria, de calidad"
+  },
+  {
+    "id": 576,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Según la constitución, la educación es obligatoria ¿en qué niveles académicos?",
+    "answer": "Preescolar, primaria, secundaria, preparatoria o bachillerato"
+  },
+  {
+    "id": 577,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuánto dura la educación en México?",
+    "answer": "preescolar: 3 años, primaria: 6 años, secundaria: 3 años, preparatoria o bachillerato: 3 años"
+  },
+  {
+    "id": 578,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuántos años dura la educación primaria en México?",
+    "answer": "6 años"
+  },
+  {
+    "id": 579,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuánto dura el ciclo escolar primario en México?",
+    "answer": "1 año. El ciclo escolar para la educación básica comienza en el mes de agosto y concluye en el de mes de julio del siguiente año."
+  },
+  {
+    "id": 580,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿En cuántos niveles se divide la educación en México?",
+    "answer": "El sistema educativo mexicano se divide en tres niveles: educación básica (preescolar, primaria, secundaria), media superior (bachillerato o preparatoria) y superior (licenciatura, maestría y doctorado)."
+  },
+  {
+    "id": 581,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuál es la universidad más antigua de México?",
+    "answer": "La Universidad Nacional Autónoma de México (UNAM)"
+  },
+  {
+    "id": 582,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿En qué año se fundó la UNAM?",
+    "answer": "El 22 de septiembre de 1910. Se inauguró por Justo Sierra durante el gobierno de Porfirio Díaz"
+  },
+  {
+    "id": 583,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuál es el lema de la UNAM?",
+    "answer": "\"Por mi raza hablará el espíritu\""
+  },
+  {
+    "id": 584,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Quién dijo la frase \"Por mi raza hablará el espíritu\"?",
+    "answer": "José Vasconcelos"
+  },
+  {
+    "id": 585,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Bajo la instrucción de que presidente se construyó la Ciudad Universitaria?",
+    "answer": "Por instrucción del presidente Manuel Ávila Camacho"
+  },
+  {
+    "id": 586,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Nombre de la máxima casa de estudios de México",
+    "answer": "Universidad Nacional Autónoma de México (UNAM)"
+  },
+  {
+    "id": 587,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Qué presidente le dio autonomía a la UNAM?",
+    "answer": "Emilio Portes Gil"
+  },
+  {
+    "id": 588,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Biblioteca considerada patrimonio cultural por la UNESCO",
+    "answer": "Biblioteca Central de la UNAM"
+  },
+  {
+    "id": 589,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Institución educativa, creada para carreras técnicas",
+    "answer": "Instituto Politécnico Nacional (IPN)"
+  },
+  {
+    "id": 590,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Qué universidad técnica/institución educativa creó Lázaro Cárdenas?",
+    "answer": "Instituto Politécnico Nacional (IPN)"
+  },
+  {
+    "id": 591,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuándo se creó el Instituto Politécnico Nacional (IPN)?",
+    "answer": "1 de enero de 1936"
+  },
+  {
+    "id": 592,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuál es el lema del Instituto Politécnico Nacional (IPN)?",
+    "answer": "La Técnica al servicio de la Patria"
+  },
+  {
+    "id": 593,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿En qué año se fundó la Universidad Autónoma Metropolitana (UAM)?",
+    "answer": "1 de enero de 1974, durante el gobierno de Luis Echeverría Álvarez"
+  },
+  {
+    "id": 594,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuál es el lema de la Universidad Autónoma Metropolitana (UAM)?",
+    "answer": "In Calli Ixcahuicopa (Casa abierta al tiempo)"
+  },
+  {
+    "id": 595,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Qué significa CONALEP?",
+    "answer": "Colegio Nacional de Educación Profesional Técnica"
+  },
+  {
+    "id": 596,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuándo y quién fundó CONALEP?",
+    "answer": "En 1978 por el Ing. José Antonio Padilla Segura (presidencia de López Portillo)"
+  },
+  {
+    "id": 597,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Quién inventó la TV a color?",
+    "answer": "Guillermo González Camarena en 1940"
+  },
+  {
+    "id": 598,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Quién inventó la pastilla anticonceptiva?",
+    "answer": "Luís Ernesto Miramontes Cárdenas el 15 de octubre de 1951"
+  },
+  {
+    "id": 599,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuáles son los mexicanos ganadores de Premio Nobel?",
+    "answer": "1. Alfonso García Robles, premio Nobel de la Paz en 1982. 2. Octavio Paz, Premio Nobel de Literatura en 1990. 3. José María Molina Pasquel y Henríquez, Premio Nobel de Química en 1995"
+  },
+  {
+    "id": 600,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Mexicano que ganó el Premio Nobel de Química por sus investigaciones sobre la capa de ozono",
+    "answer": "José María Molina Pasquel y Henríquez en 1995"
+  },
+  {
+    "id": 601,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Nombre del primer astronauta mexicano",
+    "answer": "Rodolfo Neri Vela el 26 de noviembre de 1985 desde el Centro Espacial Kennedy, en Florida"
+  },
+  {
+    "id": 602,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Astronauta mexicano que participó en la misión STS-61-B del Transbordador Espacial Atlantis",
+    "answer": "Rodolfo Neri Vela. Esta misión tuvo como principal objetivo poner en órbita tres satélites: el Morelos II de México, el AUSSAT-2 de Australia y el SATCOM KU-2 de Estados Unidos. Rodolfo Neri Vela fue parte de la tripulación como especialista de carga."
+  },
+  {
+    "id": 603,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "La primera mujer al viajar al espacio",
+    "answer": "Katya Echazarreta. En junio de 2022 se convirtió en la primera mujer mexicana en viajar al espacio exterior como parte de la misión Blue Origin NS-21 a bordo de una nave espacial New Shepard."
+  },
+  {
+    "id": 604,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Mexicanas ganadoras del Miss Universo",
+    "answer": "1991 - María Guadalupe Jones Garay (Lupita Jones); 2010 - Ximena Navarrete; 2020 - Andrea Meza"
+  },
+  {
+    "id": 605,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuál fue la primera Miss Universo Mexicana?",
+    "answer": "María Guadalupe Jones Garay (Lupita Jones)"
+  },
+  {
+    "id": 606,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "La primera mujer médico en México",
+    "answer": "Matilde Montoya en 1887"
+  },
+  {
+    "id": 607,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Quién fue Luis Barragán?",
+    "answer": "Ingeniero y arquitecto mexicano, autor de las Torres de Satélite, Edo. de México, Ciudad Satélite"
+  },
+  {
+    "id": 608,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Mexicano que ganó el Premio Pritzker (comúnmente llamado Nobel de arquitectura) en 1980",
+    "answer": "Luis Barragán"
+  },
+  {
+    "id": 609,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Sistema de acueducto de CDMX y Estado de México",
+    "answer": "Sistema Cutzamala"
+  },
+  {
+    "id": 610,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Bajo qué presidencia se inauguró el metro de la CDMX",
+    "answer": "Gustavo Díaz Ordaz"
+  },
+  {
+    "id": 611,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿En qué fecha se inauguró el primer metro de la CDMX?",
+    "answer": "La Línea Rosa fue inaugurada el 4 de septiembre de 1969"
+  },
+  {
+    "id": 612,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Qué deporte fue decretado como deporte nacional en 1933?",
+    "answer": "La charrería"
+  },
+  {
+    "id": 613,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Lugar y fecha en la que México fue sede de los Juegos Olímpicos",
+    "answer": "Ciudad de México, 12 de octubre de 1968"
+  },
+  {
+    "id": 614,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuándo México fue sede de la Copa Mundial de Fútbol?",
+    "answer": "1970 y 1986 (y se espera para 2026)"
+  },
+  {
+    "id": 615,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Famoso luchador mexicano",
+    "answer": "El Santo, nombre verdadero: Rodolfo Guzman Huerta"
+  },
+  {
+    "id": 616,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Apodo del futbolista mexicano Javier Hernández",
+    "answer": "\"Chicharito\""
+  },
+  {
+    "id": 617,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Nombres de futbolistas mexicanos famosos en España",
+    "answer": "Hugo Sánchez y Rafa Márquez"
+  },
+  {
+    "id": 618,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuál es el nombre del futbolista mexicano que destacó en Europa en los 90?",
+    "answer": "Hugo Sánchez"
+  },
+  {
+    "id": 619,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Nombres de famosos boxeadores mexicanos:",
+    "answer": "Julio César Chávez (\"El César del boxeo\"), Saúl \"Canelo\" Álvarez, Rubén \"El Púas\" Olivares"
+  },
+  {
+    "id": 620,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Apodo de la boxeadora mexicana, actualmente considerada como la campeona mundial en la categoría de peso supermosca de Consejo Mundial de Boxeo (CMB)",
+    "answer": "\"La Guerrera\", Ana María Torres Ramírez"
+  },
+  {
+    "id": 621,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Apodo de la boxeadora mexicana, reconocida como la mejor boxeadora del año por la Federación Internacional del Boxeo (FIB)",
+    "answer": "\"La Rusita\", Yazmín Rivas Hernández"
+  },
+  {
+    "id": 622,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Ganadora de la medalla de oro en las Olimpiadas de 2000 en Sydney por halterofilia (levantamiento de pesas)",
+    "answer": "Soraya Jiménez Mendivil"
+  },
+  {
+    "id": 623,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿Cuál es el récord de la carrera que ganó Ana Gabriela Guevara Espinoza en 2003?",
+    "answer": "300 metros planos en 35.30 segundos"
+  },
+  {
+    "id": 624,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Récord de la carrera en que Ana Gabriela Guevara Espinoza fue medallista de las Olimpiadas de Atenas en 2004",
+    "answer": "Medalla de plata en 400 metros planos en 48.89 segundos"
+  },
+  {
+    "id": 625,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "¿En qué deportes de destacaron los deportistas mexicanos en las Olimpiadas de 2012?",
+    "answer": "1. Futból. 2. Tiro con arco. 3. Clavado. 4. Taekwondo"
+  },
+  {
+    "id": 626,
+    "section": "CIENCIA, EDUCACIÓN, DEPORTES",
+    "question": "Nombrar algunos de los medallistas olímpicos mexicanos",
+    "answer": "Humberto Mariles Cortés, en equitación. Joaquín Capilla, saltos ornamentales. Felipe \"el Tibio\" Muñoz, natación. María Teresa Ramírez, natación. Ricardo Delgado, boxeo. Antonio Roldán, boxeo. Ana Guevara, atletismo"
+  },
+  {
+    "id": 627,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Poema que escribió Bernardo Balbuena sobre la Nueva España en 1604",
+    "answer": "La Grandeza Mexicana"
+  },
+  {
+    "id": 628,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Por qué es conocida Sor Juana Inés de la Cruz?",
+    "answer": "Escritora y poetisa más importante del periodo novohispano."
+  },
+  {
+    "id": 629,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién dijo la frase \"Hombres necios que acusáis a la mujer sin razón, sin ver que vos sois la ocasión de lo mismo que culpáis\"?",
+    "answer": "Sor Juana Inés de la Cruz"
+  },
+  {
+    "id": 630,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Obras más conocidas de Sor Juana Inés de la Cruz:",
+    "answer": "1. Primero Sueño 2. Redondillas 3. Los empeños de una casa 4. Amor es más laberinto"
+  },
+  {
+    "id": 631,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Cómo es conocida Sor Juana Inés de la Cruz",
+    "answer": "La décima musa o el Ave Fenix"
+  },
+  {
+    "id": 632,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cuál fue el libro que escribió Francisco I. Madero?",
+    "answer": "La Sucesión Presidencial en 1910 En este libro, Madero crítica al entonces presidente Porfirio Díaz después de su largo periodo de mandato de 34 años"
+  },
+  {
+    "id": 633,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Exponente de la literatura revolucionaria / Escritor muy importante de la revolución",
+    "answer": "Mariano Azuela. Médico, opositor al Porfiriato"
+  },
+  {
+    "id": 634,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién fue Juan Rulfo?",
+    "answer": "Un escritor de la narrativa hispanoamericana del siglo XX"
+  },
+  {
+    "id": 635,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién escribió \"El Llano en llamas\"?",
+    "answer": "Juan Rulfo"
+  },
+  {
+    "id": 636,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Qué obra escribió Carlos Fuentes sobre la vida mexicana en 1958?",
+    "answer": "\"La región más transparente\""
+  },
+  {
+    "id": 637,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién escribió \"La muerte de Artemio Cruz\"?",
+    "answer": "Carlos Fuentes"
+  },
+  {
+    "id": 638,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién escribió \"Los cinco soles de México\"?",
+    "answer": "Carlos Fuentes"
+  },
+  {
+    "id": 639,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién escribió \"Aura\"?",
+    "answer": "Carlos Fuentes"
+  },
+  {
+    "id": 640,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién escribió \"Relámpagos de Agosto\"?",
+    "answer": "Jorge Ibargüengoitia"
+  },
+  {
+    "id": 641,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién es el autor de \"Temporada de Zopilotes: Una historia narrativa de la Decena Trágica\"?",
+    "answer": "Paco Ignacio Taibo II"
+  },
+  {
+    "id": 642,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién escribió sobre Francisco I. Madero?",
+    "answer": "Paco Ignacio Taibo II"
+  },
+  {
+    "id": 643,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿De qué se trata la obra \"Temporada de Zopilotes?",
+    "answer": "De la Decena Trágica. Se le conoce como \"Decena Trágica\" al golpe militar de 10 días (del 9 al 10 de febrero de 1913) liderado por Victoriano Huerta para derrocar a Francisco I. Madero."
+  },
+  {
+    "id": 644,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién escribió \"La noche de Tlatelolco\"?",
+    "answer": "Elena Poniatowska. Escritora, periodista y activista mexicana, nacida en Francia. Es una crónica basada en la matanza estudiantil sucedida durante el 2 de octubre de 1968 en la Plaza de las Tres Culturas."
+  },
+  {
+    "id": 645,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién escribió \"Las Voces de Tlatelolco\"?",
+    "answer": "José Emilio Pacheco"
+  },
+  {
+    "id": 646,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Algunos escritores de narrativa en México:",
+    "answer": "1. Juan Rulfo (El Llano en Llamas) 2. José Emilio Pacheco (Las Voces de Tlatelolco) 3. Carlos Fuentes (La Región más transparente) 4. Paco Ignacio Taibo II (Temporada de Zopilotes) 5. Jorge Ibargüengoitia (Relámpagos de Agosto) 6. Carlos Monsiváis 7. Juan Villoro"
+  },
+  {
+    "id": 647,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿En qué géneros escribían los siguientes autores: Juan Rulfo, Mario Bellatin y Jorge Volpi?",
+    "answer": "Narrativa, novela"
+  },
+  {
+    "id": 648,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Historieta mexicana creada por Gabriel Vargas",
+    "answer": "La familia Burrón"
+  },
+  {
+    "id": 649,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Nombres de destacados poetas mexicanos:",
+    "answer": "1. Octavio Paz 2. Amado Nervo 3. José Emilio Pacheco 4. Rosario Castellanos 5. Jaime Sabines"
+  },
+  {
+    "id": 650,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Obras de Rosario Castellanos:",
+    "answer": "1. Balún Canán 2. Ciudad Real 3. Álbum de Familia"
+  },
+  {
+    "id": 651,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Qué es una bomba yucateca?",
+    "answer": "Comúnmente las \"bombas\" son rimas. Esos versos son recitados de manera improvisada y pueden ser románticos, jocosos e inclusive melosos, pero nunca groseros. En ocasiones llegan a causar risa por su composición a manera de broma o descaro."
+  },
+  {
+    "id": 652,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Mexicanos que han ganado el Premio Cervantes:",
+    "answer": "1. Octavio Paz 2. Carlos Fuentes 3. Elena Poniatowska 4. Jose Emilio Pacheco 5. Fernando del Paso 6. Sergio Pitol"
+  },
+  {
+    "id": 653,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cómo se llama el premio que entrega el Instituto Nacional de Bellas Artes (INBA)?",
+    "answer": "Premio Bellas Artes"
+  },
+  {
+    "id": 654,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cómo se llama el premio que entrega Bellas Artes de cuento o literario?",
+    "answer": "Amparo Dávila"
+  },
+  {
+    "id": 655,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Representante del muralismo mexicano",
+    "answer": "Diego Rivera"
+  },
+  {
+    "id": 656,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Autor del mural del Palacio Nacional",
+    "answer": "Diego Rivera"
+  },
+  {
+    "id": 657,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién fué y por qué es conocida Frida Khalo?",
+    "answer": "Pintora mexicana, más importante de América Latina, conocida por sus autorretratos"
+  },
+  {
+    "id": 658,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Nombre completo de Frida Khalo",
+    "answer": "Magdalena Carmen Frida Kahlo Calderón"
+  },
+  {
+    "id": 659,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Extranjero que tuvo amoríos con Frida Khalo",
+    "answer": "León Trotsky"
+  },
+  {
+    "id": 660,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Pintores mexicanos reconocidos",
+    "answer": "1.Jo sé María Velazco 2.Diego Rivera 3.Frida Kahlo 4.Rufino Tamayo 5.David Alfaro Siqueiros 6. José Clemente Orozco 7.Jo sé Luis Cuevas"
+  },
+  {
+    "id": 661,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Autor del mural en el Museo de Antropología sobre la Serpiente emplumada",
+    "answer": "Rufino Tamayo"
+  },
+  {
+    "id": 662,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quien pintó el mural \"Dualidad\"?",
+    "answer": "Rufino Tamayo"
+  },
+  {
+    "id": 663,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿En donde se encuentra el mural \"Dualidad\"?",
+    "answer": "Museo de Antropología"
+  },
+  {
+    "id": 664,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Pintor paisajista mexicano",
+    "answer": "José María Velasco"
+  },
+  {
+    "id": 665,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Qué pintaba José María Velasco?",
+    "answer": "Paisajes"
+  },
+  {
+    "id": 666,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Titiritero y artista plástico mexicano del movimiento estridentista, autor de la escultura \"Hombre Corriendo\"",
+    "answer": "Germán Cueto"
+  },
+  {
+    "id": 667,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cuál es el teatro de mayor prestigio en la Ciudad de México?",
+    "answer": "El Palacio de Bellas Artes"
+  },
+  {
+    "id": 668,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Qué se inauguró durante el período presidencial de Abelardo Rodríguez Luján?",
+    "answer": "Palacio de Bellas Artes el 29 de septiembre de 1934"
+  },
+  {
+    "id": 669,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cuál es el nombre del antiguo teatro donde se construyó el Palacio de Bellas Artes?",
+    "answer": "El Teatro Nacional"
+  },
+  {
+    "id": 670,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Dónde se ubica el Teatro Juárez?",
+    "answer": "En Guanajuato"
+  },
+  {
+    "id": 671,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Qué teatro histórico de México es la sede el Festival Cervantino?",
+    "answer": "El Teatro Juárez"
+  },
+  {
+    "id": 672,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cuál fue la primera película filmada en México?",
+    "answer": "\"El presidente de la república paseando a caballo en el bosque de Chapultepec\" - 1896, protagonizada por Porfirio Díaz"
+  },
+  {
+    "id": 673,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cuál fué la primera película sonora en México?",
+    "answer": "Santa"
+  },
+  {
+    "id": 674,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cuál fue la primera película a color filmada en México?",
+    "answer": "\"Así se quiere en Jalisco\" (1942)"
+  },
+  {
+    "id": 675,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cuándo empezó la época de oro del cine mexicano?",
+    "answer": "1935"
+  },
+  {
+    "id": 676,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cuáles son actores de la época dorada del cine mexicano?",
+    "answer": "Pedro Infante, Jorge Negrete y Sara García"
+  },
+  {
+    "id": 677,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cómo se llamaba la actriz extranjera de la época dorada del cine mexicano?",
+    "answer": "Libertad Lamarque"
+  },
+  {
+    "id": 678,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Actrices mexicanas de la época dorada del cine mexicano",
+    "answer": "María Félix, Sara García, Dolores del Río"
+  },
+  {
+    "id": 679,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "María Félix y Dolores del Río fueron personajes destacados en el ámbito de",
+    "answer": "el cine"
+  },
+  {
+    "id": 680,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cuál es la actriz mexicana que actuaba siempre de abuelita?",
+    "answer": "Sara (Sarita) García"
+  },
+  {
+    "id": 681,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Personaje de Pedro Infante",
+    "answer": "Pepe el Toro"
+  },
+  {
+    "id": 682,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién fue Jorge Negrete?",
+    "answer": "Actor y cantante"
+  },
+  {
+    "id": 683,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Nombre completo de Jorge Negrete",
+    "answer": "Jorge Alberto Negrete Moreno"
+  },
+  {
+    "id": 684,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Figura del cine nacional que encarnó al charro mexicano",
+    "answer": "Jorge Negrete"
+  },
+  {
+    "id": 685,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Cómico que representó al mexicano de las clases populares en el cine",
+    "answer": "Cantinflas"
+  },
+  {
+    "id": 686,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién fue Mario Moreno?",
+    "answer": "El comediante mexicano más reconocido"
+  },
+  {
+    "id": 687,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Cómo es el nombre completo de Cantinflas?",
+    "answer": "Mario Fortino Alfonso Moreno Reyes"
+  },
+  {
+    "id": 688,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Año en que inicia la nueva época del cine mexicano",
+    "answer": "1990"
+  },
+  {
+    "id": 689,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Qué actor interpretó al Chavo del 8?",
+    "answer": "Roberto Gómez Bolaños"
+  },
+  {
+    "id": 690,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "\"No contaban con mi astucia\", es una frase de",
+    "answer": "El Chapulín Colorado"
+  },
+  {
+    "id": 691,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Máximo galardón de la academia mexicana de cinematografía",
+    "answer": "Premio Ariel"
+  },
+  {
+    "id": 692,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Película mexicana basada en una novela escrita por un extranjero",
+    "answer": "Macario"
+  },
+  {
+    "id": 693,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Mexicano que ha ganado dos premios Oscar como mejor actor",
+    "answer": "Anthony Quinn"
+  },
+  {
+    "id": 694,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "Mexicanos ganadores de premios Oscar como mejores directores",
+    "answer": "Alejandro González Iñárritu y Alfonso Cuarón"
+  },
+  {
+    "id": 695,
+    "section": "LITERATURA, ARTE, CINE Y TV, TEATRO",
+    "question": "¿Quién fue ganador del Globo de Oro en 2018 como mejor director?",
+    "answer": "Guillermo del Toro"
+  },
+  {
+    "id": 696,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Cuál es el baile nacional de México?",
+    "answer": "Jarabe tapatío"
+  },
+  {
+    "id": 697,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Baile de Jalisco",
+    "answer": "Jarabe tapatío"
+  },
+  {
+    "id": 698,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Qué son los voladores de Papantla?",
+    "answer": "Danza indígena de Veracruz. Ritual que está asociado a la fertilidad, se ejecuta con cuatro danzantes que representan los cuatro puntos cardinales y el caporal."
+  },
+  {
+    "id": 699,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Celebración o danza indígena de Veracruz, donde utilizan un tronco",
+    "answer": "Voladores de Papantla"
+  },
+  {
+    "id": 700,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "El arpa es un instrumento musical de:",
+    "answer": "Veracruz"
+  },
+  {
+    "id": 701,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Género músical que pertenece al estado de Veracruz",
+    "answer": "El son jarocho"
+  },
+  {
+    "id": 702,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Himno popular de la ciudad de Veracruz o canción popular de Veracruz",
+    "answer": "La Bamba"
+  },
+  {
+    "id": 703,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿De dónde es la danza del venado?",
+    "answer": "Sonora"
+  },
+  {
+    "id": 704,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿De dónde es el baile de los viejitos?",
+    "answer": "Michoacán"
+  },
+  {
+    "id": 705,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Jarana es un baile de o Jarana es una manifestación de",
+    "answer": "Yucatán"
+  },
+  {
+    "id": 706,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿De dónde es el baile de la piña o baile flor de piña?",
+    "answer": "Oaxaca"
+  },
+  {
+    "id": 707,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿De dónde proviene el mariachi?",
+    "answer": "Jalisco"
+  },
+  {
+    "id": 708,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿De dónde es y qué es la Guelaguetza?",
+    "answer": "Guelaguetza, que significa en zapoteco \"ofrenda\" o \"intercambio\", es un festival que tiene lugar en el estado de Oaxaca"
+  },
+  {
+    "id": 709,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Quién es Francisco Gabilondo Soler, alias \"Cri Cri\"?",
+    "answer": "Famoso compositor y cantautor mexicano de música infantil."
+  },
+  {
+    "id": 710,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Quién escribió \"El ratón vaquero\"?",
+    "answer": "Cri Cri (Francisco Gabilondo Soler)"
+  },
+  {
+    "id": 711,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Cuál es verdadero nombre de Juan Gabriel (el Divo de Juárez)?",
+    "answer": "Alberto Aguilera Valadez"
+  },
+  {
+    "id": 712,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Es costumbre cantar \"Las golondrinas\" para",
+    "answer": "Despedir a alguien"
+  },
+  {
+    "id": 713,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "En los cumpleaños se suele cantar en homenaje al festejado",
+    "answer": "Las mañanitas"
+  },
+  {
+    "id": 714,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Días feriados oficiales:",
+    "answer": "El artículo 74 de la Ley Federal del Trabajo señala los siguientes días de descanso obligatorio: 1 de enero, Año Nuevo, 5 de febrero, Día de la Constitución Mexicana 21 de marzo, natalicio de Benito Juárez 1 de mayo, Día de Trabajo 16 de septiembre, Día de la Independencia 20 de noviembre, Día de la Revolución 1 de octubre de cada seis años, cuando corresponda a la transmisión del Poder Ejecutivo Federal; 25 de diciembre - Navidad"
+  },
+  {
+    "id": 715,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Otras festividades nacionales importantes:",
+    "answer": "6 de enero, Día de los Reyes Magos 2 de febrero, Día de la Candelaria 24 de febrero Día de la Bandera 8 de marzo, Día de la Mujer Pascua (fechas variadas: jueves y viernes santo, como parte de las vacaciones de Semana Santa) 5 de mayo, conmemoración de Batalla de Puebla Día del Padre - cada tercer domingo de junio 10 de mayo, Día de las Madres 12 de octubre, Día de la Raza (descubrimiento de América) 2 de noviembre, Día de Muertos 12 de diciembre, Día de la Virgen de Guadalupe"
+  },
+  {
+    "id": 716,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Dia de Madres en México",
+    "answer": "10 de mayo"
+  },
+  {
+    "id": 717,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Flor amarilla que se usa durante el Día de los Muertos",
+    "answer": "Cempasúchil (Damasquina o Tagete)"
+  },
+  {
+    "id": 718,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Perro originario de México",
+    "answer": "Xoloitzcuintle"
+  },
+  {
+    "id": 719,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Festividad en que es representativa la Catrina",
+    "answer": "Día de Muertos"
+  },
+  {
+    "id": 720,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Autor de las catrinas (Calaveras)",
+    "answer": "José Guadalupe Posada"
+  },
+  {
+    "id": 721,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Una festividad que es patrimonio cultural intangible de la humanidad (UNESCO)",
+    "answer": "Día de Muertos"
+  },
+  {
+    "id": 722,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Versos festivos que se escriben en noviembre con motivo del Día de Muertos",
+    "answer": "Calaveras / calaveritas literarias"
+  },
+  {
+    "id": 723,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Cómo se llama la época de los fiesteros?",
+    "answer": "Maratón Guadalupe-Reyes/La Guadalupana. Es un periodo de fiestas que empiezan el 12 de diciembre (Día de la Vírgen de Guadalupe) y acaban el 6 de enero (Día de Reyes Magos)."
+  },
+  {
+    "id": 724,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Las posadas son fiestas privadas o vecinales que se realizan",
+    "answer": "En los días previos a Navidad"
+  },
+  {
+    "id": 725,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Imagen religiosa más venerada en México",
+    "answer": "Virgen de Guadalupe"
+  },
+  {
+    "id": 726,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Día de la Virgen de Guadalupe",
+    "answer": "12 de diciembre"
+  },
+  {
+    "id": 727,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Pan en forma de rosca, adornado con frutas, contiene figuritas y se come en la celebración de",
+    "answer": "Día de Reyes Magos (6 de enero)"
+  },
+  {
+    "id": 728,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Tiene forma de estrella, se llena de dulces y de juguetes, se usa en cumpleaños y durante los días previos a la Navidad, se golpea con un palo",
+    "answer": "Piñata"
+  },
+  {
+    "id": 729,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Flor de color rojo típica de navidad",
+    "answer": "Nochebuena"
+  },
+  {
+    "id": 730,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Productos originarios de México",
+    "answer": "Chocolate, aguacate, tomate y pavo"
+  },
+  {
+    "id": 731,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Comida típica de México",
+    "answer": "Mole / Chiles en Nogada"
+  },
+  {
+    "id": 732,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Qué es la guanábana?",
+    "answer": "Fruta de cáscara verde y pulpa blanca"
+  },
+  {
+    "id": 733,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Qué es la cajeta?",
+    "answer": "Dulce de leche quemada de cabra"
+  },
+  {
+    "id": 734,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Qué son los escamoles?",
+    "answer": "Huevos de hormiga"
+  },
+  {
+    "id": 735,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Insectos comestibles en México:",
+    "answer": "Chapulines (saltamontes), escamoles (huevos de hormiga), jumiles, gusanos de maguey"
+  },
+  {
+    "id": 736,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Bebida prehispánica conocida como \"curado\":",
+    "answer": "Pulque"
+  },
+  {
+    "id": 737,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Bebida sacada del maguey:",
+    "answer": "Pulque"
+  },
+  {
+    "id": 738,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Bebidas obtenidas del agave:",
+    "answer": "Tequila y mezcal"
+  },
+  {
+    "id": 739,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Bebida típica de México",
+    "answer": "Tequila"
+  },
+  {
+    "id": 740,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Platillos mexicanos a base de tortilla:",
+    "answer": "Sopes, tlacoyos, memelas, tacos"
+  },
+  {
+    "id": 741,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Qué son las memelas?",
+    "answer": "Tortillas de maíz ovaladas, originarias de Puebla"
+  },
+  {
+    "id": 742,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Lugar donde son tradicionales los tamales de queso para el Día de Muertos:",
+    "answer": "San Luis Potosí"
+  },
+  {
+    "id": 743,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Comida típica de México que está hecha a base de harina de maíz y se envuelve en hoja de plátano u hoja de maíz",
+    "answer": "Tamal"
+  },
+  {
+    "id": 744,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Cuál es el nombre del caldo mexicano elaborado con granos de maíz?",
+    "answer": "Pozole"
+  },
+  {
+    "id": 745,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Cuál es el ingrediente principal del mole?",
+    "answer": "Chocolate amargo"
+  },
+  {
+    "id": 746,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿De dónde es el platillo de los 7 moles?",
+    "answer": "Oaxaca"
+  },
+  {
+    "id": 747,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Cuáles son los ingredientes del mole?",
+    "answer": "Chocolate amargo, chile ancho, chile mulato, chile pasilla, chipotle, jitomate, almendra, plátano, nueces, pasas, ajonjolí, clavo, canela, perejil, pimienta, cebolla, ajo"
+  },
+  {
+    "id": 748,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "El cabrito y la machaca son platos originarios de:",
+    "answer": "Nuevo León"
+  },
+  {
+    "id": 749,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿De dónde es originaria la ensalada de Noche buena?",
+    "answer": "Michoacán"
+  },
+  {
+    "id": 750,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿De dónde son originarios la sopa de lima, los panuchos y la cochinita pibil?",
+    "answer": "Yucatán"
+  },
+  {
+    "id": 751,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Platillo tipico de Monterrey:",
+    "answer": "Cabrito"
+  },
+  {
+    "id": 752,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Nombres de 3 platillos típicos poblanos (de Puebla):",
+    "answer": "Mole poblano, chiles en nogada, chalupas"
+  },
+  {
+    "id": 753,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿De dónde es originario el chile en nogada?",
+    "answer": "Puebla"
+  },
+  {
+    "id": 754,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿De dónde es típico el queso de tuna?",
+    "answer": "San Luis Potosí"
+  },
+  {
+    "id": 755,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Plato típico de Veracruz:",
+    "answer": "Zacahuil (tamal gigante)"
+  },
+  {
+    "id": 756,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿De dónde es el queso menonita?",
+    "answer": "Chihuahua"
+  },
+  {
+    "id": 757,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Plato típico de Tabasco",
+    "answer": "Chirimol"
+  },
+  {
+    "id": 758,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Plato típico de la CDMX",
+    "answer": "Caldo Tlalpeño"
+  },
+  {
+    "id": 759,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Dulce típico de Xochimilco hecho de amaranto",
+    "answer": "Alegría"
+  },
+  {
+    "id": 760,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Postre típico de Guadalajara:",
+    "answer": "Jericalla (similar al flan)"
+  },
+  {
+    "id": 761,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Dulce típico de Guanajuato:",
+    "answer": "Charamuscas"
+  },
+  {
+    "id": 762,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Dulce típico de Pachuca:",
+    "answer": "Palanquetas"
+  },
+  {
+    "id": 763,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Postre típico a base de harina de trigo:",
+    "answer": "Buñuelos"
+  },
+  {
+    "id": 764,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Cuántos Patrimonios Unesco tiene México?",
+    "answer": "35"
+  },
+  {
+    "id": 765,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Cuántos Patrimonios culturales Unesco tiene México?",
+    "answer": "27"
+  },
+  {
+    "id": 766,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Cuál sítio arqueológico NO es un patrimonio UNESCO de México?",
+    "answer": "Parque Nacional de Tikal"
+  },
+  {
+    "id": 767,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Lugar decretado patrimonio de la humanidad por la UNESCO en 1992",
+    "answer": "Tajín"
+  },
+  {
+    "id": 768,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Qué es una tienda de abarrotes?",
+    "answer": "Lugar donde venden productos de uso cotidiano: alimentos, bebidas y artículos de limpieza"
+  },
+  {
+    "id": 769,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿A qué se le llama \"fonda\"?",
+    "answer": "A un pequeño restaurante económico"
+  },
+  {
+    "id": 770,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "Lugar dónde se come a precios bajos",
+    "answer": "Fonda"
+  },
+  {
+    "id": 771,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "En México, una tlapalería es",
+    "answer": "Una tienda de pinturas y solventes, ferretería"
+  },
+  {
+    "id": 772,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Qué significa el refrán \"A darle que es mole de olla\"?",
+    "answer": "Invitación a hacer alguna cosa con buen ánimo y sin demora"
+  },
+  {
+    "id": 773,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "¿Cómo se llama el lugar a donde llevan a los fiesteros? (conductores alcoholizados)",
+    "answer": "El Torito"
+  },
+  {
+    "id": 774,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "En México las estaciones de taxis se llaman / Otro modo de llamar a la base o lugar de taxis en México",
+    "answer": "sitios"
+  },
+  {
+    "id": 775,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "El término \"marchante\" en México se refiere a:",
+    "answer": "al vendedor y al comprador, un término usado en los mercados populares"
+  },
+  {
+    "id": 776,
+    "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
+    "question": "El vocablo \"chaparro\" significa",
+    "answer": "bajo de estatura"
+  }
+]
