@@ -9,7 +9,7 @@
 
 **LLM как и раньше генерирует только неверные варианты — этот принцип не меняется.**
 
-Проверено вручную (эта сессия): 656/776 вопросов смэтчены по тексту; из них 498 — точное совпадение ответа среди 4 опций, 104 — по подстроке, 54 — неоднозначны (нужна ручная разметка); 120 вопросов на test-страницах не найдены вовсе (для них — прежний путь: LLM + старый `RagFallback`).
+Проверено вручную (эта сессия, F1+F2): 656/776 вопросов смэтчены по тексту и получили `realDistractors` (608 автоматически, 48 — после ручной разметки review-списка). 120 вопросов на test-страницах не найдены вовсе — для них F3 генерирует `syntheticDistractors` через LLM офлайн один раз, чтобы все 776 вопросов имели ≥3 дистрактора без обращения к рантайм-LLM/старому `RagFallback` как единственному источнику.
 
 ---
 
@@ -31,13 +31,21 @@
 - **DoD:** 0 записей без разметки в `match_review.json`; итоговое покрытие (сколько вопросов с `realDistractors`, сколько только с `answerVariants`, сколько без ни того ни другого) зафиксировано в README.
 - **Проверка:** глазами — ревью diff `questions.json`.
 
+### Задача F3 — Синтетические дистракторы для непокрытых вопросов
+- **Цель:** 120 вопросов без `realDistractors` (нет соответствующей test-страницы) получают `syntheticDistractors` — 3 неверных варианта, сгенерированных LLM один раз офлайн, а не человеком написанных.
+- **Описание:** `tools/generate_synthetic_distractors.py`: для каждого из 120 вопросов — top-K соседей через `embeddings.bin` (python cosine, аналог `VectorStore`, без Kotlin-кода), контекст = `realDistractors`/`answerVariants` соседей (если есть). Вызов DeepSeek напрямую по HTTP (паттерн `test_deepseek.py`, ключ `DEEPSEEK_API_KEY` — из `local.properties` или env, т.к. python не видит `BuildConfig`), тот же принцип, что и в рантайм-генерации (D2/H1): LLM получает вопрос, верный ответ, контекст неверных примеров — возвращает 3 новых, непохожих на верный ответ. Валидация (case/accent-insensitive) против `answerVariants`. Результат — новое поле `syntheticDistractors: List<String>`, разовый прогон, коммитится как `embeddings.bin`.
+- **Файлы:** `tools/generate_synthetic_distractors.py`, обновлённый `tools/out/questions.json`.
+- **Зависимости:** F2, эмбеддинги (A2, `embeddings.bin`).
+- **DoD:** все 120 вопросов без `realDistractors` получили ровно 3 уникальных `syntheticDistractors`, не совпадающих ни с одним `answerVariants`; итог — 776/776 вопросов имеют ≥3 дистрактора в `realDistractors` либо `syntheticDistractors`.
+- **Проверка:** `python tools/generate_synthetic_distractors.py`; спот-чек 10 случайных `syntheticDistractors` вручную — правдоподобны, на испанском, не дублируют верный ответ.
+
 ## Фаза G — Domain: используем реальные данные
 
 ### Задача G1 — Схема данных: QuestionEntry
-- **Цель:** приложение читает `answerVariants` и `realDistractors`.
-- **Описание:** `QuestionEntry` расширяется (kotlinx.serialization): `answerVariants: List<String>` (минимум один элемент — старый `answer`), `realDistractors: List<String> = emptyList()`. Обратная совместимость — дефолты, старые записи без новых полей не ломаются.
+- **Цель:** приложение читает `answerVariants`, `realDistractors` и `syntheticDistractors`.
+- **Описание:** `QuestionEntry` расширяется (kotlinx.serialization): `answerVariants: List<String>` (минимум один элемент — старый `answer`), `realDistractors: List<String> = emptyList()`, `syntheticDistractors: List<String> = emptyList()`. Обратная совместимость — дефолты, старые записи без новых полей не ломаются.
 - **Файлы:** `…/data/QuestionEntry.kt`, `…/data/QuestionRepository.kt`, `QuestionRepositoryTest`.
-- **Зависимости:** F2.
+- **Зависимости:** F3.
 - **DoD:** тест: все записи парсятся, `answerVariants` непусто у каждой; существующие тесты (45) не сломаны.
 - **Проверка:** `./gradlew :composeApp:testDebugUnitTest`.
 
@@ -49,12 +57,12 @@
 - **DoD:** тест: выбор варианта детерминирован при фиксированном seed; дистракторы никогда не совпадают ни с одним из `answerVariants`.
 - **Проверка:** тесты зелёные.
 
-### Задача G3 — RagFallback: приоритет realDistractors
-- **Цель:** без LLM дистракторы берутся в порядке: свои `realDistractors` → соседские `realDistractors` → старое поведение (ответы соседей).
-- **Описание:** `RagFallback.distractors(entry, neighbors)`: 1) `entry.realDistractors`, дедуп/паддинг до 3; 2) добор из `neighbors[].realDistractors`; 3) добор из `neighbors[].answerVariants` (текущий FR-6), пока не наберётся 3 уникальных.
-- **Файлы:** `…/domain/RagFallback.kt`, тесты (3 сценария: только real, real+сосед, совсем нет real).
-- **Зависимости:** G2.
-- **DoD:** тесты покрывают все 3 сценария приоритета; на выходе всегда ровно 3 уникальных дистрактора, не пересекающихся с `answerVariants`.
+### Задача G3 — RagFallback: приоритет realDistractors → syntheticDistractors
+- **Цель:** без LLM дистракторы берутся в порядке: свои `realDistractors` → соседские `realDistractors` → свои `syntheticDistractors` → старое поведение (ответы соседей).
+- **Описание:** `RagFallback.distractors(entry, neighbors)`: 1) `entry.realDistractors`, дедуп/паддинг до 3; 2) добор из `neighbors[].realDistractors`; 3) добор из `entry.syntheticDistractors` (F3); 4) добор из `neighbors[].answerVariants` (текущий FR-6) — последний резерв, пока не наберётся 3 уникальных.
+- **Файлы:** `…/domain/RagFallback.kt`, тесты (4 сценария: только real, real+сосед, только synthetic, совсем нет ни real ни synthetic).
+- **Зависимости:** G2, F3.
+- **DoD:** тесты покрывают все 4 сценария приоритета; на выходе всегда ровно 3 уникальных дистрактора, не пересекающихся с `answerVariants`.
 - **Проверка:** тесты зелёные.
 
 ## Фаза H — LLM: реальные дистракторы как контекст
@@ -90,9 +98,9 @@
 ## Порядок
 
 ```
-F1 ─► F2 ─► G1 ─► G2 ─► G3 ─► H1 ─► H2 ─► I1
+F1 ─► F2 ─► F3 ─► G1 ─► G2 ─► G3 ─► H1 ─► H2 ─► I1
 ```
 
 Линейная зависимость — каждая задача строится на данных/коде предыдущей, распараллеливать не с чем.
 
-Риски: (1) ~54 неоднозначных вопроса в F1 — не гадать эвристикой, только ручная разметка (F2); (2) 120 вопросов без test-страницы — обязательный fallback на старое поведение (RagFallback + neighbor-context) должен остаться рабочим, не может стать «требуемой» веткой без покрытия.
+Риски: (1) ~54 неоднозначных вопроса в F1 — не гадать эвристикой, только ручная разметка (F2); (2) 120 вопросов без test-страницы получают `syntheticDistractors` через F3, а не остаются голыми — старое поведение (`RagFallback` + neighbor-context) остаётся резервом последней очереди (G3), но не единственным.
