@@ -9,7 +9,8 @@
       "En el sur de México, al lado de Puebla",
       "En el oeste de México, al lado de Jalisco"
     ],
-    "source_url": "https://ruspansky.com/test-1/"
+    "source_url": "https://ruspansky.com/test-1/",
+    "correct_index": 1
   },
   {
     "id": 72,
@@ -21,7 +22,8 @@
       "En 1854, interpretado públicamente por primera vez el 15 de septiembre de 1854",
       "En 1861, interpretado públicamente por primera el 12 de septiembre de 1861"
     ],
-    "source_url": "https://ruspansky.com/test-1/"
+    "source_url": "https://ruspansky.com/test-1/",
+    "correct_index": 2
   },
   {
     "id": 55,
@@ -33,7 +35,8 @@
       "Noroeste del país, entre Chihuahua y Durango",
       "Centro del país, entre Querétaro y San Luis Potosí"
     ],
-    "source_url": "https://ruspansky.com/test-1/"
+    "source_url": "https://ruspansky.com/test-1/",
+    "correct_index": 0
   },
   {
     "id": 86,
@@ -45,7 +48,8 @@
       "Preclásico (zapotecas), clásico (olmecas), posclásico (mayas)",
       "Preclásico (olmecas), clásico (mayas), posclásico (mexicas y aztecas)"
     ],
-    "source_url": "https://ruspansky.com/test-2/"
+    "source_url": "https://ruspansky.com/test-2/",
+    "correct_index": 3
   },
   {
     "id": 82,
@@ -57,7 +61,8 @@
       "Es la etapa después de la conquista y colonización española que incluye 2 periodos del desarrollo",
       "Es la etapa antes de la conquista y colonización española que incluye 3 periodos del desarrollo"
     ],
-    "source_url": "https://ruspansky.com/test-2/"
+    "source_url": "https://ruspansky.com/test-2/",
+    "correct_index": 3
   },
   {
     "id": 152,
@@ -69,7 +74,8 @@
       "Diosa del fuego y la destrucción tolteca",
       "Diosa de la tierra y la fertilidad zapoteca"
     ],
-    "source_url": "https://ruspansky.com/test-2/"
+    "source_url": "https://ruspansky.com/test-2/",
+    "correct_index": 0
   },
   {
     "id": 165,
@@ -81,7 +87,8 @@
       "Más de 70 (73)",
       "Más de 60 (68)"
     ],
-    "source_url": "https://ruspansky.com/test-2/"
+    "source_url": "https://ruspansky.com/test-2/",
+    "correct_index": 3
   },
   {
     "id": 213,
@@ -93,7 +100,8 @@
       "Cuitláhuac",
       "Moctezuma Xocoyotzin"
     ],
-    "source_url": "https://ruspansky.com/test-3/"
+    "source_url": "https://ruspansky.com/test-3/",
+    "correct_index": 1
   },
   {
     "id": 242,
@@ -105,7 +113,8 @@
       "La encomienda fue una institución colonial que otorgaba tierras e indígenas a los conquistadores españoles",
       "Una institución educativa creada para la formación de los hijos de los colonos penísulares que vivían en la Nueva España"
     ],
-    "source_url": "https://ruspansky.com/test-3/"
+    "source_url": "https://ruspansky.com/test-3/",
+    "correct_index": 2
   },
   {
     "id": 227,
@@ -117,7 +126,8 @@
       "Juan Ruiz de Apodaca",
       "Francisco Javier Venegas"
     ],
-    "source_url": "https://ruspansky.com/test-3/"
+    "source_url": "https://ruspansky.com/test-3/",
+    "correct_index": 2
   },
   {
     "id": 239,
@@ -129,7 +139,8 @@
       "A las fortificaciones militares construidas en la época colonial",
       "A las grandes haciendas dedicadas a la agricultura"
     ],
-    "source_url": "https://ruspansky.com/test-3/"
+    "source_url": "https://ruspansky.com/test-3/",
+    "correct_index": 0
   },
   {
     "id": 212,
@@ -141,7 +152,8 @@
       "Después de reorganizarse y recibir refuerzos y haciendo alianzas con tribus locales, Cortés sitió la ciudad",
       "Cortés utilizó exclusivamente armas de fuego avanzadas y cañones de largo alcance"
     ],
-    "source_url": "https://ruspansky.com/test-3/"
+    "source_url": "https://ruspansky.com/test-3/",
+    "correct_index": 2
   },
   {
     "id": 333,
@@ -153,7 +165,8 @@
       "Porfirio Díaz y lo llamó “El Paseo de la Victoria”",
       "Maximiliano de Habsburgo y se llamó “El Paseo de la Emperatriz”"
     ],
-    "source_url": "https://ruspansky.com/test-4/"
+    "source_url": "https://ruspansky.com/test-4/",
+    "correct_index": 3
   },
   {
     "id": 305,
@@ -165,7 +178,8 @@
       "Batalla en septiembre de 1821 que puso fin a la guerra de Independencia.",
       "Un conflicto entre diferentes facciones de los antiguos Insurgentes de la Independencia para hacerse del control del nuevo territorio mexicano."
     ],
-    "source_url": "https://ruspansky.com/test-4/"
+    "source_url": "https://ruspansky.com/test-4/",
+    "correct_index": 0
   },
   {
     "id": 319,
@@ -177,7 +191,8 @@
       "General mexicano que encabezó la victoria de los liberales contra los reformistas.",
       "Presidente de México que promovió las Leyes de Reforma, entre ellas la separación entre Iglesia y Estado."
     ],
-    "source_url": "https://ruspansky.com/test-4/"
+    "source_url": "https://ruspansky.com/test-4/",
+    "correct_index": 3
   },
   {
     "id": 259,
@@ -189,7 +204,8 @@
       "Buscaban crear una alianza militar con Inglaterra para invadir España",
       "Intentaron implementar un sistema federal autónomo en las colonias sin referencia a Fernando VII"
     ],
-    "source_url": "https://ruspansky.com/test-4/"
+    "source_url": "https://ruspansky.com/test-4/",
+    "correct_index": 0
   },
   {
     "id": 331,
@@ -201,7 +217,8 @@
       "Conflicto armado, liderado por Ignacio Zaragoza contra la segunda intervención francesa, donde México gana.",
       "Batalla donde el ejército conservador logra imponerse después de 3 años de conflicto armado."
     ],
-    "source_url": "https://ruspansky.com/test-4/"
+    "source_url": "https://ruspansky.com/test-4/",
+    "correct_index": 2
   },
   {
     "id": 288,
@@ -213,7 +230,8 @@
       "Exiliado en Cuba, el 14 de febrero de 1835",
       "Fusilado en Oaxaca, el 14 de febrero de 1831"
     ],
-    "source_url": "https://ruspansky.com/test-4/"
+    "source_url": "https://ruspansky.com/test-4/",
+    "correct_index": 3
   },
   {
     "id": 282,
@@ -225,7 +243,8 @@
       "Documento proclamado por Agustín de Iturbide, donde se declara a la Nueva España como país soberano e independiente.",
       "Documento presentado ante el Congreso de Anáhuac donde se promueve la abolición de la esclavitud en la Nueva España."
     ],
-    "source_url": "https://ruspansky.com/test-4/"
+    "source_url": "https://ruspansky.com/test-4/",
+    "correct_index": 2
   },
   {
     "id": 262,
@@ -237,7 +256,8 @@
       "Merida, Yucatán",
       "Guadalajara, Jalisco"
     ],
-    "source_url": "https://ruspansky.com/test-4/"
+    "source_url": "https://ruspansky.com/test-4/",
+    "correct_index": 1
   },
   {
     "id": 293,
@@ -249,7 +269,8 @@
       "Un plan para la reestructuración económica de México despues de la Independencia.",
       "Fue un acuerdo para la anexión de México a Estados Unidos."
     ],
-    "source_url": "https://ruspansky.com/test-4/"
+    "source_url": "https://ruspansky.com/test-4/",
+    "correct_index": 1
   },
   {
     "id": 272,
@@ -261,7 +282,8 @@
       "Las 7 Leyes",
       "Constitución de Cádiz en 1812 o Constitución Española (la Pepa)"
     ],
-    "source_url": "https://ruspansky.com/test-4/"
+    "source_url": "https://ruspansky.com/test-4/",
+    "correct_index": 3
   },
   {
     "id": 397,
@@ -273,7 +295,8 @@
       "Guerra entre los sobrevivientes revolucionarios y los partidarios del neoporfirismo.",
       "Conflicto armado entre católicos de los estados del norte y protestantes de Texas, Arizona y California."
     ],
-    "source_url": "https://ruspansky.com/test-5/"
+    "source_url": "https://ruspansky.com/test-5/",
+    "correct_index": 1
   },
   {
     "id": 416,
@@ -285,7 +308,8 @@
       "Al economista Luis Donaldo Colosio y al presidente Manuel Ávila Camacho",
       "Al político Javier Pérez de Cuéllar y al presidente Gustavo Díaz Ordaz"
     ],
-    "source_url": "https://ruspansky.com/test-5/"
+    "source_url": "https://ruspansky.com/test-5/",
+    "correct_index": 0
   },
   {
     "id": 349,
@@ -297,7 +321,8 @@
       "Plan Texcoco",
       "Plan de Noria"
     ],
-    "source_url": "https://ruspansky.com/test-5/"
+    "source_url": "https://ruspansky.com/test-5/",
+    "correct_index": 3
   },
   {
     "id": 386,
@@ -309,7 +334,8 @@
       "Creado por Venustiano Carranza y firmado el 26 de marzo de 1913, desconocía el gobierno de Victoriano Huerta por la traición a Madero.",
       "Creado por Álvaro Obregón y firmado el 26 de marzo de 1913, desconocía el gobierno de Venustiano Carranza por sus reformas laborales."
     ],
-    "source_url": "https://ruspansky.com/test-5/"
+    "source_url": "https://ruspansky.com/test-5/",
+    "correct_index": 2
   },
   {
     "id": 403,
@@ -321,7 +347,8 @@
       "Ley para la expropiación de las compañías petroleras.",
       "Ley expedida para controlar y limitar el culto católico en México, presidencia de Plutarco Elías Calles."
     ],
-    "source_url": "https://ruspansky.com/test-5/"
+    "source_url": "https://ruspansky.com/test-5/",
+    "correct_index": 3
   },
   {
     "id": 400,
@@ -333,7 +360,8 @@
       "Miguel Alemán Valdés, Adolfo López Mateos, Adolfo Ruiz Cortines",
       "Lázaro Cárdenas del Río, Manuel Ávila Camacho, Venustiano Carranza"
     ],
-    "source_url": "https://ruspansky.com/test-5/"
+    "source_url": "https://ruspansky.com/test-5/",
+    "correct_index": 0
   },
   {
     "id": 375,
@@ -345,7 +373,8 @@
       "Emiliano Zapata proclamó el 18 de octubre de 1909 un levantamiento armado para apoyar el gobierno de Francisco I. Madero.",
       "Emiliano Zapata proclamó el 16 de septiembre de 1911 una reforma agraria sin uso de las armas."
     ],
-    "source_url": "https://ruspansky.com/test-5/"
+    "source_url": "https://ruspansky.com/test-5/",
+    "correct_index": 0
   },
   {
     "id": 370,
@@ -357,7 +386,8 @@
       "Benito Juárez llamó a levantarse en armas para imponer la Constitución de 1857 y reforzar el poder presidencial en septiembre de 1913.",
       "Emiliano Zapata llamó a levantarse en armas para promover la reforma agraria, repartir la tierra y establecer un gobierno comunal en enero de 1911."
     ],
-    "source_url": "https://ruspansky.com/test-5/"
+    "source_url": "https://ruspansky.com/test-5/",
+    "correct_index": 1
   },
   {
     "id": 345,
@@ -369,7 +399,8 @@
       "Presidente de México que derrocó al dictador Benito Juárez",
       "Militar destacado en la Batalla de Puebla del 5 de mayo, posteriormente presidente de México en 7 ocasiones"
     ],
-    "source_url": "https://ruspansky.com/test-5/"
+    "source_url": "https://ruspansky.com/test-5/",
+    "correct_index": 3
   },
   {
     "id": 445,
@@ -381,7 +412,8 @@
       "Cerro de la Silla, La Malinche, Ajusco, Cofre de Perote",
       "Pico de Orizaba, Popocatépetl, Nevado de Toluca, Volcán Cierra Negra"
     ],
-    "source_url": "https://ruspansky.com/test-6/"
+    "source_url": "https://ruspansky.com/test-6/",
+    "correct_index": 3
   },
   {
     "id": 465,
@@ -393,7 +425,8 @@
       "Jaguar, águila real, mariposa monarca, ajolote, tortuga caguama, guacamaya roja, oso negro, vaquita marina",
       "Sapo de espinas, burro mexicano, gato montés, oso blanco y cernícalo americano"
     ],
-    "source_url": "https://ruspansky.com/test-6/"
+    "source_url": "https://ruspansky.com/test-6/",
+    "correct_index": 2
   },
   {
     "id": 446,
@@ -405,7 +438,8 @@
       "La Malinche y San Martín Tuxtla",
       "Volcán Cenizas, Pico de Orizaba y Volcán de Fuego"
     ],
-    "source_url": "https://ruspansky.com/test-6/"
+    "source_url": "https://ruspansky.com/test-6/",
+    "correct_index": 1
   },
   {
     "id": 459,
@@ -417,7 +451,8 @@
       "Desierto de los leones",
       "Reserva natural de la mariposa monarca"
     ],
-    "source_url": "https://ruspansky.com/test-6/"
+    "source_url": "https://ruspansky.com/test-6/",
+    "correct_index": 0
   },
   {
     "id": 450,
@@ -429,7 +464,8 @@
       "Veracruz, Campeche, Tabasco y Yucatán",
       "Oaxaca, Michoacán y Guerrero"
     ],
-    "source_url": "https://ruspansky.com/test-6/"
+    "source_url": "https://ruspansky.com/test-6/",
+    "correct_index": 1
   },
   {
     "id": 447,
@@ -441,7 +477,8 @@
       "Volcán de Fuego, La Malinche y Paricutín",
       "Sierra Norte de Oaxaca y Volcán de Chapala"
     ],
-    "source_url": "https://ruspansky.com/test-6/"
+    "source_url": "https://ruspansky.com/test-6/",
+    "correct_index": 1
   },
   {
     "id": 453,
@@ -453,7 +490,8 @@
       "Norte: Río Cazones y Río Usumacinta; Sur: Río Ototito y Río Colorado",
       "Norte: Río Usumacienta y Río San Juan; Sur: Río Bravo, Río Ototito, Río Colorado y Río Lerma"
     ],
-    "source_url": "https://ruspansky.com/test-6/"
+    "source_url": "https://ruspansky.com/test-6/",
+    "correct_index": 1
   },
   {
     "id": 463,
@@ -465,7 +503,8 @@
       "Nuevo León y Coahuila",
       "Colima y Jalisco"
     ],
-    "source_url": "https://ruspansky.com/test-6/"
+    "source_url": "https://ruspansky.com/test-6/",
+    "correct_index": 1
   },
   {
     "id": 511,
@@ -477,7 +516,8 @@
       "Andrés Manuel López Obrador, Ricardo Monreal, Marcelo Luis Ebrard Casaubón, Gerardo Fenández Noroña, Carlos Salinas de Gortari",
       "Andres Manuel López Obrador, Vicente Fox Quesada, Ernesto Zedillo, José López Portillo, Manuel Ávila Camacho"
     ],
-    "source_url": "https://ruspansky.com/test-7/"
+    "source_url": "https://ruspansky.com/test-7/",
+    "correct_index": 0
   },
   {
     "id": 604,
@@ -489,7 +529,8 @@
       "Denisse Garrido, Karina González y Margarita Moreno",
       "Adriana Paniagua, Beatriz Rivas y Karina González"
     ],
-    "source_url": "https://ruspansky.com/test-8/"
+    "source_url": "https://ruspansky.com/test-8/",
+    "correct_index": 0
   },
   {
     "id": 593,
@@ -501,7 +542,8 @@
       "En 1947",
       "En 1974"
     ],
-    "source_url": "https://ruspansky.com/test-8/"
+    "source_url": "https://ruspansky.com/test-8/",
+    "correct_index": 3
   },
   {
     "id": 580,
@@ -513,7 +555,8 @@
       "En tres niveles: básica, media superior y superior",
       "En tres niveles: educación básica, grado y posgrado"
     ],
-    "source_url": "https://ruspansky.com/test-8/"
+    "source_url": "https://ruspansky.com/test-8/",
+    "correct_index": 2
   },
   {
     "id": 598,
@@ -525,7 +568,8 @@
       "Guillermo González Camarena en 1940",
       "Luís Ernesto Miramontes Cárdenas en 1951"
     ],
-    "source_url": "https://ruspansky.com/test-8/"
+    "source_url": "https://ruspansky.com/test-8/",
+    "correct_index": 3
   },
   {
     "id": 599,
@@ -537,7 +581,8 @@
       "Alfonso García Robles, Octavio Paz, José María Molina Pasquel y Henríquez",
       "Frida Kahlo, Diego Rivera, Leonora Carrington"
     ],
-    "source_url": "https://ruspansky.com/test-8/"
+    "source_url": "https://ruspansky.com/test-8/",
+    "correct_index": 2
   },
   {
     "id": 698,
@@ -549,7 +594,8 @@
       "Una técnica de tejido ancestral originaria de Puebla",
       "Una danza tradicional de la región de Oaxaca con fines ceremoniales"
     ],
-    "source_url": "https://ruspansky.com/test-10/"
+    "source_url": "https://ruspansky.com/test-10/",
+    "correct_index": 0
   },
   {
     "id": 735,
@@ -561,7 +607,8 @@
       "Mariposas nocturnas, cochinillas, pulgas, arañas",
       "Mosquitos, abejas, chinches, termitas"
     ],
-    "source_url": "https://ruspansky.com/test-10/"
+    "source_url": "https://ruspansky.com/test-10/",
+    "correct_index": 1
   },
   {
     "id": 775,
@@ -573,6 +620,7 @@
       "Al propietario de una tienda de antigüedades",
       "al vendedor y comprador"
     ],
-    "source_url": "https://ruspansky.com/test-10/"
+    "source_url": "https://ruspansky.com/test-10/",
+    "correct_index": 3
   }
 ]

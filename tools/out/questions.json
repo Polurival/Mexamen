@@ -586,9 +586,14 @@
     "question": "Ubicar en el Mapa a Querétaro",
     "answer": "Queda justamente después de Guanajuato, En el Centro del País",
     "answerVariants": [
-      "Queda justamente después de Guanajuato, En el Centro del País"
+      "Queda justamente después de Guanajuato, En el Centro del País",
+      "Al lado de Guanajuato, en el centro del país"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "En el noreste de México, arriba de San Luis Potosí",
+      "En el sur de México, al lado de Puebla",
+      "En el oeste de México, al lado de Jalisco"
+    ]
   },
   {
     "id": 54,
@@ -610,9 +615,14 @@
     "question": "Señale en el mapa donde queda Campeche",
     "answer": "SurEste del País en el medio de Tabasco y Yucatán",
     "answerVariants": [
-      "SurEste del País en el medio de Tabasco y Yucatán"
+      "SurEste del País en el medio de Tabasco y Yucatán",
+      "Sureste del país entre Tabasco y Yucatán"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "En el suroeste, entre Guerrero y Jalisco",
+      "Noroeste del país, entre Chihuahua y Durango",
+      "Centro del país, entre Querétaro y San Luis Potosí"
+    ]
   },
   {
     "id": 56,
@@ -823,9 +833,14 @@
     "question": "¿Cuándo fué creado el Himno Nacional?",
     "answer": "En 1854, interpretado públicamente por primera vez en la noche del 15 de septiembre de 1854 en el Gran Teatro de Santa Anna.",
     "answerVariants": [
-      "En 1854, interpretado públicamente por primera vez en la noche del 15 de septiembre de 1854 en el Gran Teatro de Santa Anna."
+      "En 1854, interpretado públicamente por primera vez en la noche del 15 de septiembre de 1854 en el Gran Teatro de Santa Anna.",
+      "En 1854, interpretado públicamente por primera vez el 15 de septiembre de 1854"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "En 1860, interpretado públicamente por primera vez el 15 de septiembre de 1860",
+      "En 1856, interpretado públicamente por primera vez el 11 de septiembre de 1856",
+      "En 1861, interpretado públicamente por primera el 12 de septiembre de 1861"
+    ]
   },
   {
     "id": 73,
@@ -959,9 +974,14 @@
     "question": "¿Qué es México prehispánico?",
     "answer": "Es la etapa antes de la conquista y colonización española de 1521. México prehispánico Incluye 3 periodos: preclásico, clásico y posclásico.",
     "answerVariants": [
-      "Es la etapa antes de la conquista y colonización española de 1521. México prehispánico Incluye 3 periodos: preclásico, clásico y posclásico."
+      "Es la etapa antes de la conquista y colonización española de 1521. México prehispánico Incluye 3 periodos: preclásico, clásico y posclásico.",
+      "Es la etapa antes de la conquista y colonización española que incluye 3 periodos del desarrollo"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Es la etapa clásica de los mayas",
+      "Es la etapa preclásica de los omecas",
+      "Es la etapa después de la conquista y colonización española que incluye 2 periodos del desarrollo"
+    ]
   },
   {
     "id": 83,
@@ -1007,9 +1027,14 @@
     "question": "Periodos de las culturas mesoamericanas",
     "answer": "Preclásico (olmecas), сlásico (mayas), posclásico (mexica y azteca)",
     "answerVariants": [
-      "Preclásico (olmecas), сlásico (mayas), posclásico (mexica y azteca)"
+      "Preclásico (olmecas), сlásico (mayas), posclásico (mexica y azteca)",
+      "Preclásico (olmecas), clásico (mayas), posclásico (mexicas y aztecas)"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Preclásico (toltecas), clásico (mexicas y aztecas), posclásico (olmecas)",
+      "Preclásico (mayas), clásico (olmecas), posclásico (mexicas y aztecas)",
+      "Preclásico (zapotecas), clásico (olmecas), posclásico (mayas)"
+    ]
   },
   {
     "id": 87,
@@ -1901,9 +1926,14 @@
     "question": "¿Quién fue Chalchiuhtlicue?",
     "answer": "Diosa de los lagos y corrientes de agua de los mexicas",
     "answerVariants": [
-      "Diosa de los lagos y corrientes de agua de los mexicas"
+      "Diosa de los lagos y corrientes de agua de los mexicas",
+      "Diosa de los lagos y corrientes de agua mexica"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Diosa de la guerra y la caza maya",
+      "Diosa del fuego y la destrucción tolteca",
+      "Diosa de la tierra y la fertilidad zapoteca"
+    ]
   },
   {
     "id": 153,
@@ -2080,9 +2110,14 @@
     "question": "¿Cuántas lenguas indígenas existen en México?",
     "answer": "Más de 60: precisamente 68 lenguas. 10 son las más populares: Náhuatl, Chol, Totonaca, Mazateco, Mixteco, Zapoteco, Otomí, Tzotzil, Tzeltal y Maya.",
     "answerVariants": [
-      "Más de 60: precisamente 68 lenguas. 10 son las más populares: Náhuatl, Chol, Totonaca, Mazateco, Mixteco, Zapoteco, Otomí, Tzotzil, Tzeltal y Maya."
+      "Más de 60: precisamente 68 lenguas. 10 son las más populares: Náhuatl, Chol, Totonaca, Mazateco, Mixteco, Zapoteco, Otomí, Tzotzil, Tzeltal y Maya.",
+      "Más de 60 (68)"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Más de de 40 (49)",
+      "Más de 50 (58)",
+      "Más de 70 (73)"
+    ]
   },
   {
     "id": 166,
@@ -2724,9 +2759,14 @@
     "question": "¿Cómo cayó Tenochtitlán?",
     "answer": "Después de reorganizarse y recibir refuerzos haciendo alianzas con tribus locales, Cortés regresó a Tenochtitlán en 1521 y la sitió durante varios meses. Además, los aztecas fueron debilitados por las enfermedades, traídas por los españoles. La ciudad finalmente cayó ante los españoles el 13 de agosto de 1521.",
     "answerVariants": [
-      "Después de reorganizarse y recibir refuerzos haciendo alianzas con tribus locales, Cortés regresó a Tenochtitlán en 1521 y la sitió durante varios meses. Además, los aztecas fueron debilitados por las enfermedades, traídas por los españoles. La ciudad finalmente cayó ante los españoles el 13 de agosto de 1521."
+      "Después de reorganizarse y recibir refuerzos haciendo alianzas con tribus locales, Cortés regresó a Tenochtitlán en 1521 y la sitió durante varios meses. Además, los aztecas fueron debilitados por las enfermedades, traídas por los españoles. La ciudad finalmente cayó ante los españoles el 13 de agosto de 1521.",
+      "Después de reorganizarse y recibir refuerzos y haciendo alianzas con tribus locales, Cortés sitió la ciudad"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Tenochtitlán fue entregada pacíficamente por Moctezuma II, quien se convenció de que los españoles eran dioses",
+      "La ciudad cayó a causa de un tsunami que destruyó gran parte de la infraestructura y debilitó a los defensores",
+      "Cortés utilizó exclusivamente armas de fuego avanzadas y cañones de largo alcance"
+    ]
   },
   {
     "id": 213,
@@ -2734,9 +2774,14 @@
     "question": "Último emperador mexica (azteca)",
     "answer": "Cuauhtémoc - último emperador del imperio mexica después de la muerte de Cuitláhuac.",
     "answerVariants": [
-      "Cuauhtémoc - último emperador del imperio mexica después de la muerte de Cuitláhuac."
+      "Cuauhtémoc - último emperador del imperio mexica después de la muerte de Cuitláhuac.",
+      "Cuauhtémoc"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Axayácatl",
+      "Cuitláhuac",
+      "Moctezuma Xocoyotzin"
+    ]
   },
   {
     "id": 214,
@@ -2928,9 +2973,14 @@
     "question": "Último virrey de la Nueva España",
     "answer": "Juan Ruiz de Apodaca (aunque algunas fuentes erróneamente señalan como el último virrey de la Nueva España a Juan O'Donojú, pero él nunca ejerció dicho cargo.)",
     "answerVariants": [
-      "Juan Ruiz de Apodaca (aunque algunas fuentes erróneamente señalan como el último virrey de la Nueva España a Juan O'Donojú, pero él nunca ejerció dicho cargo.)"
+      "Juan Ruiz de Apodaca (aunque algunas fuentes erróneamente señalan como el último virrey de la Nueva España a Juan O'Donojú, pero él nunca ejerció dicho cargo.)",
+      "Juan Ruiz de Apodaca"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "José de Iturrigaray",
+      "Juán O´Donojú",
+      "Francisco Javier Venegas"
+    ]
   },
   {
     "id": 228,
@@ -3093,9 +3143,14 @@
     "question": "¿A qué se le llamaba obrajes en la época de la Nueva España?",
     "answer": "Eran centros artesanales que existieron a mediados del siglo XVI, con 50 trabajadores en promedio, en los cuales se producían textiles, hilos y lana de calidad burda. Estos productos se vendían a indios y mulatos, los cuales no podían pagar el precio del mismo producto importado de Europa. Los trabajadores eran indios y delincuentes condenados por delitos que eran explotados por los obrajeros.",
     "answerVariants": [
-      "Eran centros artesanales que existieron a mediados del siglo XVI, con 50 trabajadores en promedio, en los cuales se producían textiles, hilos y lana de calidad burda. Estos productos se vendían a indios y mulatos, los cuales no podían pagar el precio del mismo producto importado de Europa. Los trabajadores eran indios y delincuentes condenados por delitos que eran explotados por los obrajeros."
+      "Eran centros artesanales que existieron a mediados del siglo XVI, con 50 trabajadores en promedio, en los cuales se producían textiles, hilos y lana de calidad burda. Estos productos se vendían a indios y mulatos, los cuales no podían pagar el precio del mismo producto importado de Europa. Los trabajadores eran indios y delincuentes condenados por delitos que eran explotados por los obrajeros.",
+      "A centros artesanales que existieron a mediados del siglo XVI"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "A los edificios gubernamentales utilizados para la administración de justicia",
+      "A las fortificaciones militares construidas en la época colonial",
+      "A las grandes haciendas dedicadas a la agricultura"
+    ]
   },
   {
     "id": 240,
@@ -3127,9 +3182,14 @@
     "question": "¿Qué es la encomienda?",
     "answer": "La encomienda fue una institución colonial que otorgaba (repartía) tierras e indígenas a los conquistadores españoles.",
     "answerVariants": [
-      "La encomienda fue una institución colonial que otorgaba (repartía) tierras e indígenas a los conquistadores españoles."
+      "La encomienda fue una institución colonial que otorgaba (repartía) tierras e indígenas a los conquistadores españoles.",
+      "La encomienda fue una institución colonial que otorgaba tierras e indígenas a los conquistadores españoles"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Un tipo de moneda utilizada en el comercio colonial",
+      "Un tratado comercial entre la Nueva España y otras colonias",
+      "Una institución educativa creada para la formación de los hijos de los colonos penísulares que vivían en la Nueva España"
+    ]
   },
   {
     "id": 243,
@@ -3356,9 +3416,14 @@
     "question": "¿En qué consistió la conspiración de Valladolid?",
     "answer": "Pretendían establecer un congreso soberano que gobernaría a nombre de Fernando VII, organizando una junta nacional gubernativa, y establecer un gobierno americano. Sin embargo, la conjura falló al ser delatada.",
     "answerVariants": [
-      "Pretendían establecer un congreso soberano que gobernaría a nombre de Fernando VII, organizando una junta nacional gubernativa, y establecer un gobierno americano. Sin embargo, la conjura falló al ser delatada."
+      "Pretendían establecer un congreso soberano que gobernaría a nombre de Fernando VII, organizando una junta nacional gubernativa, y establecer un gobierno americano. Sin embargo, la conjura falló al ser delatada.",
+      "Pretendían establecer un congreso soberano a nombre de Fernando VII"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Pretendían establecer una monarquía absoluta en lugar de la República en América",
+      "Buscaban crear una alianza militar con Inglaterra para invadir España",
+      "Intentaron implementar un sistema federal autónomo en las colonias sin referencia a Fernando VII"
+    ]
   },
   {
     "id": 260,
@@ -3395,9 +3460,14 @@
     "question": "¿Dónde fue la cuna de la Independencia?",
     "answer": "en Dolores Hidalgo, estado de Guanajuato",
     "answerVariants": [
-      "en Dolores Hidalgo, estado de Guanajuato"
+      "en Dolores Hidalgo, estado de Guanajuato",
+      "Dolores Hidalgo, Guanajuato"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Morelia, Michoacán",
+      "Merida, Yucatán",
+      "Guadalajara, Jalisco"
+    ]
   },
   {
     "id": 263,
@@ -3525,9 +3595,14 @@
     "question": "Constitución que dividió a la Nueva España en 6 provincias",
     "answer": "Constitución de Cádiz en 1812 o Constitución Española, conocida popularmente como la Pepa",
     "answerVariants": [
-      "Constitución de Cádiz en 1812 o Constitución Española, conocida popularmente como la Pepa"
+      "Constitución de Cádiz en 1812 o Constitución Española, conocida popularmente como la Pepa",
+      "Constitución de Cádiz en 1812 o Constitución Española (la Pepa)"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Constitución de Apatzingán de 1814",
+      "Constitución de las Américas",
+      "Las 7 Leyes"
+    ]
   },
   {
     "id": 273,
@@ -3664,9 +3739,14 @@
     "question": "¿Qué es el Plan de Iguala?",
     "answer": "Es un documento político proclamado por Agustín de Iturbide, en el cual se declaraba a la Nueva España como país soberano e independiente.",
     "answerVariants": [
-      "Es un documento político proclamado por Agustín de Iturbide, en el cual se declaraba a la Nueva España como país soberano e independiente."
+      "Es un documento político proclamado por Agustín de Iturbide, en el cual se declaraba a la Nueva España como país soberano e independiente.",
+      "Documento proclamado por Agustín de Iturbide, donde se declara a la Nueva España como país soberano e independiente."
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Tratado firmado entre Maximiliano de Habsburgo y Juan O´Donojú para formalizar la Independencia de México.",
+      "Plan firmado por María Morelos y Pavón para mantenerse unidos a la corona española.",
+      "Documento presentado ante el Congreso de Anáhuac donde se promueve la abolición de la esclavitud en la Nueva España."
+    ]
   },
   {
     "id": 283,
@@ -3745,9 +3825,14 @@
     "question": "¿Cómo murió Vicente Guerrero?",
     "answer": "Fusilado en Oaxaca el 14 de feb. de 1831",
     "answerVariants": [
-      "Fusilado en Oaxaca el 14 de feb. de 1831"
+      "Fusilado en Oaxaca el 14 de feb. de 1831",
+      "Fusilado en Oaxaca, el 14 de febrero de 1831"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Enfermo de cólera, el 1 de mayo de 1832",
+      "En el campo de batalla, el 15 de febrero de 1831",
+      "Exiliado en Cuba, el 14 de febrero de 1835"
+    ]
   },
   {
     "id": 289,
@@ -3809,9 +3894,14 @@
     "question": "¿De qué se trató el Plan de Casa Mata?",
     "answer": "Proclamado por el General Santa Anna, fue un plan para desconocer a Iturbide como emperador, anular el impero y reinstalar el Congreso. Declarado el 1 de febrero de 1823 en la Hacienda Casamata, Veracruz.",
     "answerVariants": [
-      "Proclamado por el General Santa Anna, fue un plan para desconocer a Iturbide como emperador, anular el impero y reinstalar el Congreso. Declarado el 1 de febrero de 1823 en la Hacienda Casamata, Veracruz."
+      "Proclamado por el General Santa Anna, fue un plan para desconocer a Iturbide como emperador, anular el impero y reinstalar el Congreso. Declarado el 1 de febrero de 1823 en la Hacienda Casamata, Veracruz.",
+      "Proclamado por el General Santa Anna para desconocer a Iturbide como emperador, anular el impero y reinstalar el Congreso."
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Un plan militar proclamado por Vicente Guerrero para la defensa de México ante futuras invasiones extranjeras.",
+      "Un plan para la reestructuración económica de México despues de la Independencia.",
+      "Fue un acuerdo para la anexión de México a Estados Unidos."
+    ]
   },
   {
     "id": 294,
@@ -3970,9 +4060,14 @@
     "question": "¿Qué fue la batalla de Chapultepec?",
     "answer": "Fue un conflicto armado que tuvo lugar el lunes 13 de septiembre de 1847 en el cerro llamado Chapultepec. En el combate intervinieron los ejércitos de Estados Unidos y de México. El motivo de la batalla, y de la invasión en general fue que Estados Unidos deseaba apoderarse del territorio al norte del Río Bravo, incluido Texas.",
     "answerVariants": [
-      "Fue un conflicto armado que tuvo lugar el lunes 13 de septiembre de 1847 en el cerro llamado Chapultepec. En el combate intervinieron los ejércitos de Estados Unidos y de México. El motivo de la batalla, y de la invasión en general fue que Estados Unidos deseaba apoderarse del territorio al norte del Río Bravo, incluido Texas."
+      "Fue un conflicto armado que tuvo lugar el lunes 13 de septiembre de 1847 en el cerro llamado Chapultepec. En el combate intervinieron los ejércitos de Estados Unidos y de México. El motivo de la batalla, y de la invasión en general fue que Estados Unidos deseaba apoderarse del territorio al norte del Río Bravo, incluido Texas.",
+      "Un conflicto armado que tuvo lugar el 13 de septiembre de 1847 en el cerro Chapultepec entre los ejércitos de EE. UU. y México."
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Una batalla entre los últimos residentes españoles en el México independiente para el reestablecimeinto de una monarquía española.",
+      "Batalla en septiembre de 1821 que puso fin a la guerra de Independencia.",
+      "Un conflicto entre diferentes facciones de los antiguos Insurgentes de la Independencia para hacerse del control del nuevo territorio mexicano."
+    ]
   },
   {
     "id": 306,
@@ -4153,9 +4248,14 @@
     "question": "¿Quién fue Benito Pablo Juárez García?",
     "answer": "Presidente de México en varias ocasiones entre 1857 a 1872. Promovió las Leyes de Reforma, entre ellas la separación entre Iglesia y Estado.",
     "answerVariants": [
-      "Presidente de México en varias ocasiones entre 1857 a 1872. Promovió las Leyes de Reforma, entre ellas la separación entre Iglesia y Estado."
+      "Presidente de México en varias ocasiones entre 1857 a 1872. Promovió las Leyes de Reforma, entre ellas la separación entre Iglesia y Estado.",
+      "Presidente de México que promovió las Leyes de Reforma, entre ellas la separación entre Iglesia y Estado."
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Gobernador de Oaxaca que fundó el Imperio Mexicano y fue proclamado emperador.",
+      "General mexicano que encabezó la victoria de los conservadores contra los liberales.",
+      "General mexicano que encabezó la victoria de los liberales contra los reformistas."
+    ]
   },
   {
     "id": 320,
@@ -4313,9 +4413,14 @@
     "question": "¿Qué fue la Batalla de Puebla?",
     "answer": "Conflicto armado, liderado por Ignacio Zaragoza contra la segunda intervención francesa, siendo México vencedor. Después un nuevo ejército francés regresa y vence a México, luego establece el Segundo Imperio bajo el mando de Maximiliano de Habsburgo.",
     "answerVariants": [
-      "Conflicto armado, liderado por Ignacio Zaragoza contra la segunda intervención francesa, siendo México vencedor. Después un nuevo ejército francés regresa y vence a México, luego establece el Segundo Imperio bajo el mando de Maximiliano de Habsburgo."
+      "Conflicto armado, liderado por Ignacio Zaragoza contra la segunda intervención francesa, siendo México vencedor. Después un nuevo ejército francés regresa y vence a México, luego establece el Segundo Imperio bajo el mando de Maximiliano de Habsburgo.",
+      "Conflicto armado, liderado por Ignacio Zaragoza contra la segunda intervención francesa, donde México gana."
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Un conflicto donde los liberales derrotan a los conservadores, dando paso a un nuevo gobierno.",
+      "Batalla donde Antonio López de Santa Anna logra recuperar el poder después de su exilio.",
+      "Batalla donde el ejército conservador logra imponerse después de 3 años de conflicto armado."
+    ]
   },
   {
     "id": 332,
@@ -4337,9 +4442,14 @@
     "question": "¿Quién hizo el trazo de Paseo de la Reforma y cómo se llamó?",
     "answer": "Maximiliano de Habsburgo en 1864 y se llamó El Paseo de la Emperatriz",
     "answerVariants": [
-      "Maximiliano de Habsburgo en 1864 y se llamó El Paseo de la Emperatriz"
+      "Maximiliano de Habsburgo en 1864 y se llamó El Paseo de la Emperatriz",
+      "Maximiliano de Habsburgo y se llamó “El Paseo de la Emperatriz”"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Ignacio Zaragoza y lo llamó “La Batalla de Puebla”",
+      "Benito Juárez y lo llamó “El Paseo de las Flores”",
+      "Porfirio Díaz y lo llamó “El Paseo de la Victoria”"
+    ]
   },
   {
     "id": 334,
@@ -4494,9 +4604,14 @@
     "question": "¿Quién fue Porfirio Díaz?",
     "answer": "Fue un militar nacido en Oaxaca. Se destacó en la Batalla de Puebla del 5 de mayo. Posteriormente, fue presidente de México en 7 ocasiones",
     "answerVariants": [
-      "Fue un militar nacido en Oaxaca. Se destacó en la Batalla de Puebla del 5 de mayo. Posteriormente, fue presidente de México en 7 ocasiones"
+      "Fue un militar nacido en Oaxaca. Se destacó en la Batalla de Puebla del 5 de mayo. Posteriormente, fue presidente de México en 7 ocasiones",
+      "Militar destacado en la Batalla de Puebla del 5 de mayo, posteriormente presidente de México en 7 ocasiones"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Diputado mexicano destacado por sus iniciativas de ley en la posrrevolución mexicana",
+      "Primer Emperador de México nacido en territorio nacional.",
+      "Presidente de México que derrocó al dictador Benito Juárez"
+    ]
   },
   {
     "id": 346,
@@ -4548,9 +4663,14 @@
     "question": "Movimiento político-militar dirigido por Porfirio Díaz en 1871 para impedir la reelección de Benito Juárez",
     "answer": "Plan de La Noria",
     "answerVariants": [
-      "Plan de La Noria"
+      "Plan de La Noria",
+      "Plan de Noria"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Plan de Tuxtepec",
+      "Plan Casa Blanca",
+      "Plan Texcoco"
+    ]
   },
   {
     "id": 350,
@@ -4835,9 +4955,14 @@
     "question": "¿De qué se trató el Plan de San Luis Potosí?",
     "answer": "Francisco I. Madero el 5 de octubre de 1910, convoca a levantarse en armas para evitar la reelección de Porfirio Díaz y derrocar el Porfiriato . Se buscaba lograr elecciones libres y democráticas. El conflicto armado se inició en el norte del país y posteriormente se expandió a otras partes del territorio nacional.",
     "answerVariants": [
-      "Francisco I. Madero el 5 de octubre de 1910, convoca a levantarse en armas para evitar la reelección de Porfirio Díaz y derrocar el Porfiriato . Se buscaba lograr elecciones libres y democráticas. El conflicto armado se inició en el norte del país y posteriormente se expandió a otras partes del territorio nacional."
+      "Francisco I. Madero el 5 de octubre de 1910, convoca a levantarse en armas para evitar la reelección de Porfirio Díaz y derrocar el Porfiriato . Se buscaba lograr elecciones libres y democráticas. El conflicto armado se inició en el norte del país y posteriormente se expandió a otras partes del territorio nacional.",
+      "Francisco I. Madero llamó a levantarse en armas para evitar la reelección de Porfirio Díaz y establecer elecciones libres y democráticas en octubre de 1910."
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Francisco Villa llamó a levantarse en armas para derrocar a Victoriano Huerta y reinstalar a Porfirio Díaz en marzo de 1912.",
+      "Benito Juárez llamó a levantarse en armas para imponer la Constitución de 1857 y reforzar el poder presidencial en septiembre de 1913.",
+      "Emiliano Zapata llamó a levantarse en armas para promover la reforma agraria, repartir la tierra y establecer un gobierno comunal en enero de 1911."
+    ]
   },
   {
     "id": 371,
@@ -4902,9 +5027,14 @@
     "question": "¿De qué se trató el Plan de Ayala?",
     "answer": "El Plan proclamado por Emiliano Zapata el 28 de noviembre 1911 para desconocer el gobierno de Francisco I. Madero en 1911 y devolver la propiedad a los campesinos por medio de las armas. Su lema fue: \"Reforma, Libertad, Justicia y Ley\"",
     "answerVariants": [
-      "El Plan proclamado por Emiliano Zapata el 28 de noviembre 1911 para desconocer el gobierno de Francisco I. Madero en 1911 y devolver la propiedad a los campesinos por medio de las armas. Su lema fue: \"Reforma, Libertad, Justicia y Ley\""
+      "El Plan proclamado por Emiliano Zapata el 28 de noviembre 1911 para desconocer el gobierno de Francisco I. Madero en 1911 y devolver la propiedad a los campesinos por medio de las armas. Su lema fue: \"Reforma, Libertad, Justicia y Ley\"",
+      "Emiliano Zapata proclamó el 28 de noviembre de 1911 un levantamiento armado para desconocer el gobierno de Francisco I. Madero y devolver las tierras a los campesinos."
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Emiliano Zapata proclamó el 20 de noviembre de 1912 un plan para promover la industrialización de México.",
+      "Emiliano Zapata proclamó el 18 de octubre de 1909 un levantamiento armado para apoyar el gobierno de Francisco I. Madero.",
+      "Emiliano Zapata proclamó el 16 de septiembre de 1911 una reforma agraria sin uso de las armas."
+    ]
   },
   {
     "id": 376,
@@ -5049,9 +5179,14 @@
     "question": "¿De qué se trató el Plan de Guadalupe?",
     "answer": "Plan para desconocer al gobierno ilegal de Victoriano Huerta por la traición a Madero. El plan fue creado por Venustiano Carranza. Se redactó y firmó el 26 de marzo de 1913 en la Hacienda de Guadalupe en Coahuila.",
     "answerVariants": [
-      "Plan para desconocer al gobierno ilegal de Victoriano Huerta por la traición a Madero. El plan fue creado por Venustiano Carranza. Se redactó y firmó el 26 de marzo de 1913 en la Hacienda de Guadalupe en Coahuila."
+      "Plan para desconocer al gobierno ilegal de Victoriano Huerta por la traición a Madero. El plan fue creado por Venustiano Carranza. Se redactó y firmó el 26 de marzo de 1913 en la Hacienda de Guadalupe en Coahuila.",
+      "Creado por Venustiano Carranza y firmado el 26 de marzo de 1913, desconocía el gobierno de Victoriano Huerta por la traición a Madero."
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Creado por Emiliano Zapata y firmado el 26 de marzo de 1913, desconocía el gobierno de Francisco I. Madero por su política agraria.",
+      "Creado por Francisco Villa y firmado el 26 de marzo de 1913, desconocía el gobierno de Porfirio Díaz por su dictadura.",
+      "Creado por Álvaro Obregón y firmado el 26 de marzo de 1913, desconocía el gobierno de Venustiano Carranza por sus reformas laborales."
+    ]
   },
   {
     "id": 387,
@@ -5204,9 +5339,14 @@
     "question": "¿Qué fue la Guerra Cristera?",
     "answer": "Conflicto armado 1926-1929 entre el gobierno y milicias de laicos y religiosos que resistían la aplicación de la llamada Ley Calles, que proponía limitar el culto católico en la nación.",
     "answerVariants": [
-      "Conflicto armado 1926-1929 entre el gobierno y milicias de laicos y religiosos que resistían la aplicación de la llamada Ley Calles, que proponía limitar el culto católico en la nación."
+      "Conflicto armado 1926-1929 entre el gobierno y milicias de laicos y religiosos que resistían la aplicación de la llamada Ley Calles, que proponía limitar el culto católico en la nación.",
+      "Conflicto armado 1926-1929 entre el gobierno y milicias de laicos y religiosos que resistían la aplicación de la Ley Calles."
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Revolución impulsada desde la Santa Sede en el periodo entre 1925-1930 para la imposición de un monarca católico español.",
+      "Guerra entre los sobrevivientes revolucionarios y los partidarios del neoporfirismo.",
+      "Conflicto armado entre católicos de los estados del norte y protestantes de Texas, Arizona y California."
+    ]
   },
   {
     "id": 398,
@@ -5239,9 +5379,14 @@
     "question": "¿Qué presidentes conformaron el Maximato?",
     "answer": "Emilio Portes Gil (1928-1930) Pascual Ortiz Rubio (1930 - 1932) Abelardo L. Rodríguez (1932 - 1934)",
     "answerVariants": [
-      "Emilio Portes Gil (1928-1930) Pascual Ortiz Rubio (1930 - 1932) Abelardo L. Rodríguez (1932 - 1934)"
+      "Emilio Portes Gil (1928-1930) Pascual Ortiz Rubio (1930 - 1932) Abelardo L. Rodríguez (1932 - 1934)",
+      "Emilio Portes Gil, Pascual Ortiz Rubio, Abelardo L. Rodríguez"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Francisco I. Madero, Plutarco Elías Calles, Doroteo Arango",
+      "Miguel Alemán Valdés, Adolfo López Mateos, Adolfo Ruiz Cortines",
+      "Lázaro Cárdenas del Río, Manuel Ávila Camacho, Venustiano Carranza"
+    ]
   },
   {
     "id": 401,
@@ -5274,9 +5419,14 @@
     "question": "¿Qué fue la Ley Calles?",
     "answer": "Ley expedida para controlar y limitar el culto católico en México, oficialmente llamada Ley de tolerancia de cultos, elaborada durante la presidencia de Plutarco Elías Calles",
     "answerVariants": [
-      "Ley expedida para controlar y limitar el culto católico en México, oficialmente llamada Ley de tolerancia de cultos, elaborada durante la presidencia de Plutarco Elías Calles"
+      "Ley expedida para controlar y limitar el culto católico en México, oficialmente llamada Ley de tolerancia de cultos, elaborada durante la presidencia de Plutarco Elías Calles",
+      "Ley expedida para controlar y limitar el culto católico en México, presidencia de Plutarco Elías Calles."
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Ley expedida para la ejecución de todos los altos funcionarios sobrevivientes del Porfiriato.",
+      "Ley promulgada por el presidente Plutarco Elías Calles para permitir el voto de la mujer en México",
+      "Ley para la expropiación de las compañías petroleras."
+    ]
   },
   {
     "id": 404,
@@ -5444,9 +5594,14 @@
     "question": "El Tratado de Tlatelolco, logro de la diplomacia mexicana, se atañe a:",
     "answer": "Alfonso Garcia Robles (diplomático) y al presidente Gustavo Diaz Ordaz.",
     "answerVariants": [
-      "Alfonso Garcia Robles (diplomático) y al presidente Gustavo Diaz Ordaz."
+      "Alfonso Garcia Robles (diplomático) y al presidente Gustavo Diaz Ordaz.",
+      "Al diplomatico Alfonso Garcia Robles y al presidente Gustavo Diaz Ordaz"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Al canciller Jorge Castañeda y al presidente Ernesto Zedillo",
+      "Al economista Luis Donaldo Colosio y al presidente Manuel Ávila Camacho",
+      "Al político Javier Pérez de Cuéllar y al presidente Gustavo Díaz Ordaz"
+    ]
   },
   {
     "id": 417,
@@ -5839,9 +5994,14 @@
     "question": "Volcanes o picos más altos de México",
     "answer": "Pico de Orizaba / Citlaltépetl (5610 m, entre Puebla y Veracruz), Popocatépetl / Don Goyo (5452 m, Puebla, Morelos, Edomex), Nevado de Toluca / Xinantécatl (4559 m, Edomex), Volcán Cierra Negra / Tliltépetl (4580 m, Puebla)",
     "answerVariants": [
-      "Pico de Orizaba / Citlaltépetl (5610 m, entre Puebla y Veracruz), Popocatépetl / Don Goyo (5452 m, Puebla, Morelos, Edomex), Nevado de Toluca / Xinantécatl (4559 m, Edomex), Volcán Cierra Negra / Tliltépetl (4580 m, Puebla)"
+      "Pico de Orizaba / Citlaltépetl (5610 m, entre Puebla y Veracruz), Popocatépetl / Don Goyo (5452 m, Puebla, Morelos, Edomex), Nevado de Toluca / Xinantécatl (4559 m, Edomex), Volcán Cierra Negra / Tliltépetl (4580 m, Puebla)",
+      "Pico de Orizaba, Popocatépetl, Nevado de Toluca, Volcán Cierra Negra"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Volcán Paricutín, Tepozteco, Cerro de la Estrella, Cumbre Tajín",
+      "Iztaccíhuatl, Cerro del Chiquihuite, Volcán de Colima, Peña de Bernal",
+      "Cerro de la Silla, La Malinche, Ajusco, Cofre de Perote"
+    ]
   },
   {
     "id": 446,
@@ -5849,9 +6009,14 @@
     "question": "Volcanes del estado de México:",
     "answer": "1. Popocatépetl e Iztaccíhuatl 2. Xinantécatl (Nevado de Toluca) 3. Jocotitlán o Xocotépetl",
     "answerVariants": [
-      "1. Popocatépetl e Iztaccíhuatl 2. Xinantécatl (Nevado de Toluca) 3. Jocotitlán o Xocotépetl"
+      "1. Popocatépetl e Iztaccíhuatl 2. Xinantécatl (Nevado de Toluca) 3. Jocotitlán o Xocotépetl",
+      "Popocatépetl e Iztaccíhuatl, Xinantécatl (Nevado de Toluca), Jocotitlán o Xocotépetl"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Volcán Tuzgle, Volcán Chichinautzin y Volcán Cenizas",
+      "La Malinche y San Martín Tuxtla",
+      "Volcán Cenizas, Pico de Orizaba y Volcán de Fuego"
+    ]
   },
   {
     "id": 447,
@@ -5859,9 +6024,14 @@
     "question": "¿Cuáles son los volcanes del Valle de México?",
     "answer": "1. Teuhtli (CDMX), 2. Tláloc (EDOMEX), 3. Guadalupe o de Borrego (CDMX), 4.Volcán del Ajusco o Xitle (CDMX), 5.Chichinautzin (Morelos), Cuautzin (Morelos, CDMX)",
     "answerVariants": [
-      "1. Teuhtli (CDMX), 2. Tláloc (EDOMEX), 3. Guadalupe o de Borrego (CDMX), 4.Volcán del Ajusco o Xitle (CDMX), 5.Chichinautzin (Morelos), Cuautzin (Morelos, CDMX)"
+      "1. Teuhtli (CDMX), 2. Tláloc (EDOMEX), 3. Guadalupe o de Borrego (CDMX), 4.Volcán del Ajusco o Xitle (CDMX), 5.Chichinautzin (Morelos), Cuautzin (Morelos, CDMX)",
+      "Teuhtli, Tláloc, Guadalupe, Volcán del Ajusco, Chichinautzin, Cuautzin"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Nevado de Colima, San Martín Tuxtla y Tuzgle",
+      "Volcán de Fuego, La Malinche y Paricutín",
+      "Sierra Norte de Oaxaca y Volcán de Chapala"
+    ]
   },
   {
     "id": 448,
@@ -5897,9 +6067,14 @@
     "question": "¿Qúe estados rodean el Mar de Cortés?",
     "answer": "Baja California Norte, Baja California Sur, Sonora y Sinaloa",
     "answerVariants": [
-      "Baja California Norte, Baja California Sur, Sonora y Sinaloa"
+      "Baja California Norte, Baja California Sur, Sonora y Sinaloa",
+      "Baja California, Baja California Sur, Sonora y Sinaloa"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Nayarit, Jalisco y Colima",
+      "Veracruz, Campeche, Tabasco y Yucatán",
+      "Oaxaca, Michoacán y Guerrero"
+    ]
   },
   {
     "id": 451,
@@ -5931,9 +6106,14 @@
     "question": "Ríos limítrofes de Mexico",
     "answer": "Norte: Rio Bravo; Sur: Rio Usumacinta, Rio Suchiate y Rio Hondo",
     "answerVariants": [
-      "Norte: Rio Bravo; Sur: Rio Usumacinta, Rio Suchiate y Rio Hondo"
+      "Norte: Rio Bravo; Sur: Rio Usumacinta, Rio Suchiate y Rio Hondo",
+      "Norte: Rio Bravo; Sur: Rio Usamancinta, Rio Suchiate y Rio Hondo"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Norte: Río San Juan; Sur: Río Bravo y Río Texas",
+      "Norte: Río Cazones y Río Usumacinta; Sur: Río Ototito y Río Colorado",
+      "Norte: Río Usumacienta y Río San Juan; Sur: Río Bravo, Río Ototito, Río Colorado y Río Lerma"
+    ]
   },
   {
     "id": 454,
@@ -6003,9 +6183,14 @@
     "question": "Reserva natural en el estado de Sonora",
     "answer": "Biósfera El Pinacate y Desierto del Altar",
     "answerVariants": [
-      "Biósfera El Pinacate y Desierto del Altar"
+      "Biósfera El Pinacate y Desierto del Altar",
+      "Biosfera del Pinacate y Desierto del Altar"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Parque del venado",
+      "Desierto de los leones",
+      "Reserva natural de la mariposa monarca"
+    ]
   },
   {
     "id": 460,
@@ -6055,9 +6240,14 @@
     "question": "¿Dónde queda el santuario de la mariposa monarca?",
     "answer": "Michoacán y en Estado de México",
     "answerVariants": [
-      "Michoacán y en Estado de México"
+      "Michoacán y en Estado de México",
+      "Michoacán y Estado de México"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Chihuahua y Sonora",
+      "Nuevo León y Coahuila",
+      "Colima y Jalisco"
+    ]
   },
   {
     "id": 464,
@@ -6079,9 +6269,14 @@
     "question": "Animales mexicanos en el peligro de extinción",
     "answer": "Jaguar (ocelote), águila real, mariposa monarca, ajolote, tortuga caguama, guacamaya roja, oso negro, vaquita marina",
     "answerVariants": [
-      "Jaguar (ocelote), águila real, mariposa monarca, ajolote, tortuga caguama, guacamaya roja, oso negro, vaquita marina"
+      "Jaguar (ocelote), águila real, mariposa monarca, ajolote, tortuga caguama, guacamaya roja, oso negro, vaquita marina",
+      "Jaguar, águila real, mariposa monarca, ajolote, tortuga caguama, guacamaya roja, oso negro, vaquita marina"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Guajolote, pejelagarto, delfín nariz de botella, perros chihuahua y mofeta",
+      "Tlacuache, zorrillo, iguanas y rana cristal",
+      "Sapo de espinas, burro mexicano, gato montés, oso blanco y cernícalo americano"
+    ]
   },
   {
     "id": 466,
@@ -6719,9 +6914,14 @@
     "question": "Los últimos 5 presidentes de México",
     "answer": "1. Ernesto Zedillo Ponce de León (1994-2000) 2. Vicente Fox Quesada (2000-2006) 3. Felipe Calderón Hinojosa (2006-2012) 4. Enrique Peña Nieto (2012-2018) 5. Andrés Manuel López Obrador (2018-2024)",
     "answerVariants": [
-      "1. Ernesto Zedillo Ponce de León (1994-2000) 2. Vicente Fox Quesada (2000-2006) 3. Felipe Calderón Hinojosa (2006-2012) 4. Enrique Peña Nieto (2012-2018) 5. Andrés Manuel López Obrador (2018-2024)"
+      "1. Ernesto Zedillo Ponce de León (1994-2000) 2. Vicente Fox Quesada (2000-2006) 3. Felipe Calderón Hinojosa (2006-2012) 4. Enrique Peña Nieto (2012-2018) 5. Andrés Manuel López Obrador (2018-2024)",
+      "Ernesto Zedillo Ponce de León, Vicente Fox Quesada, Felipe Calderón Hinojosa, Enrique Peña Nieto, Andrés Manuel López Obrador"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Enrique Peña Nieto, Felipe Calderón Hinojosa, Vicente Fox Quesada, Samuel García Sepúlveda, Miguel de la Madrid",
+      "Andrés Manuel López Obrador, Ricardo Monreal, Marcelo Luis Ebrard Casaubón, Gerardo Fenández Noroña, Carlos Salinas de Gortari",
+      "Andres Manuel López Obrador, Vicente Fox Quesada, Ernesto Zedillo, José López Portillo, Manuel Ávila Camacho"
+    ]
   },
   {
     "id": 512,
@@ -7674,9 +7874,14 @@
     "question": "¿En cuántos niveles se divide la educación en México?",
     "answer": "El sistema educativo mexicano se divide en tres niveles: educación básica (preescolar, primaria, secundaria), media superior (bachillerato o preparatoria) y superior (licenciatura, maestría y doctorado).",
     "answerVariants": [
-      "El sistema educativo mexicano se divide en tres niveles: educación básica (preescolar, primaria, secundaria), media superior (bachillerato o preparatoria) y superior (licenciatura, maestría y doctorado)."
+      "El sistema educativo mexicano se divide en tres niveles: educación básica (preescolar, primaria, secundaria), media superior (bachillerato o preparatoria) y superior (licenciatura, maestría y doctorado).",
+      "En tres niveles: básica, media superior y superior"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "En dos niveles: básica y superior",
+      "En cinco niveles: inicial, formativo, vocacional, superior y especialidad",
+      "En tres niveles: educación básica, grado y posgrado"
+    ]
   },
   {
     "id": 581,
@@ -7853,9 +8058,14 @@
     "question": "¿En qué año se fundó la Universidad Autónoma Metropolitana (UAM)?",
     "answer": "1 de enero de 1974, durante el gobierno de Luis Echeverría Álvarez",
     "answerVariants": [
-      "1 de enero de 1974, durante el gobierno de Luis Echeverría Álvarez"
+      "1 de enero de 1974, durante el gobierno de Luis Echeverría Álvarez",
+      "En 1974"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "En 1910",
+      "En 1983",
+      "En 1947"
+    ]
   },
   {
     "id": 594,
@@ -7920,9 +8130,14 @@
     "question": "¿Quién inventó la pastilla anticonceptiva?",
     "answer": "Luís Ernesto Miramontes Cárdenas el 15 de octubre de 1951",
     "answerVariants": [
-      "Luís Ernesto Miramontes Cárdenas el 15 de octubre de 1951"
+      "Luís Ernesto Miramontes Cárdenas el 15 de octubre de 1951",
+      "Luís Ernesto Miramontes Cárdenas en 1951"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Plutarco Elías Calles en 1928",
+      "Mario Molina en 1965",
+      "Guillermo González Camarena en 1940"
+    ]
   },
   {
     "id": 599,
@@ -7930,9 +8145,14 @@
     "question": "¿Cuáles son los mexicanos ganadores de Premio Nobel?",
     "answer": "1. Alfonso García Robles, premio Nobel de la Paz en 1982. 2. Octavio Paz, Premio Nobel de Literatura en 1990. 3. José María Molina Pasquel y Henríquez, Premio Nobel de Química en 1995",
     "answerVariants": [
-      "1. Alfonso García Robles, premio Nobel de la Paz en 1982. 2. Octavio Paz, Premio Nobel de Literatura en 1990. 3. José María Molina Pasquel y Henríquez, Premio Nobel de Química en 1995"
+      "1. Alfonso García Robles, premio Nobel de la Paz en 1982. 2. Octavio Paz, Premio Nobel de Literatura en 1990. 3. José María Molina Pasquel y Henríquez, Premio Nobel de Química en 1995",
+      "Alfonso García Robles, Octavio Paz, José María Molina Pasquel y Henríquez"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Gustavo Díaz Ordaz, Mario Moreno, Hugo López-Gatell",
+      "Julio Palmaz, Rosario Green, Gilberto Bosques",
+      "Frida Kahlo, Diego Rivera, Leonora Carrington"
+    ]
   },
   {
     "id": 600,
@@ -7990,9 +8210,14 @@
     "question": "Mexicanas ganadoras del Miss Universo",
     "answer": "1991 - María Guadalupe Jones Garay (Lupita Jones); 2010 - Ximena Navarrete; 2020 - Andrea Meza",
     "answerVariants": [
-      "1991 - María Guadalupe Jones Garay (Lupita Jones); 2010 - Ximena Navarrete; 2020 - Andrea Meza"
+      "1991 - María Guadalupe Jones Garay (Lupita Jones); 2010 - Ximena Navarrete; 2020 - Andrea Meza",
+      "Lupita Jones, Ximena Navarrete, Andrea Meza"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Martha Rodríguez y Rosa María Ojeda",
+      "Denisse Garrido, Karina González y Margarita Moreno",
+      "Adriana Paniagua, Beatriz Rivas y Karina González"
+    ]
   },
   {
     "id": 605,
@@ -9258,9 +9483,14 @@
     "question": "¿Qué son los voladores de Papantla?",
     "answer": "Danza indígena de Veracruz. Ritual que está asociado a la fertilidad, se ejecuta con cuatro danzantes que representan los cuatro puntos cardinales y el caporal.",
     "answerVariants": [
-      "Danza indígena de Veracruz. Ritual que está asociado a la fertilidad, se ejecuta con cuatro danzantes que representan los cuatro puntos cardinales y el caporal."
+      "Danza indígena de Veracruz. Ritual que está asociado a la fertilidad, se ejecuta con cuatro danzantes que representan los cuatro puntos cardinales y el caporal.",
+      "Danza indígena de Veracruz, es un ritual que está asociado a la fertilidad"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Un tipo de festividad religiosa que se celebra en el estado de Guerrero",
+      "Una técnica de tejido ancestral originaria de Puebla",
+      "Una danza tradicional de la región de Oaxaca con fines ceremoniales"
+    ]
   },
   {
     "id": 699,
@@ -9755,9 +9985,14 @@
     "question": "Insectos comestibles en México:",
     "answer": "Chapulines (saltamontes), escamoles (huevos de hormiga), jumiles, gusanos de maguey",
     "answerVariants": [
-      "Chapulines (saltamontes), escamoles (huevos de hormiga), jumiles, gusanos de maguey"
+      "Chapulines (saltamontes), escamoles (huevos de hormiga), jumiles, gusanos de maguey",
+      "Chapulines, escamoles, jumiles, gusanos de maguey"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "Moscas, abejas, saltamontes y escarabajos",
+      "Mariposas nocturnas, cochinillas, pulgas, arañas",
+      "Mosquitos, abejas, chinches, termitas"
+    ]
   },
   {
     "id": 736,
@@ -10286,9 +10521,14 @@
     "question": "El término \"marchante\" en México se refiere a:",
     "answer": "al vendedor y al comprador, un término usado en los mercados populares",
     "answerVariants": [
-      "al vendedor y al comprador, un término usado en los mercados populares"
+      "al vendedor y al comprador, un término usado en los mercados populares",
+      "al vendedor y comprador"
     ],
-    "realDistractors": []
+    "realDistractors": [
+      "A un especialista en servicios financieros",
+      "A un tipo de arte en pintura y escultura",
+      "Al propietario de una tienda de antigüedades"
+    ]
   },
   {
     "id": 776,
