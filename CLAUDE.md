@@ -2,12 +2,21 @@
 
 Android-приложение (Compose Multiplatform, Kotlin) — квиз для подготовки к экзамену на натурализацию в Мексике.
 
-## Spec-Driven Development
+## Архитектура (читать перед любой реализацией)
 
-- **`spec.md`** — что строим и зачем (FR/NFR, архитектура, критерии приёмки). Источник истины.
-- **`plan.md`** — задачи по фазам (A1…E2), каждая с Definition of Done. Выполнять по одной, порядок и зависимости — в конце plan.md.
+```
+UI (Compose M3)      Domain (commonMain)                Data (commonMain)
+HomeScreen    ◄────  QuizViewModel
+QuizScreen           └─ StartQuizUseCase ──► QuestionRepository (questions.json + embeddings.bin)
+ResultScreen              │                  VectorStore (cosine top-K, in-memory, без vector-DB)
+                           └──► DistractorGenerator
+                                  ├─ LlmProvider (interface) ──► DeepSeekProvider (Ktor)
+                                  └─ RagFallback (ответы RAG-соседей)
+```
 
-Перед любой реализацией прочитать оба файла. Не рефакторить вне текущей задачи.
+- Поток: `StartQuizUseCase` берёт 10 случайных вопросов → `VectorStore.topK` даёт RAG-контекст → `DistractorGenerator` собирает батч-промпт → `LlmProvider.complete()` → парсинг/валидация → дыры закрывает `RagFallback` → `QuizViewModel` отдаёт UI готовые `QuizQuestion`.
+- Модель данных: `QuestionEntry(id, section, question, answer)`, `QuizQuestion(entry, options, correctIndex, source: LLM|FALLBACK)`, `QuizResult(answers, score)`.
+- Бизнес-логика — чистый Kotlin в `commonMain` (задел на iOS/Desktop), тестируется без Android-зависимостей.
 
 ## Ключевые решения (зафиксированы, не пересматривать без запроса пользователя)
 
@@ -15,6 +24,11 @@ Android-приложение (Compose Multiplatform, Kotlin) — квиз для
 - Квиз только на испанском.
 - RAG: `questions.json` + `embeddings.bin` в ассетах (оффлайн-пайплайн `tools/`, Ollama `nomic-embed-text` 768-dim), косинусный top-K в памяти. Без vector-DB и LLM-фреймворков.
 - Квиз обязан работать без сети/ключа: fallback-дистракторы из ответов RAG-соседей.
+- Не рефакторить вне текущей задачи.
+
+## Spec-Driven Development (история MVP)
+
+`mvp-spec.md` и `mvp-plan.md` описывают уже реализованный MVP (задачи A1…E2, все выполнены). Читать их только при работе, затрагивающей конкретную область MVP-решений, или по запросу пользователя — не перед каждой задачей.
 
 ## Команды
 

@@ -75,7 +75,7 @@ RUN_DEEPSEEK_SMOKE=1 ./gradlew :composeApp:testDebugUnitTest --tests '*SmokeTest
 
 ## Структура
 
-- `spec.md` — что строим и зачем (SDD, источник истины); `plan.md` — задачи и порядок.
+- `mvp-spec.md` — что строим и зачем (SDD, источник истины MVP); `mvp-plan.md` — задачи и порядок MVP.
 - `tools/` — Python-пайплайн данных (скрейпер, эмбеддинги).
 - `composeApp/src/commonMain` — data / domain / llm / ui, бизнес-логика без Android-зависимостей.
 - `composeApp/src/commonTest`, `androidUnitTest` — тесты (kotlin-test, Ktor MockEngine).
