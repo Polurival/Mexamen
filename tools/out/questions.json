@@ -7,7 +7,12 @@
     "answerVariants": [
       "Aguascalientes"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "San Luis Potosí",
+      "Zacatecas",
+      "Querétaro"
+    ]
   },
   {
     "id": 2,
@@ -17,7 +22,12 @@
     "answerVariants": [
       "Mexicali"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Tijuana",
+      "Ensenada",
+      "Tecate"
+    ]
   },
   {
     "id": 3,
@@ -27,7 +37,12 @@
     "answerVariants": [
       "La Paz"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "San José del Cabo",
+      "Loreto",
+      "Cabo San Lucas"
+    ]
   },
   {
     "id": 4,
@@ -37,7 +52,12 @@
     "answerVariants": [
       "San Francisco de Campeche"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Ciudad del Carmen",
+      "Campeche",
+      "Escárcega"
+    ]
   },
   {
     "id": 5,
@@ -47,7 +67,12 @@
     "answerVariants": [
       "Chihuahua"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Ciudad Juárez",
+      "Delicias",
+      "Hidalgo del Parral"
+    ]
   },
   {
     "id": 6,
@@ -57,7 +82,12 @@
     "answerVariants": [
       "Tuxtla Gutiérrez"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "San Cristóbal de las Casas",
+      "Tapachula",
+      "Palenque"
+    ]
   },
   {
     "id": 7,
@@ -67,7 +97,12 @@
     "answerVariants": [
       "Saltillo"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Monclova",
+      "Torreón",
+      "Piedras Negras"
+    ]
   },
   {
     "id": 8,
@@ -77,7 +112,12 @@
     "answerVariants": [
       "Colima"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Manzanillo",
+      "Tecomán",
+      "Villa de Álvarez"
+    ]
   },
   {
     "id": 9,
@@ -87,7 +127,12 @@
     "answerVariants": [
       "Victoria de Durango"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Gómez Palacio",
+      "Lerdo",
+      "Santiago Papasquiaro"
+    ]
   },
   {
     "id": 10,
@@ -97,7 +142,12 @@
     "answerVariants": [
       "Guanajuato"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "León",
+      "Irapuato",
+      "Celaya"
+    ]
   },
   {
     "id": 11,
@@ -107,7 +157,12 @@
     "answerVariants": [
       "Chilpancingo de los Bravo"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Acapulco",
+      "Taxco",
+      "Zihuatanejo"
+    ]
   },
   {
     "id": 12,
@@ -117,7 +172,12 @@
     "answerVariants": [
       "Pachuca de Soto"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Tula",
+      "Tulancingo",
+      "Huejutla"
+    ]
   },
   {
     "id": 13,
@@ -127,7 +187,12 @@
     "answerVariants": [
       "Guadalajara"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Colima",
+      "Nayarit",
+      "Michoacán"
+    ]
   },
   {
     "id": 14,
@@ -137,7 +202,12 @@
     "answerVariants": [
       "Toluca de Lerdo"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Ciudad de México",
+      "Ecatepec",
+      "Nezahualcóyotl"
+    ]
   },
   {
     "id": 15,
@@ -147,7 +217,12 @@
     "answerVariants": [
       "Morelia"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Uruapan",
+      "Zamora",
+      "Lázaro Cárdenas"
+    ]
   },
   {
     "id": 16,
@@ -157,7 +232,12 @@
     "answerVariants": [
       "Cuernavaca"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Jiutepec",
+      "Temixco",
+      "Cuautla"
+    ]
   },
   {
     "id": 17,
@@ -167,7 +247,12 @@
     "answerVariants": [
       "Tepic"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Compostela",
+      "San Blas",
+      "Tuxpan"
+    ]
   },
   {
     "id": 18,
@@ -177,7 +262,12 @@
     "answerVariants": [
       "Monterrey"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Nuevo Laredo",
+      "Saltillo",
+      "Monclova"
+    ]
   },
   {
     "id": 19,
@@ -187,7 +277,12 @@
     "answerVariants": [
       "Oaxaca de Juárez"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Puerto Escondido",
+      "Salina Cruz",
+      "Tuxtepec"
+    ]
   },
   {
     "id": 20,
@@ -197,7 +292,12 @@
     "answerVariants": [
       "Puebla de Zaragoza"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Tehuacán",
+      "Atlixco",
+      "Cholula"
+    ]
   },
   {
     "id": 21,
@@ -207,7 +307,12 @@
     "answerVariants": [
       "Santiago de Querétaro"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "San Juan del Río",
+      "Amealco",
+      "Tequisquiapan"
+    ]
   },
   {
     "id": 22,
@@ -217,7 +322,12 @@
     "answerVariants": [
       "Chetumal"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Cancún",
+      "Playa del Carmen",
+      "Cozumel"
+    ]
   },
   {
     "id": 23,
@@ -227,7 +337,12 @@
     "answerVariants": [
       "San Luis Potosí"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Matehuala",
+      "Ciudad Valles",
+      "Soledad de Graciano Sánchez"
+    ]
   },
   {
     "id": 24,
@@ -252,7 +367,12 @@
     "answerVariants": [
       "Hermosillo"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Ciudad Obregón",
+      "Nogales",
+      "Guaymas"
+    ]
   },
   {
     "id": 26,
@@ -262,7 +382,12 @@
     "answerVariants": [
       "Villahermosa"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Cárdenas",
+      "Comalcalco",
+      "Paraíso"
+    ]
   },
   {
     "id": 27,
@@ -272,7 +397,12 @@
     "answerVariants": [
       "Ciudad Victoria"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Matamoros",
+      "Reynosa",
+      "Tampico"
+    ]
   },
   {
     "id": 28,
@@ -282,7 +412,12 @@
     "answerVariants": [
       "Tlaxcala de Xicohténcatl"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Apizaco",
+      "Huamantla",
+      "Calpulalpan"
+    ]
   },
   {
     "id": 29,
@@ -292,7 +427,12 @@
     "answerVariants": [
       "Xalapa-Enríquez"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Córdoba",
+      "Orizaba",
+      "Boca del Río"
+    ]
   },
   {
     "id": 30,
@@ -302,7 +442,12 @@
     "answerVariants": [
       "Mérida"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Guadalajara, Jalisco",
+      "Cancún, Quintana Roo",
+      "Monterrey, Nuevo León"
+    ]
   },
   {
     "id": 31,
@@ -312,7 +457,12 @@
     "answerVariants": [
       "Zacatecas"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Fresnillo",
+      "Jerez",
+      "Guadalupe"
+    ]
   },
   {
     "id": 32,
@@ -322,7 +472,12 @@
     "answerVariants": [
       "Ciudad de México"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Nuevo León",
+      "Estado de México",
+      "Jalisco"
+    ]
   },
   {
     "id": 33,
@@ -402,7 +557,12 @@
     "answerVariants": [
       "126,014,024 (Censo INEGI 2020). Información sjueto a cambio."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "100,000,000 (Censo INEGI 2010)",
+      "150,000,000 (Censo INEGI 2020)",
+      "80,000,000 (Censo INEGI 2000)"
+    ]
   },
   {
     "id": 39,
@@ -412,7 +572,12 @@
     "answerVariants": [
       "Español + 68 lenguas indígenas"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Español + 10 lenguas indígenas",
+      "Español + 100 lenguas indígenas",
+      "Español + 50 lenguas indígenas"
+    ]
   },
   {
     "id": 40,
@@ -422,7 +587,12 @@
     "answerVariants": [
       "32 (incluyendo la Ciudad de México)"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "30 (incluyendo la Ciudad de México)",
+      "31 (sin incluir la Ciudad de México)",
+      "33 (incluyendo la Ciudad de México)"
+    ]
   },
   {
     "id": 41,
@@ -446,7 +616,12 @@
     "answerVariants": [
       "Ciudad de México"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Estado de México",
+      "Nuevo León",
+      "Jalisco"
+    ]
   },
   {
     "id": 43,
@@ -470,7 +645,12 @@
     "answerVariants": [
       "Ciudad de México (9 209 944 - 2020)"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Guadalajara (5,000,000 - 2020)",
+      "Monterrey (7,000,000 - 2020)",
+      "Tijuana (4,000,000 - 2020)"
+    ]
   },
   {
     "id": 45,
@@ -536,7 +716,12 @@
     "answerVariants": [
       "Baja California, Baja California Sur, Chihuahua, Coahuila, Durango, Nuevo León, Sinaloa, Sonora y Tamaulipas"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Baja California, Baja California Sur, Chihuahua, Coahuila, Durango, Nuevo León, Sinaloa, Sonora y Zacatecas",
+      "Baja California, Baja California Sur, Chihuahua, Coahuila, Durango, Nuevo León, Sinaloa, Sonora y Veracruz",
+      "Baja California, Baja California Sur, Chihuahua, Coahuila, Durango, Nuevo León, Sinaloa, Sonora y Tamaulipas y San Luis Potosí"
+    ]
   },
   {
     "id": 50,
@@ -632,7 +817,12 @@
     "answerVariants": [
       "CDMX, Guadalajara y Monterrey (antes de 2020). CDMX, Tijuana, Ecatepec de Morelos (según el censo de 2020)"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "CDMX, Puebla y León",
+      "CDMX, Guadalajara y Cancún",
+      "CDMX, Monterrey y Toluca"
+    ]
   },
   {
     "id": 57,
@@ -742,7 +932,12 @@
     "answerVariants": [
       "CDMX - Chilangos, Culiacán - Culichis, Guadalajara - Tapatíos, Monterrey - Regiomontanos, Aguascalientes - Hidrocálidos, Veracruz - Jarochos"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "CDMX - Capitalinos, Culiacán - Sinaloenses, Guadalajara - Guadalajareños, Monterrey - Neoleoneses, Aguascalientes - Aguascalentenses, Veracruz - Veracruzanos",
+      "CDMX - Defeños, Culiacán - Culichis, Guadalajara - Tapatíos, Monterrey - Regiomontanos, Aguascalientes - Hidrocálidos, Veracruz - Jarochos",
+      "CDMX - Chilangos, Culiacán - Culichis, Guadalajara - Guadalajareños, Monterrey - Monterreyenses, Aguascalientes - Aguascalentenses, Veracruz - Veracruzanos"
+    ]
   },
   {
     "id": 65,
@@ -781,7 +976,12 @@
     "answerVariants": [
       "Bandera: Verde = Esperanza en destino de la raza, Blanco= Pureza de ideales, Rojo = Sangre derramada por héroes de la Patria, Escudo: El águila devorando a la serpiente, Nopal, Islote sobre el agua, Ramas de laurel y encino Himno: Escrito en 1854, se hizo oficial en 1943 El Himno Nacional de México: fue interpretado por vez primera la noche del 15 de septiembre de 1854, en el teatro Santa Anna, que poco después cambio su nombre por el del Teatro Nacional. Letra: Francisco González Bocanegra Compositor Jaime Nunó."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Bandera: Verde = Esperanza, Blanco = Paz, Rojo = Sangre de los héroes; Escudo: El águila devorando una serpiente; Himno: Escrito en 1850, oficial en 1943",
+      "Bandera: Verde = Independencia, Blanco = Unidad, Rojo = Sangre derramada; Escudo: El águila devorando una serpiente; Himno: Escrito en 1854, oficial en 1940",
+      "Bandera: Verde = Esperanza, Blanco = Pureza, Rojo = Sangre de los héroes; Escudo: El águila devorando una serpiente; Himno: Escrito en 1860, oficial en 1950"
+    ]
   },
   {
     "id": 68,
@@ -805,7 +1005,12 @@
     "answerVariants": [
       "Compuesta por el poeta potosino Francisco González Bocanegra, música del músico español Jaime Nunó"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Compuesta por el poeta veracruzano Salvador Díaz Mirón, música del músico español Jaime Nunó",
+      "Compuesta por el poeta potosino Francisco González Bocanegra, música del músico mexicano Manuel M. Ponce",
+      "Compuesta por el poeta oaxaqueño Andrés Henestrosa, música del músico español Jaime Nunó"
+    ]
   },
   {
     "id": 70,
@@ -815,7 +1020,12 @@
     "answerVariants": [
       "Mexicanos al grito de guerra, El acero aprestad y el bridón Y retiemble en sus centros la tierra Al sonoro rugir del cañón"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Mexicanos al grito de paz, la bandera y la flor y el amor",
+      "Mexicanos al grito de unión, el trabajo y la paz y el honor",
+      "Mexicanos al grito de fe, la justicia y la ley y el valor"
+    ]
   },
   {
     "id": 71,
@@ -825,7 +1035,12 @@
     "answerVariants": [
       "…en cada hijo te dio"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "…en cada casa te da",
+      "…en cada tierra te da",
+      "…en cada pueblo te da"
+    ]
   },
   {
     "id": 72,
@@ -991,7 +1206,12 @@
     "answerVariants": [
       "Es un esqueleto precolombino. Fue un hallazgo arqueológico de un esqueleto humano en el Estado de México en 1947. Corresponde a una mujer de aproximadamente 25 años de edad y 1.50 m de estatura. Vivió hace aproximadamente 9000 años. Es el esqueleto más antiguo encontrado hasta ahora en lo que fue Mesoamérica."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Es un esqueleto precolombino de un hombre de 30 años, encontrado en 1950.",
+      "Es un esqueleto precolombino de una mujer de 20 años, encontrado en 1945.",
+      "Es un esqueleto precolombino de un hombre de 40 años, encontrado en 1960."
+    ]
   },
   {
     "id": 84,
@@ -1226,7 +1446,12 @@
     "answerVariants": [
       "Plataforma Ceremonial (Altar) de base circular y Tumbas en forma de botellón"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Plataforma Ceremonial de base cuadrada y Tumbas en forma de botellón",
+      "Plataforma Ceremonial de base circular y Tumbas en forma de pozo",
+      "Plataforma Ceremonial de base rectangular y Tumbas en forma de botellón"
+    ]
   },
   {
     "id": 101,
@@ -1292,7 +1517,12 @@
     "answerVariants": [
       "Los mayas"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Los aztecas",
+      "Los olmecas",
+      "Los toltecas"
+    ]
   },
   {
     "id": 106,
@@ -1330,7 +1560,12 @@
     "answerVariants": [
       "La cuenta larga"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "La rueda",
+      "El cero matemático",
+      "El calendario agrícola"
+    ]
   },
   {
     "id": 109,
@@ -1411,7 +1646,12 @@
     "answerVariants": [
       "Palenque - Calakmul - Uxmal - Chichen Itza"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Teotihuacán, Monte Albán, Cacaxtla, Tula, Cholula",
+      "Cacaxtla, El Tajín, Mesoatlán, Tajín, Malinalco",
+      "Tula, Xochicalco, Mitla, Uxmal, Cuicuilco"
+    ]
   },
   {
     "id": 115,
@@ -1477,7 +1717,12 @@
     "answerVariants": [
       "Yum Kaax/Ah Mun (maya) Centéotl (azteca/mexica)"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Ixchel (diosa maya de la luna)",
+      "Tláloc (dios azteca de la lluvia)",
+      "Chaac (dios maya de la lluvia)"
+    ]
   },
   {
     "id": 120,
@@ -1487,7 +1732,12 @@
     "answerVariants": [
       "Son deidades mayas"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Son deidades aztecas",
+      "Son deidades incas",
+      "Son deidades olmecas"
+    ]
   },
   {
     "id": 121,
@@ -1511,7 +1761,12 @@
     "answerVariants": [
       "El Castillo"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "La Pirámide del Sol",
+      "El Templo de los Guerreros",
+      "El Observatorio"
+    ]
   },
   {
     "id": 123,
@@ -1805,7 +2060,12 @@
     "answerVariants": [
       "Calmécac (para nobles), Telpochcalli (para plebeyos o jóvenes del pueblo)"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Tepochcalli y Cuicacalli (para guerreros y cantores)",
+      "Cihuacalli y Mixcoacalli (para mujeres y comerciantes)",
+      "Huehuetlatolli y Amoxcalli (para sabios y escribas)"
+    ]
   },
   {
     "id": 144,
@@ -2259,7 +2519,12 @@
     "answerVariants": [
       "Sinonimo de cometa, \"mariposa\" en náhuatl"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Tipo de ave acuática",
+      "Instrumento musical de viento",
+      "Baile tradicional mexicano"
+    ]
   },
   {
     "id": 176,
@@ -2353,7 +2618,12 @@
     "answerVariants": [
       "En el estado de Veracruz, cerca de la ciudad de Papantla"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "En el estado de Tabasco, cerca de la ciudad de Villahermosa",
+      "En el estado de Morelos, cerca de la ciudad de Cuernavaca",
+      "En el estado de Zacatecas, cerca de la ciudad de Zacatecas"
+    ]
   },
   {
     "id": 183,
@@ -2575,7 +2845,12 @@
     "answerVariants": [
       "Se fundó el 22 de abril de 1519, y el 10 de julio de 1519 se instaló como el primer ayuntamiento de México"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Se fundó el 13 de agosto de 1521, día de la caída de Tenochtitlan",
+      "Se fundó el 8 de noviembre de 1519, cuando Cortés llegó a la capital mexica",
+      "Se fundó el 20 de mayo de 1520, durante la matanza del Templo Mayor"
+    ]
   },
   {
     "id": 199,
@@ -2614,7 +2889,12 @@
     "answerVariants": [
       "Casas viejas de Axayácatl. Axayácatl era el nombre del padre de Moctezuma. Era la casa de su padre y allí hospedaron los mexicas a Hernán Cortés a su llegada y donde fue asesinado Moctezuma."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "La casa del águila",
+      "El templo de Huitzilopochtli",
+      "El palacio de Nezahualcóyotl"
+    ]
   },
   {
     "id": 202,
@@ -2624,7 +2904,12 @@
     "answerVariants": [
       "Casas viejas"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Casas nuevas",
+      "Palacio real",
+      "Viviendas nobles"
+    ]
   },
   {
     "id": 203,
@@ -2736,7 +3021,12 @@
     "answerVariants": [
       "Moctezuma II"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Cuitláhuac",
+      "Cuauhtémoc",
+      "Axayácatl"
+    ]
   },
   {
     "id": 211,
@@ -3160,7 +3450,12 @@
     "answerVariants": [
       "Persona enviada por la corona española con la facultad/autoridad de inspeccionar asuntos en la Nueva España."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Misionero que supervisaba la evangelización de los pueblos indígenas",
+      "Título nobiliario otorgado por el rey a los gobernantes locales",
+      "Jefe militar encargado de la defensa de las fronteras novohispanas"
+    ]
   },
   {
     "id": 241,
@@ -3370,7 +3665,12 @@
     "answerVariants": [
       "La Gaceta de México. El primer número que salió a la luz fue el 1 de enero de 1722 y su fundador fue el periodista y religioso Juan Ignacio María de Castorena Ursúa y Goyeneche."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "El Diario de México",
+      "El Pensador Mexicano",
+      "La Gazeta de Guatemala"
+    ]
   },
   {
     "id": 256,
@@ -3380,7 +3680,12 @@
     "answerVariants": [
       "La Gaceta de México"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "El Diario de México",
+      "El Pensador Mexicano",
+      "El Despertador Americano"
+    ]
   },
   {
     "id": 257,
@@ -3563,7 +3868,12 @@
     "answerVariants": [
       "José Isidro (Isidoro) Morales"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "José María Morelos",
+      "Miguel Hidalgo",
+      "José Joaquín Fernández de Lizardi"
+    ]
   },
   {
     "id": 270,
@@ -3573,7 +3883,12 @@
     "answerVariants": [
       "La Constitución política de la Monarquía Española, más conocida como Constitución española de 1812 o Constitución de Cádiz, conocida popularmente como la Pepa. Dividió la Nueva España en 6 provincias."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Constitución de 1836",
+      "Constitución de 1857",
+      "Estatuto Provisional del Imperio Mexicano"
+    ]
   },
   {
     "id": 271,
@@ -3871,7 +4186,12 @@
     "answerVariants": [
       "1. Miguel Hidalgo y Costilla. 2. José María Morelos y Pavón. 3. Vicente Guerrero. 4. Agustín de Iturbide. 5. Ignacio Allende. 6. Josefa Ortiz de Domínguez. 7. Francisco Javier Mina 8. Juan Aldama. 9. Epigmenio González."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Leona Vicario, Hermenegildo Galeana, Mariano Matamoros, Nicolás Bravo, Guadalupe Victoria, Pedro Moreno, Francisco Primo de Verdad, Servando Teresa de Mier, José María Cos",
+      "Ignacio López Rayón, Mariano Abasolo, Ignacio Aldama, Manuel de Mier y Terán, Juan Nepomuceno Almonte, Joaquín de la Torre, José María Anzorena, Luis de Herrera, José María Liceaga",
+      "Félix María Calleja, Juan Ruiz de Apodaca, Francisco Xavier Venegas, José de la Cruz, Manuel Flon, Torcuato Trujillo, Agustín de Ahumada, Diego García Conde, Joaquín de Arredondo"
+    ]
   },
   {
     "id": 292,
@@ -3941,7 +4261,12 @@
     "answerVariants": [
       "La primera Constitución de México es la de 1824, aunque ya con anterioridad, en plena lucha por la independencia, se redactó la Constitución de Apatzingán en 1814. Ahora bien, las raíces ideológicas de ambas constituciones se encuentran tanto en la Constitución de Cádiz de 1812, como en los Sentimientos de la Nación de José María Morelos y Pavón."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Constitución de 1836",
+      "Constitución de 1857",
+      "Constitución de 1917"
+    ]
   },
   {
     "id": 297,
@@ -4009,7 +4334,12 @@
     "answerVariants": [
       "Gral. Antonio López de Santa Anna (1794-1876)"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Benito Juárez",
+      "Porfirio Díaz",
+      "Vicente Guerrero"
+    ]
   },
   {
     "id": 302,
@@ -4148,7 +4478,12 @@
     "answerVariants": [
       "Tratado en el que México cede la mitad de su territorio (California, Arizona, Nuevo México, Texas, Nevada, Utah y partes de Colorado, Wyoming, Kansas y Oklahoma) a Estados Unidos. Firmado el 2 de febrero de 1848, poniendo fin a la guerra con EE.UU."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Tratado de Velasco",
+      "Tratado de la Mesilla",
+      "Tratado de Adams-Onís"
+    ]
   },
   {
     "id": 312,
@@ -4161,6 +4496,11 @@
     "realDistractors": [
       "Tratado de Córdoba",
       "Tratado Brest-Litosk"
+    ],
+    "syntheticDistractors": [
+      "Tratado de París",
+      "Tratado de Versalles",
+      "Tratado de Córdoba"
     ]
   },
   {
@@ -4186,7 +4526,12 @@
     "answerVariants": [
       "Batallón de San Patricio (compuesto por cientos de desertores del ejército de los Estados Unidos de origen europeo, principalmente irlandeses y alemanes)."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Legión Extranjera Francesa",
+      "Batallón de Voluntarios de Nueva York",
+      "Regimiento de Rifleros de Misuri"
+    ]
   },
   {
     "id": 315,
@@ -4211,7 +4556,12 @@
     "answerVariants": [
       "La Guerra de los 3 años (1857-1860)."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Guerra de Reforma",
+      "Guerra de Independencia",
+      "Guerra Cristera"
+    ]
   },
   {
     "id": 317,
@@ -4321,7 +4671,12 @@
     "answerVariants": [
       "1. Ley de Imprenta o Ley Lares promulgada el 23 de abril de 1853. 2. Ley Lafragua o Reglamento de Libertad de Imprenta que entró en vigor el 28 de diciembre de 1855."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Ley Juárez",
+      "Ley Lerdo",
+      "Ley Iglesias"
+    ]
   },
   {
     "id": 325,
@@ -4487,7 +4842,12 @@
     "answerVariants": [
       "Maximiliano de Habsburgo"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Agustín de Iturbide",
+      "Napoleón III",
+      "Francisco de Asís de Borbón"
+    ]
   },
   {
     "id": 337,
@@ -4596,7 +4956,12 @@
     "answerVariants": [
       "Agustín de Iturbide"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Vicente Guerrero",
+      "Guadalupe Victoria",
+      "Juan O'Donojú"
+    ]
   },
   {
     "id": 345,
@@ -4695,7 +5060,12 @@
     "answerVariants": [
       "1876-1910 (el Porfiriato)"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "1910-1920",
+      "1920-1934",
+      "1867-1876"
+    ]
   },
   {
     "id": 352,
@@ -4875,7 +5245,12 @@
     "answerVariants": [
       "Inicia cuando Francisco I. Madero publica el Plan de San Luis Potosí, donde llama a tomar las armas; aparecen personajes como Pascual Orozco, Pancho Villa y Emiliano Zapata; se inicia una lucha en la que los revolucionarios salen victoriosos y Porfirio Díaz renuncia al poder en mayo de 1911."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Es un cambio de gobierno pacífico y legal",
+      "Es una guerra civil entre liberales y conservadores",
+      "Es un movimiento armado para instaurar una monarquía"
+    ]
   },
   {
     "id": 365,
@@ -5058,7 +5433,12 @@
     "answerVariants": [
       "José Doroteo Arango Arámbula"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "José de la Cruz Porfirio Villa",
+      "Francisco Ignacio Madero González",
+      "José María Pino Suárez"
+    ]
   },
   {
     "id": 378,
@@ -5356,7 +5736,12 @@
     "answerVariants": [
       "Plutarco Elías Calles"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Álvaro Obregón",
+      "Venustiano Carranza",
+      "Francisco I. Madero"
+    ]
   },
   {
     "id": 399,
@@ -5411,7 +5796,12 @@
     "answerVariants": [
       "Leon Trotsky"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Vladimir Lenin",
+      "Iósif Stalin",
+      "Mijaíl Bakunin"
+    ]
   },
   {
     "id": 403,
@@ -5436,7 +5826,12 @@
     "answerVariants": [
       "Plutarco Elías Calles"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Álvaro Obregón",
+      "Venustiano Carranza",
+      "Francisco I. Madero"
+    ]
   },
   {
     "id": 405,
@@ -5547,7 +5942,12 @@
     "answerVariants": [
       "26 de julio de 1968"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "2 de octubre de 1968",
+      "10 de junio de 1971",
+      "1 de mayo de 1952"
+    ]
   },
   {
     "id": 413,
@@ -5557,7 +5957,12 @@
     "answerVariants": [
       "2 de octubre de 1968, durante la presidencia de Gustavo Díaz Ordaz"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "10 de junio de 1971, durante la presidencia de Luis Echeverría",
+      "1 de mayo de 1952, durante la presidencia de Miguel Alemán",
+      "15 de septiembre de 1965, durante la presidencia de Gustavo Díaz Ordaz"
+    ]
   },
   {
     "id": 414,
@@ -5697,7 +6102,12 @@
     "answerVariants": [
       "Miguel de la Madrid"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Carlos Salinas de Gortari",
+      "Luis Echeverría Álvarez",
+      "José López Portillo"
+    ]
   },
   {
     "id": 424,
@@ -5707,7 +6117,12 @@
     "answerVariants": [
       "Movimiento Zapatista / Conflicto Chiapaneco / Ejército Zapatista de Liberación Nacional (EZLN) Fue un movimiento armado que surgió a raíz de la firma del tratado de libre comercio para hacer frente a las políticas del neoliberalismo. Actualmente se considera un movimiento político."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Movimiento de los 43 de Ayotzinapa",
+      "Movimiento Estudiantil de 1968",
+      "Movimiento del Subcomandante Marcos en Chiapas"
+    ]
   },
   {
     "id": 425,
@@ -5830,7 +6245,12 @@
     "answerVariants": [
       "Desaparición forzada de 43 estudiantes, que sucedió en Iguala el 27 de septiembre de 2014"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Masacre de Tlatelolco de 1968",
+      "Levantamiento zapatista de 1994",
+      "Matanza de Acteal de 1997"
+    ]
   },
   {
     "id": 434,
@@ -6098,7 +6518,12 @@
     "answerVariants": [
       "río Bravo, río Colorado, río Usumacinta, río Lerma, río Conchos, río Papaloapan, río Balsas, río Nazas, río Grijalva y río Sonora."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "río Pánuco, río Santiago, río Fuerte",
+      "río Yaqui, río Mayo, río Culiacán",
+      "río Coatzacoalcos, río Tonalá, río Grijalva"
+    ]
   },
   {
     "id": 453,
@@ -6137,7 +6562,12 @@
     "answerVariants": [
       "Lago de Chapala, Jalisco"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Lago de Texcoco, Estado de México",
+      "Lago de Pátzcuaro, Michoacán",
+      "Lago de Cuitzeo, Michoacán"
+    ]
   },
   {
     "id": 456,
@@ -6147,7 +6577,12 @@
     "answerVariants": [
       "Baja California y Sonora (En el Golfo de California)"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Baja California Sur y Sonora",
+      "Nayarit y Jalisco",
+      "Chihuahua y Durango"
+    ]
   },
   {
     "id": 457,
@@ -6328,7 +6763,12 @@
     "answerVariants": [
       "Torre Latinoamericana"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Monumento a la Revolución",
+      "Palacio de Bellas Artes",
+      "Estadio Olímpico Universitario"
+    ]
   },
   {
     "id": 470,
@@ -7002,7 +7442,12 @@
     "answerVariants": [
       "la PROFECO"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "la CONDUSEF",
+      "la COFECE",
+      "la CONAGUA"
+    ]
   },
   {
     "id": 518,
@@ -7229,7 +7674,12 @@
     "answerVariants": [
       "20 - la consumación de la Independencia, 50 - México Antiguo: fundación de Tenochtitlán (reverso - ajolote), 100 - Sor Juana (antes Nezahualcóyotl), 200 - Miguel Hidalgo y José María Morelos, 500 - Benito Juárez, 1000 - Francisco I. Madero, Hermila Galindo y Carmen Serdán"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "10, 50, 100, 200, 500 y 1000 pesos",
+      "20, 50, 100, 200, 500 y 1000 pesos",
+      "5, 10, 20, 50, 100 y 200 pesos"
+    ]
   },
   {
     "id": 534,
@@ -7351,7 +7801,12 @@
     "answerVariants": [
       "1. Suprema Corte de Justicia. 2.Tribunal Electoral. 3. Los Tribunales de Circuito (Colegiados y Unitarios). 4. Juzgados de Distrito. 5. Consejo de la Judicatura General."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "1. Suprema Corte de Justicia. 2. Tribunal Superior Agrario. 3. Tribunales Colegiados de Apelación. 4. Juzgados Municipales. 5. Consejo de la Judicatura Federal.",
+      "1. Suprema Corte de Justicia. 2. Tribunal Fiscal. 3. Tribunales de Circuito (Colegiados y Unitarios). 4. Juzgados de Paz. 5. Consejo de la Judicatura Estatal.",
+      "1. Suprema Corte de Justicia. 2. Tribunal Constitucional. 3. Tribunales de Circuito (Colegiados y Unitarios). 4. Juzgados de lo Penal. 5. Consejo de la Judicatura Nacional."
+    ]
   },
   {
     "id": 543,
@@ -7614,7 +8069,12 @@
     "answerVariants": [
       "11 de octubre de 1990"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "11 de octubre de 1992",
+      "11 de octubre de 1988",
+      "11 de octubre de 1995"
+    ]
   },
   {
     "id": 562,
@@ -7624,7 +8084,12 @@
     "answerVariants": [
       "10 de febrero de 2014"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "10 de febrero de 2010",
+      "10 de febrero de 2016",
+      "10 de febrero de 2012"
+    ]
   },
   {
     "id": 563,
@@ -8177,7 +8642,12 @@
     "answerVariants": [
       "Rodolfo Neri Vela el 26 de noviembre de 1985 desde el Centro Espacial Kennedy, en Florida"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "José Hernández Moreno el 26 de noviembre de 1985 desde el Centro Espacial Kennedy, en Florida",
+      "Rodolfo Neri Vela el 26 de noviembre de 1986 desde el Centro Espacial Johnson, en Texas",
+      "Rodolfo Neri Vela el 26 de noviembre de 1984 desde el Centro Espacial Kennedy, en Florida"
+    ]
   },
   {
     "id": 602,
@@ -8187,7 +8657,12 @@
     "answerVariants": [
       "Rodolfo Neri Vela. Esta misión tuvo como principal objetivo poner en órbita tres satélites: el Morelos II de México, el AUSSAT-2 de Australia y el SATCOM KU-2 de Estados Unidos. Rodolfo Neri Vela fue parte de la tripulación como especialista de carga."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Rodolfo Neri Vela. Esta misión tuvo como principal objetivo poner en órbita tres satélites: el Morelos I de México, el AUSSAT-1 de Australia y el SATCOM KU-1 de Estados Unidos. Rodolfo Neri Vela fue parte de la tripulación como especialista de carga.",
+      "Rodolfo Neri Vela. Esta misión tuvo como principal objetivo poner en órbita tres satélites: el Morelos III de México, el AUSSAT-3 de Australia y el SATCOM KU-3 de Estados Unidos. Rodolfo Neri Vela fue parte de la tripulación como especialista de carga.",
+      "Rodolfo Neri Vela. Esta misión tuvo como principal objetivo poner en órbita tres satélites: el Morelos II de México, el AUSSAT-2 de Australia y el SATCOM KU-2 de Estados Unidos. Rodolfo Neri Vela fue parte de la tripulación como comandante de carga."
+    ]
   },
   {
     "id": 603,
@@ -8369,7 +8844,12 @@
     "answerVariants": [
       "El Santo, nombre verdadero: Rodolfo Guzman Huerta"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "\"El Caudillo del Sur\", Emiliano Zapata",
+      "\"El Ídolo de México\", Pedro Infante",
+      "\"El Rey del Mambo\", Pérez Prado"
+    ]
   },
   {
     "id": 616,
@@ -8505,7 +8985,12 @@
     "answerVariants": [
       "1. Futból. 2. Tiro con arco. 3. Clavado. 4. Taekwondo"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "1. Futból. 2. Tiro con arco. 3. Clavado. 4. Boxeo",
+      "1. Futból. 2. Tiro con arco. 3. Natación. 4. Taekwondo",
+      "1. Futból. 2. Tiro con arco. 3. Clavado. 4. Atletismo"
+    ]
   },
   {
     "id": 626,
@@ -8515,7 +9000,12 @@
     "answerVariants": [
       "Humberto Mariles Cortés, en equitación. Joaquín Capilla, saltos ornamentales. Felipe \"el Tibio\" Muñoz, natación. María Teresa Ramírez, natación. Ricardo Delgado, boxeo. Antonio Roldán, boxeo. Ana Guevara, atletismo"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Julio César Chávez, boxeo; Hugo Sánchez, fútbol; Lorena Ochoa, golf",
+      "Fernando Valenzuela, béisbol; Oscar de la Hoya, boxeo; Saúl \"Canelo\" Álvarez, boxeo",
+      "María del Rosario Espinoza, taekwondo; Paola Espinosa, clavados; Raúl González, marcha"
+    ]
   },
   {
     "id": 627,
@@ -8581,7 +9071,12 @@
     "answerVariants": [
       "La décima musa o el Ave Fenix"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "La Corregidora de Querétaro",
+      "La Malinche, intérprete de Hernán Cortés",
+      "La Mujer de la Revolución Mexicana"
+    ]
   },
   {
     "id": 632,
@@ -8791,7 +9286,12 @@
     "answerVariants": [
       "1. Juan Rulfo (El Llano en Llamas) 2. José Emilio Pacheco (Las Voces de Tlatelolco) 3. Carlos Fuentes (La Región más transparente) 4. Paco Ignacio Taibo II (Temporada de Zopilotes) 5. Jorge Ibargüengoitia (Relámpagos de Agosto) 6. Carlos Monsiváis 7. Juan Villoro"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "1. Octavio Paz (El Laberinto de la Soledad) 2. Sor Juana Inés de la Cruz (Primero Sueño) 3. Amado Nervo (La Amada Inmóvil)",
+      "1. Mariano Azuela (Los de Abajo) 2. Martín Luis Guzmán (El Águila y la Serpiente) 3. Nellie Campobello (Cartucho)",
+      "1. Laura Esquivel (Como agua para chocolate) 2. Ángeles Mastretta (Arráncame la vida) 3. Guadalupe Loaeza (Las niñas bien)"
+    ]
   },
   {
     "id": 647,
@@ -8857,7 +9357,12 @@
     "answerVariants": [
       "Comúnmente las \"bombas\" son rimas. Esos versos son recitados de manera improvisada y pueden ser románticos, jocosos e inclusive melosos, pero nunca groseros. En ocasiones llegan a causar risa por su composición a manera de broma o descaro."
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Comúnmente las \"bombas\" son canciones. Esos versos son recitados de manera improvisada y pueden ser románticos, jocosos e inclusive melosos, pero nunca groseros. En ocasiones llegan a causar risa por su composición a manera de broma o descaro.",
+      "Comúnmente las \"bombas\" son rimas. Esos versos son recitados de manera memorizada y pueden ser románticos, jocosos e inclusive melosos, pero nunca groseros. En ocasiones llegan a causar risa por su composición a manera de broma o descaro.",
+      "Comúnmente las \"bombas\" son rimas. Esos versos son recitados de manera improvisada y pueden ser románticos, serios e inclusive melosos, pero nunca groseros. En ocasiones llegan a causar risa por su composición a manera de broma o descaro."
+    ]
   },
   {
     "id": 652,
@@ -8867,7 +9372,12 @@
     "answerVariants": [
       "1. Octavio Paz 2. Carlos Fuentes 3. Elena Poniatowska 4. Jose Emilio Pacheco 5. Fernando del Paso 6. Sergio Pitol"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "1. Juan Rulfo 2. Sor Juana Inés de la Cruz 3. Amado Nervo 4. Alfonso Reyes",
+      "1. Mariano Azuela 2. Martín Luis Guzmán 3. Nellie Campobello 4. Laura Esquivel",
+      "1. Rosario Castellanos 2. Jaime Sabines 3. Efraín Huerta 4. Renato Leduc"
+    ]
   },
   {
     "id": 653,
@@ -8961,7 +9471,12 @@
     "answerVariants": [
       "León Trotsky"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Diego Rivera",
+      "André Breton",
+      "Pablo Picasso"
+    ]
   },
   {
     "id": 660,
@@ -8971,7 +9486,12 @@
     "answerVariants": [
       "1.Jo sé María Velazco 2.Diego Rivera 3.Frida Kahlo 4.Rufino Tamayo 5.David Alfaro Siqueiros 6. José Clemente Orozco 7.Jo sé Luis Cuevas"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "1. Frida Kahlo 2. Diego Rivera 3. David Alfaro Siqueiros 4. José Clemente Orozco 5. Rufino Tamayo 6. Remedios Varo 7. Leonora Carrington",
+      "1. José María Velasco 2. Saturnino Herrán 3. Ángel Zárraga 4. Dr. Atl 5. Roberto Montenegro 6. Juan O'Gorman 7. Miguel Covarrubias",
+      "1. Francisco Toledo 2. Rufino Tamayo 3. David Alfaro Siqueiros 4. José Clemente Orozco 5. Frida Kahlo 6. Diego Rivera 7. José Luis Cuevas"
+    ]
   },
   {
     "id": 661,
@@ -8995,7 +9515,12 @@
     "answerVariants": [
       "Rufino Tamayo"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Diego Rivera",
+      "José Clemente Orozco",
+      "Frida Kahlo"
+    ]
   },
   {
     "id": 663,
@@ -9005,7 +9530,12 @@
     "answerVariants": [
       "Museo de Antropología"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Palacio de Bellas Artes",
+      "Museo Soumaya",
+      "Museo Nacional de Historia"
+    ]
   },
   {
     "id": 664,
@@ -9465,7 +9995,12 @@
     "answerVariants": [
       "Jarabe tapatío"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Danza del Venado",
+      "Polka norteña",
+      "Huapango"
+    ]
   },
   {
     "id": 697,
@@ -9475,7 +10010,12 @@
     "answerVariants": [
       "Jarabe tapatío"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Danza de los Voladores",
+      "Son Jarocho",
+      "Fandango"
+    ]
   },
   {
     "id": 698,
@@ -9711,7 +10251,12 @@
     "answerVariants": [
       "El artículo 74 de la Ley Federal del Trabajo señala los siguientes días de descanso obligatorio: 1 de enero, Año Nuevo, 5 de febrero, Día de la Constitución Mexicana 21 de marzo, natalicio de Benito Juárez 1 de mayo, Día de Trabajo 16 de septiembre, Día de la Independencia 20 de noviembre, Día de la Revolución 1 de octubre de cada seis años, cuando corresponda a la transmisión del Poder Ejecutivo Federal; 25 de diciembre - Navidad"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "El artículo 74 de la Ley Federal del Trabajo señala los siguientes días de descanso obligatorio: 1 de enero, Año Nuevo; 5 de febrero, Día de la Constitución Mexicana; 1 de mayo, Día de Trabajo; 16 de septiembre, Día de la Independencia; 20 de noviembre, Día de la Revolución; 25 de diciembre, Navidad.",
+      "El artículo 74 de la Ley Federal del Trabajo señala los siguientes días de descanso obligatorio: 1 de enero, Año Nuevo; 5 de febrero, Día de la Constitución Mexicana; 21 de marzo, natalicio de Benito Juárez; 1 de mayo, Día de Trabajo; 16 de septiembre, Día de la Independencia; 20 de noviembre, Día de la Revolución; 1 de octubre de cada seis años, transmisión del Poder Ejecutivo Federal.",
+      "El artículo 74 de la Ley Federal del Trabajo señala los siguientes días de descanso obligatorio: 1 de enero, Año Nuevo; 21 de marzo, natalicio de Benito Juárez; 1 de mayo, Día de Trabajo; 16 de septiembre, Día de la Independencia; 1 de octubre de cada seis años, transmisión del Poder Ejecutivo Federal; 25 de diciembre, Navidad."
+    ]
   },
   {
     "id": 715,
@@ -9721,7 +10266,12 @@
     "answerVariants": [
       "6 de enero, Día de los Reyes Magos 2 de febrero, Día de la Candelaria 24 de febrero Día de la Bandera 8 de marzo, Día de la Mujer Pascua (fechas variadas: jueves y viernes santo, como parte de las vacaciones de Semana Santa) 5 de mayo, conmemoración de Batalla de Puebla Día del Padre - cada tercer domingo de junio 10 de mayo, Día de las Madres 12 de octubre, Día de la Raza (descubrimiento de América) 2 de noviembre, Día de Muertos 12 de diciembre, Día de la Virgen de Guadalupe"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "1 de enero, Día de Año Nuevo",
+      "15 de septiembre, Día de la Independencia",
+      "20 de diciembre, Día de la Solidaridad"
+    ]
   },
   {
     "id": 716,
@@ -9745,7 +10295,12 @@
     "answerVariants": [
       "Cempasúchil (Damasquina o Tagete)"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Rosa",
+      "Gardenia",
+      "Bugambilia"
+    ]
   },
   {
     "id": 718,
@@ -9769,7 +10324,12 @@
     "answerVariants": [
       "Día de Muertos"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Carnaval",
+      "Navidad",
+      "Semana Santa"
+    ]
   },
   {
     "id": 720,
@@ -9793,7 +10353,12 @@
     "answerVariants": [
       "Día de Muertos"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "La Guelaguetza",
+      "El Carnaval de Veracruz",
+      "La Feria de San Marcos"
+    ]
   },
   {
     "id": 722,
@@ -10002,7 +10567,12 @@
     "answerVariants": [
       "Pulque"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Tequila",
+      "Mezcal",
+      "Sotol"
+    ]
   },
   {
     "id": 737,
@@ -10012,7 +10582,12 @@
     "answerVariants": [
       "Pulque"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Tequila",
+      "Mezcal",
+      "Bacanora"
+    ]
   },
   {
     "id": 738,
@@ -10092,7 +10667,12 @@
     "answerVariants": [
       "Tamal"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Taco",
+      "Quesadilla",
+      "Pozole"
+    ]
   },
   {
     "id": 744,
@@ -10130,7 +10710,12 @@
     "answerVariants": [
       "Oaxaca"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Puebla",
+      "Michoacán",
+      "Veracruz"
+    ]
   },
   {
     "id": 747,
@@ -10140,7 +10725,12 @@
     "answerVariants": [
       "Chocolate amargo, chile ancho, chile mulato, chile pasilla, chipotle, jitomate, almendra, plátano, nueces, pasas, ajonjolí, clavo, canela, perejil, pimienta, cebolla, ajo"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Tomate, cebolla y cilantro",
+      "Arroz, frijol y carne",
+      "Maíz, calabaza y chile"
+    ]
   },
   {
     "id": 748,
@@ -10277,7 +10867,12 @@
     "answerVariants": [
       "Chirimol"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Poc Chuc",
+      "Cochinita Pibil",
+      "Pan de Cazón"
+    ]
   },
   {
     "id": 758,
@@ -10287,7 +10882,12 @@
     "answerVariants": [
       "Caldo Tlalpeño"
     ],
-    "realDistractors": []
+    "realDistractors": [],
+    "syntheticDistractors": [
+      "Pozole",
+      "Sopa de Tortilla",
+      "Tacos al Pastor"
+    ]
   },
   {
     "id": 759,
