@@ -3,25 +3,39 @@ package dev.polurival.mexamen.domain
 import dev.polurival.mexamen.data.QuestionEntry
 
 /**
- * Fallback-дистракторы без LLM (FR-6): ответы ближайших RAG-соседей.
- * Дедупликация case/accent-insensitive, правильный ответ исключён,
- * дыры добираются следующими соседями из списка.
+ * Fallback-дистракторы без LLM (FR-6, G3): приоритет — свои realDistractors →
+ * соседские realDistractors → свои syntheticDistractors → ответы соседей (последний резерв).
+ * Дедупликация case/accent-insensitive против всех answerVariants и уже набранных дистракторов.
  */
 object RagFallback {
 
-    /** До [count] дистракторов из ответов [neighbors] (в порядке убывания близости). */
+    /** До [count] дистракторов, порядок приоритета описан в шапке файла. */
     fun distractors(
         entry: QuestionEntry,
         neighbors: List<QuestionEntry>,
         count: Int = 3,
     ): List<String> {
-        val seen = mutableSetOf(normalize(entry.answer))
+        val seen = entry.answerVariants.mapTo(mutableSetOf(), ::normalize)
         val result = ArrayList<String>(count)
-        for (neighbor in neighbors) {
-            if (result.size == count) break
-            val answer = neighbor.answer.trim()
-            if (answer.isEmpty()) continue
-            if (seen.add(normalize(answer))) result += answer
+
+        fun addAll(candidates: Sequence<String>) {
+            for (candidate in candidates) {
+                if (result.size == count) return
+                val trimmed = candidate.trim()
+                if (trimmed.isEmpty()) continue
+                if (seen.add(normalize(trimmed))) result += trimmed
+            }
+        }
+
+        addAll(entry.realDistractors.asSequence())
+        if (result.size < count) {
+            addAll(neighbors.asSequence().flatMap { it.realDistractors.asSequence() })
+        }
+        if (result.size < count) {
+            addAll(entry.syntheticDistractors.asSequence())
+        }
+        if (result.size < count) {
+            addAll(neighbors.asSequence().flatMap { it.answerVariants.asSequence() })
         }
         return result
     }

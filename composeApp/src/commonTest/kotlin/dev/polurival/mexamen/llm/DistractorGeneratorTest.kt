@@ -24,8 +24,8 @@ private class FakeLlm(
 class DistractorGeneratorTest {
 
     private val requests = listOf(
-        DistractorRequestItem(1, "¿Capital de Jalisco?", "Guadalajara", listOf("Monterrey", "Mexicali")),
-        DistractorRequestItem(2, "¿Capital de Sonora?", "Hermosillo", listOf("Chihuahua", "La Paz")),
+        DistractorRequestItem(1, "¿Capital de Jalisco?", "Guadalajara", listOf("Ctx1a", "Ctx1b")),
+        DistractorRequestItem(2, "¿Capital de Sonora?", "Hermosillo", listOf("Ctx2a", "Ctx2b")),
     )
 
     @Test
@@ -50,7 +50,7 @@ class DistractorGeneratorTest {
         assertEquals(PromptBuilder.SYSTEM_PROMPT, llm.lastSystem)
         val user = llm.lastUser!!
         assertTrue(
-            "correct_answer" in user && "Guadalajara" in user && "Monterrey" in user,
+            "correct_answer" in user && "Guadalajara" in user && "Ctx1a" in user,
             "User prompt must carry question, answer and context: $user",
         )
     }
@@ -97,5 +97,47 @@ class DistractorGeneratorTest {
         assertFailsWith<LlmUnavailable> {
             DistractorGenerator(llm).generate(requests)
         }
+    }
+
+    @Test
+    fun repeatedContextExampleIsRejected() = runTest {
+        // H2: LLM повторяет переданный пример контекста (realDistractor соседа) как «новый»
+        val llm = FakeLlm(
+            response = """
+                {"items":[
+                  {"id":1,"distractors":["Ctx1a","Ctx1b","La Paz"]},
+                  {"id":2,"distractors":["Chihuahua","Culiacán","Saltillo"]}
+                ]}
+            """.trimIndent(),
+        )
+        val result = DistractorGenerator(llm).generate(requests)
+
+        // id=1: Ctx1a и Ctx1b совпадают с context → осталось "La Paz" → 1 < 3 → невалиден
+        assertEquals(mapOf(2 to listOf("Chihuahua", "Culiacán", "Saltillo")), result)
+    }
+
+    @Test
+    fun alternateAnswerVariantIsRejected() = runTest {
+        // H2: LLM выдаёт альтернативную формулировку верного ответа как дистрактор
+        val withVariants = listOf(
+            DistractorRequestItem(
+                id = 1,
+                question = "¿Capital de Sinaloa?",
+                correctAnswer = "Culiacán Rosales",
+                context = listOf("Hermosillo", "Los Mochis"),
+                answerVariants = listOf("Culiacán Rosales", "Culiacán"),
+            ),
+        )
+        val llm = FakeLlm(
+            response = """
+                {"items":[
+                  {"id":1,"distractors":["Culiacán","Mazatlán","Mexicali"]}
+                ]}
+            """.trimIndent(),
+        )
+        val result = DistractorGenerator(llm).generate(withVariants)
+
+        // "Culiacán" — альтернативный верный вариант → отфильтрован → осталось 2 < 3 → невалиден
+        assertEquals(emptyMap(), result)
     }
 }

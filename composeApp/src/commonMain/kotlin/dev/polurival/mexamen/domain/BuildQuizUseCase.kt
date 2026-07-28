@@ -5,6 +5,7 @@ import dev.polurival.mexamen.data.QuestionEntry
 import dev.polurival.mexamen.llm.DistractorGenerator
 import dev.polurival.mexamen.llm.DistractorRequestItem
 import dev.polurival.mexamen.llm.LlmUnavailable
+import dev.polurival.mexamen.llm.PromptBuilder
 import kotlin.random.Random
 
 /**
@@ -47,7 +48,8 @@ class BuildQuizUseCase(
                 id = entry.id,
                 question = entry.question,
                 correctAnswer = entry.answer,
-                context = ragNeighbors.getValue(entry.id).map(QuestionEntry::answer),
+                context = PromptBuilder.buildContext(entry, ragNeighbors.getValue(entry.id)),
+                answerVariants = entry.answerVariants,
             )
         }
         return try {
@@ -58,16 +60,23 @@ class BuildQuizUseCase(
         }
     }
 
+    /**
+     * Отображаемый верный ответ — случайный элемент [QuestionEntry.answerVariants] (G2).
+     * Дистракторы дедуплицируются против ВСЕХ вариантов, а не только выбранного.
+     */
     private fun toQuizQuestion(
         entry: QuestionEntry,
         distractors: List<String>,
         source: DistractorSource,
     ): QuizQuestion {
-        val options = (distractors + entry.answer).shuffled(random)
+        val variant = entry.answerVariants.random(random)
+        val variantKeys = entry.answerVariants.mapTo(mutableSetOf(), RagFallback::normalize)
+        val filtered = distractors.filterNot { variantKeys.contains(RagFallback.normalize(it)) }
+        val options = (filtered + variant).shuffled(random)
         return QuizQuestion(
             entry = entry,
             options = options,
-            correctIndex = options.indexOf(entry.answer),
+            correctIndex = options.indexOf(variant),
             source = source,
         )
     }

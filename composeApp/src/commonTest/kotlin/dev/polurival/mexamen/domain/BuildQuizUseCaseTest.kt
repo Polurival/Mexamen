@@ -132,6 +132,45 @@ class BuildQuizUseCaseTest {
     }
 
     @Test
+    fun answerVariantSelectionIsDeterministicForFixedSeed() = runTest {
+        var id = 0
+        val entries = (1..6).map {
+            id++
+            QuestionEntry(
+                id = id,
+                section = "section",
+                question = "q$id",
+                answer = "Answer $id",
+                answerVariants = listOf("Answer $id", "Variant $id", "Alt $id"),
+            )
+        }
+        val vectors = entries.associate { e ->
+            val angle = e.id * 0.15f
+            e.id to floatArrayOf(cos(angle), sin(angle))
+        }
+        val data = QuestionDataset(entries, dim = 2, vectorsById = vectors)
+
+        val first = BuildQuizUseCase(data, Random(9)).build(count = entries.size)
+        val second = BuildQuizUseCase(data, Random(9)).build(count = entries.size)
+        assertEquals(first, second)
+
+        first.forEach { q ->
+            assertTrue(q.options[q.correctIndex] in q.entry.answerVariants)
+            assertEquals(
+                4,
+                q.options.map(RagFallback::normalize).toSet().size,
+                "Duplicates in ${q.options}",
+            )
+            q.options.filterIndexed { index, _ -> index != q.correctIndex }.forEach { distractor ->
+                assertTrue(
+                    q.entry.answerVariants.none { RagFallback.normalize(it) == RagFallback.normalize(distractor) },
+                    "Distractor '$distractor' matches an answerVariant for id=${q.entry.id}",
+                )
+            }
+        }
+    }
+
+    @Test
     fun llmPathUsesLlmDistractorsAndMarksSource() = runTest {
         val quiz = BuildQuizUseCase(
             dataset = dataset(),

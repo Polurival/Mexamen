@@ -45,6 +45,14 @@ class QuestionRepositoryTest {
     }
 
     @Test
+    fun `every entry has non-empty answerVariants`() = runBlocking {
+        val dataset = repository().dataset()
+        dataset.entries.forEach { entry ->
+            assertTrue(entry.answerVariants.isNotEmpty(), "Empty answerVariants for id=${entry.id}")
+        }
+    }
+
+    @Test
     fun `embeddings are not degenerate`() = runBlocking {
         val dataset = repository().dataset()
         val first = dataset.embedding(dataset.entries.first().id)

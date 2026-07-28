@@ -27,15 +27,21 @@ class DistractorGenerator(private val llm: LlmProvider) {
         return buildMap {
             for (item in parsed.items) {
                 val request = byId[item.id] ?: continue
-                val valid = validate(request.correctAnswer, item.distractors) ?: continue
+                val valid = validate(request, item.distractors) ?: continue
                 put(item.id, valid)
             }
         }
     }
 
-    /** FR-5: непустые, без совпадений с верным ответом и между собой (case/accent-insensitive). */
-    private fun validate(correctAnswer: String, distractors: List<String>): List<String>? {
-        val seen = mutableSetOf(RagFallback.normalize(correctAnswer))
+    /**
+     * FR-5/H2: непустые, без совпадений между собой, с любым из [DistractorRequestItem.answerVariants]
+     * (все формулировки верного ответа) и с любым примером из [DistractorRequestItem.context]
+     * (LLM не должен повторить переданный пример как «новый») — case/accent-insensitive.
+     */
+    private fun validate(request: DistractorRequestItem, distractors: List<String>): List<String>? {
+        val seen = mutableSetOf<String>()
+        request.answerVariants.forEach { seen += RagFallback.normalize(it) }
+        request.context.forEach { seen += RagFallback.normalize(it) }
         val valid = distractors
             .map { it.trim() }
             .filter { it.isNotEmpty() && seen.add(RagFallback.normalize(it)) }

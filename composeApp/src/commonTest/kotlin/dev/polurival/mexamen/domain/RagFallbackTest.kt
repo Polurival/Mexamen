@@ -11,6 +11,51 @@ class RagFallbackTest {
     private val target = entry(1, "Guadalajara")
 
     @Test
+    fun prefersOwnRealDistractorsOverNeighbors() {
+        val withReal = target.copy(realDistractors = listOf("Monterrey", "Mexicali", "La Paz"))
+        val neighbors = listOf(entry(2, "Colima"), entry(3, "Toluca"))
+        assertEquals(
+            listOf("Monterrey", "Mexicali", "La Paz"),
+            RagFallback.distractors(withReal, neighbors),
+        )
+    }
+
+    @Test
+    fun fillsFromNeighborRealDistractorsWhenOwnAreShort() {
+        val withReal = target.copy(realDistractors = listOf("Monterrey"))
+        val neighbors = listOf(
+            entry(2, "Colima").copy(realDistractors = listOf("Mexicali", "La Paz")),
+            entry(3, "Toluca").copy(realDistractors = listOf("Puebla")),
+        )
+        assertEquals(
+            listOf("Monterrey", "Mexicali", "La Paz"),
+            RagFallback.distractors(withReal, neighbors),
+        )
+    }
+
+    @Test
+    fun fallsBackToOwnSyntheticDistractorsWhenNoRealAnywhere() {
+        val withSynthetic = target.copy(syntheticDistractors = listOf("Monterrey", "Mexicali", "La Paz"))
+        val neighbors = listOf(entry(2, "Colima"), entry(3, "Toluca"))
+        assertEquals(
+            listOf("Monterrey", "Mexicali", "La Paz"),
+            RagFallback.distractors(withSynthetic, neighbors),
+        )
+    }
+
+    @Test
+    fun fallsBackToNeighborAnswerVariantsWhenNoRealOrSynthetic() {
+        val neighbors = listOf(
+            entry(2, "Colima").copy(answerVariants = listOf("Colima", "Colima de Álvarez")),
+            entry(3, "Toluca"),
+        )
+        assertEquals(
+            listOf("Colima", "Colima de Álvarez", "Toluca"),
+            RagFallback.distractors(target, neighbors),
+        )
+    }
+
+    @Test
     fun takesNearestNeighborAnswersInOrder() {
         val neighbors = listOf(entry(2, "Monterrey"), entry(3, "Mexicali"), entry(4, "La Paz"), entry(5, "Colima"))
         assertEquals(
