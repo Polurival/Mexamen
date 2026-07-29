@@ -553,9 +553,9 @@
     "id": 38,
     "section": "DATOS GENERALES, GEOGRAFÍA, SÍMBOLOS PATRIOS, IDIOMA",
     "question": "Población de México",
-    "answer": "126,014,024 (Censo INEGI 2020). Información sjueto a cambio.",
+    "answer": "126,014,024 (Censo INEGI 2020). Información sujeto a cambio.",
     "answerVariants": [
-      "126,014,024 (Censo INEGI 2020). Información sjueto a cambio."
+      "126,014,024 (Censo INEGI 2020). Información sujeto a cambio."
     ],
     "realDistractors": [],
     "syntheticDistractors": [
@@ -1727,7 +1727,7 @@
   {
     "id": 120,
     "section": "ÉPOCA PREHISPÁNICA",
-    "question": "Chaac, dios de la lluvia|Yum Kaax/Ah Mun, dios del maíz| Ahau Kin, dios del sol | Ixchel, diosa de la luna | Buluc Chabtan, dios de la guerra, destrucción y de los sacrificios humanos",
+    "question": "Chaac, dios de la lluvia; Yum Kaax/Ah Mun, dios del maíz; Ahau Kin, dios del sol; Ixchel, diosa de la luna; Buluc Chabtan, dios de la guerra, destrucción y de los sacrificios humanos",
     "answer": "Son deidades mayas",
     "answerVariants": [
       "Son deidades mayas"
@@ -4287,9 +4287,9 @@
     "id": 298,
     "section": "LA INDEPENDENCIA DE MÉXICO",
     "question": "¿De que se trató el Plan de Ayutla?",
-    "answer": "Proclamado el 1 de marzo de 1854 por Adrian Florencio Villarreal, para dar fin a la dictadura de Antonio López de Santa Anna.",
+    "answer": "Proclamado el 1 de marzo de 1854 por Florencio Villarreal, para dar fin a la dictadura de Antonio López de Santa Anna.",
     "answerVariants": [
-      "Proclamado el 1 de marzo de 1854 por Adrian Florencio Villarreal, para dar fin a la dictadura de Antonio López de Santa Anna."
+      "Proclamado el 1 de marzo de 1854 por Florencio Villarreal, para dar fin a la dictadura de Antonio López de Santa Anna."
     ],
     "realDistractors": [
       "Fue un plan para derrocar a Agustín de Iturbide como primer monarca mexicano.",
@@ -6973,9 +6973,9 @@
     "id": 484,
     "section": "GEOGRAFÍA, CIUDADES, TURISMO",
     "question": "¿Quién inauguró el Museo de Antropología?",
-    "answer": "Adolfo López Mateo",
+    "answer": "Adolfo López Mateos",
     "answerVariants": [
-      "Adolfo López Mateo"
+      "Adolfo López Mateos"
     ],
     "realDistractors": [
       "José López Portillo",
@@ -10692,9 +10692,9 @@
     "id": 745,
     "section": "MÚSICA Y BAILES, FESTIVIDADES, COMIDA",
     "question": "¿Cuál es el ingrediente principal del mole?",
-    "answer": "Chocolate amargo",
+    "answer": "Chile",
     "answerVariants": [
-      "Chocolate amargo"
+      "Chile"
     ],
     "realDistractors": [
       "Tomate",
