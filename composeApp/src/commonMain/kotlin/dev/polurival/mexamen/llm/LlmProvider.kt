@@ -15,3 +15,9 @@ class LlmUnavailable(message: String, cause: Throwable? = null) : Exception(mess
 
 /** Ключ DeepSeek из платформенной конфигурации; null — ключ не задан. */
 expect fun deepSeekApiKey(): String?
+
+/** Ключ Groq из платформенной конфигурации; null — ключ не задан. */
+expect fun groqApiKey(): String?
+
+/** Debug-сборка ли — включает HTTP-логирование (Logcat) в [GroqProvider]. */
+expect fun isDebugBuild(): Boolean

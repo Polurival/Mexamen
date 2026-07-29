@@ -27,6 +27,7 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.jetbrains.lifecycle.viewmodel.compose)
             implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.logging)
         }
         commonTest.dependencies {
             implementation(kotlin("test"))
@@ -48,6 +49,14 @@ val deepSeekApiKey: String = run {
     props.getProperty("DEEPSEEK_API_KEY") ?: System.getenv("DEEPSEEK_API_KEY") ?: ""
 }
 
+// Ключ Groq (дефолт-провайдер) — тот же паттерн, что DEEPSEEK_API_KEY
+val groqApiKey: String = run {
+    val props = Properties()
+    val file = rootProject.file("local.properties")
+    if (file.exists()) file.inputStream().use(props::load)
+    props.getProperty("GROQ_API_KEY") ?: System.getenv("GROQ_API_KEY") ?: ""
+}
+
 android {
     namespace = "dev.polurival.mexamen"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
@@ -59,6 +68,7 @@ android {
         versionCode = 1
         versionName = "0.1"
         buildConfigField("String", "DEEPSEEK_API_KEY", "\"$deepSeekApiKey\"")
+        buildConfigField("String", "GROQ_API_KEY", "\"$groqApiKey\"")
     }
     buildFeatures {
         buildConfig = true

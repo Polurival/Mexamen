@@ -12,7 +12,7 @@ import kotlin.test.assertTrue
 /**
  * Ручной интеграционный smoke (DoD D2): с реальным ключом ≥ 8/10 вопросов
  * получают LLM-дистракторы. Запуск:
- * RUN_DEEPSEEK_SMOKE=1 ./gradlew :composeApp:testDebugUnitTest --tests '*DistractorSmokeTest*'
+ * RUN_GROQ_SMOKE=1 ./gradlew :composeApp:testDebugUnitTest --tests '*DistractorSmokeTest*'
  */
 class DistractorSmokeTest {
 
@@ -20,7 +20,7 @@ class DistractorSmokeTest {
 
     @Test
     fun realQuizGetsLlmDistractorsForMostQuestions() {
-        assumeTrue(System.getenv("RUN_DEEPSEEK_SMOKE") == "1")
+        assumeTrue(System.getenv("RUN_GROQ_SMOKE") == "1")
         val repository = QuestionRepository(
             readQuestions = { resourcesDir.resolve("questions.json").readBytes() },
             readEmbeddings = { resourcesDir.resolve("embeddings.bin").readBytes() },
@@ -28,7 +28,7 @@ class DistractorSmokeTest {
         val quiz = runBlocking {
             BuildQuizUseCase(
                 dataset = repository.dataset(),
-                distractorGenerator = DistractorGenerator(DeepSeekProvider()),
+                distractorGenerator = DistractorGenerator(GroqProvider()),
             ).build()
         }
         quiz.forEach { q ->

@@ -19,8 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.polurival.mexamen.data.defaultQuestionRepository
-import dev.polurival.mexamen.llm.DeepSeekProvider
 import dev.polurival.mexamen.llm.DistractorGenerator
+import dev.polurival.mexamen.llm.GroqProvider
 import dev.polurival.mexamen.ui.HomeScreen
 import dev.polurival.mexamen.ui.MexamenTheme
 import dev.polurival.mexamen.ui.QuizScreen
@@ -45,7 +45,7 @@ private fun AppContent() {
     val viewModel: QuizViewModel = viewModel {
         QuizViewModel(
             repository = defaultQuestionRepository(),
-            distractorGenerator = DistractorGenerator(DeepSeekProvider()),
+            distractorGenerator = DistractorGenerator(GroqProvider()),
         )
     }
     val state by viewModel.state.collectAsState()
