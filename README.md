@@ -14,7 +14,7 @@ Android-приложение (Compose Multiplatform, Kotlin) — квиз для
 
 У вопросов гида есть только правильный ответ — неправильных вариантов не существует. Их генерирует AI, двумя механизмами:
 
-- **LLM** — DeepSeek `deepseek-chat` за интерфейсом `LlmProvider`. Один батч-запрос на весь квиз: для каждого вопроса модель получает вопрос, правильный ответ и контекст, возвращает строгий JSON с 3 правдоподобными дистракторами. Ответ валидируется поэлементно (ровно 3, без совпадений с верным ответом и между собой, case/accent-insensitive).
+- **LLM** — Groq `llama-3.3-70b-versatile` за интерфейсом `LlmProvider`. Один батч-запрос на весь квиз: для каждого вопроса модель получает вопрос, правильный ответ и контекст, возвращает строгий JSON с 3 правдоподобными дистракторами. Ответ валидируется поэлементно (ровно 3, без совпадений с верным ответом и между собой, case/accent-insensitive).
 - **RAG** — собственный, без фреймворков и vector-DB. Эмбеддинги всех вопросов посчитаны оффлайн (Ollama `nomic-embed-text`, 768-dim) и лежат в ассетах (`embeddings.bin`, ~2.4 MB). На устройстве — косинусный top-K полным перебором в памяти. RAG-соседи дают LLM контекст («для вопроса о столице штата — столицы других штатов»), а их ответы служат fallback-дистракторами.
 
 ```
@@ -27,7 +27,7 @@ Android-приложение (Compose Multiplatform, Kotlin) — квиз для
 │ QuizViewModel ─► BuildQuizUseCase                      │
 │    ├─ QuestionPicker (10 случайных, ≤2 на раздел)      │
 │    ├─ VectorStore (cosine top-8) ──► RAG-контекст      │
-│    ├─ DistractorGenerator ─► LlmProvider ─► DeepSeek   │
+│    ├─ DistractorGenerator ─► LlmProvider ─► Groq       │
 │    └─ RagFallback (ответы соседей — без сети/ключа)    │
 └───────────────────────────────────────────────────────┘
 ```
@@ -49,19 +49,19 @@ python tools/build_embeddings.py   # → tools/out/embeddings.bin (+ самоп�
 ## Сборка и запуск
 
 ```bash
-# Ключ DeepSeek (опционально — без него квиз работает в fallback-режиме):
-echo 'DEEPSEEK_API_KEY=sk-...' >> local.properties
+# Ключ Groq (опционально — без него квиз работает в fallback-режиме):
+echo 'GROQ_API_KEY=gsk_...' >> local.properties
 
 ./gradlew :composeApp:assembleDebug        # APK: composeApp/build/outputs/apk/debug/
 ./gradlew :composeApp:testDebugUnitTest    # юнит-тесты
 ```
 
-Ключ не хранится в git: `local.properties` (или env `DEEPSEEK_API_KEY`) → `BuildConfig`. Требования: Android 8.0+ (API 26), интернет — только для LLM-дистракторов.
+Ключ не хранится в git: `local.properties` (или env `GROQ_API_KEY`) → `BuildConfig`. Требования: Android 8.0+ (API 26), интернет — только для LLM-дистракторов.
 
 Ручные интеграционные смоуки с реальным ключом (не для CI):
 
 ```bash
-RUN_DEEPSEEK_SMOKE=1 ./gradlew :composeApp:testDebugUnitTest --tests '*SmokeTest*'
+RUN_GROQ_SMOKE=1 ./gradlew :composeApp:testDebugUnitTest --tests '*SmokeTest*'
 ```
 
 ## Реальные варианты ответов (real-answers-plan, F1…I1)

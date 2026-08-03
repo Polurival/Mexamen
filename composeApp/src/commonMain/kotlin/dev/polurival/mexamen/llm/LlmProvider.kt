@@ -1,7 +1,7 @@
 package dev.polurival.mexamen.llm
 
 /**
- * Абстракция LLM (spec §2): MVP — DeepSeek, замена провайдера не трогает остальной код.
+ * Абстракция LLM (spec §2): MVP — Groq, замена провайдера не трогает остальной код.
  */
 interface LlmProvider {
     /**
@@ -12,9 +12,6 @@ interface LlmProvider {
 }
 
 class LlmUnavailable(message: String, cause: Throwable? = null) : Exception(message, cause)
-
-/** Ключ DeepSeek из платформенной конфигурации; null — ключ не задан. */
-expect fun deepSeekApiKey(): String?
 
 /** Ключ Groq из платформенной конфигурации; null — ключ не задан. */
 expect fun groqApiKey(): String?

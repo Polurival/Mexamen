@@ -44,15 +44,7 @@ kotlin {
     }
 }
 
-// NFR-3: ключ DeepSeek из local.properties (или env), не из git; без ключа — fallback-режим
-val deepSeekApiKey: String = run {
-    val props = Properties()
-    val file = rootProject.file("local.properties")
-    if (file.exists()) file.inputStream().use(props::load)
-    props.getProperty("DEEPSEEK_API_KEY") ?: System.getenv("DEEPSEEK_API_KEY") ?: ""
-}
-
-// Ключ Groq (дефолт-провайдер) — тот же паттерн, что DEEPSEEK_API_KEY
+// NFR-3: ключ Groq из local.properties (или env), не из git; без ключа — fallback-режим
 val groqApiKey: String = run {
     val props = Properties()
     val file = rootProject.file("local.properties")
@@ -70,7 +62,6 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "0.1"
-        buildConfigField("String", "DEEPSEEK_API_KEY", "\"$deepSeekApiKey\"")
         buildConfigField("String", "GROQ_API_KEY", "\"$groqApiKey\"")
     }
     buildFeatures {

@@ -10,7 +10,7 @@ HomeScreen    ◄────  QuizViewModel
 QuizScreen           └─ StartQuizUseCase ──► QuestionRepository (questions.json + embeddings.bin)
 ResultScreen              │                  VectorStore (cosine top-K, in-memory, без vector-DB)
                            └──► DistractorGenerator
-                                  ├─ LlmProvider (interface) ──► DeepSeekProvider (Ktor)
+                                  ├─ LlmProvider (interface) ──► GroqProvider (Ktor)
                                   └─ RagFallback (ответы RAG-соседей)
 ```
 
@@ -20,7 +20,7 @@ ResultScreen              │                  VectorStore (cosine top-K, in-mem
 
 ## Ключевые решения (зафиксированы, не пересматривать без запроса пользователя)
 
-- LLM: DeepSeek API (`deepseek-chat`) за интерфейсом `LlmProvider`; ключ в `local.properties` (`DEEPSEEK_API_KEY`), не в git.
+- LLM: Groq API (`llama-3.3-70b-versatile`) за интерфейсом `LlmProvider`; ключ в `local.properties` (`GROQ_API_KEY`), не в git.
 - Квиз только на испанском.
 - RAG: `questions.json` + `embeddings.bin` в ассетах (оффлайн-пайплайн `tools/`, Ollama `nomic-embed-text` 768-dim), косинусный top-K в памяти. Без vector-DB и LLM-фреймворков.
 - Квиз обязан работать без сети/ключа: fallback-дистракторы из ответов RAG-соседей.

@@ -19,7 +19,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
 /**
- * Groq chat API (OpenAI-совместимый, как DeepSeek) — бесплатный дефолт-провайдер.
+ * Groq chat API (OpenAI-совместимый) — бесплатный дефолт-провайдер.
  * Любая ошибка, включая HTTP 429 (rate/token limit исчерпан), становится [LlmUnavailable] →
  * вызывающий (BuildQuizUseCase) уходит в fallback-дистракторы (FR-6), без спецкейса для 429.
  */
