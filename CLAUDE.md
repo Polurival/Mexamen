@@ -24,6 +24,7 @@ ResultScreen              │                  VectorStore (cosine top-K, in-mem
 - Квиз только на испанском.
 - RAG: `questions.json` + `embeddings.bin` в ассетах (оффлайн-пайплайн `tools/`, Ollama `nomic-embed-text` 768-dim), косинусный top-K в памяти. Без vector-DB и LLM-фреймворков.
 - Квиз обязан работать без сети/ключа: fallback-дистракторы из ответов RAG-соседей.
+- DI: Koin (`koin-core`/`koin-compose`/`koin-compose-viewmodel`), модули в `commonMain/di/` (`dataModule`, `llmModule`, `viewModelModule` → `appModules`), граф стартует через `KoinApplication` в `App()`.
 - Не рефакторить вне текущей задачи.
 
 ## Spec-Driven Development (история MVP)

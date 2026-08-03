@@ -17,24 +17,25 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import dev.polurival.mexamen.data.defaultQuestionRepository
-import dev.polurival.mexamen.llm.DistractorGenerator
-import dev.polurival.mexamen.llm.GroqProvider
+import dev.polurival.mexamen.di.appModules
 import dev.polurival.mexamen.ui.HomeScreen
 import dev.polurival.mexamen.ui.MexamenTheme
 import dev.polurival.mexamen.ui.QuizScreen
 import dev.polurival.mexamen.ui.QuizUiState
 import dev.polurival.mexamen.ui.QuizViewModel
 import dev.polurival.mexamen.ui.ResultScreen
+import org.koin.compose.KoinApplication
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun App() {
-    MexamenTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {
-            // Паддинг внутри Surface: фон уходит под статус-бар (edge-to-edge), контент — нет
-            Box(modifier = Modifier.safeDrawingPadding()) {
-                AppContent()
+    KoinApplication(application = { modules(appModules) }) {
+        MexamenTheme {
+            Surface(modifier = Modifier.fillMaxSize()) {
+                // Паддинг внутри Surface: фон уходит под статус-бар (edge-to-edge), контент — нет
+                Box(modifier = Modifier.safeDrawingPadding()) {
+                    AppContent()
+                }
             }
         }
     }
@@ -42,12 +43,7 @@ fun App() {
 
 @Composable
 private fun AppContent() {
-    val viewModel: QuizViewModel = viewModel {
-        QuizViewModel(
-            repository = defaultQuestionRepository(),
-            distractorGenerator = DistractorGenerator(GroqProvider()),
-        )
-    }
+    val viewModel: QuizViewModel = koinViewModel()
     val state by viewModel.state.collectAsState()
     when (val current = state) {
         is QuizUiState.Home -> HomeScreen(
