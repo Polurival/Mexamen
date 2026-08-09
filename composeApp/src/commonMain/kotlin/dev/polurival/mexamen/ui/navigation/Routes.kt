@@ -16,4 +16,16 @@ sealed class Route : NavKey {
     
     @Serializable
     data object Stats : Route()
+
+    @Serializable
+    data object LegendsList : Route()
+
+    @Serializable
+    data class LegendDetail(val legendId: String) : Route()
+
+    @Serializable
+    data class LegendResult(val correctCount: Int, val totalCount: Int) : Route()
+
+    @Serializable
+    data object Interview : Route()
 }

@@ -29,19 +29,28 @@ fun ResultScreen(
     onHome: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val passed = result.score >= 8
+
     Column(
         modifier = modifier.fillMaxSize().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(Modifier.height(16.dp))
         Text(
-            text = "Resultado: ${result.score}/${result.total}",
+            text = if (passed) "¡Felicidades!" else "Sigue practicando",
             style = MaterialTheme.typography.headlineMedium,
+            color = if (passed) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
         )
-        //if (result.answers.any { it.question.source == DistractorSource.FALLBACK }) {
-        //    Spacer(Modifier.height(8.dp))
-        //    OfflineBadge()
-        //}
+        Spacer(Modifier.height(16.dp))
+        Text(
+            text = if (passed) "Has aprobado el examen" else "No has aprobado el examen",
+            style = MaterialTheme.typography.titleLarge
+        )
+        Spacer(Modifier.height(32.dp))
+        Text(
+            text = "Resultado: ${result.score}/${result.total}",
+            style = MaterialTheme.typography.displaySmall,
+        )
         Spacer(Modifier.height(24.dp))
         LazyColumn(
             modifier = Modifier.weight(1f).fillMaxWidth(),

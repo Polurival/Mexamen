@@ -33,6 +33,12 @@ import dev.polurival.mexamen.ui.FlashcardDoneScreen
 import dev.polurival.mexamen.ui.FlashcardUiState
 import dev.polurival.mexamen.ui.FlashcardViewModel
 import dev.polurival.mexamen.ui.HomeScreen
+import dev.polurival.mexamen.ui.InterviewScreen
+import dev.polurival.mexamen.ui.InterviewViewModel
+import dev.polurival.mexamen.ui.LegendDetailScreen
+import dev.polurival.mexamen.ui.LegendResultScreen
+import dev.polurival.mexamen.ui.LegendViewModel
+import dev.polurival.mexamen.ui.LegendsListScreen
 import dev.polurival.mexamen.ui.MexamenTheme
 import dev.polurival.mexamen.ui.QuizScreen
 import dev.polurival.mexamen.ui.QuizUiState
@@ -52,6 +58,10 @@ private val navigationSerializersModule = SerializersModule {
         subclass(Route.Quiz::class, Route.Quiz.serializer())
         subclass(Route.Flashcards::class, Route.Flashcards.serializer())
         subclass(Route.Stats::class, Route.Stats.serializer())
+        subclass(Route.LegendsList::class, Route.LegendsList.serializer())
+        subclass(Route.LegendDetail::class, Route.LegendDetail.serializer())
+        subclass(Route.LegendResult::class, Route.LegendResult.serializer())
+        subclass(Route.Interview::class, Route.Interview.serializer())
     }
 }
 
@@ -82,25 +92,81 @@ private fun AppContent() {
     NavDisplay(
         backStack = backStack,
         entryDecorators = listOf(saveableStateDecorator, viewModelStoreDecorator),
-        onBack = { backStack.removeLastOrNull() },
+        onBack = { 
+            if (backStack.size > 1) {
+                backStack.removeAt(backStack.size - 1)
+            }
+        },
         entryProvider = { key ->
             when (key) {
                 Route.Home -> NavEntry(key) {
                     HomeScreen(
                         onStartQuiz = { backStack.add(Route.Quiz) },
                         onStartFlashcards = { backStack.add(Route.Flashcards) },
+                        onOpenLegends = { backStack.add(Route.LegendsList) },
+                        onOpenInterview = { backStack.add(Route.Interview) },
                         onOpenStats = { backStack.add(Route.Stats) },
                     )
                 }
                 Route.Quiz -> NavEntry(key) {
-                    QuizFlow(onExit = { backStack.removeLastOrNull() })
+                    QuizFlow(onExit = { 
+                        if (backStack.size > 1) {
+                            backStack.removeAt(backStack.size - 1)
+                        }
+                    })
                 }
                 Route.Flashcards -> NavEntry(key) {
-                    FlashcardFlow(onExit = { backStack.removeLastOrNull() })
+                    FlashcardFlow(onExit = { 
+                        if (backStack.size > 1) {
+                            backStack.removeAt(backStack.size - 1)
+                        }
+                    })
                 }
                 Route.Stats -> NavEntry(key) {
                     val viewModel: StatsViewModel = koinViewModel()
-                    StatsScreen(viewModel = viewModel, onBack = { backStack.removeLastOrNull() })
+                    StatsScreen(viewModel = viewModel, onBack = { 
+                        if (backStack.size > 1) {
+                            backStack.removeAt(backStack.size - 1)
+                        }
+                    })
+                }
+                Route.LegendsList -> NavEntry(key) {
+                    LegendsListScreen(
+                        onSelectLegend = { legendId -> backStack.add(Route.LegendDetail(legendId)) },
+                        onBack = { 
+                            if (backStack.size > 1) {
+                                backStack.removeAt(backStack.size - 1)
+                            }
+                        }
+                    )
+                }
+                is Route.LegendDetail -> NavEntry(key) {
+                    LegendFlow(legendId = key.legendId, backStack = backStack)
+                }
+                is Route.LegendResult -> NavEntry(key) {
+                    LegendResultScreen(
+                        correctCount = key.correctCount,
+                        totalCount = key.totalCount,
+                        onHome = { 
+                            while (backStack.size > 1) {
+                                backStack.removeAt(backStack.size - 1)
+                            }
+                        }
+                    )
+                }
+                Route.Interview -> NavEntry(key) {
+                    val viewModel: InterviewViewModel = koinViewModel()
+                    val state by viewModel.state.collectAsState()
+                    InterviewScreen(
+                        state = state,
+                        onUpdateAnswer = viewModel::updateAnswer,
+                        onSaveAnswer = viewModel::saveAnswer,
+                        onBack = { 
+                            if (backStack.size > 1) {
+                                backStack.removeAt(backStack.size - 1)
+                            }
+                        }
+                    )
                 }
                 else -> error("Unknown key: $key")
             }
@@ -156,6 +222,34 @@ private fun FlashcardFlow(onExit: () -> Unit) {
             onHome = onExit,
         )
     }
+}
+
+@Composable
+private fun LegendFlow(legendId: String, backStack: MutableList<NavKey>) {
+    val viewModel: LegendViewModel = koinViewModel()
+    val state by viewModel.state.collectAsState()
+
+    LaunchedEffect(legendId) {
+        viewModel.selectLegend(legendId)
+    }
+
+    LaunchedEffect(state.isFinished) {
+        if (state.isFinished) {
+            val (correct, total) = viewModel.getResult()
+            backStack.add(Route.LegendResult(correct, total))
+        }
+    }
+
+    LegendDetailScreen(
+        state = state,
+        onSelectAnswer = viewModel::selectAnswer,
+        onSubmit = viewModel::finishLegend,
+        onBack = { 
+            if (backStack.size > 1) {
+                backStack.removeAt(backStack.size - 1)
+            }
+        }
+    )
 }
 
 @Composable
