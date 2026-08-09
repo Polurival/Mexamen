@@ -3,6 +3,8 @@ package dev.polurival.mexamen.llm
 import dev.polurival.mexamen.data.QuestionRepository
 import dev.polurival.mexamen.domain.BuildQuizUseCase
 import dev.polurival.mexamen.domain.DistractorSource
+import dev.polurival.mexamen.llm.LlmDistractorGenerator
+import dev.polurival.mexamen.llm.GroqProvider
 import java.io.File
 import kotlinx.coroutines.runBlocking
 import org.junit.Assume.assumeTrue
@@ -28,7 +30,7 @@ class DistractorSmokeTest {
         val quiz = runBlocking {
             BuildQuizUseCase(
                 dataset = repository.dataset(),
-                distractorGenerator = DistractorGenerator(GroqProvider()),
+                distractorGenerator = LlmDistractorGenerator(GroqProvider()),
             ).build()
         }
         quiz.forEach { q ->

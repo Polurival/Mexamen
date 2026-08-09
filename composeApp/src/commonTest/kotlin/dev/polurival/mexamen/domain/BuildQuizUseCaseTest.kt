@@ -4,7 +4,7 @@ import dev.polurival.mexamen.data.QuestionDataset
 import dev.polurival.mexamen.data.QuestionEntry
 import dev.polurival.mexamen.data.QuestionStats
 import dev.polurival.mexamen.data.QuestionStatsStore
-import dev.polurival.mexamen.llm.DistractorGenerator
+import dev.polurival.mexamen.llm.LlmDistractorGenerator
 import dev.polurival.mexamen.llm.LlmProvider
 import dev.polurival.mexamen.llm.LlmUnavailable
 import kotlinx.coroutines.test.runTest
@@ -204,7 +204,7 @@ class BuildQuizUseCaseTest {
         val quiz = BuildQuizUseCase(
             dataset = dataset(),
             random = Random(1),
-            distractorGenerator = DistractorGenerator(EchoLlm()),
+            distractorGenerator = LlmDistractorGenerator(EchoLlm()),
         ).build()
 
         quiz.forEach { q ->
@@ -228,7 +228,7 @@ class BuildQuizUseCaseTest {
         val quiz = BuildQuizUseCase(
             dataset = data,
             random = Random(7),
-            distractorGenerator = DistractorGenerator(EchoLlm(skipIds = skipped)),
+            distractorGenerator = LlmDistractorGenerator(EchoLlm(skipIds = skipped)),
         ).build()
 
         quiz.forEach { q ->
@@ -245,7 +245,7 @@ class BuildQuizUseCaseTest {
         val quiz = BuildQuizUseCase(
             dataset = dataset(),
             random = Random(5),
-            distractorGenerator = DistractorGenerator(EchoLlm(failure = LlmUnavailable("offline"))),
+            distractorGenerator = LlmDistractorGenerator(EchoLlm(failure = LlmUnavailable("offline"))),
         ).build()
 
         assertEquals(10, quiz.size)

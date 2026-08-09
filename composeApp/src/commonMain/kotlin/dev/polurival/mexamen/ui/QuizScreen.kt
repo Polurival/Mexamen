@@ -48,9 +48,9 @@ fun QuizScreen(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.weight(1f)
             )
-            if (state.question.source == DistractorSource.FALLBACK) {
-                OfflineBadge()
-            }
+            //if (state.question.source == DistractorSource.FALLBACK) {
+            //    OfflineBadge()
+            //}
             IconButton(onClick = onExit) {
                 Icon(
                     imageVector = Icons.Default.Close,

@@ -38,10 +38,10 @@ fun ResultScreen(
             text = "Resultado: ${result.score}/${result.total}",
             style = MaterialTheme.typography.headlineMedium,
         )
-        if (result.answers.any { it.question.source == DistractorSource.FALLBACK }) {
-            Spacer(Modifier.height(8.dp))
-            OfflineBadge()
-        }
+        //if (result.answers.any { it.question.source == DistractorSource.FALLBACK }) {
+        //    Spacer(Modifier.height(8.dp))
+        //    OfflineBadge()
+        //}
         Spacer(Modifier.height(24.dp))
         LazyColumn(
             modifier = Modifier.weight(1f).fillMaxWidth(),

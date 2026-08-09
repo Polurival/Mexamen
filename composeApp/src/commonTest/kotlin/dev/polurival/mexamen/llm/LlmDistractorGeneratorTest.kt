@@ -21,7 +21,7 @@ private class FakeLlm(
     }
 }
 
-class DistractorGeneratorTest {
+class LlmDistractorGeneratorTest {
 
     private val requests = listOf(
         DistractorRequestItem(1, "¿Capital de Jalisco?", "Guadalajara", listOf("Ctx1a", "Ctx1b")),
@@ -38,7 +38,7 @@ class DistractorGeneratorTest {
                 ]}
             """.trimIndent(),
         )
-        val result = DistractorGenerator(llm).generate(requests)
+        val result = LlmDistractorGenerator(llm).generate(requests)
 
         assertEquals(
             mapOf(
@@ -60,7 +60,7 @@ class DistractorGeneratorTest {
         val llm = FakeLlm(
             response = "```json\n{\"items\":[{\"id\":1,\"distractors\":[\"A\",\"B\",\"C\"]}]}\n```",
         )
-        val result = DistractorGenerator(llm).generate(requests)
+        val result = LlmDistractorGenerator(llm).generate(requests)
         assertEquals(mapOf(1 to listOf("A", "B", "C")), result)
     }
 
@@ -68,7 +68,7 @@ class DistractorGeneratorTest {
     fun brokenJsonThrowsLlmUnavailable() = runTest {
         val llm = FakeLlm(response = "Claro, aquí tienes los distractores: 1) Monterrey…")
         assertFailsWith<LlmUnavailable> {
-            DistractorGenerator(llm).generate(requests)
+            LlmDistractorGenerator(llm).generate(requests)
         }
     }
 
@@ -83,7 +83,7 @@ class DistractorGeneratorTest {
                 ]}
             """.trimIndent(),
         )
-        val result = DistractorGenerator(llm).generate(requests)
+        val result = LlmDistractorGenerator(llm).generate(requests)
 
         // id=1: дубль правильного ответа → осталось 2 → элемент невалиден
         // id=2: дубль между собой отфильтрован, добор четвёртым → валиден
@@ -95,7 +95,7 @@ class DistractorGeneratorTest {
     fun llmFailurePropagatesAsLlmUnavailable() = runTest {
         val llm = FakeLlm(failure = LlmUnavailable("no network"))
         assertFailsWith<LlmUnavailable> {
-            DistractorGenerator(llm).generate(requests)
+            LlmDistractorGenerator(llm).generate(requests)
         }
     }
 
@@ -110,7 +110,7 @@ class DistractorGeneratorTest {
                 ]}
             """.trimIndent(),
         )
-        val result = DistractorGenerator(llm).generate(requests)
+        val result = LlmDistractorGenerator(llm).generate(requests)
 
         // id=1: Ctx1a и Ctx1b совпадают с context → осталось "La Paz" → 1 < 3 → невалиден
         assertEquals(mapOf(2 to listOf("Chihuahua", "Culiacán", "Saltillo")), result)
@@ -135,7 +135,7 @@ class DistractorGeneratorTest {
                 ]}
             """.trimIndent(),
         )
-        val result = DistractorGenerator(llm).generate(withVariants)
+        val result = LlmDistractorGenerator(llm).generate(withVariants)
 
         // "Culiacán" — альтернативный верный вариант → отфильтрован → осталось 2 < 3 → невалиден
         assertEquals(emptyMap(), result)
