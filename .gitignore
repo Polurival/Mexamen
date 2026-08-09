@@ -10,6 +10,7 @@ captures/
 .externalNativeBuild/
 .cxx/
 .artifacts
+keystore/
 
 # Python (tools/)
 __pycache__/

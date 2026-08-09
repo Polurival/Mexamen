@@ -59,6 +59,21 @@ android {
     namespace = "dev.polurival.mexamen"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
+    val keystorePropertiesFile = rootProject.file("keystore/keystore.properties")
+    val keystoreProperties = Properties()
+    if (keystorePropertiesFile.exists()) {
+        keystoreProperties.load(keystorePropertiesFile.inputStream())
+    }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = keystoreProperties["keyAlias"] as String?
+            keyPassword = keystoreProperties["keyPassword"] as String?
+            storeFile = keystoreProperties["storeFile"]?.let { file(it as String) }
+            storePassword = keystoreProperties["storePassword"] as String?
+        }
+    }
+
     defaultConfig {
         applicationId = "dev.polurival.mexamen"
         minSdk = libs.versions.android.minSdk.get().toInt()
@@ -72,6 +87,7 @@ android {
     }
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
