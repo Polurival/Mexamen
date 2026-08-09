@@ -2,6 +2,8 @@ package dev.polurival.mexamen.domain
 
 import dev.polurival.mexamen.data.QuestionDataset
 import dev.polurival.mexamen.data.QuestionEntry
+import dev.polurival.mexamen.data.QuestionStats
+import dev.polurival.mexamen.data.QuestionStatsStore
 import dev.polurival.mexamen.llm.DistractorGenerator
 import dev.polurival.mexamen.llm.LlmProvider
 import dev.polurival.mexamen.llm.LlmUnavailable
@@ -50,6 +52,13 @@ private class EchoLlm(
         }
         return buildJsonObject { put("items", items) }.toString()
     }
+}
+
+/** Фиксированный snapshot, только для чтения — этого достаточно для BuildQuizUseCase. */
+private class FixedQuestionStatsStore(private val stats: Map<Int, QuestionStats>) : QuestionStatsStore {
+    override suspend fun readAll(): Map<Int, QuestionStats> = stats
+    override suspend fun update(transform: (Map<Int, QuestionStats>) -> Map<Int, QuestionStats>) = error("not used in test")
+    override suspend fun clear() = error("not used in test")
 }
 
 class BuildQuizUseCaseTest {
@@ -168,6 +177,26 @@ class BuildQuizUseCaseTest {
                 )
             }
         }
+    }
+
+    @Test
+    fun highWeightStatsMakeQuestionMorePickable() = runTest {
+        val data = dataset(sections = 6, perSection = 5) // 30 entries
+        val heavyId = data.entries.first().id
+        val statsStore = FixedQuestionStatsStore(mapOf(heavyId to QuestionStats(weight = QuestionWeighting.MAX_WEIGHT)))
+
+        var heavyPickedCount = 0
+        val trials = 200
+        repeat(trials) { seed ->
+            val quiz = BuildQuizUseCase(data, Random(seed), statsStore = statsStore, nowMillis = 0L).build(count = 4)
+            if (quiz.any { it.entry.id == heavyId }) heavyPickedCount++
+        }
+        val baselineRate = 4.0 / data.entries.size
+        val heavyRate = heavyPickedCount.toDouble() / trials
+        assertTrue(
+            heavyRate > baselineRate * 2,
+            "Expected weighted question picked much more than baseline $baselineRate, got $heavyRate",
+        )
     }
 
     @Test

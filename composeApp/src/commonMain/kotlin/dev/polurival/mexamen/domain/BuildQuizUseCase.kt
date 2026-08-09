@@ -2,6 +2,7 @@ package dev.polurival.mexamen.domain
 
 import dev.polurival.mexamen.data.QuestionDataset
 import dev.polurival.mexamen.data.QuestionEntry
+import dev.polurival.mexamen.data.QuestionStatsStore
 import dev.polurival.mexamen.llm.DistractorGenerator
 import dev.polurival.mexamen.llm.DistractorRequestItem
 import dev.polurival.mexamen.llm.LlmUnavailable
@@ -18,12 +19,15 @@ class BuildQuizUseCase(
     private val dataset: QuestionDataset,
     private val random: Random = Random.Default,
     private val distractorGenerator: DistractorGenerator? = null,
+    private val statsStore: QuestionStatsStore? = null,
+    private val nowMillis: Long = currentTimeMillis(),
 ) {
     private val store = VectorStore(dataset)
     private val byId = dataset.entries.associateBy { it.id }
 
     suspend fun build(count: Int = QUIZ_SIZE): List<QuizQuestion> {
-        val picked = QuestionPicker(random).pick(dataset.entries, count)
+        val stats = statsStore?.readAll() ?: emptyMap()
+        val picked = WeightedQuestionPicker(random).pick(dataset.entries, stats, count, nowMillis)
         val ragNeighbors = picked.associate { entry ->
             entry.id to store.topK(entry.id, RAG_TOP_K).map { byId.getValue(it.id) }
         }

@@ -6,26 +6,58 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
+import androidx.navigation3.runtime.NavEntry
+import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.rememberNavBackStack
+import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
+import androidx.navigation3.ui.NavDisplay
+import androidx.savedstate.serialization.SavedStateConfiguration
 import dev.polurival.mexamen.di.appModules
+import dev.polurival.mexamen.ui.FlashcardCardScreen
+import dev.polurival.mexamen.ui.FlashcardDoneScreen
+import dev.polurival.mexamen.ui.FlashcardUiState
+import dev.polurival.mexamen.ui.FlashcardViewModel
 import dev.polurival.mexamen.ui.HomeScreen
 import dev.polurival.mexamen.ui.MexamenTheme
 import dev.polurival.mexamen.ui.QuizScreen
 import dev.polurival.mexamen.ui.QuizUiState
 import dev.polurival.mexamen.ui.QuizViewModel
 import dev.polurival.mexamen.ui.ResultScreen
+import dev.polurival.mexamen.ui.StatsScreen
+import dev.polurival.mexamen.ui.StatsViewModel
+import dev.polurival.mexamen.ui.navigation.Route
+import kotlinx.serialization.modules.SerializersModule
+import kotlinx.serialization.modules.polymorphic
 import org.koin.compose.KoinApplication
 import org.koin.compose.viewmodel.koinViewModel
+
+private val navigationSerializersModule = SerializersModule {
+    polymorphic(NavKey::class) {
+        subclass(Route.Home::class, Route.Home.serializer())
+        subclass(Route.Quiz::class, Route.Quiz.serializer())
+        subclass(Route.Flashcards::class, Route.Flashcards.serializer())
+        subclass(Route.Stats::class, Route.Stats.serializer())
+    }
+}
+
+private val navigationConfig = SavedStateConfiguration {
+    serializersModule = navigationSerializersModule
+}
 
 @Composable
 fun App() {
@@ -43,22 +75,107 @@ fun App() {
 
 @Composable
 private fun AppContent() {
+    val backStack = rememberNavBackStack(configuration = navigationConfig, Route.Home)
+    val viewModelStoreDecorator = rememberViewModelStoreNavEntryDecorator<NavKey>()
+    val saveableStateDecorator = rememberSaveableStateHolderNavEntryDecorator<NavKey>()
+
+    NavDisplay(
+        backStack = backStack,
+        entryDecorators = listOf(saveableStateDecorator, viewModelStoreDecorator),
+        onBack = { backStack.removeLastOrNull() },
+        entryProvider = { key ->
+            when (key) {
+                Route.Home -> NavEntry(key) {
+                    HomeScreen(
+                        onStartQuiz = { backStack.add(Route.Quiz) },
+                        onStartFlashcards = { backStack.add(Route.Flashcards) },
+                        onOpenStats = { backStack.add(Route.Stats) },
+                    )
+                }
+                Route.Quiz -> NavEntry(key) {
+                    QuizFlow(onExit = { backStack.removeLastOrNull() })
+                }
+                Route.Flashcards -> NavEntry(key) {
+                    FlashcardFlow(onExit = { backStack.removeLastOrNull() })
+                }
+                Route.Stats -> NavEntry(key) {
+                    val viewModel: StatsViewModel = koinViewModel()
+                    StatsScreen(viewModel = viewModel, onBack = { backStack.removeLastOrNull() })
+                }
+                else -> error("Unknown key: $key")
+            }
+        }
+    )
+}
+
+@Composable
+private fun QuizFlow(onExit: () -> Unit) {
     val viewModel: QuizViewModel = koinViewModel()
     val state by viewModel.state.collectAsState()
+    LaunchedEffect(Unit) { viewModel.startQuiz() }
     when (val current = state) {
-        is QuizUiState.Home -> HomeScreen(
+        is QuizUiState.Home -> QuizErrorScreen(
             error = current.error,
-            onStart = viewModel::startQuiz,
+            onRetry = viewModel::startQuiz,
+            onHome = onExit,
         )
         is QuizUiState.Loading -> LoadingScreen()
         is QuizUiState.Question -> QuizScreen(
             state = current,
             onSelect = viewModel::selectAnswer,
+            onExit = onExit,
         )
         is QuizUiState.Result -> ResultScreen(
             result = current.result,
             onRestart = viewModel::startQuiz,
+            onHome = onExit,
         )
+    }
+}
+
+@Composable
+private fun FlashcardFlow(onExit: () -> Unit) {
+    val viewModel: FlashcardViewModel = koinViewModel()
+    val state by viewModel.state.collectAsState()
+    LaunchedEffect(Unit) { viewModel.start() }
+    when (val current = state) {
+        is FlashcardUiState.Loading -> LoadingScreen()
+        is FlashcardUiState.Error -> QuizErrorScreen(
+            error = current.message,
+            onRetry = viewModel::start,
+            onHome = onExit,
+        )
+        is FlashcardUiState.Card -> FlashcardCardScreen(
+            state = current,
+            onFlip = viewModel::flip,
+            onGrade = viewModel::grade,
+            onExit = onExit,
+        )
+        is FlashcardUiState.Done -> FlashcardDoneScreen(
+            state = current,
+            onHome = onExit,
+        )
+    }
+}
+
+@Composable
+private fun QuizErrorScreen(error: String?, onRetry: () -> Unit, onHome: () -> Unit) {
+    Column(
+        modifier = Modifier.fillMaxSize().padding(32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        if (error != null) {
+            Text(
+                text = error,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.error,
+            )
+            Spacer(Modifier.height(24.dp))
+        }
+        Button(onClick = onRetry) { Text("Reintentar") }
+        Spacer(Modifier.height(12.dp))
+        Button(onClick = onHome) { Text("Volver al inicio") }
     }
 }
 

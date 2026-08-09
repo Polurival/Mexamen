@@ -3,10 +3,12 @@ package dev.polurival.mexamen.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.polurival.mexamen.data.QuestionRepository
+import dev.polurival.mexamen.data.QuestionStatsStore
 import dev.polurival.mexamen.domain.AnsweredQuestion
 import dev.polurival.mexamen.domain.BuildQuizUseCase
 import dev.polurival.mexamen.domain.QuizQuestion
 import dev.polurival.mexamen.domain.QuizResult
+import dev.polurival.mexamen.domain.RecordAnswerUseCase
 import dev.polurival.mexamen.llm.DistractorGenerator
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -32,12 +34,14 @@ sealed interface QuizUiState {
 
 class QuizViewModel(
     private val repository: QuestionRepository,
+    private val statsStore: QuestionStatsStore,
     private val distractorGenerator: DistractorGenerator? = null,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<QuizUiState>(QuizUiState.Home())
     val state: StateFlow<QuizUiState> = _state.asStateFlow()
 
+    private val recordAnswer = RecordAnswerUseCase(statsStore)
     private var quiz: List<QuizQuestion> = emptyList()
     private var answers = mutableListOf<AnsweredQuestion>()
     private var advanceJob: Job? = null
@@ -49,7 +53,7 @@ class QuizViewModel(
         viewModelScope.launch {
             try {
                 val dataset = repository.dataset()
-                quiz = BuildQuizUseCase(dataset, distractorGenerator = distractorGenerator).build()
+                quiz = BuildQuizUseCase(dataset, statsStore = statsStore, distractorGenerator = distractorGenerator).build()
                 answers = mutableListOf()
                 _state.value = QuizUiState.Question(0, quiz.size, quiz.first(), selectedIndex = null)
             } catch (e: Exception) {
@@ -61,8 +65,10 @@ class QuizViewModel(
     fun selectAnswer(optionIndex: Int) {
         val current = _state.value as? QuizUiState.Question ?: return
         if (current.selectedIndex != null) return
-        answers += AnsweredQuestion(current.question, optionIndex)
+        val answered = AnsweredQuestion(current.question, optionIndex)
+        answers += answered
         _state.value = current.copy(selectedIndex = optionIndex)
+        viewModelScope.launch { recordAnswer.recordQuizAnswer(current.question.entry.id, answered.isCorrect) }
         advanceJob = viewModelScope.launch {
             delay(ANSWER_REVEAL_MILLIS)
             advance(current.index)

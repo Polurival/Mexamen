@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,8 +18,9 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun HomeScreen(
-    error: String?,
-    onStart: () -> Unit,
+    onStartQuiz: () -> Unit,
+    onStartFlashcards: () -> Unit,
+    onOpenStats: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -38,17 +40,16 @@ fun HomeScreen(
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         Spacer(Modifier.height(48.dp))
-        Button(onClick = onStart) {
+        Button(onClick = onStartQuiz) {
             Text("Comenzar quiz")
         }
-        if (error != null) {
-            Spacer(Modifier.height(24.dp))
-            Text(
-                text = error,
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.error,
-                textAlign = TextAlign.Center,
-            )
+        Spacer(Modifier.height(12.dp))
+        Button(onClick = onStartFlashcards) {
+            Text("Comenzar tarjetas didácticas")
+        }
+        Spacer(Modifier.height(24.dp))
+        OutlinedButton(onClick = onOpenStats) {
+            Text("Estadísticas")
         }
     }
 }

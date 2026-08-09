@@ -10,8 +10,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -25,6 +29,7 @@ import dev.polurival.mexamen.domain.DistractorSource
 fun QuizScreen(
     state: QuizUiState.Question,
     onSelect: (Int) -> Unit,
+    onExit: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -36,15 +41,21 @@ fun QuizScreen(
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             Text(
                 text = "Pregunta ${state.index + 1} de ${state.total}",
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.weight(1f)
             )
             if (state.question.source == DistractorSource.FALLBACK) {
                 OfflineBadge()
+            }
+            IconButton(onClick = onExit) {
+                Icon(
+                    imageVector = Icons.Default.Close,
+                    contentDescription = "Cerrar quiz"
+                )
             }
         }
         Spacer(Modifier.height(8.dp))

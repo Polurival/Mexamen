@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -25,6 +26,7 @@ import dev.polurival.mexamen.domain.QuizResult
 fun ResultScreen(
     result: QuizResult,
     onRestart: () -> Unit,
+    onHome: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -52,6 +54,10 @@ fun ResultScreen(
         Spacer(Modifier.height(16.dp))
         Button(onClick = onRestart, modifier = Modifier.fillMaxWidth()) {
             Text("Intentar de nuevo")
+        }
+        Spacer(Modifier.height(8.dp))
+        OutlinedButton(onClick = onHome, modifier = Modifier.fillMaxWidth()) {
+            Text("Volver al inicio")
         }
     }
 }

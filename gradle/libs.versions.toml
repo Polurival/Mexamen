@@ -8,6 +8,9 @@ jetbrains-lifecycle = "2.9.1"
 ktor = "3.2.2"
 kotlinx-coroutines = "1.10.2"
 koin = "4.1.0"
+androidx-datastore = "1.1.1"
+navigation3 = "1.1.1"
+navigation3-lifecycle = "2.10.0"
 android-minSdk = "26"
 android-targetSdk = "36"
 android-compileSdk = "36"
@@ -25,6 +28,9 @@ kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-t
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
+navigation3-ui = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "navigation3" }
+lifecycle-viewmodel-navigation3 = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "navigation3-lifecycle" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
