@@ -22,6 +22,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import dev.polurival.mexamen.domain.DistractorSource
 
@@ -47,6 +49,13 @@ fun QuizScreen(
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.weight(1f)
+            )
+            Text(
+                text = formatTime(state.timeLeftSeconds),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = if (state.timeLeftSeconds < 60) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(horizontal = 8.dp)
             )
             //if (state.question.source == DistractorSource.FALLBACK) {
             //    OfflineBadge()
@@ -80,6 +89,12 @@ fun QuizScreen(
             }
         }
     }
+}
+
+private fun formatTime(seconds: Int): String {
+    val minutes = seconds / 60
+    val remainingSeconds = seconds % 60
+    return "${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}"
 }
 
 private enum class OptionHighlight { NONE, CORRECT, WRONG }

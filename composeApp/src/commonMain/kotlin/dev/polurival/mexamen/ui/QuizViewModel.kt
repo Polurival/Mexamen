@@ -27,6 +27,7 @@ sealed interface QuizUiState {
         val total: Int,
         val question: QuizQuestion,
         val selectedIndex: Int?,
+        val timeLeftSeconds: Int = 600,
     ) : QuizUiState
 
     data class Result(val result: QuizResult) : QuizUiState
@@ -45,21 +46,48 @@ class QuizViewModel(
     private var quiz: List<QuizQuestion> = emptyList()
     private var answers = mutableListOf<AnsweredQuestion>()
     private var advanceJob: Job? = null
+    private var timerJob: Job? = null
 
     fun startQuiz() {
         if (_state.value is QuizUiState.Loading) return
         advanceJob?.cancel()
+        timerJob?.cancel()
         _state.value = QuizUiState.Loading
         viewModelScope.launch {
             try {
                 val dataset = repository.dataset()
                 quiz = BuildQuizUseCase(dataset, statsStore = statsStore, distractorGenerator = distractorGenerator).build()
                 answers = mutableListOf()
-                _state.value = QuizUiState.Question(0, quiz.size, quiz.first(), selectedIndex = null)
+                _state.value = QuizUiState.Question(0, quiz.size, quiz.first(), selectedIndex = null, timeLeftSeconds = 600)
+                startTimer()
             } catch (e: Exception) {
                 _state.value = QuizUiState.Home(error = e.message ?: "Error al cargar las preguntas")
             }
         }
+    }
+
+    private fun startTimer() {
+        timerJob?.cancel()
+        timerJob = viewModelScope.launch {
+            while (true) {
+                delay(1000L)
+                val current = _state.value as? QuizUiState.Question ?: break
+                if (current.timeLeftSeconds > 0) {
+                    _state.value = current.copy(timeLeftSeconds = current.timeLeftSeconds - 1)
+                } else {
+                    finishQuiz()
+                    break
+                }
+            }
+        }
+    }
+
+    private fun finishQuiz() {
+        timerJob?.cancel()
+        advanceJob?.cancel()
+        // If timed out, we might have fewer answers than quiz size.
+        // QuizResult handles a list of AnsweredQuestion.
+        _state.value = QuizUiState.Result(QuizResult(answers.toList()))
     }
 
     fun selectAnswer(optionIndex: Int) {
@@ -77,11 +105,25 @@ class QuizViewModel(
 
     private fun advance(answeredIndex: Int) {
         val next = answeredIndex + 1
+        val current = _state.value as? QuizUiState.Question
         _state.value = if (next < quiz.size) {
-            QuizUiState.Question(next, quiz.size, quiz[next], selectedIndex = null)
+            QuizUiState.Question(
+                index = next,
+                total = quiz.size,
+                question = quiz[next],
+                selectedIndex = null,
+                timeLeftSeconds = current?.timeLeftSeconds ?: 600
+            )
         } else {
+            timerJob?.cancel()
             QuizUiState.Result(QuizResult(answers.toList()))
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        timerJob?.cancel()
+        advanceJob?.cancel()
     }
 
     companion object {
