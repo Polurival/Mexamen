@@ -3,7 +3,12 @@ package dev.polurival.mexamen.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.polurival.mexamen.data.Legend
+import dev.polurival.mexamen.data.QuestionEntry
 import dev.polurival.mexamen.data.allLegends
+import dev.polurival.mexamen.domain.AnsweredQuestion
+import dev.polurival.mexamen.domain.DistractorSource
+import dev.polurival.mexamen.domain.QuizQuestion
+import dev.polurival.mexamen.domain.QuizResult
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -60,15 +65,28 @@ class LegendViewModel : ViewModel() {
         timerJob?.cancel()
     }
 
-    fun getResult(): Pair<Int, Int> {
-        val legend = _state.value.legend ?: return 0 to 0
-        var correctCount = 0
-        legend.questions.forEach { question ->
-            if (_state.value.userAnswers[question.id] == question.correctAnswerIndex) {
-                correctCount++
-            }
+    fun getResult(): QuizResult {
+        val legend = _state.value.legend ?: return QuizResult(emptyList())
+        val answers = legend.questions.map { question ->
+            val chosenIndex = _state.value.userAnswers[question.id] ?: -1
+            AnsweredQuestion(
+                question = QuizQuestion(
+                    entry = QuestionEntry(
+                        id = question.id,
+                        section = "Legend",
+                        question = question.question,
+                        answer = if (question.correctAnswerIndex in question.options.indices)
+                            question.options[question.correctAnswerIndex]
+                        else "",
+                    ),
+                    options = question.options,
+                    correctIndex = question.correctAnswerIndex,
+                    source = DistractorSource.FALLBACK
+                ),
+                chosenIndex = chosenIndex
+            )
         }
-        return correctCount to legend.questions.size
+        return QuizResult(answers)
     }
 
     override fun onCleared() {

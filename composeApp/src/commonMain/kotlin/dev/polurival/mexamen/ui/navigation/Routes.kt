@@ -1,6 +1,7 @@
 package dev.polurival.mexamen.ui.navigation
 
 import androidx.navigation3.runtime.NavKey
+import dev.polurival.mexamen.domain.QuizResult
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -24,7 +25,7 @@ sealed class Route : NavKey {
     data class LegendDetail(val legendId: String) : Route()
 
     @Serializable
-    data class LegendResult(val correctCount: Int, val totalCount: Int) : Route()
+    data class LegendResult(val result: QuizResult) : Route()
 
     @Serializable
     data object Interview : Route()

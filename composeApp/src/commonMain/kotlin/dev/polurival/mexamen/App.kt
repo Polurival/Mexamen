@@ -145,8 +145,7 @@ private fun AppContent() {
                 }
                 is Route.LegendResult -> NavEntry(key) {
                     LegendResultScreen(
-                        correctCount = key.correctCount,
-                        totalCount = key.totalCount,
+                        result = key.result,
                         onHome = { 
                             while (backStack.size > 1) {
                                 backStack.removeAt(backStack.size - 1)
@@ -235,8 +234,8 @@ private fun LegendFlow(legendId: String, backStack: MutableList<NavKey>) {
 
     LaunchedEffect(state.isFinished) {
         if (state.isFinished) {
-            val (correct, total) = viewModel.getResult()
-            backStack.add(Route.LegendResult(correct, total))
+            val result = viewModel.getResult()
+            backStack.add(Route.LegendResult(result))
         }
     }
 

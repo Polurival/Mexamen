@@ -72,7 +72,7 @@ fun ResultScreen(
 }
 
 @Composable
-private fun AnswerCard(answered: AnsweredQuestion) {
+internal fun AnswerCard(answered: AnsweredQuestion) {
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
