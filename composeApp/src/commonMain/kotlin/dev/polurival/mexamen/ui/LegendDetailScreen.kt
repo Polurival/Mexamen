@@ -29,6 +29,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -81,51 +83,73 @@ fun LegendDetailScreen(
             ) {
                 Spacer(Modifier.height(16.dp))
 
-                Row(
+                Column(
                     modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
                         text = legend.title,
                         style = MaterialTheme.typography.headlineMedium,
                         fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.weight(1f, fill = false)
+                        textAlign = TextAlign.Center
                     )
-                    Spacer(Modifier.width(8.dp))
-                    IconButton(
-                        onClick = {
-                            if (state.audioState == AudioState.PLAYING) onPauseAudio() else onPlayAudio()
-                        }
+                    Spacer(Modifier.height(16.dp))
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
                     ) {
-                        val icon = if (state.audioState == AudioState.PLAYING) {
-                            AppIcons.Pause
-                        } else {
-                            Icons.Default.PlayArrow
-                        }
-                        Icon(
-                            imageVector = icon,
-                            contentDescription = if (state.audioState == AudioState.PLAYING) "Pause Audio" else "Play Audio",
-                            tint = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                    if (state.audioState != AudioState.STOPPED) {
-                        IconButton(onClick = onStopAudio) {
+                        IconButton(
+                            onClick = {
+                                if (state.audioState == AudioState.PLAYING) onPauseAudio() else onPlayAudio()
+                            }
+                        ) {
+                            val icon = if (state.audioState == AudioState.PLAYING) {
+                                AppIcons.Pause
+                            } else {
+                                Icons.Default.PlayArrow
+                            }
                             Icon(
-                                imageVector = AppIcons.Stop,
-                                contentDescription = "Stop Audio",
-                                tint = MaterialTheme.colorScheme.error
+                                imageVector = icon,
+                                contentDescription = if (state.audioState == AudioState.PLAYING) "Pause Audio" else "Play Audio",
+                                tint = MaterialTheme.colorScheme.primary
                             )
+                        }
+                        if (state.audioState != AudioState.STOPPED) {
+                            IconButton(onClick = onStopAudio) {
+                                Icon(
+                                    imageVector = AppIcons.Stop,
+                                    contentDescription = "Stop Audio",
+                                    tint = MaterialTheme.colorScheme.error
+                                )
+                            }
                         }
                     }
                 }
 
                 Spacer(Modifier.height(32.dp))
 
+                val annotatedText = buildAnnotatedString {
+                    append(legend.text)
+                    state.currentWordRange?.let { range ->
+                        val start = range.first.coerceIn(0, legend.text.length)
+                        val end = (range.last + 1).coerceIn(0, legend.text.length)
+                        if (start < end) {
+                            addStyle(
+                                style = SpanStyle(
+                                    background = MaterialTheme.colorScheme.primaryContainer,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                    fontWeight = FontWeight.Bold
+                                ),
+                                start = start,
+                                end = end
+                            )
+                        }
+                    }
+                }
+
                 // Legend Text Styled like a Book
                 Text(
-                    text = legend.text,
+                    text = annotatedText,
                     style = MaterialTheme.typography.bodyLarge.copy(
                         lineHeight = 28.sp,
                         letterSpacing = 0.5.sp

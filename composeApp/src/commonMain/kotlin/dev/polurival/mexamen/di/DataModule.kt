@@ -14,5 +14,5 @@ val dataModule = module {
     single<QuestionRepository> { defaultQuestionRepository() }
     single<QuestionStatsStore> { defaultQuestionStatsStore() }
     single<InterviewStore> { defaultInterviewStore() }
-    single<AudioPlayer> { provideAudioPlayer() }
+    factory<AudioPlayer> { provideAudioPlayer() }
 }

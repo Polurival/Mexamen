@@ -16,8 +16,18 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import mexamen.composeapp.generated.resources.Res
 import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
+
+@Serializable
+data class WordTiming(
+    val start: Int,
+    val end: Int,
+    val time_ms: Int
+)
 
 enum class AudioState {
     STOPPED, PLAYING, PAUSED
@@ -28,7 +38,9 @@ data class LegendUiState(
     val userAnswers: Map<Int, Int> = emptyMap(), // questionId to optionIndex
     val timeLeftSeconds: Int = 600, // 10 minutes
     val isFinished: Boolean = false,
-    val audioState: AudioState = AudioState.STOPPED
+    val audioState: AudioState = AudioState.STOPPED,
+    val currentWordRange: IntRange? = null,
+    val timings: List<WordTiming> = emptyList()
 )
 
 class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
@@ -39,10 +51,32 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
     private var timerJob: Job? = null
 
     fun selectLegend(legendId: String) {
-        audioPlayer.stop()
         val legend = allLegends.find { it.id == legendId }
-        _state.update { it.copy(legend = legend, userAnswers = emptyMap(), timeLeftSeconds = 600, isFinished = false, audioState = AudioState.STOPPED) }
+        
+        viewModelScope.launch {
+            val timings = loadMetadata(legendId)
+            _state.update { it.copy(
+                legend = legend,
+                userAnswers = emptyMap(),
+                timeLeftSeconds = 600,
+                isFinished = false,
+                audioState = AudioState.STOPPED,
+                currentWordRange = null,
+                timings = timings ?: emptyList()
+            ) }
+        }
         startTimer()
+    }
+
+    private suspend fun loadMetadata(legendId: String): List<WordTiming>? {
+        return try {
+            val bytes = Res.readBytes("files/audio/$legendId.json")
+            val jsonString = bytes.decodeToString()
+            Json.decodeFromString<List<WordTiming>>(jsonString)
+        } catch (e: Exception) {
+            println("Error loading metadata for $legendId: ${e.message}")
+            null
+        }
     }
 
     private fun startTimer() {
@@ -76,10 +110,40 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
         val legend = _state.value.legend ?: return
         if (_state.value.audioState == AudioState.PAUSED) {
             audioPlayer.pause() // resumes
+            _state.update { it.copy(audioState = AudioState.PLAYING) }
         } else {
-            audioPlayer.play(legend.id)
+            audioPlayer.stop()
+            audioPlayer.play(
+                legendId = legend.id,
+                onProgress = { positionMs ->
+                    updateHighlight(positionMs)
+                },
+                onCompletion = {
+                    _state.update { it.copy(audioState = AudioState.STOPPED, currentWordRange = null) }
+                }
+            )
+            _state.update { it.copy(audioState = AudioState.PLAYING) }
         }
-        _state.update { it.copy(audioState = AudioState.PLAYING) }
+    }
+
+    private fun updateHighlight(positionMs: Long) {
+        val timings = _state.value.timings
+        val legendText = _state.value.legend?.text ?: return
+        if (timings.isEmpty()) return
+
+        val activeTiming = timings.lastOrNull { it.time_ms <= positionMs }
+        if (activeTiming != null) {
+            val start = activeTiming.start.coerceIn(0, legendText.length)
+            val end = activeTiming.end.coerceIn(0, legendText.length)
+            if (start < end) {
+                val newRange = start until end
+                if (newRange != _state.value.currentWordRange) {
+                    _state.update { it.copy(currentWordRange = newRange) }
+                }
+            } else {
+                _state.update { it.copy(currentWordRange = null) }
+            }
+        }
     }
 
     fun pauseAudio() {
@@ -89,7 +153,7 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
 
     fun stopAudio() {
         audioPlayer.stop()
-        _state.update { it.copy(audioState = AudioState.STOPPED) }
+        _state.update { it.copy(audioState = AudioState.STOPPED, currentWordRange = null) }
     }
 
     fun getResult(): QuizResult {
