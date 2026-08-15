@@ -19,14 +19,19 @@ import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
 
+enum class AudioState {
+    STOPPED, PLAYING, PAUSED
+}
+
 data class LegendUiState(
     val legend: Legend? = null,
     val userAnswers: Map<Int, Int> = emptyMap(), // questionId to optionIndex
     val timeLeftSeconds: Int = 600, // 10 minutes
-    val isFinished: Boolean = false
+    val isFinished: Boolean = false,
+    val audioState: AudioState = AudioState.STOPPED
 )
 
-class LegendViewModel : ViewModel() {
+class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
 
     private val _state = MutableStateFlow(LegendUiState())
     val state: StateFlow<LegendUiState> = _state.asStateFlow()
@@ -34,8 +39,9 @@ class LegendViewModel : ViewModel() {
     private var timerJob: Job? = null
 
     fun selectLegend(legendId: String) {
+        audioPlayer.stop()
         val legend = allLegends.find { it.id == legendId }
-        _state.update { it.copy(legend = legend, userAnswers = emptyMap(), timeLeftSeconds = 600, isFinished = false) }
+        _state.update { it.copy(legend = legend, userAnswers = emptyMap(), timeLeftSeconds = 600, isFinished = false, audioState = AudioState.STOPPED) }
         startTimer()
     }
 
@@ -61,8 +67,29 @@ class LegendViewModel : ViewModel() {
     }
 
     fun finishLegend() {
-        _state.update { it.copy(isFinished = true) }
+        audioPlayer.stop()
+        _state.update { it.copy(isFinished = true, audioState = AudioState.STOPPED) }
         timerJob?.cancel()
+    }
+
+    fun playAudio() {
+        val legend = _state.value.legend ?: return
+        if (_state.value.audioState == AudioState.PAUSED) {
+            audioPlayer.pause() // resumes
+        } else {
+            audioPlayer.play(legend.id)
+        }
+        _state.update { it.copy(audioState = AudioState.PLAYING) }
+    }
+
+    fun pauseAudio() {
+        audioPlayer.pause()
+        _state.update { it.copy(audioState = AudioState.PAUSED) }
+    }
+
+    fun stopAudio() {
+        audioPlayer.stop()
+        _state.update { it.copy(audioState = AudioState.STOPPED) }
     }
 
     fun getResult(): QuizResult {
@@ -91,6 +118,7 @@ class LegendViewModel : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
+        audioPlayer.release()
         timerJob?.cancel()
     }
 }

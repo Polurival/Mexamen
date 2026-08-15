@@ -12,6 +12,6 @@ val viewModelModule = module {
     viewModel { QuizViewModel(repository = get(), statsStore = get(), distractorGenerator = get()) }
     viewModel { FlashcardViewModel(repository = get(), statsStore = get()) }
     viewModel { StatsViewModel(repository = get(), statsStore = get()) }
-    viewModel { LegendViewModel() }
+    viewModel { LegendViewModel(audioPlayer = get()) }
     viewModel { InterviewViewModel(interviewStore = get()) }
 }

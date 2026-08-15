@@ -242,6 +242,9 @@ private fun LegendFlow(legendId: String, backStack: MutableList<NavKey>) {
     LegendDetailScreen(
         state = state,
         onSelectAnswer = viewModel::selectAnswer,
+        onPlayAudio = viewModel::playAudio,
+        onPauseAudio = viewModel::pauseAudio,
+        onStopAudio = viewModel::stopAudio,
         onSubmit = viewModel::finishLegend,
         onBack = { 
             if (backStack.size > 1) {

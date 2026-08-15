@@ -1,5 +1,6 @@
 package dev.polurival.mexamen.ui
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -7,11 +8,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -35,6 +38,9 @@ import androidx.compose.ui.unit.sp
 fun LegendDetailScreen(
     state: LegendUiState,
     onSelectAnswer: (Int, Int) -> Unit,
+    onPlayAudio: () -> Unit,
+    onPauseAudio: () -> Unit,
+    onStopAudio: () -> Unit,
     onSubmit: () -> Unit,
     onBack: () -> Unit,
     modifier: Modifier = Modifier
@@ -75,13 +81,45 @@ fun LegendDetailScreen(
             ) {
                 Spacer(Modifier.height(16.dp))
 
-                Text(
-                    text = legend.title,
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth()
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Text(
+                        text = legend.title,
+                        style = MaterialTheme.typography.headlineMedium,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.weight(1f, fill = false)
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    IconButton(
+                        onClick = {
+                            if (state.audioState == AudioState.PLAYING) onPauseAudio() else onPlayAudio()
+                        }
+                    ) {
+                        val icon = if (state.audioState == AudioState.PLAYING) {
+                            AppIcons.Pause
+                        } else {
+                            Icons.Default.PlayArrow
+                        }
+                        Icon(
+                            imageVector = icon,
+                            contentDescription = if (state.audioState == AudioState.PLAYING) "Pause Audio" else "Play Audio",
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                    if (state.audioState != AudioState.STOPPED) {
+                        IconButton(onClick = onStopAudio) {
+                            Icon(
+                                imageVector = AppIcons.Stop,
+                                contentDescription = "Stop Audio",
+                                tint = MaterialTheme.colorScheme.error
+                            )
+                        }
+                    }
+                }
 
                 Spacer(Modifier.height(32.dp))
 
