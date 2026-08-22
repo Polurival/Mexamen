@@ -52,8 +52,8 @@ python tools/build_embeddings.py   # → tools/out/embeddings.bin (+ самоп�
 # Ключ Groq (опционально — без него квиз работает в fallback-режиме):
 echo 'GROQ_API_KEY=gsk_...' >> local.properties
 
-./gradlew :composeApp:assembleDebug        # APK: composeApp/build/outputs/apk/debug/
-./gradlew :composeApp:testDebugUnitTest    # юнит-тесты
+./gradlew :androidApp:assembleDebug        # APK: androidApp/build/outputs/apk/debug/
+./gradlew :composeApp:testDebugUnitTest    # юнит-тесты shared-модуля
 ```
 
 Ключ не хранится в git: `local.properties` (или env `GROQ_API_KEY`) → `BuildConfig`. Требования: Android 8.0+ (API 26), интернет — только для LLM-дистракторов.
@@ -113,5 +113,6 @@ RUN_GROQ_SMOKE=1 ./gradlew :composeApp:testDebugUnitTest --tests '*SmokeTest*'
 
 - `mvp-spec.md` — что строим и зачем (SDD, источник истины MVP); `mvp-plan.md` — задачи и порядок MVP.
 - `tools/` — Python-пайплайн данных (скрейпер, эмбеддинги).
-- `composeApp/src/commonMain` — data / domain / llm / ui, бизнес-логика без Android-зависимостей.
+- `composeApp/` — KMP library модуль: data / domain / llm / ui, бизнес-логика без Android-зависимостей.
+- `androidApp/` — Android application модуль: точка входа, MainActivity, ресурсы приложения.
 - `composeApp/src/commonTest`, `androidUnitTest` — тесты (kotlin-test, Ktor MockEngine).
