@@ -3,14 +3,18 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary)
+    id("com.android.kotlin.multiplatform.library")
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
-    androidTarget {
+    androidLibrary {
+        namespace = "dev.polurival.mexamen"
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
+
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_21)
         }
@@ -55,30 +59,5 @@ kotlin {
             implementation(compose.runtime)
             implementation(libs.ktor.client.js)
         }
-    }
-}
-
-// NFR-3: ключ Groq из local.properties (или env), не из git; без ключа — fallback-режим
-val groqApiKey: String = run {
-    val props = Properties()
-    val file = rootProject.file("local.properties")
-    if (file.exists()) file.inputStream().use(props::load)
-    props.getProperty("GROQ_API_KEY") ?: System.getenv("GROQ_API_KEY") ?: ""
-}
-
-android {
-    namespace = "dev.polurival.mexamen"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        buildConfigField("String", "GROQ_API_KEY", "\"$groqApiKey\"")
-    }
-    buildFeatures {
-        buildConfig = true
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
     }
 }

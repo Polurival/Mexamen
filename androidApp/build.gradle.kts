@@ -2,17 +2,8 @@ import java.util.Properties
 
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-}
-
-kotlin {
-    androidTarget {
-        compilerOptions {
-            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
-        }
-    }
 }
 
 android {
@@ -40,6 +31,18 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "0.1"
+
+        // NFR-3: ключ Groq из local.properties (или env), не из git; без ключа — fallback-режим
+        val groqApiKey: String = run {
+            val props = Properties()
+            val file = rootProject.file("local.properties")
+            if (file.exists()) file.inputStream().use(props::load)
+            props.getProperty("GROQ_API_KEY") ?: System.getenv("GROQ_API_KEY") ?: ""
+        }
+        buildConfigField("String", "GROQ_API_KEY", "\"$groqApiKey\"")
+    }
+    buildFeatures {
+        buildConfig = true
     }
     buildTypes {
         release {
@@ -55,6 +58,12 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+        }
     }
 }
 
