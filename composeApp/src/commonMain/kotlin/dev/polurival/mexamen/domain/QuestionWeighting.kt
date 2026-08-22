@@ -22,10 +22,10 @@ object QuestionWeighting {
     const val HARD_MULTIPLIER = 1.15f
     const val EASY_MULTIPLIER = 0.3f
 
-    const val COOLDOWN_MILLIS = 4 * 60 * 60 * 1000L
+    const val COOLDOWN_MILLIS = 14400000L // 4 * 60 * 60 * 1000L
     const val DECAY_HALF_LIFE_DAYS = 14.0
     const val MAX_DECAY_BONUS = 2.0
-    private const val MILLIS_PER_DAY = 24 * 60 * 60 * 1000L
+    private const val MILLIS_PER_DAY = 86400000L // 24 * 60 * 60 * 1000L
 
     fun applyOutcome(stats: QuestionStats, outcome: AnswerOutcome, nowMillis: Long): QuestionStats {
         val multiplier = when (outcome) {

@@ -16,6 +16,13 @@ kotlin {
         }
     }
 
+    @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+    wasmJs {
+        moduleName = "composeApp"
+        browser()
+        binaries.executable()
+    }
+
     sourceSets {
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -43,6 +50,11 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.androidx.datastore.preferences)
+        }
+        wasmJsMain.dependencies {
+            implementation(compose.ui)
+            implementation(compose.runtime)
+            implementation(libs.ktor.client.js)
         }
     }
 }

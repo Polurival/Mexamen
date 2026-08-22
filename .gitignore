@@ -12,6 +12,11 @@ captures/
 .artifacts
 keystore/
 
+# Kotlin/JS & Wasm
+kotlin-js-store/
+vkotlin-js-store/
+node_modules/
+
 # Python (tools/)
 __pycache__/
 *.pyc

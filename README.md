@@ -58,6 +58,22 @@ echo 'GROQ_API_KEY=gsk_...' >> local.properties
 
 Ключ не хранится в git: `local.properties` (или env `GROQ_API_KEY`) → `BuildConfig`. Требования: Android 8.0+ (API 26), интернет — только для LLM-дистракторов.
 
+### Web (Wasm / PWA)
+
+Приложение также поддерживает сборку под Web (Kotlin/Wasm). Это позволяет использовать его в браузере или «установить» на iOS как Progressive Web App (PWA) без публикации в App Store.
+
+```bash
+./gradlew wasmJsBrowserDevelopmentRun         # Запуск локально (localhost:8080)
+./gradlew :composeApp:wasmJsBrowserDistribution # Сборка для публикации
+```
+
+Результат сборки для продакшена (статические файлы): `composeApp/build/dist/wasmJs/productionExecutable`.
+
+Для «установки» на iOS:
+1. Откройте URL приложения в **Safari**.
+2. Нажмите кнопку **«Поделиться»** (Share).
+3. Выберите **«На экран „Домой“»** (Add to Home Screen).
+
 Ручные интеграционные смоуки с реальным ключом (не для CI):
 
 ```bash

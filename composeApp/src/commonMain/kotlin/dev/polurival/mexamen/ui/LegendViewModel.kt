@@ -13,6 +13,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import org.jetbrains.compose.resources.ExperimentalResourceApi
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -68,6 +69,7 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
         startTimer()
     }
 
+    @OptIn(ExperimentalResourceApi::class)
     private suspend fun loadMetadata(legendId: String): List<WordTiming>? {
         return try {
             val bytes = Res.readBytes("files/audio/$legendId.json")
