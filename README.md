@@ -115,4 +115,4 @@ RUN_GROQ_SMOKE=1 ./gradlew :composeApp:testDebugUnitTest --tests '*SmokeTest*'
 - `tools/` — Python-пайплайн данных (скрейпер, эмбеддинги).
 - `composeApp/` — KMP library модуль: data / domain / llm / ui, бизнес-логика без Android-зависимостей.
 - `androidApp/` — Android application модуль: точка входа, MainActivity, ресурсы приложения.
-- `composeApp/src/commonTest`, `androidUnitTest` — тесты (kotlin-test, Ktor MockEngine).
+- `composeApp/src/commonTest`, `androidHostTest` — тесты (kotlin-test, Ktor MockEngine).

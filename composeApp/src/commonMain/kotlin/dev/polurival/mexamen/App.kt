@@ -51,6 +51,7 @@ import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import org.koin.compose.KoinApplication
 import org.koin.compose.viewmodel.koinViewModel
+import org.koin.dsl.koinConfiguration
 
 private val navigationSerializersModule = SerializersModule {
     polymorphic(NavKey::class) {
@@ -71,16 +72,19 @@ private val navigationConfig = SavedStateConfiguration {
 
 @Composable
 fun App() {
-    KoinApplication(application = { modules(appModules) }) {
-        MexamenTheme {
-            Surface(modifier = Modifier.fillMaxSize()) {
-                // Паддинг внутри Surface: фон уходит под статус-бар (edge-to-edge), контент — нет
-                Box(modifier = Modifier.safeDrawingPadding()) {
-                    AppContent()
+    // Паддинг внутри Surface: фон уходит под статус-бар (edge-to-edge), контент — нет
+    KoinApplication(
+        configuration = koinConfiguration(declaration = { modules(appModules) }),
+        content = {
+            MexamenTheme {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    // Паддинг внутри Surface: фон уходит под статус-бар (edge-to-edge), контент — нет
+                    Box(modifier = Modifier.safeDrawingPadding()) {
+                        AppContent()
+                    }
                 }
             }
-        }
-    }
+        })
 }
 
 @Composable

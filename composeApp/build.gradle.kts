@@ -1,4 +1,3 @@
-import java.util.Properties
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -10,10 +9,12 @@ plugins {
 }
 
 kotlin {
-    androidLibrary {
+    android {
         namespace = "dev.polurival.mexamen"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
+
+        withHostTest {}
 
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_21)
@@ -28,11 +29,11 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
+            implementation(libs.compose.runtime)
+            implementation(libs.compose.foundation)
+            implementation(libs.compose.material3)
+            implementation(libs.compose.ui)
+            implementation(libs.compose.components.resources)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.jetbrains.lifecycle.viewmodel.compose)
@@ -55,8 +56,8 @@ kotlin {
             implementation(libs.androidx.datastore.preferences)
         }
         wasmJsMain.dependencies {
-            implementation(compose.ui)
-            implementation(compose.runtime)
+            implementation(libs.compose.ui)
+            implementation(libs.compose.runtime)
             implementation(libs.ktor.client.js)
         }
     }
