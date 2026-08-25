@@ -218,8 +218,11 @@ fun LegendDetailScreen(
 
                 Spacer(Modifier.height(40.dp))
 
+                val allAnswered = state.userAnswers.size == legend.questions.size
+
                 Button(
                     onClick = onSubmit,
+                    enabled = allAnswered,
                     modifier = Modifier.fillMaxWidth().height(56.dp)
                 ) {
                     Text("Finalizar y Calificar", style = MaterialTheme.typography.titleMedium)
