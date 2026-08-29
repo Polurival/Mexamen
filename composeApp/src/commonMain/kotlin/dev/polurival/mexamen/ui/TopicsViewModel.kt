@@ -3,21 +3,29 @@ package dev.polurival.mexamen.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.polurival.mexamen.data.QuestionRepository
+import dev.polurival.mexamen.data.Topic
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
+data class TopicsUiState(
+    val topics: List<Topic> = emptyList(),
+    val totalCount: Int = 0
+)
+
 class TopicsViewModel(
     private val repository: QuestionRepository
 ) : ViewModel() {
 
-    private val _topics = MutableStateFlow<List<String>>(emptyList())
-    val topics: StateFlow<List<String>> = _topics.asStateFlow()
+    private val _state = MutableStateFlow(TopicsUiState())
+    val state: StateFlow<TopicsUiState> = _state.asStateFlow()
 
     init {
         viewModelScope.launch {
-            _topics.value = repository.getTopics()
+            val topics = repository.getTopics()
+            val totalCount = repository.getTotalQuestionsCount()
+            _state.value = TopicsUiState(topics, totalCount)
         }
     }
 }

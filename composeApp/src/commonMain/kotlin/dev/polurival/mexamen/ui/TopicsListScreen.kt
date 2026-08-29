@@ -31,7 +31,7 @@ fun TopicsListScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val topics by viewModel.topics.collectAsState()
+    val state by viewModel.state.collectAsState()
     val title = when (sessionType) {
         SessionType.QUIZ -> "Temas del Quiz"
         SessionType.FLASHCARDS -> "Temas de Tarjetas"
@@ -61,14 +61,16 @@ fun TopicsListScreen(
             item {
                 TopicItem(
                     title = "Todos los temas",
+                    count = state.totalCount,
                     onClick = { onTopicSelected(null) }
                 )
                 HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
             }
-            items(topics) { topic ->
+            items(state.topics) { topic ->
                 TopicItem(
-                    title = topic,
-                    onClick = { onTopicSelected(topic) }
+                    title = topic.name,
+                    count = topic.questionCount,
+                    onClick = { onTopicSelected(topic.name) }
                 )
                 HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
             }
@@ -79,6 +81,7 @@ fun TopicsListScreen(
 @Composable
 private fun TopicItem(
     title: String,
+    count: Int,
     onClick: () -> Unit,
 ) {
     ListItem(
@@ -86,6 +89,13 @@ private fun TopicItem(
             Text(
                 text = title,
                 style = MaterialTheme.typography.bodyLarge
+            )
+        },
+        supportingContent = {
+            Text(
+                text = "$count preguntas",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         },
         modifier = Modifier

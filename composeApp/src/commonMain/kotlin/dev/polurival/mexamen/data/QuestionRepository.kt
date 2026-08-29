@@ -31,8 +31,15 @@ class QuestionRepository(
         cached ?: load().also { cached = it }
     }
 
-    suspend fun getTopics(): List<String> {
-        return dataset().entries.map { it.section }.distinct().sorted()
+    suspend fun getTopics(): List<Topic> {
+        val entries = dataset().entries
+        return entries.groupBy { it.section }
+            .map { (name, list) -> Topic(name, list.size) }
+            .sortedBy { it.name }
+    }
+
+    suspend fun getTotalQuestionsCount(): Int {
+        return dataset().entries.size
     }
 
     private suspend fun load(): QuestionDataset {
