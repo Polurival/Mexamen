@@ -17,10 +17,16 @@ class BuildFlashcardsUseCase(
         dataset: QuestionDataset,
         statsStore: QuestionStatsStore,
         count: Int = FLASHCARD_SIZE,
+        topic: String? = null,
         nowMillis: Long = currentTimeMillis(),
     ): List<QuestionEntry> {
         val stats = statsStore.readAll()
-        return WeightedQuestionPicker(random).pick(dataset.entries, stats, count, nowMillis)
+        val pool = if (topic != null) {
+            dataset.entries.filter { it.section == topic }
+        } else {
+            dataset.entries
+        }
+        return WeightedQuestionPicker(random).pick(pool, stats, count, nowMillis)
     }
 
     companion object {

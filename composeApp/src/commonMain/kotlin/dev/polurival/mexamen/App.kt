@@ -46,7 +46,10 @@ import dev.polurival.mexamen.ui.QuizViewModel
 import dev.polurival.mexamen.ui.ResultScreen
 import dev.polurival.mexamen.ui.StatsScreen
 import dev.polurival.mexamen.ui.StatsViewModel
+import dev.polurival.mexamen.ui.TopicsListScreen
+import dev.polurival.mexamen.ui.TopicsViewModel
 import dev.polurival.mexamen.ui.navigation.Route
+import dev.polurival.mexamen.ui.navigation.SessionType
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import org.koin.compose.KoinApplication
@@ -56,6 +59,7 @@ import org.koin.dsl.koinConfiguration
 private val navigationSerializersModule = SerializersModule {
     polymorphic(NavKey::class) {
         subclass(Route.Home::class, Route.Home.serializer())
+        subclass(Route.TopicsList::class, Route.TopicsList.serializer())
         subclass(Route.Quiz::class, Route.Quiz.serializer())
         subclass(Route.Flashcards::class, Route.Flashcards.serializer())
         subclass(Route.Stats::class, Route.Stats.serializer())
@@ -105,22 +109,41 @@ private fun AppContent() {
             when (key) {
                 Route.Home -> NavEntry(key) {
                     HomeScreen(
-                        onStartQuiz = { backStack.add(Route.Quiz) },
-                        onStartFlashcards = { backStack.add(Route.Flashcards) },
+                        onStartQuiz = { sessionType -> backStack.add(Route.TopicsList(sessionType)) },
+                        onStartFlashcards = { sessionType -> backStack.add(Route.TopicsList(sessionType)) },
                         onOpenLegends = { backStack.add(Route.LegendsList) },
                         onOpenInterview = { backStack.add(Route.Interview) },
                         onOpenStats = { backStack.add(Route.Stats) },
                     )
                 }
-                Route.Quiz -> NavEntry(key) {
-                    QuizFlow(onExit = { 
+                is Route.TopicsList -> NavEntry(key) {
+                    val viewModel: TopicsViewModel = koinViewModel()
+                    TopicsListScreen(
+                        viewModel = viewModel,
+                        sessionType = key.sessionType,
+                        onTopicSelected = { topic ->
+                            val nextRoute = when (key.sessionType) {
+                                SessionType.QUIZ -> Route.Quiz(topic)
+                                SessionType.FLASHCARDS -> Route.Flashcards(topic)
+                            }
+                            backStack.add(nextRoute)
+                        },
+                        onBack = {
+                            if (backStack.size > 1) {
+                                backStack.removeAt(backStack.size - 1)
+                            }
+                        }
+                    )
+                }
+                is Route.Quiz -> NavEntry(key) {
+                    QuizFlow(topic = key.topic, onExit = {
                         if (backStack.size > 1) {
                             backStack.removeAt(backStack.size - 1)
                         }
                     })
                 }
-                Route.Flashcards -> NavEntry(key) {
-                    FlashcardFlow(onExit = { 
+                is Route.Flashcards -> NavEntry(key) {
+                    FlashcardFlow(topic = key.topic, onExit = {
                         if (backStack.size > 1) {
                             backStack.removeAt(backStack.size - 1)
                         }
@@ -178,14 +201,14 @@ private fun AppContent() {
 }
 
 @Composable
-private fun QuizFlow(onExit: () -> Unit) {
+private fun QuizFlow(topic: String?, onExit: () -> Unit) {
     val viewModel: QuizViewModel = koinViewModel()
     val state by viewModel.state.collectAsState()
-    LaunchedEffect(Unit) { viewModel.startQuiz() }
+    LaunchedEffect(topic) { viewModel.startQuiz(topic) }
     when (val current = state) {
         is QuizUiState.Home -> QuizErrorScreen(
             error = current.error,
-            onRetry = viewModel::startQuiz,
+            onRetry = { viewModel.startQuiz(topic) },
             onHome = onExit,
         )
         is QuizUiState.Loading -> LoadingScreen()
@@ -196,22 +219,22 @@ private fun QuizFlow(onExit: () -> Unit) {
         )
         is QuizUiState.Result -> ResultScreen(
             result = current.result,
-            onRestart = viewModel::startQuiz,
+            onRestart = { viewModel.startQuiz(topic) },
             onHome = onExit,
         )
     }
 }
 
 @Composable
-private fun FlashcardFlow(onExit: () -> Unit) {
+private fun FlashcardFlow(topic: String?, onExit: () -> Unit) {
     val viewModel: FlashcardViewModel = koinViewModel()
     val state by viewModel.state.collectAsState()
-    LaunchedEffect(Unit) { viewModel.start() }
+    LaunchedEffect(topic) { viewModel.start(topic) }
     when (val current = state) {
         is FlashcardUiState.Loading -> LoadingScreen()
         is FlashcardUiState.Error -> QuizErrorScreen(
             error = current.message,
-            onRetry = viewModel::start,
+            onRetry = { viewModel.start(topic) },
             onHome = onExit,
         )
         is FlashcardUiState.Card -> FlashcardCardScreen(

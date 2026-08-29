@@ -5,6 +5,7 @@ import dev.polurival.mexamen.ui.InterviewViewModel
 import dev.polurival.mexamen.ui.LegendViewModel
 import dev.polurival.mexamen.ui.QuizViewModel
 import dev.polurival.mexamen.ui.StatsViewModel
+import dev.polurival.mexamen.ui.TopicsViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
@@ -14,4 +15,5 @@ val viewModelModule = module {
     viewModel { StatsViewModel(repository = get(), statsStore = get()) }
     viewModel { LegendViewModel(audioPlayer = get()) }
     viewModel { InterviewViewModel(interviewStore = get()) }
+    viewModel { TopicsViewModel(repository = get()) }
 }

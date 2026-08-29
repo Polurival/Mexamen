@@ -25,9 +25,14 @@ class BuildQuizUseCase(
     private val store = VectorStore(dataset)
     private val byId = dataset.entries.associateBy { it.id }
 
-    suspend fun build(count: Int = QUIZ_SIZE): List<QuizQuestion> {
+    suspend fun build(count: Int = QUIZ_SIZE, topic: String? = null): List<QuizQuestion> {
         val stats = statsStore?.readAll() ?: emptyMap()
-        val picked = WeightedQuestionPicker(random).pick(dataset.entries, stats, count, nowMillis)
+        val pool = if (topic != null) {
+            dataset.entries.filter { it.section == topic }
+        } else {
+            dataset.entries
+        }
+        val picked = WeightedQuestionPicker(random).pick(pool, stats, count, nowMillis)
         val ragNeighbors = picked.associate { entry ->
             entry.id to store.topK(entry.id, RAG_TOP_K).map { byId.getValue(it.id) }
         }

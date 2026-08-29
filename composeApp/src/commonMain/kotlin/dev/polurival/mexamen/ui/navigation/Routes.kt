@@ -5,15 +5,21 @@ import dev.polurival.mexamen.domain.QuizResult
 import kotlinx.serialization.Serializable
 
 @Serializable
+enum class SessionType { QUIZ, FLASHCARDS }
+
+@Serializable
 sealed class Route : NavKey {
     @Serializable
     data object Home : Route()
+
+    @Serializable
+    data class TopicsList(val sessionType: SessionType) : Route()
     
     @Serializable
-    data object Quiz : Route()
+    data class Quiz(val topic: String? = null) : Route()
     
     @Serializable
-    data object Flashcards : Route()
+    data class Flashcards(val topic: String? = null) : Route()
     
     @Serializable
     data object Stats : Route()

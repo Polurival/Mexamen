@@ -34,12 +34,12 @@ class FlashcardViewModel(
     private var cards: List<QuestionEntry> = emptyList()
     private val counts = mutableMapOf<FlashcardGrade, Int>()
 
-    fun start() {
+    fun start(topic: String? = null) {
         _state.value = FlashcardUiState.Loading
         viewModelScope.launch {
             try {
                 val dataset = repository.dataset()
-                cards = BuildFlashcardsUseCase().build(dataset, statsStore)
+                cards = BuildFlashcardsUseCase().build(dataset, statsStore, topic = topic)
                 counts.clear()
                 _state.value = FlashcardUiState.Card(0, cards.size, cards.first(), revealed = false)
             } catch (e: Exception) {

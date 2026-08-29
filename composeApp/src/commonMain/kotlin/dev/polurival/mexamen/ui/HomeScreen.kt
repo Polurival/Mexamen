@@ -19,10 +19,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
+import dev.polurival.mexamen.ui.navigation.SessionType
+
 @Composable
 fun HomeScreen(
-    onStartQuiz: () -> Unit,
-    onStartFlashcards: () -> Unit,
+    onStartQuiz: (SessionType) -> Unit,
+    onStartFlashcards: (SessionType) -> Unit,
     onOpenLegends: () -> Unit,
     onOpenInterview: () -> Unit,
     onOpenStats: () -> Unit,
@@ -51,14 +53,14 @@ fun HomeScreen(
 
         CategoryCard(title = "Historia y cultura") {
             Button(
-                onClick = onStartQuiz,
+                onClick = { onStartQuiz(SessionType.QUIZ) },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Comenzar quiz")
             }
             Spacer(Modifier.height(8.dp))
             Button(
-                onClick = onStartFlashcards,
+                onClick = { onStartFlashcards(SessionType.FLASHCARDS) },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Comenzar tarjetas didácticas")

@@ -48,7 +48,7 @@ class QuizViewModel(
     private var advanceJob: Job? = null
     private var timerJob: Job? = null
 
-    fun startQuiz() {
+    fun startQuiz(topic: String? = null) {
         if (_state.value is QuizUiState.Loading) return
         advanceJob?.cancel()
         timerJob?.cancel()
@@ -56,7 +56,11 @@ class QuizViewModel(
         viewModelScope.launch {
             try {
                 val dataset = repository.dataset()
-                quiz = BuildQuizUseCase(dataset, statsStore = statsStore, distractorGenerator = distractorGenerator).build()
+                quiz = BuildQuizUseCase(
+                    dataset,
+                    statsStore = statsStore,
+                    distractorGenerator = distractorGenerator
+                ).build(topic = topic)
                 answers = mutableListOf()
                 _state.value = QuizUiState.Question(0, quiz.size, quiz.first(), selectedIndex = null, timeLeftSeconds = 600)
                 startTimer()

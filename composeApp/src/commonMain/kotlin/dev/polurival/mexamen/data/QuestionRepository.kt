@@ -31,6 +31,10 @@ class QuestionRepository(
         cached ?: load().also { cached = it }
     }
 
+    suspend fun getTopics(): List<String> {
+        return dataset().entries.map { it.section }.distinct().sorted()
+    }
+
     private suspend fun load(): QuestionDataset {
         val entries = parseQuestions(readQuestions())
         val (dim, vectors) = parseEmbeddings(readEmbeddings())
