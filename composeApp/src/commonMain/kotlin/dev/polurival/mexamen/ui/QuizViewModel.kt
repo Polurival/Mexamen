@@ -49,12 +49,10 @@ class QuizViewModel(
     private val getRelatedQuestion = GetRelatedQuestionUseCase(repository)
     private var quiz: List<QuizQuestion> = emptyList()
     private var answers = mutableListOf<AnsweredQuestion>()
-    private var advanceJob: Job? = null
     private var timerJob: Job? = null
 
     fun startQuiz(topic: String? = null) {
         if (_state.value is QuizUiState.Loading) return
-        advanceJob?.cancel()
         timerJob?.cancel()
         _state.value = QuizUiState.Loading
         viewModelScope.launch {
@@ -101,7 +99,6 @@ class QuizViewModel(
 
     private fun finishQuiz() {
         timerJob?.cancel()
-        advanceJob?.cancel()
         // If timed out, we might have fewer answers than quiz size.
         // QuizResult handles a list of AnsweredQuestion.
         _state.value = QuizUiState.Result(QuizResult(answers.toList()))
@@ -114,10 +111,12 @@ class QuizViewModel(
         answers += answered
         _state.value = current.copy(selectedIndex = optionIndex)
         viewModelScope.launch { recordAnswer.recordQuizAnswer(current.question.entry.id, answered.isCorrect) }
-        advanceJob = viewModelScope.launch {
-            delay(ANSWER_REVEAL_MILLIS)
-            advance(current.index)
-        }
+    }
+
+    fun advanceQuestion() {
+        val current = _state.value as? QuizUiState.Question ?: return
+        if (current.selectedIndex == null) return
+        advance(current.index)
     }
 
     private fun advance(answeredIndex: Int) {
@@ -145,10 +144,5 @@ class QuizViewModel(
     override fun onCleared() {
         super.onCleared()
         timerJob?.cancel()
-        advanceJob?.cancel()
-    }
-
-    companion object {
-        const val ANSWER_REVEAL_MILLIS = 1200L
     }
 }

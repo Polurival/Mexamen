@@ -2,6 +2,7 @@ package dev.polurival.mexamen.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -80,6 +82,11 @@ fun FlashcardCardScreen(
                     
                     if (!state.entry.explanation.isNullOrBlank() || state.relatedEntry != null) {
                         Spacer(Modifier.height(24.dp))
+                        HorizontalDivider(
+                            modifier = Modifier.padding(horizontal = 32.dp),
+                            color = MaterialTheme.colorScheme.outlineVariant
+                        )
+                        Spacer(Modifier.height(24.dp))
                         Column(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalAlignment = Alignment.Start
@@ -87,22 +94,22 @@ fun FlashcardCardScreen(
                             if (!state.entry.explanation.isNullOrBlank()) {
                                 Text(
                                     text = "💡 ${state.entry.explanation}",
-                                    style = MaterialTheme.typography.bodySmall,
+                                    style = MaterialTheme.typography.bodyMedium,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     textAlign = TextAlign.Start
                                 )
                             }
                             if (state.relatedEntry != null) {
-                                Spacer(Modifier.height(8.dp))
+                                Spacer(Modifier.height(16.dp))
                                 Text(
                                     text = "🔗 ¿Sabías que...?",
-                                    style = MaterialTheme.typography.labelSmall,
+                                    style = MaterialTheme.typography.labelLarge,
                                     fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
                                     color = MaterialTheme.colorScheme.primary
                                 )
                                 Text(
                                     text = "${state.relatedEntry.question} — ${state.relatedEntry.answer}",
-                                    style = MaterialTheme.typography.bodySmall,
+                                    style = MaterialTheme.typography.bodyMedium,
                                     textAlign = TextAlign.Start
                                 )
                             }
@@ -139,6 +146,7 @@ private fun GradeButton(text: String, color: androidx.compose.ui.graphics.Color,
         onClick = onClick,
         modifier = modifier,
         colors = ButtonDefaults.buttonColors(containerColor = color),
+        contentPadding = PaddingValues(horizontal = 4.dp),
     ) {
         Text(text, style = MaterialTheme.typography.labelSmall)
     }

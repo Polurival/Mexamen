@@ -215,6 +215,7 @@ private fun QuizFlow(topic: String?, onExit: () -> Unit) {
         is QuizUiState.Question -> QuizScreen(
             state = current,
             onSelect = viewModel::selectAnswer,
+            onNext = viewModel::advanceQuestion,
             onExit = onExit,
         )
         is QuizUiState.Result -> ResultScreen(

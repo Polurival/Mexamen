@@ -10,8 +10,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -29,6 +31,7 @@ import dev.polurival.mexamen.domain.DistractorSource
 fun QuizScreen(
     state: QuizUiState.Question,
     onSelect: (Int) -> Unit,
+    onNext: () -> Unit,
     onExit: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -89,10 +92,22 @@ fun QuizScreen(
 
         if (state.selectedIndex != null) {
             Spacer(Modifier.height(24.dp))
+            HorizontalDivider(
+                modifier = Modifier.padding(horizontal = 32.dp),
+                color = MaterialTheme.colorScheme.outlineVariant
+            )
+            Spacer(Modifier.height(24.dp))
             ExplanationBlock(
                 explanation = state.question.entry.explanation,
                 relatedEntry = state.relatedEntry
             )
+            Spacer(Modifier.height(32.dp))
+            Button(
+                onClick = onNext,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Siguiente")
+            }
         }
     }
 }
@@ -102,39 +117,34 @@ private fun ExplanationBlock(
     explanation: String?,
     relatedEntry: dev.polurival.mexamen.data.QuestionEntry?,
 ) {
-    Card(
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer,
-            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-        ),
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            if (!explanation.isNullOrBlank()) {
-                Text(
-                    text = "💡 Explicación:",
-                    style = MaterialTheme.typography.labelLarge,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
-                    text = explanation,
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Spacer(Modifier.height(12.dp))
-            }
+    Column(modifier = Modifier.fillMaxWidth()) {
+        if (!explanation.isNullOrBlank()) {
+            Text(
+                text = "💡 Explicación:",
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = explanation,
+                style = MaterialTheme.typography.bodyMedium
+            )
+            Spacer(Modifier.height(16.dp))
+        }
 
-            if (relatedEntry != null) {
-                Text(
-                    text = "🔗 ¿Sabías que...?",
-                    style = MaterialTheme.typography.labelLarge,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary
-                )
-                Text(
-                    text = "${relatedEntry.question} — ${relatedEntry.answer}",
-                    style = MaterialTheme.typography.bodyMedium
-                )
-            }
+        if (relatedEntry != null) {
+            Text(
+                text = "🔗 ¿Sabías que...?",
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = "${relatedEntry.question} — ${relatedEntry.answer}",
+                style = MaterialTheme.typography.bodyMedium
+            )
         }
     }
 }
