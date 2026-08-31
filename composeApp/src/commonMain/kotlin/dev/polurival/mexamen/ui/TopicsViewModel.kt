@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 
 data class TopicsUiState(
     val topics: List<Topic> = emptyList(),
+    val virtualTopics: List<Topic> = emptyList(),
     val totalCount: Int = 0
 )
 
@@ -24,8 +25,9 @@ class TopicsViewModel(
     init {
         viewModelScope.launch {
             val topics = repository.getTopics()
+            val virtualTopics = repository.getVirtualTopics()
             val totalCount = repository.getTotalQuestionsCount()
-            _state.value = TopicsUiState(topics, totalCount)
+            _state.value = TopicsUiState(topics, virtualTopics, totalCount)
         }
     }
 }

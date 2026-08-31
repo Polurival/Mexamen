@@ -66,6 +66,34 @@ fun TopicsListScreen(
                 )
                 HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
             }
+            
+            item {
+                Text(
+                    text = "Por Tipo",
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+            
+            items(state.virtualTopics) { topic ->
+                TopicItem(
+                    title = topic.name,
+                    count = topic.questionCount,
+                    onClick = { onTopicSelected(topic.name) }
+                )
+                HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+            }
+
+            item {
+                Text(
+                    text = "Por Sección",
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+
             items(state.topics) { topic ->
                 TopicItem(
                     title = topic.name,

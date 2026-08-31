@@ -86,6 +86,56 @@ fun QuizScreen(
                 )
             }
         }
+
+        if (state.selectedIndex != null) {
+            Spacer(Modifier.height(24.dp))
+            ExplanationBlock(
+                explanation = state.question.entry.explanation,
+                relatedEntry = state.relatedEntry
+            )
+        }
+    }
+}
+
+@Composable
+private fun ExplanationBlock(
+    explanation: String?,
+    relatedEntry: dev.polurival.mexamen.data.QuestionEntry?,
+) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+        ),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            if (!explanation.isNullOrBlank()) {
+                Text(
+                    text = "💡 Explicación:",
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = explanation,
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(Modifier.height(12.dp))
+            }
+
+            if (relatedEntry != null) {
+                Text(
+                    text = "🔗 ¿Sabías que...?",
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                Text(
+                    text = "${relatedEntry.question} — ${relatedEntry.answer}",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+        }
     }
 }
 

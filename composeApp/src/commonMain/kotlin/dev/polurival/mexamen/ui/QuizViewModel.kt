@@ -2,10 +2,12 @@ package dev.polurival.mexamen.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dev.polurival.mexamen.data.QuestionEntry
 import dev.polurival.mexamen.data.QuestionRepository
 import dev.polurival.mexamen.data.QuestionStatsStore
 import dev.polurival.mexamen.domain.AnsweredQuestion
 import dev.polurival.mexamen.domain.BuildQuizUseCase
+import dev.polurival.mexamen.domain.GetRelatedQuestionUseCase
 import dev.polurival.mexamen.domain.QuizQuestion
 import dev.polurival.mexamen.domain.QuizResult
 import dev.polurival.mexamen.domain.RecordAnswerUseCase
@@ -28,6 +30,7 @@ sealed interface QuizUiState {
         val question: QuizQuestion,
         val selectedIndex: Int?,
         val timeLeftSeconds: Int = 600,
+        val relatedEntry: QuestionEntry? = null,
     ) : QuizUiState
 
     data class Result(val result: QuizResult) : QuizUiState
@@ -43,6 +46,7 @@ class QuizViewModel(
     val state: StateFlow<QuizUiState> = _state.asStateFlow()
 
     private val recordAnswer = RecordAnswerUseCase(statsStore)
+    private val getRelatedQuestion = GetRelatedQuestionUseCase(repository)
     private var quiz: List<QuizQuestion> = emptyList()
     private var answers = mutableListOf<AnsweredQuestion>()
     private var advanceJob: Job? = null
@@ -62,7 +66,16 @@ class QuizViewModel(
                     distractorGenerator = distractorGenerator
                 ).build(topic = topic)
                 answers = mutableListOf()
-                _state.value = QuizUiState.Question(0, quiz.size, quiz.first(), selectedIndex = null, timeLeftSeconds = 600)
+                val firstQuestion = quiz.first()
+                val related = getRelatedQuestion(firstQuestion.entry)
+                _state.value = QuizUiState.Question(
+                    index = 0,
+                    total = quiz.size,
+                    question = firstQuestion,
+                    selectedIndex = null,
+                    timeLeftSeconds = 600,
+                    relatedEntry = related
+                )
                 startTimer()
             } catch (e: Exception) {
                 _state.value = QuizUiState.Home(error = e.message ?: "Error al cargar las preguntas")
@@ -110,17 +123,22 @@ class QuizViewModel(
     private fun advance(answeredIndex: Int) {
         val next = answeredIndex + 1
         val current = _state.value as? QuizUiState.Question
-        _state.value = if (next < quiz.size) {
-            QuizUiState.Question(
-                index = next,
-                total = quiz.size,
-                question = quiz[next],
-                selectedIndex = null,
-                timeLeftSeconds = current?.timeLeftSeconds ?: 600
-            )
+        if (next < quiz.size) {
+            viewModelScope.launch {
+                val nextQuestion = quiz[next]
+                val related = getRelatedQuestion(nextQuestion.entry)
+                _state.value = QuizUiState.Question(
+                    index = next,
+                    total = quiz.size,
+                    question = nextQuestion,
+                    selectedIndex = null,
+                    timeLeftSeconds = current?.timeLeftSeconds ?: 600,
+                    relatedEntry = related
+                )
+            }
         } else {
             timerJob?.cancel()
-            QuizUiState.Result(QuizResult(answers.toList()))
+            _state.value = QuizUiState.Result(QuizResult(answers.toList()))
         }
     }
 

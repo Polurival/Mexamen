@@ -77,6 +77,37 @@ fun FlashcardCardScreen(
                         color = MaterialTheme.colorScheme.primary,
                         textAlign = TextAlign.Center,
                     )
+                    
+                    if (!state.entry.explanation.isNullOrBlank() || state.relatedEntry != null) {
+                        Spacer(Modifier.height(24.dp))
+                        Column(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalAlignment = Alignment.Start
+                        ) {
+                            if (!state.entry.explanation.isNullOrBlank()) {
+                                Text(
+                                    text = "💡 ${state.entry.explanation}",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    textAlign = TextAlign.Start
+                                )
+                            }
+                            if (state.relatedEntry != null) {
+                                Spacer(Modifier.height(8.dp))
+                                Text(
+                                    text = "🔗 ¿Sabías que...?",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.primary
+                                )
+                                Text(
+                                    text = "${state.relatedEntry.question} — ${state.relatedEntry.answer}",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    textAlign = TextAlign.Start
+                                )
+                            }
+                        }
+                    }
                 } else {
                     Spacer(Modifier.height(24.dp))
                     Text(

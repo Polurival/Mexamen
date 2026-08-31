@@ -38,6 +38,29 @@ class QuestionRepository(
             .sortedBy { it.name }
     }
 
+    suspend fun getVirtualTopics(): List<Topic> {
+        val entries = dataset().entries
+        val dates = entries.filter { QuestionEntry.isDate(it) }
+        val people = entries.filter { QuestionEntry.isPeople(it) }
+        val events = entries.filter { QuestionEntry.isEvent(it) }
+        
+        return listOf(
+            Topic("Fechas (Даты)", dates.size),
+            Topic("Personajes (Люди)", people.size),
+            Topic("Eventos (События)", events.size)
+        )
+    }
+
+    suspend fun getQuestionsByTopic(topicName: String): List<QuestionEntry> {
+        val all = dataset().entries
+        return when (topicName) {
+            "Fechas (Даты)" -> all.filter { QuestionEntry.isDate(it) }
+            "Personajes (Люди)" -> all.filter { QuestionEntry.isPeople(it) }
+            "Eventos (События)" -> all.filter { QuestionEntry.isEvent(it) }
+            else -> all.filter { it.section == topicName }
+        }
+    }
+
     suspend fun getTotalQuestionsCount(): Int {
         return dataset().entries.size
     }
