@@ -524,7 +524,7 @@
       "República de México",
       "Federación Mexicana"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El nombre fue adoptado tras la independencia para reflejar la estructura federal del país, inspirada en parte por la constitución estadounidense."
   },
   {
     "id": 34,
@@ -539,7 +539,7 @@
       "“El corazón de los mexicas”",
       "“El ombligo del sol” o “el centro del sol”"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Proviene del náhuatl 'Meztli' (luna), 'xictli' (ombligo) y 'co' (lugar), aludiendo a la ubicación de Tenochtitlán en el lago de Texcoco."
   },
   {
     "id": 35,
@@ -554,7 +554,7 @@
       "En el norte de América del Sur",
       "En América Central"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "México comparte el subcontinente norteamericano con Canadá y Estados Unidos, siendo el país más meridional de esta región."
   },
   {
     "id": 36,
@@ -600,7 +600,7 @@
       "150,000,000 (Censo INEGI 2020)",
       "80,000,000 (Censo INEGI 2000)"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Según el Censo de 2020 del INEGI, México es el décimo país más poblado del mundo y el país hispanohablante con más habitantes."
   },
   {
     "id": 39,
@@ -632,7 +632,7 @@
       "31 (sin incluir la Ciudad de México)",
       "33 (incluyendo la Ciudad de México)"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La Constitución establece una federación compuesta por 31 estados libres y soberanos y la Ciudad de México como capital y sede de los poderes."
   },
   {
     "id": 41,
@@ -647,7 +647,7 @@
       "30 de marzo de 2016",
       "15 de septiembre de 2015"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La reforma política de la Ciudad de México le otorgó una constitución propia y autonomía similar a la de los estados de la república."
   },
   {
     "id": 42,
@@ -663,7 +663,7 @@
       "Nuevo León",
       "Jalisco"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Anteriormente conocido como Distrito Federal, el cambio de estatus jurídico lo convirtió formalmente en la entidad federativa número 32."
   },
   {
     "id": 43,
@@ -678,7 +678,7 @@
       "Vicente Fox",
       "Felipe Calderón"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El decreto de reforma constitucional fue promulgado por Peña Nieto tras su aprobación por el Congreso de la Unión y las legislaturas estatales."
   },
   {
     "id": 44,
@@ -694,7 +694,7 @@
       "Monterrey (7,000,000 - 2020)",
       "Tijuana (4,000,000 - 2020)"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Si bien la CDMX tiene más de 9 millones de habitantes, su zona metropolitana (Valle de México) supera los 20 millones de personas."
   },
   {
     "id": 45,
@@ -724,7 +724,7 @@
       "Sinaloa, Chihuahua, Durango, Coahuila, Veracruz y Nuevo León",
       "Sonora, Chihuahua, Durango, Nuevo León, Tamaulipas y San Luis Potosí"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La frontera norte tiene una longitud de más de 3,100 km, siendo una de las regiones con mayor intercambio comercial y migratorio del mundo."
   },
   {
     "id": 47,
@@ -739,7 +739,7 @@
       "Reynosa",
       "Tampico"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Fue nombrada así en honor a Guadalupe Victoria, el primer presidente de México, y es un importante centro administrativo y educativo."
   },
   {
     "id": 48,
@@ -754,7 +754,7 @@
       "Saltillo",
       "Monclova"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Conocida como la 'Sultana del Norte', es un pilar industrial y económico fundamental para el desarrollo de México."
   },
   {
     "id": 49,
@@ -770,7 +770,7 @@
       "Baja California, Baja California Sur, Chihuahua, Coahuila, Durango, Nuevo León, Sinaloa, Sonora y Veracruz",
       "Baja California, Baja California Sur, Chihuahua, Coahuila, Durango, Nuevo León, Sinaloa, Sonora y Tamaulipas y San Luis Potosí"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Estos estados se caracterizan por sus climas áridos y semiáridos, y poseen una fuerte vinculación económica con el mercado estadounidense."
   },
   {
     "id": 50,
@@ -785,7 +785,7 @@
       "Tabasco, Yucatán, San Luis Potosí y Guerrero",
       "Campeche, Quintana Roo, Hidalgo y Morelos"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "México comparte fronteras al sur con Guatemala (Chiapas, Tabasco, Campeche) y con Belice (Quintana Roo)."
   },
   {
     "id": 51,
@@ -800,7 +800,7 @@
       "Nayarit",
       "Michoacán"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Guadalajara es la capital de Jalisco y es cuna de símbolos culturales mexicanos como el tequila y el mariachi."
   },
   {
     "id": 52,
@@ -815,7 +815,7 @@
       "Noroeste de México, al lado de Durango",
       "Centro de México, al lado de San Luis Potosí"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Nuevo León tiene una pequeña franja fronteriza con Texas y limita al este con Tamaulipas y al oeste con Coahuila."
   },
   {
     "id": 53,
@@ -831,7 +831,7 @@
       "En el sur de México, al lado de Puebla",
       "En el oeste de México, al lado de Jalisco"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Querétaro es clave en la historia nacional, siendo el sitio donde se promulgó la Constitución de 1917 y donde cayó el Segundo Imperio."
   },
   {
     "id": 54,
@@ -846,7 +846,7 @@
       "Sur del país, al lado de Guerrero y límite con Oaxaca",
       "Noreste del país, al lado de San Luis Potosí y límite con Nuevo León"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Puebla es famosa por su arquitectura colonial, su gastronomía y por ser el escenario de la histórica Batalla del 5 de mayo."
   },
   {
     "id": 55,
@@ -862,7 +862,7 @@
       "Noroeste del país, entre Chihuahua y Durango",
       "Centro del país, entre Querétaro y San Luis Potosí"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Campeche se ubica en la península de Yucatán y destaca por su ciudad capital amurallada, construida para defenderse de piratas."
   },
   {
     "id": 56,
@@ -878,7 +878,7 @@
       "CDMX, Guadalajara y Cancún",
       "CDMX, Monterrey y Toluca"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Censo 2020 reveló cambios demográficos importantes, con Tijuana y Ecatepec superando en población municipal a Guadalajara y Monterrey."
   },
   {
     "id": 57,
@@ -893,7 +893,7 @@
       "León, Guanajuato",
       "Salamanca, Guanajuato"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Celaya recibió este sobrenombre por su importancia geográfica y comercial en la rica región agrícola e industrial del Bajío."
   },
   {
     "id": 58,
@@ -908,7 +908,7 @@
       "Morelia, Michoacán",
       "San Miguel de Allende, Guanajuato"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "León es la capital mundial del calzado y la ciudad más poblada de Guanajuato, destacando por su desarrollo industrial y comercial."
   },
   {
     "id": 59,
@@ -923,7 +923,7 @@
       "Toluca, Estado de México",
       "Cuernavaca, Morelos"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Recibe este nombre debido a los fuertes vientos que entran por las cañadas del norte y recorren la ciudad de Pachuca."
   },
   {
     "id": 60,
@@ -939,7 +939,7 @@
       "Tuxtla, Chiapas",
       "Tijuana, Baja California"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Cuenta la leyenda que los ángeles trazaron la ciudad, la cual destaca por su gran cantidad de templos y su céntrica ubicación."
   },
   {
     "id": 61,
@@ -955,7 +955,7 @@
       "Tampico, Tamaulipas",
       "Saltillo, Coahuila"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Este sobrenombre alude a la elegancia y pujanza de la ciudad, consolidada como la capital industrial de México."
   },
   {
     "id": 62,
@@ -970,7 +970,7 @@
       "Cancún, Quintana Roo",
       "Monterrey, Nuevo León"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Se dice que debe su nombre al color de la piedra caliza usada en sus edificios y a la limpieza que históricamente la ha caracterizado."
   },
   {
     "id": 63,
@@ -985,7 +985,7 @@
       "Yucatán",
       "CDMX"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El término jarocho se refiere originalmente a los habitantes de la región de la cuenca del río Papaloapan, pero hoy identifica a todo Veracruz."
   },
   {
     "id": 64,
@@ -1001,7 +1001,7 @@
       "CDMX - Defeños, Culiacán - Culichis, Guadalajara - Tapatíos, Monterrey - Regiomontanos, Aguascalientes - Hidrocálidos, Veracruz - Jarochos",
       "CDMX - Chilangos, Culiacán - Culichis, Guadalajara - Guadalajareños, Monterrey - Monterreyenses, Aguascalientes - Aguascalentenses, Veracruz - Veracruzanos"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Estos apodos son parte esencial del habla popular mexicana y reflejan la identidad local de los habitantes de las principales ciudades."
   },
   {
     "id": 65,
@@ -1016,7 +1016,7 @@
       "Rojo, blanco, verde",
       "Blanco, rojo, verde"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El verde simboliza la esperanza, el blanco la unidad y la pureza, y el rojo la sangre de los héroes nacionales."
   },
   {
     "id": 66,
@@ -1032,7 +1032,7 @@
       "La moneda nacional, himno y cetro",
       "Las pirámides, el himno nacional y la constitución"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Son los tres emblemas que representan la soberanía e identidad de los Estados Unidos Mexicanos según la ley correspondiente."
   },
   {
     "id": 67,
@@ -1048,7 +1048,7 @@
       "Bandera: Verde = Independencia, Blanco = Unidad, Rojo = Sangre derramada; Escudo: El águila devorando una serpiente; Himno: Escrito en 1854, oficial en 1940",
       "Bandera: Verde = Esperanza, Blanco = Pureza, Rojo = Sangre de los héroes; Escudo: El águila devorando una serpiente; Himno: Escrito en 1860, oficial en 1950"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El escudo se basa en el mito de fundación de Tenochtitlán, mientras que el himno exalta la defensa de la patria ante cualquier invasión."
   },
   {
     "id": 68,
@@ -1063,7 +1063,7 @@
       "Simbolizan la conquista y la victoria sobre los enemigos",
       "Son un símbolo de la guerra entre los mexicas y los españoles"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Simboliza el lugar donde los mexicas debían fundar su ciudad según la señal de su dios Huitzilopochtli: un águila sobre un nopal devorando una serpiente."
   },
   {
     "id": 69,
@@ -1079,7 +1079,7 @@
       "Compuesta por el poeta potosino Francisco González Bocanegra, música del músico mexicano Manuel M. Ponce",
       "Compuesta por el poeta oaxaqueño Andrés Henestrosa, música del músico español Jaime Nunó"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La letra fue escrita por el poeta Francisco González Bocanegra y la música compuesta por el catalán Jaime Nunó, ganadores de un concurso nacional."
   },
   {
     "id": 70,
@@ -1095,7 +1095,7 @@
       "Mexicanos al grito de unión, el trabajo y la paz y el honor",
       "Mexicanos al grito de fe, la justicia y la ley y el valor"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El coro invita a todos los ciudadanos a estar listos para defender la nación, evocando el sonido del cañón y el movimiento de la tierra."
   },
   {
     "id": 71,
@@ -1111,7 +1111,7 @@
       "…en cada tierra te da",
       "…en cada pueblo te da"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Esta frase subraya el compromiso patriótico de cada mexicano de convertirse en defensor de su país si es necesario."
   },
   {
     "id": 72,
@@ -1127,7 +1127,7 @@
       "En 1856, interpretado públicamente por primera vez el 11 de septiembre de 1856",
       "En 1861, interpretado públicamente por primera el 12 de septiembre de 1861"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El estreno oficial ocurrió en el Teatro Santa Anna (luego Teatro Nacional) durante las celebraciones de la Independencia de ese año."
   },
   {
     "id": 73,
@@ -1142,7 +1142,7 @@
       "El 5 de mayo de 1923, durante la presidencia de Álvaro Obregón",
       "El 1 de enero de 1867, durante la presidencia de Benito Juárez"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Aunque se usaba desde el siglo XIX, el presidente Manuel Ávila Camacho emitió el decreto que lo oficializó para estandarizar su versión."
   },
   {
     "id": 74,
@@ -1157,7 +1157,7 @@
       "La Bandera Nacional",
       "La Flor Nacional"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La oficialización buscó preservar la integridad de la letra y música originales ante las variaciones que habían surgido con el tiempo."
   },
   {
     "id": 75,
@@ -1172,7 +1172,7 @@
       "Un tributo a los héroes nacionales",
       "Una celebración de la independencia"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "A diferencia de otros himnos, el mexicano se centra en la resistencia y protección del territorio contra agresiones extranjeras."
   },
   {
     "id": 76,
@@ -1187,7 +1187,7 @@
       "El escritor veracruzano Manuel Gutiérrez Nájera",
       "El dramaturgo chileno Pablo Neruda"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Bocanegra, originario de San Luis Potosí, escribió la letra encerrado en una habitación por su prometida para que participara en el concurso."
   },
   {
     "id": 77,
@@ -1202,7 +1202,7 @@
       "El compositor mexicano Manuel M. Ponce",
       "El compositor chileno Juan Pablo Olivares"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Jaime Nunó, un músico español que conoció a Santa Anna en Cuba, compuso la partitura que hoy entonan millones de mexicanos."
   },
   {
     "id": 78,
@@ -1217,7 +1217,7 @@
       "Si un aliado se desafiara",
       "Si un enemigo conocido se acercara"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Es una advertencia solemne: si algún invasor intenta profanar el suelo nacional, el país entero responderá al llamado de defensa."
   },
   {
     "id": 79,
@@ -1232,7 +1232,7 @@
       "Cedro blanco",
       "Jacaranda (árbol de la primavera)"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Ahuehuete (Taxodium mucronatum), que en náhuatl significa 'viejo del agua', es famoso por su longevidad, como el Árbol del Tule."
   },
   {
     "id": 80,
@@ -1247,7 +1247,7 @@
       "Jaguar",
       "Quetzal"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El águila real (Aquila chrysaetos) es el elemento central del escudo nacional y símbolo de la fuerza y visión del pueblo mexicano."
   },
   {
     "id": 81,
@@ -1262,7 +1262,7 @@
       "Bugambilia",
       "Noche buena"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La Dalia (Dahlia) fue declarada flor nacional en 1963; es originaria de México y apreciada por su belleza y diversidad de colores."
   },
   {
     "id": 82,
@@ -6698,7 +6698,7 @@
       "20,173,982 km2",
       "12,843,732 km2"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "México tiene una superficie terrestre de 1.96 millones de km², pero su mar territorial y zona económica exclusiva amplían su soberanía a más de 5 millones de km²."
   },
   {
     "id": 435,
@@ -6713,7 +6713,7 @@
       "1: Baja California",
       "3: Chiapas, Oaxaca y Guerrero"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La de Baja California está al noroeste, bañada por el Pacífico y el Mar de Cortés, y la de Yucatán al sureste, junto al Caribe."
   },
   {
     "id": 436,
@@ -6728,7 +6728,7 @@
       "Isla Pelícanos, Isla de la Independencia, Isla del Paraíso",
       "Xel-Ha, Tenochtitlan, Isla Mariana, Kak-bool"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "México posee miles de islas e islotes, destacando Cozumel y Mujeres en el Caribe por su belleza coralina y turismo."
   },
   {
     "id": 437,
@@ -6743,7 +6743,7 @@
       "3: Nororiental, Sur, Norte",
       "1: El Bajío"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Ambas cordilleras atraviesan el país de norte a sur, flanqueando la Altiplanicie Mexicana y definiendo su compleja geografía."
   },
   {
     "id": 438,
@@ -6758,7 +6758,7 @@
       "Sierra de Puebla y Sierra de la Baja California",
       "Sierra de Yucatán y Sierra de Veracruz"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El sistema montañoso mexicano es parte del Cinturón de Fuego del Pacífico, lo que explica su gran actividad volcánica y sísmica."
   },
   {
     "id": 439,
@@ -6773,7 +6773,7 @@
       "Es una cueva volcánica y se encuentra en Michoacán.",
       "Es una montaña sagrada y se encuentra en Oaxaca."
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Este imponente monolito de 2,500 metros de altura se formó a partir de un volcán agotado cuya lava se solidificó hace millones de años."
   },
   {
     "id": 440,
@@ -6788,7 +6788,7 @@
       "El tren de pasajeros “El Chepe”",
       "Real de Catorce"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Llamado así por su silueta que asemeja una silla de montar, es un área natural protegida y el símbolo más distintivo de Nuevo León."
   },
   {
     "id": 441,
@@ -6803,7 +6803,7 @@
       "A los ríos Bravo y Usumacinta",
       "Al Cañon del Sumidero y la pirámide de Chichén Itza"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Según la mitología mexica, eran dos amantes: el guerrero Popocatépetl y la princesa Iztaccíhuatl, convertidos en volcanes eternos."
   },
   {
     "id": 442,
@@ -6818,7 +6818,7 @@
       "La Malinche y Tláloc",
       "Paricutín y Nevado de Toluca"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Son los dos volcanes más emblemáticos del centro de México, visibles desde la capital en días despejados y cubiertos de nieve."
   },
   {
     "id": 443,
@@ -6850,7 +6850,7 @@
       "Cerro de la Silla (Pico de la Antena)",
       "Sierra Madre Oriental"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Con 5,610 metros sobre el nivel del mar, es el volcán más alto de México y la tercera montaña más alta de América del Norte."
   },
   {
     "id": 445,
@@ -6882,7 +6882,7 @@
       "La Malinche y San Martín Tuxtla",
       "Volcán Cenizas, Pico de Orizaba y Volcán de Fuego"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Nevado de Toluca destaca por tener dos lagunas en su cráter: la del Sol y la de la Luna, accesibles para visitantes."
   },
   {
     "id": 447,
@@ -6913,7 +6913,7 @@
       "Mar Caribe",
       "Golfo de México"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Jacques Cousteau lo llamó 'el acuario del mundo' por su enorme biodiversidad, siendo refugio invernal para la ballena jorobada."
   },
   {
     "id": 449,
@@ -6928,7 +6928,7 @@
       "Nayarit",
       "Quintana Roo"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Situado entre la península de Baja California y los estados de Sonora y Sinaloa, es un sitio Patrimonio de la Humanidad."
   },
   {
     "id": 450,
@@ -6944,7 +6944,7 @@
       "Veracruz, Campeche, Tabasco y Yucatán",
       "Oaxaca, Michoacán y Guerrero"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Esta cuenca marina es fundamental para la pesca y el turismo en el noroeste de México, albergando especies únicas como la vaquita marina."
   },
   {
     "id": 451,
@@ -6959,7 +6959,7 @@
       "Río Usumacinta",
       "Río Grijalva"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Con 3,034 km, sirve de frontera natural con Estados Unidos desde 1848, tras el Tratado de Guadalupe Hidalgo."
   },
   {
     "id": 452,
@@ -6975,7 +6975,7 @@
       "río Yaqui, río Mayo, río Culiacán",
       "río Coatzacoalcos, río Tonalá, río Grijalva"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "México tiene vertientes en el Pacífico, el Golfo y el Caribe, siendo el Usumacinta el más caudaloso del país."
   },
   {
     "id": 453,
@@ -6991,7 +6991,7 @@
       "Norte: Río Cazones y Río Usumacinta; Sur: Río Ototito y Río Colorado",
       "Norte: Río Usumacienta y Río San Juan; Sur: Río Bravo, Río Ototito, Río Colorado y Río Lerma"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Estos ríos definen gran parte de los límites internacionales de México con EE.UU., Guatemala y Belice."
   },
   {
     "id": 454,
@@ -7006,7 +7006,7 @@
       "Chiapas y Oaxaca",
       "Baja California, Sonora y Chihuahua"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El río fluye por desiertos y llanuras, regando importantes zonas agrícolas en ambos lados de la frontera norte."
   },
   {
     "id": 455,
@@ -7022,7 +7022,7 @@
       "Lago de Pátzcuaro, Michoacán",
       "Lago de Cuitzeo, Michoacán"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Es la principal fuente de abastecimiento de agua para Guadalajara y un ecosistema vital para aves migratorias."
   },
   {
     "id": 456,
@@ -7038,7 +7038,7 @@
       "Nayarit y Jalisco",
       "Chihuahua y Durango"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El delta del río Colorado en México es una zona protegida, aunque su caudal ha disminuido drásticamente por el uso intensivo en EE.UU."
   },
   {
     "id": 457,
@@ -7053,7 +7053,7 @@
       "Oaxaca",
       "Baja California Sur"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Este parque nacional es famoso por sus aguas termales curativas y su potencial para la generación de energía geotérmica."
   },
   {
     "id": 458,
@@ -7068,7 +7068,7 @@
       "Tlaxcala",
       "Chiapas"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Son uno de los sistemas de cuevas más grandes del mundo, con impresionantes formaciones de estalactitas y estalagmitas."
   },
   {
     "id": 459,
@@ -7084,7 +7084,7 @@
       "Desierto de los leones",
       "Reserva natural de la mariposa monarca"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Es un paisaje lunar de cráteres volcánicos y dunas, reconocido por la UNESCO como Patrimonio de la Humanidad."
   },
   {
     "id": 460,
@@ -7099,7 +7099,7 @@
       "Parque nacional “Puerto Príncipe”",
       "Parque acuático “El delfín”"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Alberga el arrecife de coral más septentrional del Pacífico Este, un caso exitoso de recuperación de vida marina."
   },
   {
     "id": 461,
@@ -7114,7 +7114,7 @@
       "El arrecife de Tabasco",
       "Biósfera de la Península de Yucatán"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Es un conjunto de 28 arrecifes de coral situados frente a las costas de Veracruz, vital para la protección contra tormentas."
   },
   {
     "id": 462,
@@ -7129,7 +7129,7 @@
       "San Luis Potosí",
       "Oaxaca"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Ubicado en una de las bahías más hermosas del mundo, Acapulco ha sido históricamente el puerto más importante de México en el Pacífico."
   },
   {
     "id": 463,
@@ -7145,7 +7145,7 @@
       "Nuevo León y Coahuila",
       "Colima y Jalisco"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Cada año, millones de mariposas viajan desde Canadá para hibernar en los bosques de oyamel del centro de México."
   },
   {
     "id": 464,
@@ -7160,7 +7160,7 @@
       "Yucatán",
       "Quintana Roo"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Es una de las regiones con mayor biodiversidad en América, hogar de la cultura lacandona y de importantes sitios mayas."
   },
   {
     "id": 465,
@@ -7176,7 +7176,7 @@
       "Tlacuache, zorrillo, iguanas y rana cristal",
       "Sapo de espinas, burro mexicano, gato montés, oso blanco y cernícalo americano"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La pérdida de hábitat y la caza ilegal amenazan a estas especies, muchas de las cuales son endémicas y símbolos de México."
   },
   {
     "id": 466,
@@ -7191,7 +7191,7 @@
       "La Bella Airosa",
       "La Nueva Tenochtitlan"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Recibe este nombre porque en 1843 se construyó la base (zócalo) para un monumento a la Independencia que nunca se terminó."
   },
   {
     "id": 467,
@@ -7206,7 +7206,7 @@
       "La Capital de la Pirotecnia",
       "La Alteña"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Recibió este apodo del viajero inglés Charles Latrobe en 1834, maravillado por la arquitectura y elegancia de las casonas del centro."
   },
   {
     "id": 468,
@@ -7221,7 +7221,7 @@
       "Museo Soumaya",
       "Edificio de Correos"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Fue el edificio más alto de la ciudad hasta 1972 y es famosa por su avanzada ingeniería sísmica que la ha mantenido ilesa en grandes sismos."
   },
   {
     "id": 469,
@@ -7237,7 +7237,7 @@
       "Palacio de Bellas Artes",
       "Estadio Olímpico Universitario"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Su construcción representó un hito en la arquitectura mexicana, siendo el primer rascacielos en el mundo con fachada de vidrio y aluminio."
   },
   {
     "id": 470,
@@ -7252,7 +7252,7 @@
       "Constitución de Apatzingán",
       "Constitución de 1917"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El nombre oficial rinde homenaje a la Constitución española de 1812, jurada en la Nueva España mientras aún era colonia."
   },
   {
     "id": 471,
@@ -7267,7 +7267,7 @@
       "Museo de Antropología",
       "Palacio Nacional"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Tras el estallido de la Revolución, el proyecto del gran Palacio Legislativo se detuvo y su cúpula central se convirtió en el monumento actual."
   },
   {
     "id": 472,
@@ -7282,7 +7282,7 @@
       "Museo de Antropología",
       "Auditorio Nacional"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Es obra del arquitecto Carlos Obregón Santacilia, quien rescató la estructura de acero del proyecto original de Émile Bénard."
   },
   {
     "id": 473,
@@ -7297,7 +7297,7 @@
       "16 de septiembre de 1880",
       "16 de septiembre de 1932"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Porfirio Díaz lo inauguró como parte de los festejos del Centenario de la Independencia; en su base descansan restos de varios insurgentes."
   },
   {
     "id": 474,
@@ -7312,7 +7312,7 @@
       "Inicio del alumbrado público en México",
       "Conmemoración del Porfiriato y la modernización"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Fue concebida para conmemorar los 200 años de la Independencia y los 100 de la Revolución, aunque su construcción fue polémica y costosa."
   },
   {
     "id": 475,
@@ -7328,7 +7328,7 @@
       "Palacio Nacional",
       "Diana Cazadora"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Se encuentra en el Paseo de la Reforma y es una estructura de 104 metros de altura compuesta por paneles de cuarzo iluminados."
   },
   {
     "id": 476,
@@ -7343,7 +7343,7 @@
       "La Adelita",
       "La Gran Guerrera"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Su modelo fue Helvia Martínez Verdayes y la escultura original tuvo que ser cubierta con un 'taparrabos' de bronce por la moral de la época."
   },
   {
     "id": 477,
@@ -7358,7 +7358,7 @@
       "Ferrocarril “El Chepe”",
       "Parque Fundidora"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Es una escultura monumental de Sebastián (Enrique Carbajal) que sustituyó a la estatua ecuestre de Carlos IV en el cruce de Reforma y Bucareli."
   },
   {
     "id": 478,
@@ -7373,7 +7373,7 @@
       "Avenida Insurgentes",
       "Avenida Patriotismo"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Fue diseñada originalmente por Maximiliano de Habsburgo como el 'Paseo de la Emperatriz' para conectar el Castillo de Chapultepec con el centro."
   },
   {
     "id": 479,
@@ -7389,7 +7389,7 @@
       "Manuel Tolsá",
       "Luis Barragán"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Sebastián es reconocido internacionalmente por su 'escultura efímera' y sus obras monumentales en acero integradas al paisaje urbano."
   },
   {
     "id": 480,
@@ -7404,7 +7404,7 @@
       "Manuel Tolsá",
       "Luis Barragán"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Originario de Chihuahua, ha creado obras icónicas en México y el mundo, como la Puerta de Chihuahua y el Coyote Hambriento en Nezahualcóyotl."
   },
   {
     "id": 481,
@@ -7419,7 +7419,7 @@
       "Venustiano Carranza",
       "Coyoacán"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La representación data de 1843 como agradecimiento al fin de una epidemia de cólera, y hoy es una de las celebraciones religiosas más masivas del mundo."
   },
   {
     "id": 482,
@@ -7434,7 +7434,7 @@
       "El Diluvio del Arca de Noé",
       "El nacimiento de Jesús de Nazaret"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Cientos de actores locales participan en el Vía Crucis que culmina en el Cerro de la Estrella, en una tradición transmitida por generaciones."
   },
   {
     "id": 483,
@@ -7450,7 +7450,7 @@
       "Pedro Ramírez Vázquez",
       "Luis Barragán"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Tolsá fue un destacado arquitecto y escultor neoclásico en la Nueva España; su estatua ecuestre de Carlos IV es considerada una obra maestra del bronce."
   },
   {
     "id": 484,
@@ -7465,7 +7465,7 @@
       "Lázaro Cárdenas",
       "Carlos Salinas de Gortari"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Inaugurado en 1964, el museo es una obra maestra de Pedro Ramírez Vázquez y resguarda el tesoro arqueológico más importante de México."
   },
   {
     "id": 485,
@@ -7480,7 +7480,7 @@
       "Lanchas",
       "Barquitas"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Estos canales son restos del antiguo sistema lacustre del Valle de México y fueron declarados Patrimonio de la Humanidad por la UNESCO."
   },
   {
     "id": 486,
@@ -7495,7 +7495,7 @@
       "Ciudad Juárez",
       "Hermosillo"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Su centro histórico es un museo al aire libre con más de 2,600 edificios catalogados, famosos por sus fachadas de azulejos de talavera."
   },
   {
     "id": 487,
@@ -7510,7 +7510,7 @@
       "Mar de Cortés",
       "Océano Atlántico"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Acapulco era el destino final del Galeón de Manila (Nao de China), que transportaba especias y sedas desde Asia hacia la Nueva España."
   },
   {
     "id": 488,
@@ -7525,7 +7525,7 @@
       "Quintana Roo",
       "Oaxaca"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Ubicado en una de las bahías más hermosas del mundo, Acapulco ha sido históricamente el puerto más importante de México en el Pacífico."
   },
   {
     "id": 489,
@@ -7540,7 +7540,7 @@
       "Colima, Playa de Cocos y Veracruz",
       "Los Cabos, Ciudad Victoria y Puerto Escondido"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Estos destinos atraen a millones de visitantes por sus playas, clima y, en el caso de Cozumel, por ser uno de los puertos de cruceros más activos del mundo."
   },
   {
     "id": 490,
@@ -7555,7 +7555,7 @@
       "Tuxtla Gutierrez, Culiacán y Tijuana",
       "Puebla, Toluca y Querétaro"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "México cuenta con más de 11,000 km de litorales, ofreciendo desde el Pacífico en Huatulco hasta el Caribe cristalino en Cancún."
   },
   {
     "id": 491,
@@ -7570,7 +7570,7 @@
       "Querétaro",
       "Acapulco"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Veracruz ha defendido la soberanía nacional en cuatro invasiones extranjeras: dos francesas (1838, 1914) y dos estadounidenses (1847, 1914)."
   },
   {
     "id": 492,
@@ -7585,7 +7585,7 @@
       "Callejón de la Revolución",
       "Callejón de los Muertos"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La leyenda cuenta que los balcones están tan cerca que dos amantes podían besarse a través de ellos, a pesar de la prohibición de sus familias."
   },
   {
     "id": 493,
@@ -7600,7 +7600,7 @@
       "Ciudad de México",
       "Puebla"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La ciudad de León concentra la mayor parte de esta industria, exportando millones de pares de zapatos a todo el mundo anualmente."
   },
   {
     "id": 494,
@@ -7615,7 +7615,7 @@
       "Tulum, Quintana Roo",
       "Tlalnepantla, Estado de México"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Los clavadistas saltan desde un acantilado de 35 metros de altura, debiendo calcular el movimiento de las olas para no impactar con el fondo rocoso."
   },
   {
     "id": 495,
@@ -7630,7 +7630,7 @@
       "Lugares que están vinculados con la Independencia de México",
       "Pueblos que requieren especial atención por su escasa población"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Este programa federal reconoce a localidades que conservan su arquitectura, tradiciones y leyendas, promoviendo el turismo sostenible."
   },
   {
     "id": 496,
@@ -7645,7 +7645,7 @@
       "112(2022) / 154(2023)",
       "102(2022) / 1162(2023)"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El número de pueblos mágicos aumenta periódicamente tras evaluaciones de la Secretaría de Turismo para incluir nuevos destinos de gran valor cultural."
   },
   {
     "id": 497,
@@ -7660,7 +7660,7 @@
       "Tepotzotlán",
       "Tepoztlán"
     ],
-    "explanation": "El programa Pueblos Mágicos busca resaltar la riqueza cultural y tradiciones de diversas localidades del país."
+    "explanation": "Xilitla es famoso por el Jardín Surrealista de Las Pozas, creado por el artista inglés Edward James en medio de la selva potosina."
   },
   {
     "id": 498,
@@ -7675,7 +7675,7 @@
       "Pátzcuaro",
       "Huasca de Ocampo"
     ],
-    "explanation": "El programa Pueblos Mágicos busca resaltar la riqueza cultural y tradiciones de diversas localidades del país."
+    "explanation": "Jerez destaca por su música de tambora, su arquitectura de cantera rosa y por ser cuna del poeta Ramón López Velarde."
   },
   {
     "id": 499,
@@ -7690,7 +7690,7 @@
       "Taxco",
       "Izamal"
     ],
-    "explanation": "El programa Pueblos Mágicos busca resaltar la riqueza cultural y tradiciones de diversas localidades del país."
+    "explanation": "Conocida como la 'Ciudad de las Jacarandas', es cuna del presidente Lázaro Cárdenas y cuenta con importantes murales de José Clemente Orozco."
   },
   {
     "id": 500,
@@ -7705,7 +7705,7 @@
       "San Miguel Allende y Peña de Bernal",
       "Maní y Jiquilpan"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Puebla es uno de los estados con más Pueblos Mágicos; Chignahuapan destaca por su producción de esferas navideñas y sus aguas termales."
   },
   {
     "id": 501,
@@ -7735,7 +7735,7 @@
       "Mineral del Chico",
       "Huasca de Ocampo"
     ],
-    "explanation": "El programa Pueblos Mágicos busca resaltar la riqueza cultural y tradiciones de diversas localidades del país."
+    "explanation": "Jerez destaca por su música de tambora, su arquitectura de cantera rosa y por ser cuna del poeta Ramón López Velarde."
   },
   {
     "id": 503,
@@ -7780,7 +7780,7 @@
       "Tlayacapan y Cuetzalan del Progreso",
       "Valladolid y Palenque"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Rosario es conocido por su impresionante retablo de hoja de oro, mientras que Cosalá destaca por su arquitectura colonial y entorno natural."
   },
   {
     "id": 506,
@@ -7796,7 +7796,7 @@
       "República federal semiparlamentaria",
       "República parlamentaria multipartidista"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Establecida en el Artículo 40 constitucional, esta forma de gobierno asegura la división de poderes y la soberanía de los estados."
   },
   {
     "id": 507,
@@ -7811,7 +7811,7 @@
       "Consejo administrativo federal",
       "Presidencial y vicepresidencial"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El sistema de contrapesos evita la concentración del poder, distribuyendo las funciones en tres ramas independientes y coordinadas."
   },
   {
     "id": 508,
@@ -7826,7 +7826,7 @@
       "Federación, alcaldía y colonia",
       "Nacional, regional y local"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El municipio es la base de la organización territorial y política, mientras que el nivel federal coordina los asuntos de interés nacional."
   },
   {
     "id": 509,
@@ -7841,7 +7841,7 @@
       "El primer ministro",
       "El presidente y el vicepresidente de la República"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El presidente es jefe de Estado y de Gobierno, responsable de la administración pública y de la ejecución de las leyes."
   },
   {
     "id": 510,
@@ -7856,7 +7856,7 @@
       "El Secretario de la Defensa Nacional",
       "El Secretario General de Seguridad"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Según el Artículo 89 constitucional, el presidente tiene el mando supremo del Ejército, la Armada y la Fuerza Aérea."
   },
   {
     "id": 511,
@@ -7872,7 +7872,7 @@
       "Andrés Manuel López Obrador, Ricardo Monreal, Marcelo Luis Ebrard Casaubón, Gerardo Fenández Noroña, Carlos Salinas de Gortari",
       "Andres Manuel López Obrador, Vicente Fox Quesada, Ernesto Zedillo, José López Portillo, Manuel Ávila Camacho"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Estos periodos han marcado la alternancia democrática en México, transitando por diferentes partidos políticos en el poder."
   },
   {
     "id": 512,
@@ -7887,7 +7887,7 @@
       "4 años con reelección ilimitada",
       "6 años con posibilidad a una extensión de 3 años más"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El principio de 'Sufragio Efectivo, No Reelección' es un pilar de la democracia mexicana tras la Revolución de 1910."
   },
   {
     "id": 513,
@@ -7902,7 +7902,7 @@
       "El primer jueves de julio de cada 6 años",
       "El día 1 de diciembre de cada 6 años"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El proceso electoral es organizado por el Instituto Nacional Electoral (INE), garantizando elecciones libres y transparentes."
   },
   {
     "id": 514,
@@ -7918,7 +7918,7 @@
       "Por ser el lugar donde el Presidente da el tradicional Grito de Independencia",
       "Por ser el punto de reunión cuando la Selección Mexicana gana un partido"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Lázaro Cárdenas fue el primer presidente en habitarla; en 2018 se convirtió en un centro cultural abierto al público."
   },
   {
     "id": 515,
@@ -7933,7 +7933,7 @@
       "Castillo de Chapultepec",
       "Palacio de San Lázaro"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Situado en el Zócalo, ha sido el centro del poder político desde la época virreinal, construido sobre las ruinas del palacio de Moctezuma."
   },
   {
     "id": 516,
@@ -7948,7 +7948,7 @@
       "La Procuraduría General del Cliente",
       "La COFETEL"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La PROFECO defiende los derechos de los consumidores, previene abusos y garantiza relaciones comerciales equitativas."
   },
   {
     "id": 517,
@@ -7964,7 +7964,7 @@
       "la COFECE",
       "la CONAGUA"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Los consumidores pueden acudir à esta institución para denunciar precios excesivos, publicidad engañosa o mal servicio."
   },
   {
     "id": 518,
@@ -7980,7 +7980,7 @@
       "Secretaría de Economía",
       "Secretaría de Administración de Impuestos"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El SAT, dependiente de la SHCP, es el brazo ejecutor encargado de la recaudación tributaria para el financiamiento público."
   },
   {
     "id": 519,
@@ -7996,7 +7996,7 @@
       "Instituto Politécnico Nacional (IPN)",
       "Secretaría de Emisión de Títulos y Cédulas"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La Cédula Profesional es el documento oficial que autoriza el ejercicio de una profesión en todo el territorio mexicano."
   },
   {
     "id": 520,
@@ -8011,7 +8011,7 @@
       "345",
       "123"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "México tiene una de las redes consulares más extensas del mundo, principalmente en EE.UU., para proteger y asistir a sus connacionales."
   },
   {
     "id": 521,
@@ -8026,7 +8026,7 @@
       "23",
       "64"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Las embajadas representan a México ante gobiernos extranjeros y organismos internacionales, promoviendo los intereses nacionales y la cooperación."
   },
   {
     "id": 522,
@@ -8042,7 +8042,7 @@
       "Felipe Calderón Hinojosa",
       "Beatriz Paredes"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Secretario de Relaciones Exteriores (Canciller) dirige la política exterior de México bajo la conducción del Presidente de la República."
   },
   {
     "id": 523,
@@ -8057,7 +8057,7 @@
       "Emiliano Zapata",
       "Luis Enrique Erro"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Gustavo Baz fue un destacado médico y político que impulsó la creación de la Secretaría de Salubridad y Asistencia en 1943."
   },
   {
     "id": 524,
@@ -8072,7 +8072,7 @@
       "IFT",
       "SRE"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Instituto Mexicano del Seguro Social es la institución de seguridad social más grande de América Latina, brindando salud y pensiones."
   },
   {
     "id": 525,
@@ -8088,7 +8088,7 @@
       "El 21 de diciembre de 1913",
       "El 8 de enero de 1954"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Instituto Mexicano del Seguro Social fue creado para garantizar el derecho a la salud, la asistencia médica y la protección de los medios de subsistencia."
   },
   {
     "id": 526,
@@ -8104,7 +8104,7 @@
       "Adolfo Ruiz Cortines",
       "Gustavo Díaz Ordáz"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado fue fundado en 1959 para atender las necesidades de los empleados públicos."
   },
   {
     "id": 527,
@@ -8120,7 +8120,7 @@
       "IMSS Bienestar",
       "Seguro Independiente"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Fue un mecanismo de protección financiera en salud que buscaba dar cobertura a la población no derechohabiente de la seguridad social."
   },
   {
     "id": 528,
@@ -8136,7 +8136,7 @@
       "21",
       "9"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "México es una de las economías más grandes de América Latina, con una fuerte base industrial y una red de tratados de libre comercio."
   },
   {
     "id": 529,
@@ -8151,7 +8151,7 @@
       "Oro, seda e incienso",
       "Chips de computadora, productos cárnicos y caucho"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Además de estos, México es líder mundial en la exportación de pantallas planas, aguacates y vehículos ligeros."
   },
   {
     "id": 530,
@@ -8166,7 +8166,7 @@
       "Oro negro",
       "Petrolífero licuado"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El petróleo es una mezcla compleja de hidrocarburos que se encuentra en el subsuelo y es el principal recurso energético de México."
   },
   {
     "id": 531,
@@ -8196,7 +8196,7 @@
       "México tiene una de las economías más grandes de América Latina.",
       "México cuenta con una rica herencia histórica que incluye civilizaciones como los mayas y los aztecas."
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "México enfrenta grandes retos en materia de distribución de la riqueza, persistiendo una brecha significativa entre diferentes estratos sociales."
   },
   {
     "id": 533,
@@ -8227,7 +8227,7 @@
       "La Suprema Corte de Justicia de la Nación",
       "La Unión Congresista"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Congreso se encarga de legislar sobre asuntos de interés nacional y está compuesto por la Cámara de Diputados y la Cámara de Senadores."
   },
   {
     "id": 535,
@@ -8242,7 +8242,7 @@
       "Los jueces y magistrados de la Suprema Corte",
       "Los secretarios de estado"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "A través de la presentación de iniciativas, discusión y votación, el Congreso ejerce su función legislativa para el bienestar del país."
   },
   {
     "id": 536,
@@ -8257,7 +8257,7 @@
       "300",
       "32"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La Cámara de Diputados se integra por 300 electos por mayoría relativa y 200 por el principio de representación proporcional."
   },
   {
     "id": 537,
@@ -8272,7 +8272,7 @@
       "A las 48 regiones en que se divide territorialmente a México",
       "A los municipios de todo el país"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Cada diputado electo por mayoría relativa representa a los ciudadanos de una demarcación territorial específica llamada distrito."
   },
   {
     "id": 538,
@@ -8287,7 +8287,7 @@
       "48",
       "32"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La división del territorio en 300 distritos busca que cada diputado represente a un número similar de habitantes."
   },
   {
     "id": 539,
@@ -8302,7 +8302,7 @@
       "A los municipios de la República",
       "A las regiones de México"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Senado es la cámara donde los estados de la federación y la CDMX tienen representación igualitaria para cuidar sus intereses."
   },
   {
     "id": 540,
@@ -8317,7 +8317,7 @@
       "500",
       "300"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Hay 128 senadores: 64 electos por mayoría, 32 por primera minoría y 32 por representación proporcional."
   },
   {
     "id": 541,
@@ -8332,7 +8332,7 @@
       "Secretaría de Seguridad Pública",
       "El poder ejecutivo, a través de la Fiscalía"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Poder Judicial tiene la misión de interpretar las leyes y resolver controversias para proteger el orden constitucional y los derechos humanos."
   },
   {
     "id": 542,
@@ -8348,7 +8348,7 @@
       "1. Suprema Corte de Justicia. 2. Tribunal Fiscal. 3. Tribunales de Circuito (Colegiados y Unitarios). 4. Juzgados de Paz. 5. Consejo de la Judicatura Estatal.",
       "1. Suprema Corte de Justicia. 2. Tribunal Constitucional. 3. Tribunales de Circuito (Colegiados y Unitarios). 4. Juzgados de lo Penal. 5. Consejo de la Judicatura Nacional."
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Esta estructura garantiza que la justicia llegue a todos los niveles, desde juzgados locales hasta la máxima instancia que es la Suprema Corte."
   },
   {
     "id": 543,
@@ -8363,7 +8363,7 @@
       "35",
       "3"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Los ministros de la SCJN son designados por el Senado a partir de una terna propuesta por el presidente, durando 15 años en su encargo."
   },
   {
     "id": 544,
@@ -8378,7 +8378,7 @@
       "12",
       "112"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La Constitución de 1917 es la ley suprema del país y se divide en una parte dogmática (derechos) y una orgánica (organización del Estado)."
   },
   {
     "id": 545,
@@ -8393,7 +8393,7 @@
       "Constitución General de México",
       "La Ley Federal del Mexicano"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "También conocida como la 'Carta Magna', fue la primera en el mundo en incluir derechos sociales como la educación y el trabajo."
   },
   {
     "id": 546,
@@ -8408,7 +8408,7 @@
       "Ley de Migración",
       "Ley de Vivienda y Nacionalidad"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Todos los habitantes del territorio nacional gozan de las garantías y derechos establecidos en la Constitución, sin distinción de nacionalidad."
   },
   {
     "id": 547,
@@ -8423,7 +8423,7 @@
       "Artículo 23",
       "Artículo 15"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Artículo 1 establece que en México todas las personas gozarán de los derechos humanos reconocidos en la Constitución y tratados internacionales."
   },
   {
     "id": 548,
@@ -8438,7 +8438,7 @@
       "Artículo 5",
       "Artículo 132"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Reconoce que la Nación tiene una composición pluricultural sustentada originalmente en sus pueblos indígenas, garantizando su libre determinación."
   },
   {
     "id": 549,
@@ -8453,7 +8453,7 @@
       "Artículo 2 Bis.",
       "Artículo 8"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Artículo 3 garantiza el derecho a la educación, estableciendo que el Estado impartirá educación preescolar, primaria, secundaria y media superior."
   },
   {
     "id": 550,
@@ -8468,7 +8468,7 @@
       "Artículo 43",
       "Artículo 53"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La educación básica y media superior son obligatorias y deben ser laicas, gratuitas y de calidad según los principios constitucionales."
   },
   {
     "id": 551,
@@ -8483,7 +8483,7 @@
       "Artículo 7",
       "Artículo 83"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "A ninguna persona podrá impedirse que se dedique a la profesión, industria, comercio o trabajo que le acomode, siendo lícitos."
   },
   {
     "id": 552,
@@ -8498,7 +8498,7 @@
       "Artículo 1",
       "Artículo 2"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La manifestación de las ideas no será objeto de ninguna inquisición judicial o administrativa, garantizando el acceso a la información."
   },
   {
     "id": 553,
@@ -8513,7 +8513,7 @@
       "Artículo 12",
       "Artículo 10"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Los funcionarios y empleados públicos respetarán el ejercicio del derecho de petición, siempre que esta se formule por escrito y de manera pacífica."
   },
   {
     "id": 554,
@@ -8528,7 +8528,7 @@
       "Artículo 27",
       "Artículo 23"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Toda persona tiene derecho a buscar y recibir asilo, reconociendo la protección internacional por motivos políticos o humanitarios."
   },
   {
     "id": 555,
@@ -8543,7 +8543,7 @@
       "Artículo 9",
       "Artículo 2"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Entre las obligaciones destacan el pago de impuestos, la educación de los hijos y el servicio en las fuerzas armadas o protección civil."
   },
   {
     "id": 556,
@@ -8558,7 +8558,7 @@
       "Artículo 10",
       "Artículo 3"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Los extranjeros tienen prohibido inmiscuirse en los asuntos políticos del país y el Estado puede expulsarlos si su estancia es inconveniente."
   },
   {
     "id": 557,
@@ -8573,7 +8573,7 @@
       "Artículo 1",
       "Artículo 27"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Los derechos del ciudadano incluyen votar, ser votado, asociarse pacíficamente y ejercer el derecho de petición en materia política."
   },
   {
     "id": 558,
@@ -8588,7 +8588,7 @@
       "Artículo 2",
       "Artículo 40"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Se puede perder por adquirir voluntariamente otra nacionalidad, aceptar títulos nobiliarios extranjeros o residir 5 años fuera del país."
   },
   {
     "id": 559,
@@ -8603,7 +8603,7 @@
       "Republicana, civil, tolerante, multicultural y bilingüe",
       "Normativa, formativa, multiétnica, transveral, accesible y resiliente"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Estado prioriza el interés superior de la niñez y juventud en el acceso, permanencia y participación en los servicios educativos."
   },
   {
     "id": 560,
@@ -8619,7 +8619,7 @@
       "Consejo Nacional de Elecciones y Consultas (CNEC)",
       "Secretaría de Gobernación (SEGOB)"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Es la máxima autoridad electoral en México, autónoma e independiente, encargada de organizar procesos electorales confiables."
   },
   {
     "id": 561,
@@ -8635,7 +8635,7 @@
       "11 de octubre de 1988",
       "11 de octubre de 1995"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Su creación fue una respuesta a la demanda ciudadana de elecciones imparciales, quitando el control de los comicios al Gobierno Federal."
   },
   {
     "id": 562,
@@ -8651,7 +8651,7 @@
       "10 de febrero de 2016",
       "10 de febrero de 2012"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El INE heredó el patrimonio y experiencia del IFE, pero con mayores atribuciones para estandarizar las elecciones en todo el país."
   },
   {
     "id": 563,
@@ -8666,7 +8666,7 @@
       "A los 21 años",
       "A los 20 años"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Al cumplir 18 años se adquiere la ciudadanía mexicana, lo que otorga el derecho y la obligación de participar en las elecciones."
   },
   {
     "id": 564,
@@ -8681,7 +8681,7 @@
       "1994",
       "1992"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El IFE comenzó la expedición de credenciales con fotografía para dar seguridad al padrón electoral y evitar fraudes en las votaciones."
   },
   {
     "id": 565,
@@ -8696,7 +8696,7 @@
       "2018",
       "2000"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Congreso aprobó reformas para que los mexicanos residentes en el exterior pudieran votar por primera vez en las elecciones presidenciales de 2006."
   },
   {
     "id": 566,
@@ -8711,7 +8711,7 @@
       "3 de noviembre de 1990",
       "8 de julio de 1943"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Benito Juárez promulgó la Ley del Registro Civil en Veracruz, restando el control de los nacimientos, matrimonios y defunciones a la Iglesia."
   },
   {
     "id": 567,
@@ -8726,7 +8726,7 @@
       "2 de octubre de 1882",
       "1 de diciembre de 1894"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Corresponde a Jerónima Francisca Juárez Maza, hija de Benito Juárez, siendo la primera mexicana registrada oficialmente por el Estado."
   },
   {
     "id": 568,
@@ -8741,7 +8741,7 @@
       "Partido Republicano de México (PRM), Partido Nacional del Trabajo (PNT), Partido Federal Mexicano (PFM), México Libre y Justicia Unionista",
       "Encuentro Social, VOX, Partido Popular Mexicano (PPM), Partido Demócrata de los Estados Unidos Mexicanos (PDEUM)  y Partido Revolucionario de México (PRM)"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El sistema de partidos en México ha evolucionado de un régimen de partido casi único a un pluripartidismo competitivo y dinámico."
   },
   {
     "id": 569,
@@ -8757,7 +8757,7 @@
       "Partido del Trabajo (PT)",
       "Movimiento Revolucionario de México (MRM)"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El PRI, fundado originalmente como PNR y luego PRM, mantuvo la presidencia ininterrumpidamente desde 1929 hasta el año 2000."
   },
   {
     "id": 570,
@@ -8772,7 +8772,7 @@
       "Pontificia Universidad de México",
       "Instituto de las Belllas Artes"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Real Seminario de Minería fue una institución de vanguardia dedicada a la enseñanza técnica y científica, fundamental para la economía virreinal."
   },
   {
     "id": 571,
@@ -8787,7 +8787,7 @@
       "Esteban Moctezuma Barragán",
       "Gilberto Bosques"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Vasconcelos, el 'Maestro de América', impulsó una cruzada educativa y cultural sin precedentes, integrando el arte y la alfabetización masiva."
   },
   {
     "id": 572,
@@ -8802,7 +8802,7 @@
       "José Narro Robles",
       "Enrique Graue"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Pronunciada en su toma de posesión como rector de la UNAM, refleja su visión de que el conocimiento debe servir para elevar el nivel de vida social."
   },
   {
     "id": 573,
@@ -8818,7 +8818,7 @@
       "El 6 de febrero de 1910 por el presidente Porfirio Díaz",
       "El 8 de octubre de 1966 por el presidente Gustavo Díaz Ordaz"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Gabino Barreda fue su primer director, implementando el positivismo como base filosófica para formar a la juventud mexicana bajo el lema 'Amor, Orden y Progreso'."
   },
   {
     "id": 574,
@@ -8834,7 +8834,7 @@
       "El 1 de diciembre de 1935 por el presidente Lázaro Cárdenas del Río",
       "En 1880 por mandato de Manuel Gónzález Flores"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La Ley Orgánica de Instrucción Pública de 1867 sentó las bases de la educación moderna en México, declarándola laica y responsabilidad del Estado."
   },
   {
     "id": 575,
@@ -8849,7 +8849,7 @@
       "Opcional, libre, justa, familiar y con perspectiva de género",
       "Normativa, formativa, multiétnica, transversal, accesible y resiliente"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Artículo 3 busca desarrollar armónicamente todas las facultades del ser humano, fomentando el amor a la patria y la solidaridad internacional."
   },
   {
     "id": 576,
@@ -8864,7 +8864,7 @@
       "Preescolar, primaria y secundaria",
       "Preescolar, primaria, secundaria, media superior y superior"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La obligatoriedad de la educación media superior (preparatoria) fue establecida en una reforma constitucional en 2012 para ampliar las oportunidades de los jóvenes."
   },
   {
     "id": 577,
@@ -8879,7 +8879,7 @@
       "Preescolar: 3 años; Primaria: 5 años; Secundaria: 3 años; Bachillerato: 4 años",
       "Preescolar: 2 años; Primaria: 12 años; Secundaria: 5 años; Bachillerato: 5 años"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El sistema educativo nacional se organiza en ciclos que suman 15 años de formación obligatoria antes de ingresar al nivel superior."
   },
   {
     "id": 578,
@@ -8894,7 +8894,7 @@
       "12 años",
       "5 años"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La primaria es la etapa fundamental donde se adquieren las competencias básicas de lectura, escritura y pensamiento lógico-matemático."
   },
   {
     "id": 579,
@@ -8910,7 +8910,7 @@
       "10 meses",
       "4 meses"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El calendario escolar es determinado por la SEP para cada ciclo, asegurando el cumplimiento de los planes de estudio en todo el país."
   },
   {
     "id": 580,
@@ -8926,7 +8926,7 @@
       "En cinco niveles: inicial, formativo, vocacional, superior y especialidad",
       "En tres niveles: educación básica, grado y posgrado"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Estos niveles conforman la trayectoria académica desde la infancia hasta la profesionalización especializada en el nivel superior."
   },
   {
     "id": 581,
@@ -8957,7 +8957,7 @@
       "El 22 de noviembre de 1890",
       "El 1 de enero de 1890"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Fue creada por iniciativa de Justo Sierra como parte de los festejos del Centenario de la Independencia, heredando la tradición de la antigua universidad."
   },
   {
     "id": 583,
@@ -8972,7 +8972,7 @@
       "“La Técnica al servicio de la Patria”",
       "“Justicia y Libertad”"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Este lema expresa la convicción de que la cultura y el pensamiento deben ser los motores del desarrollo del pueblo mexicano y latinoamericano."
   },
   {
     "id": 584,
@@ -8987,7 +8987,7 @@
       "Benito Juárez",
       "Frida Kahlo"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Vasconcelos creó el lema y el escudo de la UNAM durante su rectoría, buscando definir la identidad y misión social de la institución."
   },
   {
     "id": 585,
@@ -9002,7 +9002,7 @@
       "Por instrucción del presidente Gustavo Díaz Ordaz",
       "Por instrucción del presidente Benito Juárez"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El proyecto de la Ciudad Universitaria fue una hazaña de planeación urbana y arquitectura que integró modernidad y tradición en el sur de la CDMX."
   },
   {
     "id": 586,
@@ -9032,7 +9032,7 @@
       "José López Portillo",
       "Carlos Salinas de Gortari"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La autonomía ganada en 1929 permite a la UNAM gobernarse a sí misma, definir sus programas de estudio y administrar sus recursos libremente."
   },
   {
     "id": 588,
@@ -9047,7 +9047,7 @@
       "Biblioteca de Antropología e Historia",
       "Biblioteca Vasconselos"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Sus murales de piedra de colores, obra de Juan O'Gorman, narran la historia de México y son un icono mundial del movimiento funcionalista."
   },
   {
     "id": 589,
@@ -9062,7 +9062,7 @@
       "Instituto Tecnológico de Tlalnepantla (ITTLA)",
       "Instuto Técnico Mexicano (ITMEX)"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Politécnico nació para impulsar la industrialización del país, ofreciendo educación técnica de alto nivel a las clases trabajadoras."
   },
   {
     "id": 590,
@@ -9077,7 +9077,7 @@
       "Universidad Nacional Autónoma de México (UNAM)",
       "Universidad Cárdenas"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Cárdenas fundó el IPN en 1936 con la visión de que la técnica debía estar al servicio de la patria para lograr la independencia económica."
   },
   {
     "id": 591,
@@ -9092,7 +9092,7 @@
       "5 de abril de 1934",
       "22 de septiembre de 1880"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Su fundación integró diversas escuelas técnicas preexistentes para consolidar un sistema nacional de educación tecnológica."
   },
   {
     "id": 592,
@@ -9107,7 +9107,7 @@
       "“Justicia y Libertad”",
       "“Educación, Pensamiento y Trabajo”"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Refleja el compromiso social de sus egresados de aplicar sus conocimientos científicos y técnicos para resolver los problemas de la nación."
   },
   {
     "id": 593,
@@ -9123,7 +9123,7 @@
       "En 1983",
       "En 1947"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La UAM fue creada para descentralizar la oferta educativa superior en la CDMX, adoptando un modelo innovador de unidades académicas autónomas."
   },
   {
     "id": 594,
@@ -9138,7 +9138,7 @@
       "Scientia et cultura pro homine (La ciencia y la cultura al servicio del hombre)",
       "Tlalticpac Toquichtin Tiez (La Tierra será como sean los hombres)"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El lema en náhuatl y español sintetiza la misión de la universidad de ser un espacio flexible y permanente para el saber y la cultura."
   },
   {
     "id": 595,
@@ -9153,7 +9153,7 @@
       "Colegio Nacional para los Estudiantes de Preparatoria",
       "Consejo Nacional de Alumnos de Educación Privada"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El CONALEP forma técnicos profesionales especializados que responden a las necesidades reales del mercado laboral y la industria."
   },
   {
     "id": 596,
@@ -9169,7 +9169,7 @@
       "En 1990 por Carlos Salinas de Gortari",
       "En 1964 por Adolfo López Mateos"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Fue fundado para profesionalizar la educación técnica en México, permitiendo a los jóvenes vincularse rápidamente con el sector productivo."
   },
   {
     "id": 597,
@@ -9184,7 +9184,7 @@
       "Pedro Vargas en 1948",
       "Luis Ernesto Miramontes en 1931"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Camarena patentó en México y EE.UU. el Sistema Tricromático Secuencial de Campos, base de las transmisiones a color en todo el mundo."
   },
   {
     "id": 598,
@@ -9200,7 +9200,7 @@
       "Mario Molina en 1965",
       "Guillermo González Camarena en 1940"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Miramontes, un químico mexicano de 26 años, sintetizó por primera vez la noretisterona, el componente base de los anticonceptivos orales."
   },
   {
     "id": 599,
@@ -9248,7 +9248,7 @@
       "Rodolfo Neri Vela el 26 de noviembre de 1986 desde el Centro Espacial Johnson, en Texas",
       "Rodolfo Neri Vela el 26 de noviembre de 1984 desde el Centro Espacial Kennedy, en Florida"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Neri Vela viajó al espacio como especialista de carga en la misión STS-61-B, realizando experimentos sobre la reproducción de plantas y el comportamiento de fluidos."
   },
   {
     "id": 602,
@@ -9264,7 +9264,7 @@
       "Rodolfo Neri Vela. Esta misión tuvo como principal objetivo poner en órbita tres satélites: el Morelos III de México, el AUSSAT-3 de Australia y el SATCOM KU-3 de Estados Unidos. Rodolfo Neri Vela fue parte de la tripulación como especialista de carga.",
       "Rodolfo Neri Vela. Esta misión tuvo como principal objetivo poner en órbita tres satélites: el Morelos II de México, el AUSSAT-2 de Australia y el SATCOM KU-2 de Estados Unidos. Rodolfo Neri Vela fue parte de la tripulación como comandante de carga."
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El lanzamiento del satélite Morelos II fue un paso decisivo para las telecomunicaciones en México, permitiendo la cobertura de televisión y telefonía en todo el país."
   },
   {
     "id": 603,
@@ -9280,7 +9280,7 @@
       "Guadalupe Nettel",
       "Ellen Ochoa"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Nacida en Guadalajara, Katya Echazarreta es ingeniera eléctrica y fue seleccionada por el programa Space for Humanity para promover la democratización del espacio."
   },
   {
     "id": 604,
@@ -9296,7 +9296,7 @@
       "Denisse Garrido, Karina González y Margarita Moreno",
       "Adriana Paniagua, Beatriz Rivas y Karina González"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Estas tres mujeres han puesto el nombre de México en alto en el certamen de belleza más importante del mundo, destacando por su inteligencia y carisma."
   },
   {
     "id": 605,
@@ -9311,7 +9311,7 @@
       "Ximena Navarrete",
       "Andrea Meza"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Originario de Baja California, tras su reinado se convirtió en empresaria y directora nacional de concursos de belleza en México."
   },
   {
     "id": 606,
@@ -9326,7 +9326,7 @@
       "Laura León en 1915",
       "Guadalupe Jones en 1910"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Matilde Montoya tuvo que enfrentar grandes prejuicios de género para obtener su título de médica cirujana, recibiendo el apoyo directo del presidente Porfirio Díaz."
   },
   {
     "id": 607,
@@ -9341,7 +9341,7 @@
       "Primer medallista olímpico representante de México",
       "Un pintor y escultor oriundo de Coyoacán, hijo no reconocido de Frida Kahlo y Diego Rivera"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Barragán es el máximo exponente de la arquitectura emocional en México, fusionando elementos tradicionales con la modernidad y el uso magistral del color."
   },
   {
     "id": 608,
@@ -9356,7 +9356,7 @@
       "Juan O´Gorman",
       "Pedro Ramírez Vázquez"
     ],
-    "explanation": "Los premios Nobel mexicanos destacan en áreas de Química, Literatura y la Paz."
+    "explanation": "Barragán es el único mexicano que ha recibido el Pritzker, el reconocimiento más prestigioso de la arquitectura a nivel mundial."
   },
   {
     "id": 609,
@@ -9371,7 +9371,7 @@
       "Sistema Texcoco",
       "Acueducto Morelos"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Es uno de los sistemas de abastecimiento de agua más grandes y complejos del mundo, transportando agua desde Michoacán y el Estado de México."
   },
   {
     "id": 610,
@@ -9386,7 +9386,7 @@
       "Luis Echeverría Álvarez",
       "Miguel Alemán Valdés"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La construcción del Metro fue un reto monumental de ingeniería debido al suelo fangoso de la CDMX, requiriendo tecnologías innovadoras de cimentación."
   },
   {
     "id": 611,
@@ -9402,7 +9402,7 @@
       "9 de diciembre de 1961",
       "7 de marzo de 1973"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El primer tramo de la Línea 1 (Rosa) corría de Chapultepec a Zaragoza, cambiando para siempre la movilidad urbana en la capital del país."
   },
   {
     "id": 612,
@@ -9417,7 +9417,7 @@
       "Las peleas de gallos",
       "El béisbol"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La charrería es un arte y disciplina que nace de las faenas del campo en la época virreinal, considerada Patrimonio Cultural Inmaterial de la Humanidad."
   },
   {
     "id": 613,
@@ -9432,7 +9432,7 @@
       "Ciudad de México, 5 de agosto de 1972",
       "Monterrey, 12 de agosto de 1968"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Fueron los primeros Juegos Olímpicos celebrados en América Latina y los primeros en los que una mujer, Enriqueta Basilio, encendió el pebetero."
   },
   {
     "id": 614,
@@ -9448,7 +9448,7 @@
       "1974 y 1980",
       "1982 y 1990"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "México es el primer país en albergar dos veces la final de un mundial, en el emblemático Estadio Azteca, donde se coronaron Pelé y Maradona."
   },
   {
     "id": 615,
@@ -9464,7 +9464,7 @@
       "\"El Ídolo de México\", Pedro Infante",
       "\"El Rey del Mambo\", Pérez Prado"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Rodolfo Guzmán Huerta, 'El Enmascarado de Plata', es una leyenda de la cultura popular mexicana, héroe de historietas y protagonista de decenas de películas."
   },
   {
     "id": 616,
@@ -9479,7 +9479,7 @@
       "“El Matador”",
       "“El Káiser”"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Surgido de las fuerzas básicas de las Chivas, el 'Chicharito' es el máximo goleador histórico de la Selección Mexicana y ha jugado en grandes clubes europeos."
   },
   {
     "id": 617,
@@ -9494,7 +9494,7 @@
       "Miguel Layún y Orbelin Pineda",
       "Irvin Lozano y Diego Láinez"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Hugo Sánchez es una leyenda del Real Madrid con 5 Pichichis, mientras que Rafa Márquez fue pilar de la defensa del FC Barcelona en su época dorada."
   },
   {
     "id": 618,
@@ -9509,7 +9509,7 @@
       "Miguel Layún",
       "Cuauhtemoc Blanco"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El 'Pentapichichi' es considerado el mejor futbolista mexicano del siglo XX, brillando especialmente en el Real Madrid con sus espectaculares remates."
   },
   {
     "id": 619,
@@ -9524,7 +9524,7 @@
       "Carlos “Finito” Salinas, Carlos “El millanario” Slim, Ricardo “El peligroso” Salinas",
       "Raúl “el Azteca” Figueroa, Mariano “el carnicero” Escobedo, Andrés “El Pejelagarto” López"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "México es una potencia mundial en el boxeo, con una larga lista de campeones que destacan por su valentía, técnica y pegada legendaria."
   },
   {
     "id": 620,
@@ -9539,7 +9539,7 @@
       "Ana Victoria “La arrolladora” Pérez",
       "“La Princesa Apache”, Josefina Ortiz"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Fue la primera mujer en obtener el Cinturón de Diamante del CMB, abriendo brecha para el boxeo femenino en México y el mundo."
   },
   {
     "id": 621,
@@ -9554,7 +9554,7 @@
       "Guadalupe “La leona dormida”  D´Alessio",
       "Gloria “La loca” Treviño"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Originaria de Torreón, ha sido múltiple campeona mundial y es reconocida por su técnica depurada y constancia en el cuadrilátero."
   },
   {
     "id": 622,
@@ -9569,7 +9569,7 @@
       "Martha Villalobos",
       "Tatiana Ortiz"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Soraya hizo historia al convertirse en la primera mujer mexicana en ganar una medalla de oro olímpica, inspirando a generaciones de deportistas."
   },
   {
     "id": 623,
@@ -9584,7 +9584,7 @@
       "400 metros planos en 28.50 segundos",
       "500 metros planos en 45.70 segundos"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La sonorense dominó las pistas de atletismo a nivel mundial, logrando este récord en una distancia no oficial pero de gran exigencia técnica."
   },
   {
     "id": 624,
@@ -9599,7 +9599,7 @@
       "Medalla de bronce en 400 metros planos en 49. 53 segundos",
       "Medalla de oro en 500 con vallas en 54.43 segundos"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Guevara es una de las mejores velocistas de la historia, logrando la medalla de plata en una de las finales más memorables del atletismo mexicano."
   },
   {
     "id": 625,
@@ -9615,7 +9615,7 @@
       "1. Futból. 2. Tiro con arco. 3. Natación. 4. Taekwondo",
       "1. Futból. 2. Tiro con arco. 3. Clavado. 4. Atletismo"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "En Londres 2012, la Selección Mexicana de Fútbol logró una histórica medalla de oro al vencer a Brasil en el mítico Estadio de Wembley."
   },
   {
     "id": 626,
@@ -9631,7 +9631,7 @@
       "Fernando Valenzuela, béisbol; Oscar de la Hoya, boxeo; Saúl \"Canelo\" Álvarez, boxeo",
       "María del Rosario Espinoza, taekwondo; Paola Espinosa, clavados; Raúl González, marcha"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Joaquín Capilla es el máximo medallista olímpico mexicano de la historia, con cuatro preseas (oro, plata y dos bronces) en clavados."
   },
   {
     "id": 627,
@@ -9646,7 +9646,7 @@
       "El Templo perdido",
       "Los hijos perdidos de América"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Este poema épico es una de las primeras obras literarias que exalta la belleza, cultura y riqueza de la Ciudad de México en la época virreinal."
   },
   {
     "id": 628,
@@ -9723,7 +9723,7 @@
       "El gringo viejo",
       "La silla del águila"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Madero escribió este libro en 1908 para denunciar el autoritarismo de Díaz y proponer la formación de un partido político que compitiera en las elecciones."
   },
   {
     "id": 633,
@@ -9739,7 +9739,7 @@
       "Sor Juana Inés de la Cruz",
       "Francisco I. Madero"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Su novela 'Los de abajo' es la obra cumbre de la narrativa de la Revolución, retratando con realismo la crudeza del conflicto y el desencanto social."
   },
   {
     "id": 634,
@@ -9754,7 +9754,7 @@
       "Secretario de Relaciones Exteriores durante el sexenio de Lázaro Cárdenas del Río",
       "Un arquitecto y escultor galardonado por su contribución a la arquitectura en la Ciudad de México"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Rulfo es autor de solo dos libros, 'El Llano en llamas' y 'Pedro Páramo', suficientes para revolucionar la literatura universal con su realismo mágico."
   },
   {
     "id": 635,
@@ -9769,7 +9769,7 @@
       "Elena Poniatowska",
       "Carlos Fuentes"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Pacheco utilizó su talento poético y narrativo para rescatar el testimonio de las víctimas, manteniendo viva la demanda de justicia por los eventos de 1968."
   },
   {
     "id": 636,
@@ -9784,7 +9784,7 @@
       "La silla del águila",
       "El Llano en llamas"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Fue la primera gran novela urbana de México, un retrato coral y ambicioso de la sociedad capitalina que consagró a Fuentes a los 29 años."
   },
   {
     "id": 637,
@@ -9799,7 +9799,7 @@
       "Octavio Paz",
       "Silvia Moreno-García"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Narra la agonía de un veterano de la Revolución convertido en magnate, explorando la corrupción y la formación del México contemporáneo."
   },
   {
     "id": 638,
@@ -9814,7 +9814,7 @@
       "Juan Rulfo",
       "José Emilio Pacheco"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "En este ensayo narrativo, Fuentes realiza un recorrido por la historia de México, desde el mito cosmogónico indígena hasta la modernidad."
   },
   {
     "id": 639,
@@ -9829,7 +9829,7 @@
       "Jorge Ibargüengoitia",
       "Fernando del Paso"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Esta novela corta es una joya de la narrativa fantástica y gótica, donde el tiempo y la identidad se difuminan en una casona del centro histórico."
   },
   {
     "id": 640,
@@ -9844,7 +9844,7 @@
       "Carlos Fuentes",
       "Fernando del Paso"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Esta novela corta es una joya de la narrativa fantástica y gótica, donde el tiempo y la identidad se difuminan en una casona del centro histórico."
   },
   {
     "id": 641,
@@ -9859,7 +9859,7 @@
       "Gerardo Fernandez Noroña",
       "Marcelo Ebrard"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Esta crónica narrativa relata con detalle cinematográfico los sucesos de la Decena Trágica, el golpe de Estado que culminó con el asesinato de Madero."
   },
   {
     "id": 642,
@@ -9890,7 +9890,7 @@
       "De la obra que retrata la vida política del México Posrrevolucionario hasta la llegada de Plutarco Elías Calles al poder",
       "Del proceso de expropiación de las empresas petroleras por parte del presidente Lázaro Cárdenas"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Relata el cuartelazo que derrocó a Francisco I. Madero, un episodio oscuro marcado por la traición y el asesinato del presidente y el vicepresidente Pino Suárez."
   },
   {
     "id": 644,
@@ -9906,7 +9906,7 @@
       "Amado Nervo",
       "Octavio Paz"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Esta obra es un mosaico de voces que rompió el silencio oficial sobre los sucesos del 2 de octubre, convirtiéndose en un referente del periodismo narrativo."
   },
   {
     "id": 645,
@@ -9921,7 +9921,7 @@
       "Juan Rulfo",
       "Carlos Fuentes"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Pacheco utilizó su talento poético y narrativo para rescatar el testimonio de las víctimas, manteniendo viva la demanda de justicia por los eventos de 1968."
   },
   {
     "id": 646,
@@ -9937,7 +9937,7 @@
       "1. Mariano Azuela (Los de Abajo) 2. Martín Luis Guzmán (El Águila y la Serpiente) 3. Nellie Campobello (Cartucho)",
       "1. Laura Esquivel (Como agua para chocolate) 2. Ángeles Mastretta (Arráncame la vida) 3. Guadalupe Loaeza (Las niñas bien)"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La narrativa mexicana del siglo XX y XXI es un pilar de la cultura hispánica, explorando con maestría la identidad, la historia y la realidad social del país."
   },
   {
     "id": 647,
@@ -9952,7 +9952,7 @@
       "Ensayo y poesía",
       "Teatro y novela corta"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Estos autores representan diferentes épocas y estilos, desde el realismo rural hasta la literatura de vanguardia y la novela de ideas contemporánea."
   },
   {
     "id": 648,
@@ -9967,7 +9967,7 @@
       "Archie",
       "Tomasito"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Con personajes entrañables como Borola Tacuche, esta historieta es una radiografía sociológica humorística de la vida en los barrios populares de la CDMX."
   },
   {
     "id": 649,
@@ -9982,7 +9982,7 @@
       "1. Ernesto Zedillo \n2. Manuel Ávila \n3. Doroteo Arango \n4. Julio César Chávez",
       "1. Jorge Campos \n2.- Segio Pérez \n3.- Javier Hernández \n4.- Hugo Sánchez \n5.- Javier Solis"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "La tradición poética mexicana es vasta y profunda, contando con figuras que han renovado el lenguaje y ganado los más altos reconocimientos internacionales."
   },
   {
     "id": 650,
@@ -9997,7 +9997,7 @@
       "1. Gringo viejo \n2. La región más transparente \n3. Terra Nostra",
       "1. Redondillas \n2. La Sucesión presidencial \n3. La Silla del águila"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Castellanos fue una de las voces femeninas más potentes del siglo XX, pionera del feminismo y de la literatura que denuncia la opresión de los indígenas."
   },
   {
     "id": 651,
@@ -10013,7 +10013,7 @@
       "Comúnmente las \"bombas\" son rimas. Esos versos son recitados de manera memorizada y pueden ser románticos, jocosos e inclusive melosos, pero nunca groseros. En ocasiones llegan a causar risa por su composición a manera de broma o descaro.",
       "Comúnmente las \"bombas\" son rimas. Esos versos son recitados de manera improvisada y pueden ser románticos, serios e inclusive melosos, pero nunca groseros. En ocasiones llegan a causar risa por su composición a manera de broma o descaro."
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Las bombas son una expresión lúdica y festiva del ingenio yucateco, recitadas usualmente durante las vaquerías y bailes de jarana."
   },
   {
     "id": 652,
@@ -10029,7 +10029,7 @@
       "1. Mariano Azuela 2. Martín Luis Guzmán 3. Nellie Campobello 4. Laura Esquivel",
       "1. Rosario Castellanos 2. Jaime Sabines 3. Efraín Huerta 4. Renato Leduc"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El Premio Cervantes es el máximo galardón de las letras en español, y México es uno de los países con más autores distinguidos por su obra universal."
   },
   {
     "id": 653,
@@ -10044,7 +10044,7 @@
       "Premio José Clemente Orozco",
       "Premio Octavio Paz"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "El INBA otorga diversos premios en múltiples disciplinas literarias para fomentar la creación, la investigación y la difusión de la cultura en México."
   },
   {
     "id": 654,
@@ -10166,7 +10166,7 @@
       "José Clemente Orozco",
       "Frida Kahlo"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Vasconcelos creó el lema y el escudo de la UNAM durante su rectoría, buscando definir la identidad y misión social de la institución."
   },
   {
     "id": 662,
@@ -10182,7 +10182,7 @@
       "José Clemente Orozco",
       "Frida Kahlo"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Vasconcelos creó el lema y el escudo de la UNAM durante su rectoría, buscando definir la identidad y misión social de la institución."
   },
   {
     "id": 663,
@@ -10213,7 +10213,7 @@
       "José Clemente Orozco",
       "Octavio Paz"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Esta obra es un mosaico de voces que rompió el silencio oficial sobre los sucesos del 2 de octubre, convirtiéndose en un referente del periodismo narrativo."
   },
   {
     "id": 665,
@@ -10635,7 +10635,7 @@
       "Tizoc",
       "El Llano en llamas"
     ],
-    "explanation": "Este es un dato fundamental sobre la historia, geografía o cultura que ayuda a comprender la identidad nacional."
+    "explanation": "Fue la primera gran novela urbana de México, un retrato coral y ambicioso de la sociedad capitalina que consagró a Fuentes a los 29 años."
   },
   {
     "id": 693,
