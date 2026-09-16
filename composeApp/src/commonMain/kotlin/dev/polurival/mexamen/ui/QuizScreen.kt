@@ -23,9 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import dev.polurival.mexamen.domain.DistractorSource
 
 @Composable
 fun QuizScreen(
@@ -38,8 +36,7 @@ fun QuizScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(24.dp)
-            .verticalScroll(rememberScrollState()),
+            .padding(24.dp),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -73,35 +70,46 @@ fun QuizScreen(
             progress = { (state.index + 1).toFloat() / state.total },
             modifier = Modifier.fillMaxWidth(),
         )
-        Spacer(Modifier.height(32.dp))
-        Text(
-            text = state.question.entry.question,
-            style = MaterialTheme.typography.headlineSmall,
-        )
-        Spacer(Modifier.height(32.dp))
-        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            state.question.options.forEachIndexed { index, option ->
-                OptionCard(
-                    text = option,
-                    highlight = highlightFor(state, index),
-                    enabled = state.selectedIndex == null,
-                    onClick = { onSelect(index) },
+        
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+        ) {
+            Spacer(Modifier.height(32.dp))
+            Text(
+                text = state.question.entry.question,
+                style = MaterialTheme.typography.headlineSmall,
+            )
+            Spacer(Modifier.height(32.dp))
+            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                state.question.options.forEachIndexed { index, option ->
+                    OptionCard(
+                        text = option,
+                        highlight = highlightFor(state, index),
+                        enabled = state.selectedIndex == null,
+                        onClick = { onSelect(index) },
+                    )
+                }
+            }
+
+            if (state.selectedIndex != null) {
+                Spacer(Modifier.height(24.dp))
+                HorizontalDivider(
+                    modifier = Modifier.padding(horizontal = 32.dp),
+                    color = MaterialTheme.colorScheme.outlineVariant
                 )
+                Spacer(Modifier.height(24.dp))
+                ExplanationBlock(
+                    explanation = state.question.entry.explanation,
+                    relatedEntry = state.relatedEntry
+                )
+                Spacer(Modifier.height(32.dp))
             }
         }
 
         if (state.selectedIndex != null) {
-            Spacer(Modifier.height(24.dp))
-            HorizontalDivider(
-                modifier = Modifier.padding(horizontal = 32.dp),
-                color = MaterialTheme.colorScheme.outlineVariant
-            )
-            Spacer(Modifier.height(24.dp))
-            ExplanationBlock(
-                explanation = state.question.entry.explanation,
-                relatedEntry = state.relatedEntry
-            )
-            Spacer(Modifier.height(32.dp))
             Button(
                 onClick = onNext,
                 modifier = Modifier.fillMaxWidth()
