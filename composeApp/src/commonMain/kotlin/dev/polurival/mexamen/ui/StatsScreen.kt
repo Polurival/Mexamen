@@ -1,5 +1,7 @@
 package dev.polurival.mexamen.ui
 
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -26,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.polurival.mexamen.domain.StatsSummary
+import dev.polurival.mexamen.domain.TopicStatsSummary
 
 @Composable
 fun StatsScreen(
@@ -46,11 +49,30 @@ fun StatsScreen(
             style = MaterialTheme.typography.headlineMedium,
         )
         Spacer(Modifier.height(24.dp))
-        when (val current = state) {
-            is StatsUiState.Loading -> CircularProgressIndicator()
-            is StatsUiState.Loaded -> StatsSummaryContent(current.summary)
+        Column(
+            modifier = Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            when (val current = state) {
+                is StatsUiState.Loading -> CircularProgressIndicator()
+                is StatsUiState.Loaded -> {
+                    StatsSummaryContent(current.summary)
+                    if (current.topics.isNotEmpty()) {
+                        Spacer(Modifier.height(24.dp))
+                        Text(
+                            text = "Por tema",
+                            style = MaterialTheme.typography.titleLarge,
+                            modifier = Modifier.fillMaxWidth(),
+                        )
+                        Spacer(Modifier.height(12.dp))
+                        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                            current.topics.forEach { TopicStatCard(it) }
+                        }
+                    }
+                }
+            }
         }
-        Spacer(Modifier.weight(1f))
+        Spacer(Modifier.height(16.dp))
         OutlinedButton(onClick = onBack, modifier = Modifier.fillMaxWidth()) {
             Text("Volver al inicio")
         }
@@ -99,6 +121,25 @@ private fun StatCard(label: String, value: String) {
             Text(text = label, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
             Spacer(Modifier.height(4.dp))
             Text(text = value, style = MaterialTheme.typography.headlineSmall)
+        }
+    }
+}
+
+@Composable
+private fun TopicStatCard(topic: TopicStatsSummary) {
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(text = topic.topic, style = MaterialTheme.typography.titleMedium)
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = "Preguntas intentadas: ${topic.attemptedQuestions} de ${topic.totalQuestions}",
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            Text(
+                text = "Respuestas: ${topic.answersGiven} · Correctas: ${topic.correctAnswers}",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }

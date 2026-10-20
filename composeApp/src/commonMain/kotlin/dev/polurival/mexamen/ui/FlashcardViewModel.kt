@@ -25,6 +25,8 @@ sealed interface FlashcardUiState {
         val entry: QuestionEntry,
         val revealed: Boolean,
         val relatedEntry: QuestionEntry? = null,
+        val timesShown: Int = 0,
+        val timesCorrect: Int = 0,
     ) : FlashcardUiState
     data class Done(val counts: Map<FlashcardGrade, Int>) : FlashcardUiState
 }
@@ -55,7 +57,11 @@ class FlashcardViewModel(
                     return@launch
                 }
                 val related = getRelatedQuestion(firstCard)
-                _state.value = FlashcardUiState.Card(0, cards.size, firstCard, revealed = false, relatedEntry = related)
+                val prior = statsStore.readAll()[firstCard.id]
+                _state.value = FlashcardUiState.Card(
+                    0, cards.size, firstCard, revealed = false, relatedEntry = related,
+                    timesShown = prior?.timesShown ?: 0, timesCorrect = prior?.timesCorrect ?: 0,
+                )
             } catch (e: Exception) {
                 _state.value = FlashcardUiState.Error(e.message ?: "Error al cargar las tarjetas")
             }
@@ -72,13 +78,18 @@ class FlashcardViewModel(
         val current = _state.value as? FlashcardUiState.Card ?: return
         if (!current.revealed) return
         counts[grade] = (counts[grade] ?: 0) + 1
-        viewModelScope.launch { recordAnswer.recordFlashcardGrade(current.entry.id, grade) }
+        val recording = viewModelScope.launch { recordAnswer.recordFlashcardGrade(current.entry.id, grade) }
         val next = current.index + 1
         if (next < cards.size) {
             viewModelScope.launch {
                 val nextCard = cards[next]
                 val related = getRelatedQuestion(nextCard)
-                _state.value = FlashcardUiState.Card(next, cards.size, nextCard, revealed = false, relatedEntry = related)
+                recording.join()
+                val prior = statsStore.readAll()[nextCard.id]
+                _state.value = FlashcardUiState.Card(
+                    next, cards.size, nextCard, revealed = false, relatedEntry = related,
+                    timesShown = prior?.timesShown ?: 0, timesCorrect = prior?.timesCorrect ?: 0,
+                )
             }
         } else {
             _state.value = FlashcardUiState.Done(counts.toMap())
