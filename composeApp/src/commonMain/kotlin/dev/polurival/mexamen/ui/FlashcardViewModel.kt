@@ -5,7 +5,9 @@ import androidx.lifecycle.viewModelScope
 import dev.polurival.mexamen.data.QuestionEntry
 import dev.polurival.mexamen.data.QuestionRepository
 import dev.polurival.mexamen.data.QuestionStatsStore
+import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.BuildFlashcardsUseCase
+import dev.polurival.mexamen.domain.StatsAggregator
 import dev.polurival.mexamen.domain.FlashcardGrade
 import dev.polurival.mexamen.domain.GetRelatedQuestionUseCase
 import dev.polurival.mexamen.domain.RecordAnswerUseCase
@@ -25,6 +27,7 @@ sealed interface FlashcardUiState {
         val entry: QuestionEntry,
         val revealed: Boolean,
         val relatedEntry: QuestionEntry? = null,
+        val attempts: AttemptCounts = AttemptCounts.ZERO,
     ) : FlashcardUiState
     data class Done(val counts: Map<FlashcardGrade, Int>) : FlashcardUiState
 }
@@ -55,12 +58,15 @@ class FlashcardViewModel(
                     return@launch
                 }
                 val related = getRelatedQuestion(firstCard)
-                _state.value = FlashcardUiState.Card(0, cards.size, firstCard, revealed = false, relatedEntry = related)
+                _state.value = FlashcardUiState.Card(0, cards.size, firstCard, revealed = false, relatedEntry = related, attempts = attemptsFor(firstCard))
             } catch (e: Exception) {
                 _state.value = FlashcardUiState.Error(e.message ?: "Error al cargar las tarjetas")
             }
         }
     }
+
+    private suspend fun attemptsFor(entry: QuestionEntry): AttemptCounts =
+        StatsAggregator.attemptCounts(listOf(entry.id), statsStore.readAll())[entry.id] ?: AttemptCounts.ZERO
 
     fun flip() {
         val current = _state.value as? FlashcardUiState.Card ?: return
@@ -78,7 +84,7 @@ class FlashcardViewModel(
             viewModelScope.launch {
                 val nextCard = cards[next]
                 val related = getRelatedQuestion(nextCard)
-                _state.value = FlashcardUiState.Card(next, cards.size, nextCard, revealed = false, relatedEntry = related)
+                _state.value = FlashcardUiState.Card(next, cards.size, nextCard, revealed = false, relatedEntry = related, attempts = attemptsFor(nextCard))
             }
         } else {
             _state.value = FlashcardUiState.Done(counts.toMap())

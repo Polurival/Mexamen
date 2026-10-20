@@ -31,3 +31,21 @@ class StatsAggregatorTest {
         assertEquals(8, summary.neverAttempted)
     }
 }
+
+class StatsAggregatorTopicTest {
+    private fun e(id: Int, s: String) = dev.polurival.mexamen.data.QuestionEntry(id, s, "q$id", "a$id")
+
+    @Test
+    fun groupsByTopicAndAttempts() {
+        val entries = listOf(e(1, "A"), e(2, "A"), e(3, "B"))
+        val stats = mapOf(
+            1 to QuestionStats(timesShown = 3, timesCorrect = 2, timesWrong = 1),
+            2 to QuestionStats(timesShown = 1, timesCorrect = 1),
+        )
+        val topics = StatsAggregator.byTopic(entries, stats)
+        assertEquals(listOf(TopicStats("A", 2, 4, 3), TopicStats("B", 1, 0, 0)), topics)
+        val c = StatsAggregator.attemptCounts(listOf(1, 3), stats)
+        assertEquals(AttemptCounts(3, 2), c[1])
+        assertEquals(AttemptCounts.ZERO, c[3])
+    }
+}

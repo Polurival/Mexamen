@@ -220,6 +220,7 @@ private fun QuizFlow(topic: String?, onExit: () -> Unit) {
         )
         is QuizUiState.Result -> ResultScreen(
             result = current.result,
+            attempts = current.attempts,
             onRestart = { viewModel.startQuiz(topic) },
             onHome = onExit,
         )

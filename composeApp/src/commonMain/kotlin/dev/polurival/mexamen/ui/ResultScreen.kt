@@ -19,12 +19,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.polurival.mexamen.domain.AnsweredQuestion
+import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.DistractorSource
 import dev.polurival.mexamen.domain.QuizResult
 
 @Composable
 fun ResultScreen(
     result: QuizResult,
+    attempts: Map<Int, AttemptCounts> = emptyMap(),
     onRestart: () -> Unit,
     onHome: () -> Unit,
     modifier: Modifier = Modifier,
@@ -57,7 +59,7 @@ fun ResultScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             items(result.answers) { answered ->
-                AnswerCard(answered)
+                AnswerCard(answered, attempts[answered.question.entry.id])
             }
         }
         Spacer(Modifier.height(16.dp))
@@ -72,7 +74,7 @@ fun ResultScreen(
 }
 
 @Composable
-internal fun AnswerCard(answered: AnsweredQuestion) {
+internal fun AnswerCard(answered: AnsweredQuestion, attempts: AttemptCounts? = null) {
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
@@ -99,6 +101,17 @@ internal fun AnswerCard(answered: AnsweredQuestion) {
                     color = MaterialTheme.colorScheme.primary,
                 )
             }
+            if (attempts != null) {
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = attemptsLabel(attempts),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
     }
 }
+
+internal fun attemptsLabel(attempts: AttemptCounts): String =
+    "Pasada: ${attempts.shown} ${if (attempts.shown == 1) "vez" else "veces"} · Correctas: ${attempts.correct}"

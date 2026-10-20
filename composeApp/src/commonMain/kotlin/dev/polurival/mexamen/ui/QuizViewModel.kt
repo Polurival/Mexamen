@@ -6,7 +6,9 @@ import dev.polurival.mexamen.data.QuestionEntry
 import dev.polurival.mexamen.data.QuestionRepository
 import dev.polurival.mexamen.data.QuestionStatsStore
 import dev.polurival.mexamen.domain.AnsweredQuestion
+import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.BuildQuizUseCase
+import dev.polurival.mexamen.domain.StatsAggregator
 import dev.polurival.mexamen.domain.GetRelatedQuestionUseCase
 import dev.polurival.mexamen.domain.QuizQuestion
 import dev.polurival.mexamen.domain.QuizResult
@@ -33,7 +35,10 @@ sealed interface QuizUiState {
         val relatedEntry: QuestionEntry? = null,
     ) : QuizUiState
 
-    data class Result(val result: QuizResult) : QuizUiState
+    data class Result(
+        val result: QuizResult,
+        val attempts: Map<Int, AttemptCounts> = emptyMap(),
+    ) : QuizUiState
 }
 
 class QuizViewModel(
@@ -50,6 +55,7 @@ class QuizViewModel(
     private var quiz: List<QuizQuestion> = emptyList()
     private var answers = mutableListOf<AnsweredQuestion>()
     private var timerJob: Job? = null
+    private val recordJobs = mutableListOf<Job>()
 
     fun startQuiz(topic: String? = null) {
         if (_state.value is QuizUiState.Loading) return
@@ -64,6 +70,7 @@ class QuizViewModel(
                     distractorGenerator = distractorGenerator
                 ).build(topic = topic)
                 answers = mutableListOf()
+                recordJobs.clear()
                 val firstQuestion = quiz.first()
                 val related = getRelatedQuestion(firstQuestion.entry)
                 _state.value = QuizUiState.Question(
@@ -101,7 +108,18 @@ class QuizViewModel(
         timerJob?.cancel()
         // If timed out, we might have fewer answers than quiz size.
         // QuizResult handles a list of AnsweredQuestion.
-        _state.value = QuizUiState.Result(QuizResult(answers.toList()))
+        showResult()
+    }
+
+    /** Ждёт запись ответов и показывает результат со счётчиками (включая текущую попытку). */
+    private fun showResult() {
+        val result = QuizResult(answers.toList())
+        viewModelScope.launch {
+            recordJobs.toList().forEach { it.join() }
+            val stats = statsStore.readAll()
+            val attempts = StatsAggregator.attemptCounts(result.answers.map { it.question.entry.id }, stats)
+            _state.value = QuizUiState.Result(result, attempts)
+        }
     }
 
     fun selectAnswer(optionIndex: Int) {
@@ -110,7 +128,7 @@ class QuizViewModel(
         val answered = AnsweredQuestion(current.question, optionIndex)
         answers += answered
         _state.value = current.copy(selectedIndex = optionIndex)
-        viewModelScope.launch { recordAnswer.recordQuizAnswer(current.question.entry.id, answered.isCorrect) }
+        recordJobs += viewModelScope.launch { recordAnswer.recordQuizAnswer(current.question.entry.id, answered.isCorrect) }
     }
 
     fun advanceQuestion() {
@@ -137,7 +155,7 @@ class QuizViewModel(
             }
         } else {
             timerJob?.cancel()
-            _state.value = QuizUiState.Result(QuizResult(answers.toList()))
+            showResult()
         }
     }
 

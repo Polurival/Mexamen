@@ -1,6 +1,9 @@
 package dev.polurival.mexamen.ui
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.polurival.mexamen.domain.StatsSummary
+import dev.polurival.mexamen.domain.TopicStats
 
 @Composable
 fun StatsScreen(
@@ -48,9 +52,10 @@ fun StatsScreen(
         Spacer(Modifier.height(24.dp))
         when (val current = state) {
             is StatsUiState.Loading -> CircularProgressIndicator()
-            is StatsUiState.Loaded -> StatsSummaryContent(current.summary)
+            is StatsUiState.Loaded -> Box(Modifier.weight(1f)) { StatsSummaryContent(current.summary, current.topics) }
         }
-        Spacer(Modifier.weight(1f))
+        if (state is StatsUiState.Loading) Spacer(Modifier.weight(1f))
+        Spacer(Modifier.height(8.dp))
         OutlinedButton(onClick = onBack, modifier = Modifier.fillMaxWidth()) {
             Text("Volver al inicio")
         }
@@ -82,13 +87,32 @@ fun StatsScreen(
 }
 
 @Composable
-private fun StatsSummaryContent(summary: StatsSummary) {
-    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+private fun StatsSummaryContent(summary: StatsSummary, topics: List<TopicStats>) {
+    Column(
+        modifier = Modifier.verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
         StatCard("Preguntas totales", summary.totalQuestions.toString())
         StatCard("Preguntas intentadas", summary.attempted.toString())
         StatCard("Respuestas correctas", summary.totalCorrect.toString())
         StatCard("Respuestas incorrectas", summary.totalWrong.toString())
         StatCard("Preguntas sin intentar", summary.neverAttempted.toString())
+        if (topics.isNotEmpty()) {
+            Text(text = "Por tema", style = MaterialTheme.typography.titleMedium)
+            topics.forEach { topic ->
+                Card(modifier = Modifier.fillMaxWidth()) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(text = topic.section, style = MaterialTheme.typography.titleSmall)
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            text = "Preguntas: ${topic.totalQuestions} · Pasadas: ${topic.shown} · Correctas: ${topic.correct}",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -6,6 +6,7 @@ import dev.polurival.mexamen.data.QuestionRepository
 import dev.polurival.mexamen.data.QuestionStatsStore
 import dev.polurival.mexamen.domain.StatsAggregator
 import dev.polurival.mexamen.domain.StatsSummary
+import dev.polurival.mexamen.domain.TopicStats
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
 
 sealed interface StatsUiState {
     data object Loading : StatsUiState
-    data class Loaded(val summary: StatsSummary) : StatsUiState
+    data class Loaded(val summary: StatsSummary, val topics: List<TopicStats> = emptyList()) : StatsUiState
 }
 
 class StatsViewModel(
@@ -29,7 +30,10 @@ class StatsViewModel(
         viewModelScope.launch {
             val dataset = repository.dataset()
             val stats = statsStore.readAll()
-            _state.value = StatsUiState.Loaded(StatsAggregator.summarize(dataset.entries.size, stats))
+            _state.value = StatsUiState.Loaded(
+                StatsAggregator.summarize(dataset.entries.size, stats),
+                StatsAggregator.byTopic(dataset.entries, stats),
+            )
         }
     }
 
