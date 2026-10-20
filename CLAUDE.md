@@ -126,7 +126,8 @@ class RecordAnswerUseCaseTest {
 4. **Дублирование логики фильтра тем** (`when(topic) { "Fechas (Даты)" -> ... }`) в новом коде — вызывай `getQuestionsByTopic`. Не копируй счётчики/веса: **один** `QuestionStats` на вопрос, второго источника правды не создавать.
 5. **Новые зависимости/библиотеки, строковые ресурсы, `!!`, `println`/`Log` в прод-коде, `GlobalScope`, `runBlocking`**, хардкод ключей, русский/английский текст в UI (только испанский).
 6. Ломать обратную совместимость сохранённых данных: поле `QuestionStats` без дефолта, переименование существующих полей.
-7. «Заодно» рефакторить соседний код, менять публичные сигнатуры, не нужные задаче.
+7. **Data-типы в UI-слое:** не передавай в Screen сырые `QuestionStats`/`Map<Int, QuestionStats>` — маппь в доменную модель (`domain/`, напр. `AttemptCounts`). Одинаковую строку/форматирование, нужную в 2+ местах, выноси в один хелпер (не копируй литерал).
+8. «Заодно» рефакторить соседний код, менять публичные сигнатуры, не нужные задаче.
 
 ## 7. Шаблон типичного файла
 
@@ -152,9 +153,9 @@ ViewModel-файл: импорты → `sealed interface XxxUiState` → `class 
 
 ## 8. Определение «готово» (проверяй перед ответом)
 
-1. `./gradlew :composeApp:compileDebugKotlinAndroid --console=plain` — компилируется.
-2. `./gradlew :composeApp:testDebugUnitTest --console=plain` — зелёные, **включая новые тесты на новую логику**.
-3. Wasm-совместимость: в `commonMain` нет платформенных импортов.
+1. `./gradlew :composeApp:compileAndroidMain --console=plain` — компилируется.
+2. `./gradlew :composeApp:testAndroidHostTest --console=plain` — зелёные, **включая новые тесты на новую логику**.
+3. Wasm-совместимость: `./gradlew :composeApp:compileKotlinWasmJs --console=plain` зелёный (в `commonMain` нет платформенных импортов).
 4. Новые ViewModel/зависимости зарегистрированы в `di/`; новые `Route` — в `Routes.kt` **и** в `navigationSerializersModule` в `App.kt`; изменение сигнатуры Screen/VM — обновлены все вызовы в `App.kt`.
 5. Все новые тексты на испанском, согласованы по терминам с существующими («Preguntas», «Respuestas correctas», «incorrectas»).
 6. В ответе — кратко: что изменено, какие файлы, что проверено и что **нет**.
@@ -167,7 +168,7 @@ ViewModel-файл: импорты → `sealed interface XxxUiState` → `class 
 
 ## 10. Команды
 
-- Сборка: `./gradlew :composeApp:assembleDebug` · компиляция: `./gradlew :composeApp:compileDebugKotlinAndroid --console=plain`
-- Тесты: `./gradlew :composeApp:testDebugUnitTest --console=plain`
+- Сборка: `./gradlew :androidApp:assembleDebug` · компиляция: `./gradlew :composeApp:compileAndroidMain --console=plain`
+- Тесты: `./gradlew :composeApp:testAndroidHostTest --console=plain`
 - Пайплайн данных: `python tools/scrape_guia.py`, затем `python tools/build_embeddings.py` (нужен Ollama)
 - История MVP: `mvp-spec.md`, `mvp-plan.md`, `real-answers-plan.md` — читать только при работе над соответствующей областью.
