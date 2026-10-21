@@ -33,8 +33,8 @@ ResultScreen              │                  VectorStore (cosine top-K, in-mem
 
 ## Команды
 
-- Сборка: `./gradlew :composeApp:assembleDebug`
-- Тесты: `./gradlew :composeApp:testDebugUnitTest`
+- Сборка: `./gradlew :androidApp:assembleDebug`
+- Тесты: `./gradlew :composeApp:testAndroidHostTest`
 - Пайплайн данных: `python tools/scrape_guia.py`, затем `python tools/build_embeddings.py` (нужен запущенный Ollama)
 
 ## Референсы паттернов

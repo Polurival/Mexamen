@@ -1,0 +1,30 @@
+TOOL: Bash {"command": "git status --short && git diff && git diff --staged"}
+  RES:  M composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt | ?? .claude/ | ?? CLAUDE.local.md | ?? docs/profiles/ | diff --git a/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/Stat
+TOOL: Bash {"command": "cat -n composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt; grep -rn \"AppIcons\" composeApp/src --include=*.kt | head -20"}
+  RES:      1	package dev.polurival.mexamen.ui |      2	 |      3	import androidx.compose.foundation.layout.Arrangement |      4	import androidx.compose.foundation.layout.Box |      5	import androidx.compose.foundat
+TOOL: Bash {"command": "grep -n \"val \" composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/AppIcons.kt"}
+  RES: 11:    val Pause: ImageVector | 36:    val Stop: ImageVector | 54:    val Close: ImageVector | 81:    val ArrowBack: ImageVector | 105:    val Edit: ImageVector | 133:    val Refresh: ImageVector | 161:    val Pl
+TEXT: ## Вердикт
+APPROVE. Дифф небольшой и в рамках задачи. Блокеров нет, есть пара замечаний по UX.
+
+## Блокеры
+- Не найдены.
+
+## Важное
+- `StatsScreen.kt:56` — иконка `Refresh` обычно значит «обновить», а не «стереть прогресс». Действие деструктивное и необратимое, и раньше его выдавала подпись кнопки. Теперь пользователь увидит значок перезагрузки. Диалог подтверждения остаётся и смягчает риск. Если захочешь точнее, добавь `AppIcons.Delete` и поставь его сюда, но это отдельная правка. Сейчас `Refresh` — единственный подходящий вариант в `AppIcons`, и он уже используется в `InterviewScreen.kt:93`. Оставить можно.
+- `StatsScreen.kt:52` — кнопка сброса активна и при `StatsUiState.Loading`. Нажатие в этот момент не ломает `resetStats()`, но можно показывать кнопку только при `Loaded`. Уверенности нет, это вопрос: как `resetStats()` ведёт себя во время загрузки?
+
+## Мелочи
+- `StatsScreen.kt:56` — `contentDescription` на испанском, как и остальной текст экрана. В других экранах (`InterviewScreen.kt:44`, `LegendsListScreen.kt:34`) стоит "Back" по-английски. Здесь это не проблема, просто тексты в проекте не единообразны.
+- `StatsScreen.kt:46-58` — заголовок по центру, иконка справа. Размер касания у `IconButton` по умолчанию 48dp, это нормально. Высота шапки выросла с высоты текста до 48dp, поэтому контент ниже слегка сместится. На вид это не мешает.
+- В `git status` лежат untracked `.claude/`, `CLAUDE.local.md`, `docs/profiles/`. К диффу они не относятся. Перед коммитом не добавляй их случайно через `git add -A`. `CLAUDE.local.md` по описанию не должен попасть в git.
+- Тесты не менялись. Для чистого UI-изменения без логики это приемлемо.
+
+## Что проверил
+- `git status`, `git diff` и `git diff --staged`. Изменён один файл, `StatsScreen.kt`. Прочитал его целиком.
+- Убрал неиспользуемый импорт `Button`. Добавленные `Box`, `Icon` и `IconButton` используются.
+- `AppIcons.Refresh` существует (`AppIcons.kt:133`), другие экраны его уже используют.
+- Диалог подтверждения и вызов `viewModel.resetStats()` не тронуты, логика сброса прежняя.
+- В диффе нет рефакторинга вне задачи, отладочного кода и секретов. Бизнес-логика осталась в `commonMain`.
+- Сборку и тесты не запускал.
+COST 0.0643843 ms 14782

@@ -1,0 +1,52 @@
+TOOL: Bash {"command": "grep -rn \"Reiniciar estad\" --include=*.kt . ; cat composeApp/src/commonMain/kotlin/*/ui/AppIcons.kt 2>/dev/null | head -5; find . -name AppIcons.kt -o -name \"Stats*Screen*.kt\""}
+  RES: composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt:62:            Text("Reiniciar estadísticas") | composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt:69:     
+TOOL: Read {"file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt"}
+  RES: 1	package dev.polurival.mexamen.ui | 2	 | 3	import androidx.compose.foundation.layout.Arrangement | 4	import androidx.compose.foundation.layout.Column | 5	import androidx.compose.foundation.layout.Spacer | 6	im
+TOOL: Read {"file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/AppIcons.kt"}
+  RES: 1	package dev.polurival.mexamen.ui | 2	 | 3	import androidx.compose.ui.graphics.Color | 4	import androidx.compose.ui.graphics.PathFillType | 5	import androidx.compose.ui.graphics.SolidColor | 6	import androidx.
+TOOL: Bash {"command": "cd /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src && grep -rn \"AppIcons\\.\\|IconButton\" --include=*.kt . | head"}
+  RES: commonMain/kotlin/dev/polurival/mexamen/ui/LegendsListScreen.kt:13:import androidx.compose.material3.IconButton | commonMain/kotlin/dev/polurival/mexamen/ui/LegendsListScreen.kt:33:            IconButto
+TOOL: Bash {"command": "cd /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui && python3 - <<'E'\np='StatsScreen.kt'\ns=open(p).read()\ns=s.replace('''        Text(\n            
+  RES: This Bash command contains multiple operations. The following part requires approval: cd /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui && pyth
+TEXT: Use Edit tool instead.
+TOOL: Edit {"replace_all": false, "file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt", "old_string": "        Text(\n            text = \"Estadística
+  RES: The file /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt has been updated successfully. (file state is current in your context — 
+TOOL: Edit {"replace_all": false, "file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt", "old_string": "        Spacer(Modifier.height(8.dp))\n        
+  RES: The file /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt has been updated successfully. (file state is current in your context — 
+TOOL: Edit {"replace_all": false, "file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt", "old_string": "import androidx.compose.material3.Button\nimpor
+  RES: The file /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt has been updated successfully. (file state is current in your context — 
+TOOL: Edit {"replace_all": false, "file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt", "old_string": "import androidx.compose.foundation.layout.Colum
+  RES: The file /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt has been updated successfully. (file state is current in your context — 
+TOOL: Bash {"command": "cd /home/polurival/AndroidStudioProjects/Mexamen && ./gradlew :composeApp:compileAndroidMain :composeApp:compileKotlinWasmJs :composeApp:testAndroidHostTest -q 2>&1 | tail -15; echo EXIT ${PIPESTATUS[0]}; gr
+  RES: A variable in braces in this command can't be checked before it runs
+TOOL: Bash {"command": "cd /home/polurival/AndroidStudioProjects/Mexamen && grep -rn \"StatsScreen(\" composeApp/src --include=*.kt"}
+  RES: composeApp/src/commonMain/kotlin/dev/polurival/mexamen/App.kt:154:                    StatsScreen(viewModel = viewModel, onBack = {  | composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScre
+TOOL: Bash {"command": "./gradlew :composeApp:compileAndroidMain :composeApp:compileKotlinWasmJs :composeApp:testAndroidHostTest -q 2>&1 | tail -15; echo done"}
+TOOL: Bash {"command": "grep -rho 'testsuite [^>]*' composeApp/build/test-results | grep -o 'tests=\"[0-9]*\"\\|failures=\"[0-9]*\"\\|errors=\"[0-9]*\"' | sort | uniq -c"}
+  RES: done
+  RES:      30 errors="0" |      30 failures="0" |       4 tests="1" |       4 tests="10" |       6 tests="2" |       2 tests="3" |       4 tests="4" |       2 tests="6" |       4 tests="7" |       4 tests="8"
+TEXT: ## Что нашёл
+- Симптом: кнопка «Reiniciar estadísticas» занимает всю ширину внизу экрана Статистики.
+- Причина: это обычный `Button` с `fillMaxWidth()` в нижней части `Column` (`composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/StatsScreen.kt:58-63`). Строки заголовка с действиями нет, есть только `Text`.
+
+## Что починил
+- `StatsScreen.kt:44-56`: заголовок «Estadísticas» теперь лежит в `Box(fillMaxWidth)`.
+  - Текст стоит по центру, как и раньше.
+  - `IconButton` с `AppIcons.Refresh` выровнен по `CenterEnd`, то есть в правом верхнем углу.
+  - `onClick` тот же: `showConfirmDialog = true`. Диалог и `viewModel.resetStats()` не менялись.
+  - Для доступности добавлен `contentDescription = "Reiniciar estadísticas"`.
+- Нижняя кнопка и лишний `Spacer` удалены. Остался только «Volver al inicio».
+- Импорты: убран `Button`, добавлены `Box`, `Icon`, `IconButton`.
+- `AppIcons.Refresh` уже был в проекте, новых иконок и зависимостей нет.
+- Тест не добавлял: правка только в UI, логика не затронута.
+
+## Что проверил
+- `./gradlew :composeApp:compileAndroidMain :composeApp:compileKotlinWasmJs :composeApp:testAndroidHostTest` → PASS, без ошибок.
+- В `composeApp/build/test-results/` во всех 30 `testsuite` `failures="0"` и `errors="0"`. Сумму `tests` в 150 я вывел вручную из сгруппированного вывода `grep`, поэтому она приблизительная.
+- `Grep "StatsScreen("` → один вызов, `App.kt:154`. Сигнатура не менялась, вызов не затронут.
+
+## Риски / не проверено
+- Как это выглядит на устройстве, я не смотрел. `assembleDebug` не запускал.
+- В заголовок «Estadísticas» не добавлял отступ справа. На узких экранах он может приблизиться к иконке, но по центру места обычно хватает.
+- Иконка `Refresh` (круговая стрелка) может читаться как «обновить», а не «сбросить». Подтверждающий диалог защищает от случайного нажатия. Если нужна другая иконка, например корзина, её надо добавить в `AppIcons.kt`.
+COST 0.1154159 ms 51742
