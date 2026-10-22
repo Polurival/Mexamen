@@ -16,6 +16,11 @@ kotlin {
 
         withHostTest {}
 
+        // без этого compose-ресурсы (questions.json, embeddings.bin) не попадают в APK androidApp
+        androidResources {
+            enable = true
+        }
+
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_21)
         }

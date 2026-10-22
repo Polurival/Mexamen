@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mobile": {
+      "command": "claude-in-mobile",
+      "env": { "MOBILE_PROFILE": "core" }
+    }
+  }
+}
