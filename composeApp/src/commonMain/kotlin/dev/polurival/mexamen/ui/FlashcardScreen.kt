@@ -84,7 +84,14 @@ fun FlashcardCardScreen(
                         color = MaterialTheme.colorScheme.primary,
                         textAlign = TextAlign.Center,
                     )
-                    
+                    Spacer(Modifier.height(12.dp))
+                    Text(
+                        text = "Pasada ${state.timesShown} ${if (state.timesShown == 1) "vez" else "veces"} · Correctas: ${state.timesCorrect}",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center,
+                    )
+
                     if (!state.entry.explanation.isNullOrBlank() || state.relatedEntry != null) {
                         Spacer(Modifier.height(24.dp))
                         HorizontalDivider(
