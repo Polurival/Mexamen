@@ -166,6 +166,12 @@ ViewModel-файл: импорты → `sealed interface XxxUiState` → `class 
 - `/verify` — компиляция + тесты + проверка антипаттернов по diff.
 - Субагент `rules-reviewer` (`.claude/agents/`) — ревью diff против этого файла; вызывай после крупной задачи.
 
+## 9a. Тестирование: два уровня
+
+- **Уровень 1 (код):** `commonTest` (см. §8). **Уровень 2 (UI smoke):** `smoke/scenarios/*.md`, физический Android по USB (не эмулятор), агент ходит через MCP `mobile` (`.mcp.json`), запасной раннер — `smoke/tools/run_smoke.py`. См. `smoke/README.md`.
+- `/test-all` — оба уровня + единый отчёт (после PR). `/update-smoke` — «задеплоил фичу»: обновить сценарии по diff и прогнать заново.
+- Сценарии делают `pm clear` на устройстве (статистика стирается). Меняешь тексты/экраны UI — обнови сценарии.
+
 ## 10. Команды
 
 - Сборка: `./gradlew :androidApp:assembleDebug` · компиляция: `./gradlew :composeApp:compileAndroidMain --console=plain`
