@@ -1,0 +1,73 @@
+TOOL: Glob {"pattern": "composeApp/src/**/kotlin/**/{domain,llm}/**/*.kt"}
+  RES: <tool_use_error>Error: No such tool available: Glob. Glob is not available in this session — find files with `find` via the Bash tool instead.</tool_use_error>
+TOOL: Bash {"command": "git ls-files composeApp/src | grep -E \"/(domain|llm)/|Test\""}
+  RES: composeApp/src/androidHostTest/kotlin/dev/polurival/mexamen/data/QuestionRepositoryTest.kt | composeApp/src/androidHostTest/kotlin/dev/polurival/mexamen/domain/VectorStoreSemanticTest.kt | composeApp/src/
+TOOL: Bash {"command": "cd /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src && for n in BuildFlashcardsUseCase GetRelatedQuestionUseCase FlashcardGrade Clock QuizResult QuizQuestion DistractorGenerator LlmProvider; do e
+  RES: A variable in this command can't be checked before it runs
+TOOL: Bash {"command": "cd /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src; grep -rlwE \"BuildFlashcardsUseCase|GetRelatedQuestionUseCase|FlashcardGrade|Clock|QuizResult|QuizQuestion|DistractorGenerator|LlmProvider\" c
+  RES: A variable in this command can't be checked before it runs
+TOOL: Bash {"command": "cd /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen; grep -nE \"class |interface |object |fun \" domain/BuildFlashcardsUseCase.kt domain/GetRelatedQuestion
+  RES: domain/BuildFlashcardsUseCase.kt:13:class BuildFlashcardsUseCase( | domain/BuildFlashcardsUseCase.kt:16:    suspend fun build( | domain/BuildFlashcardsUseCase.kt:34:    companion object { | domain/Clock.kt:
+TOOL: Bash {"command": "cd /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src && git grep -nwE \"BuildFlashcardsUseCase|GetRelatedQuestionUseCase\" -- . ; echo ---QR; git grep -lwE \"QuizResult|AnsweredQuestion\" -- commo
+  RES: This command changes directory before running a version-control command, which can pick up untrusted hooks or repository configuration from the target directory. Approve only if you trust it.
+TOOL: Read {"file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/BuildFlashcardsUseCase.kt"}
+  RES: 1	package dev.polurival.mexamen.domain | 2	 | 3	import dev.polurival.mexamen.data.QuestionDataset | 4	import dev.polurival.mexamen.data.QuestionEntry | 5	import dev.polurival.mexamen.data.QuestionStatsStore | 6
+TOOL: Read {"file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/GetRelatedQuestionUseCase.kt"}
+  RES: 1	package dev.polurival.mexamen.domain | 2	 | 3	import dev.polurival.mexamen.data.QuestionEntry | 4	import dev.polurival.mexamen.data.QuestionRepository | 5	 | 6	class GetRelatedQuestionUseCase( | 7	    private v
+TOOL: Read {"file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/QuizResult.kt"}
+  RES: 1	package dev.polurival.mexamen.domain | 2	 | 3	import kotlinx.serialization.Serializable | 4	 | 5	@Serializable | 6	data class AnsweredQuestion( | 7	    val question: QuizQuestion, | 8	    val chosenIndex: Int, | 9	
+TEXT: Git-команды заблокированы, поэтому использую обычный grep.
+TOOL: Bash {"command": "grep -rnwE \"BuildFlashcardsUseCase|GetRelatedQuestionUseCase\" /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src; echo ---QR; grep -rlwE \"QuizResult|AnsweredQuestion\" /home/polurival/AndroidStu
+  RES: /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/ui/QuizViewModel.kt:10:import dev.polurival.mexamen.domain.GetRelatedQuestionUseCase | /home/poluriva
+TOOL: Bash {"command": "cd /home/polurival/AndroidStudioProjects/Mexamen/composeApp/src; grep -rlwE \"QuizQuestion\" commonTest androidHostTest; echo ---LP; grep -rlwE \"LlmProvider|LlmUnavailable\" commonTest androidHostTest; echo
+  RES: ---LP | commonTest/kotlin/dev/polurival/mexamen/llm/GroqProviderTest.kt | commonTest/kotlin/dev/polurival/mexamen/llm/LlmDistractorGeneratorTest.kt | commonTest/kotlin/dev/polurival/mexamen/domain/BuildQuiz
+TEXT: ## Краткий ответ
+Прямых тестов нет у трёх классов. `BuildFlashcardsUseCase` и `GetRelatedQuestionUseCase` не покрыты вообще. `QuizResult` и `AnsweredQuestion` тоже не покрыты, хотя логика у них есть: `score`, `total` и `isCorrect`. Остальные классы в `domain/` и `llm/` покрыты, а `PromptBuilder` и парсинг ответа LLM покрыты через `PromptBuilderTest` и `LlmDistractorGeneratorTest`. Содержимое этих тестов я не открывал, а только сопоставил имена и наличие обращений. Сети и Groq-вызовов я не запускал.
+
+## Файлы
+| Файл:строка | Роль |
+|---|---|
+| `commonMain/.../domain/BuildFlashcardsUseCase.kt:13` | **Не покрыт.** Собирает flashcard-сессию: фильтр по темам (`:24-30`), затем `WeightedQuestionPicker` (`:31`). |
+| `commonMain/.../domain/GetRelatedQuestionUseCase.kt:6` | **Не покрыт.** Ближайший сосед через `VectorStore.topK(k=1)` (`:14`), возвращает `null` при пустом результате (`:15`). |
+| `commonMain/.../domain/QuizResult.kt:6,14` | **Не покрыт.** `AnsweredQuestion.isCorrect` (`:10`), `QuizResult.score` и `total` (`:15-16`). |
+| `commonMain/.../domain/Clock.kt:4` | `expect currentTimeMillis()`. Тестов нет, но класс тривиальный, а actual есть на android и wasm. |
+| `commonMain/.../llm/LlmProvider.kt:17,20` | `expect groqApiKey()` и `isDebugBuild()`. Тестов нет, это платформенные actual. |
+| `commonTest/.../domain/` | Есть тесты: `BuildQuizUseCaseTest`, `QuestionWeightingTest`, `RagFallbackTest`, `RecordAnswerUseCaseTest`, `StatsAggregatorTest`, `VectorStoreTest`, `WeightedQuestionPickerTest`. |
+| `commonTest/.../llm/` | Есть тесты: `FallbackDistractorGeneratorTest`, `GroqProviderTest`, `LlmDistractorGeneratorTest`, `PromptBuilderTest`. |
+| `androidHostTest/.../domain/VectorStoreSemanticTest.kt` | Дополнительный семантический тест `VectorStore`. |
+| `androidHostTest/.../llm/DistractorSmokeTest.kt`, `GroqSmokeTest.kt` | Smoke-тесты с реальной сетью. Это не unit-покрытие, и я их не запускал. |
+
+## Связи
+- `BuildFlashcardsUseCase` создаётся в `ui/FlashcardViewModel.kt:50` как `BuildFlashcardsUseCase().build(dataset, statsStore, topic = topic)`.
+  - Он вызывает `WeightedQuestionPicker`, у которого тест есть.
+  - Ветки по `topic` (`"Fechas (Даты)"`, `"Personajes (Люди)"`, `"Eventos (События)"`, `else`) тестами не затронуты.
+- `GetRelatedQuestionUseCase` создаётся в `ui/QuizViewModel.kt:49` и `ui/FlashcardViewModel.kt:41`.
+  - Он вызывает `QuestionRepository.dataset()`, затем `VectorStore.topK`.
+- `QuizResult` создаётся в `ui/LegendViewModel.kt:162,182`, а также используется в `ui/navigation/Routes.kt:4`.
+- Оба use case создаются прямо во ViewModel через `new`. В `di/` я их не искал, поэтому регистрацию в Koin подтвердить не могу.
+
+## Выводы
+1. `BuildFlashcardsUseCase` не упоминается ни в `commonTest`, ни в `androidHostTest`.
+   - Не хватает теста выбора пула по каждой теме.
+   - Не хватает теста на `count` и на `nowMillis`.
+   - Не хватает теста на пустой пул или на неизвестный `topic`: сейчас он уходит в `else` и фильтрует по `section` (`BuildFlashcardsUseCase.kt:29`).
+2. `GetRelatedQuestionUseCase` тоже нигде в тестах не упоминается.
+   - Не хватает теста, что возвращается ближайший сосед.
+   - Не хватает теста на `null` при пустом `topK` (`:15`).
+   - Не хватает теста на случай, когда `relatedId` не найден в `dataset.entries` (`:18`).
+   - Заодно стоит проверить, что `VectorStore` строится заново при каждом вызове (`:11`). Это замечание о коде, а не о покрытии.
+3. `QuizResult` и `AnsweredQuestion` не упоминаются в тестах (grep по двум именам пуст).
+   - Не хватает теста на `isCorrect`, на `score` и `total`, на пустой список.
+   - Не хватает теста на сериализацию: оба класса помечены `@Serializable` и передаются через навигацию (`Routes.kt:4`).
+4. `FlashcardGrade` — это enum без логики. Он используется в `QuestionWeightingTest.kt:45-48` и `RecordAnswerUseCaseTest.kt:57`, то есть покрыт косвенно.
+5. `QuizQuestion` и `DistractorSource` по имени в тестах не встречаются (grep пуст). Они почти наверняка проверяются косвенно через `BuildQuizUseCaseTest` и `LlmDistractorGeneratorTest`, но это предположение.
+6. Интерфейсы `LlmProvider` и `LlmUnavailable` упоминаются в `GroqProviderTest`, `LlmDistractorGeneratorTest` и `BuildQuizUseCaseTest`.
+7. Интерфейс `DistractorGenerator` по имени в тестах не упоминается. Реализации `FallbackDistractorGenerator` и `LlmDistractorGenerator` имеют собственные тесты.
+
+## Не найдено / неясно
+- Покрытие измерялось только grep по именам. Отчётов JaCoCo или Kover в `build/` я не смотрел, поэтому процент покрытия строк и веток неизвестен.
+- Не проверял, насколько глубоко тесты с совпавшими именами проверяют крайние случаи, например ошибки парсинга LLM или таймауты `GroqProvider`.
+- Не проверял реализации `LlmProvider.android.kt` и `LlmProvider.wasm.kt` и `Clock.android.kt`: ни тестов для них, ни логики внутри я не смотрел.
+- Не искал регистрацию двух use case в `di/`.
+- Две команды (`git grep` с `cd` и цикл с переменной) были заблокированы. Я повторил поиск обычным `grep`.
+COST 0.12114380000000001 ms 34104

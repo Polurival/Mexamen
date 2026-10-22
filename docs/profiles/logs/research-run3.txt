@@ -1,0 +1,86 @@
+TOOL: Bash {"command": "find composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm composeApp/src/commonTest composeApp/src/androidHostTest -name \"*.kt\""}
+  RES: composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/QuizQuestion.kt | composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/StatsAggregator.kt | composeApp/src/commonMain/kotlin/dev/polu
+TEXT: Untested by filename: GetRelatedQuestionUseCase, BuildFlashcardsUseCase, QuizQuestion, QuizResult, FlashcardGrade, Clock, DistractorGenerator, LlmProvider. Check by usage and read files.
+TOOL: Bash {"command": "grep -rlw \"GetRelatedQuestionUseCase\" composeApp/src/commonTest composeApp/src/androidHostTest"}
+  RES: (Bash completed with no output)
+TOOL: Bash {"command": "grep -rlw \"BuildFlashcardsUseCase\" composeApp/src/commonTest composeApp/src/androidHostTest"}
+  RES: (Bash completed with no output)
+TOOL: Bash {"command": "grep -rlwE \"QuizResult|FlashcardGrade|SystemClock|Clock\" composeApp/src/commonTest composeApp/src/androidHostTest"}
+  RES: composeApp/src/commonTest/kotlin/dev/polurival/mexamen/domain/QuestionWeightingTest.kt | composeApp/src/commonTest/kotlin/dev/polurival/mexamen/domain/RecordAnswerUseCaseTest.kt
+TOOL: Read {"file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/GetRelatedQuestionUseCase.kt"}
+  RES: 1	package dev.polurival.mexamen.domain | 2	 | 3	import dev.polurival.mexamen.data.QuestionEntry | 4	import dev.polurival.mexamen.data.QuestionRepository | 5	 | 6	class GetRelatedQuestionUseCase( | 7	    private v
+TOOL: Read {"file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/BuildFlashcardsUseCase.kt"}
+  RES: 1	package dev.polurival.mexamen.domain | 2	 | 3	import dev.polurival.mexamen.data.QuestionDataset | 4	import dev.polurival.mexamen.data.QuestionEntry | 5	import dev.polurival.mexamen.data.QuestionStatsStore | 6
+TOOL: Read {"file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/QuizResult.kt"}
+  RES: 1	package dev.polurival.mexamen.domain | 2	 | 3	import kotlinx.serialization.Serializable | 4	 | 5	@Serializable | 6	data class AnsweredQuestion( | 7	    val question: QuizQuestion, | 8	    val chosenIndex: Int, | 9	
+TOOL: Read {"file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/FlashcardGrade.kt"}
+  RES: 1	package dev.polurival.mexamen.domain | 2	 | 3	/** Самооценка юзера на flashcard после переворота карты (стиль Anki). */ | 4	enum class FlashcardGrade { AGAIN, HARD, GOOD, EASY } | 5	
+TOOL: Read {"file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/QuizQuestion.kt"}
+  RES: 1	package dev.polurival.mexamen.domain | 2	 | 3	import dev.polurival.mexamen.data.QuestionEntry | 4	 | 5	import kotlinx.serialization.Serializable | 6	 | 7	@Serializable | 8	enum class DistractorSource { LLM, FALLB
+TOOL: Read {"file_path": "/home/polurival/AndroidStudioProjects/Mexamen/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/Clock.kt"}
+  RES: 1	package dev.polurival.mexamen.domain | 2	 | 3	/** Текущее время в мс от эпохи; платформенный источник, чтобы логика веса/cooldown была тестируема. */ | 4	expect fun currentTimeMillis(): Long | 5	
+TOOL: Bash {"command": "grep -rnwE \"QuizResult|AnsweredQuestion|FlashcardGrade|currentTimeMillis|Clock\" composeApp/src/commonTest composeApp/src/androidHostTest"}
+  RES: composeApp/src/commonTest/kotlin/dev/polurival/mexamen/domain/QuestionWeightingTest.kt:45:        val again = QuestionWeighting.applyGrade(base, FlashcardGrade.AGAIN, nowMillis = 0L) | composeApp/src/co
+TOOL: Bash {"command": "grep -rnE \"GetRelatedQuestionUseCase|BuildFlashcardsUseCase\" composeApp/src/commonMain"}
+  RES: composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/GetRelatedQuestionUseCase.kt:6:class GetRelatedQuestionUseCase( | composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/BuildFlashca
+TOOL: Bash {"command": "grep -rnE \"GetRelated|BuildFlashcards|UseCase\" composeApp/src/commonMain/kotlin/dev/polurival/mexamen/di; grep -n \"isDate\\|isPeople\\|isEvent\" -r composeApp/src/commonTest | head; grep -n \"interface\\|
+  RES: composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/DistractorGenerator.kt:7:interface DistractorGenerator { | composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/LlmProvider.kt:6:interfac
+TEXT: ## Краткий ответ
+В `domain/` два use case совсем без тестов: `GetRelatedQuestionUseCase` и `BuildFlashcardsUseCase`. Ещё есть пробел по вычисляемым полям `QuizResult` и `AnsweredQuestion`. В `llm/` все классы с логикой покрыты: `PromptBuilder`, `LlmDistractorGenerator`, `FallbackDistractorGenerator`, `GroqProvider`. Без тестов остались только интерфейсы и `LlmUnavailable`, это нормально.
+
+## Файлы
+Результат проверки `grep -rlw "Имя" composeApp/src/commonTest composeApp/src/androidHostTest` для каждого класса.
+
+| Класс | Тесты | Файл:строка |
+|---|---|---|
+| `GetRelatedQuestionUseCase` | **нет** | `composeApp/src/commonMain/kotlin/dev/polurival/mexamen/domain/GetRelatedQuestionUseCase.kt:6` |
+| `BuildFlashcardsUseCase` | **нет** | `.../domain/BuildFlashcardsUseCase.kt:13` |
+| `QuizResult` (`score`, `total`) | **нет** | `.../domain/QuizResult.kt:14` |
+| `AnsweredQuestion.isCorrect` | **нет** | `.../domain/QuizResult.kt:10` |
+| `currentTimeMillis` (expect) | нет (не вызывается в тестах) | `.../domain/Clock.kt:4` |
+| `FlashcardGrade` (enum) | косвенно: `QuestionWeightingTest.kt:45-48`, `RecordAnswerUseCaseTest.kt:57` | `.../domain/FlashcardGrade.kt:4` |
+| `QuizQuestion`, `DistractorSource` | тривиальные data/enum без логики. В тестах используются неявно. | `.../domain/QuizQuestion.kt:8,14` |
+| `BuildQuizUseCase` | `BuildQuizUseCaseTest` | |
+| `RecordAnswerUseCase` | `RecordAnswerUseCaseTest` | |
+| `StatsAggregator` | `StatsAggregatorTest` | |
+| `WeightedQuestionPicker` | `WeightedQuestionPickerTest` | |
+| `QuestionWeighting` | `QuestionWeightingTest` | |
+| `VectorStore` | `VectorStoreTest` (commonTest), `VectorStoreSemanticTest` (androidHostTest) | |
+| `RagFallback` | `RagFallbackTest` | |
+| `PromptBuilder` | `PromptBuilderTest` | |
+| `LlmDistractorGenerator` | `LlmDistractorGeneratorTest`, `DistractorSmokeTest` | |
+| `FallbackDistractorGenerator` | `FallbackDistractorGeneratorTest` | |
+| `GroqProvider` | `GroqProviderTest`, `GroqSmokeTest` (реальная сеть) | |
+| `LlmProvider`, `DistractorGenerator` (интерфейсы), `LlmUnavailable` | отдельных тестов нет, логики нет | `.../llm/LlmProvider.kt:6,14`, `.../llm/DistractorGenerator.kt:7` |
+
+## Связи
+- `QuizViewModel` создаёт `GetRelatedQuestionUseCase(repository)` напрямую (`ui/QuizViewModel.kt:49`). `FlashcardViewModel` делает то же (`ui/FlashcardViewModel.kt:41`).
+- `FlashcardViewModel` вызывает `BuildFlashcardsUseCase().build(...)` (`ui/FlashcardViewModel.kt:50`).
+- `GetRelatedQuestionUseCase` → `QuestionRepository.dataset()` → `VectorStore(dataset).topK(id, k=1)` → поиск `QuestionEntry` по id.
+- `BuildFlashcardsUseCase` → `QuestionStatsStore.readAll()` → фильтр по теме → `WeightedQuestionPicker.pick`.
+- В DI (`commonMain/di`) ни один из этих use case не зарегистрирован. Grep по `GetRelated|BuildFlashcards|UseCase` в `di/` дал пустой результат. Значит, VM создают их вручную.
+
+## Выводы
+1. **`GetRelatedQuestionUseCase`**, `domain/GetRelatedQuestionUseCase.kt:9-19`. Не проверены:
+   - ветка `neighbors.isEmpty()` → `null` (строка 15);
+   - вопрос с неизвестным id;
+   - случай, когда id соседа не найден в `dataset.entries` (`find`, строка 18);
+   - корректность k=1: возвращается не сам вопрос, а ближайший сосед.
+   - Из-за `VectorStore(dataset)` на каждый вызов (строка 11) тест на фейковом репозитории потребует `QuestionRepository` или его замены. Это может быть причиной отсутствия теста (предположение).
+2. **`BuildFlashcardsUseCase`**, `domain/BuildFlashcardsUseCase.kt:24-31`. Не проверены:
+   - все три специальные темы: `"Fechas (Даты)"`, `"Personajes (Люди)"`, `"Eventos (События)"` через `QuestionEntry.isDate/isPeople/isEvent`;
+   - ветка `else` с фильтром `section == topic`;
+   - ветка `null` (весь датасет);
+   - размер по умолчанию `FLASHCARD_SIZE = 10` (строка 35);
+   - пустой пул;
+   - передача `nowMillis` и stats в `WeightedQuestionPicker`.
+   - `QuestionEntry.isDate/isPeople/isEvent` в `commonTest` не нашлись (grep по именам пустой). Возможно, классификация тем не покрыта вообще. Файл `QuestionEntry` я не читал.
+3. **`QuizResult`**, `domain/QuizResult.kt:10,15-16`. Тесты не проверяют `AnsweredQuestion.isCorrect`, `QuizResult.score` и `total`. Это вычисляемые поля, то есть логика, а не тривиальный data-класс. Не покрыты пустой список ответов, все верные, все неверные и смешанный случай.
+4. **`currentTimeMillis`**, `domain/Clock.kt:4`. Это expect-функция, платформенных actual-реализаций я не открывал и тестов на них нет. Использование как значения по умолчанию в `BuildFlashcardsUseCase.build` (строка 21) тоже не проверено. Тесты передают время явно (`nowMillis = 0L`).
+5. **`llm/`**: интерфейсы покрыты косвенно через фейки в тестах реализаций. Пробелов по логике не нашёл. Я не открывал тестовые файлы, чтобы проверить глубину покрытия веток (ошибки парсинга, невалидный JSON, таймауты).
+
+## Не найдено / неясно
+- Тела тестов (`GroqProviderTest`, `LlmDistractorGeneratorTest` и др.) не читал. Покрытие веток внутри протестированных классов не оценивал. Оценка только на уровне «класс → есть ли тесты».
+- `QuestionEntry` (в `data/`, вне запроса) не читал. Тесты на `isDate/isPeople/isEvent` искал только в `commonTest`, там их нет.
+- Отчёты покрытия (Kover/JaCoCo) в `build/` не смотрел, поэтому процентов покрытия нет.
+COST 0.09504180000000001 ms 29628

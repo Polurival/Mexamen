@@ -3,6 +3,7 @@ package dev.polurival.mexamen.ui
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,9 +11,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -44,10 +46,19 @@ fun StatsScreen(
         modifier = modifier.fillMaxSize().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = "Estadísticas",
-            style = MaterialTheme.typography.headlineMedium,
-        )
+        Box(modifier = Modifier.fillMaxWidth()) {
+            Text(
+                text = "Estadísticas",
+                style = MaterialTheme.typography.headlineMedium,
+                modifier = Modifier.align(Alignment.Center),
+            )
+            IconButton(
+                onClick = { showConfirmDialog = true },
+                modifier = Modifier.align(Alignment.CenterEnd),
+            ) {
+                Icon(AppIcons.Refresh, contentDescription = "Reiniciar estadísticas")
+            }
+        }
         Spacer(Modifier.height(24.dp))
         Column(
             modifier = Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()),
@@ -75,13 +86,6 @@ fun StatsScreen(
         Spacer(Modifier.height(16.dp))
         OutlinedButton(onClick = onBack, modifier = Modifier.fillMaxWidth()) {
             Text("Volver al inicio")
-        }
-        Spacer(Modifier.height(8.dp))
-        Button(
-            onClick = { showConfirmDialog = true },
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Text("Reiniciar estadísticas")
         }
     }
 
