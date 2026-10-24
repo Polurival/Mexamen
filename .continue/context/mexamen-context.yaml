@@ -1,0 +1,18 @@
+name: Mexamen context
+version: 1.0.0
+schema: v1
+
+# Что модель может видеть. Без @Codebase: эмбеддинг-индекс на CPU часами грузит 4 ядра
+# и мешает инференсу. Контекст подаётся явно: @File, @Folder, @Code, @Open, @Diff, @Terminal, @Problems.
+context:
+  - provider: file
+  - provider: folder
+  - provider: code
+  - provider: currentFile
+  - provider: open
+    params:
+      onlyPinned: true
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: tree

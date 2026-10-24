@@ -1,0 +1,8 @@
+# Лучшая связка для CPU-only ноутбука: qwen2.5:3b + защита от вырожденного повтора (прогон 3).
+# Создать: ollama create qwen2.5-3b-mexamen -f docs/local-llm/Modelfile.qwen2.5-3b-mexamen
+FROM qwen2.5:3b
+PARAMETER temperature 0.2
+PARAMETER top_p 0.9
+PARAMETER repeat_penalty 1.15
+PARAMETER repeat_last_n 256
+PARAMETER num_ctx 8192
