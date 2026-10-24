@@ -1,0 +1,15 @@
+# Индекс @Codebase на CPU (nomic-embed-text) — только код приложения.
+# Данные (questions.json ~0.5 MB x2), логи и пайплайн эмбеддятся часами и шумят в поиске.
+tools/
+docs/
+smoke/
+composeApp/src/commonMain/composeResources/
+**/*.json
+**/*.jsonl
+**/*.bin
+**/*.mp3
+**/*.png
+**/*.txt
+build/
+.gradle/
+.kotlin/

@@ -1,0 +1,38 @@
+name: Mexamen local models
+version: 1.0.0
+schema: v1
+
+# Локальные модели через Ollama (CPU-only: Ryzen 5 3550H, 14 GiB RAM).
+# Низкая temperature — для кода нужна детерминированность.
+models:
+  # Автокомплит (FIM) + лёгкий чат. Маленькая — чтобы подсказка приходила < 1–2 с на CPU.
+  - name: Qwen2.5-Coder 1.5B
+    provider: ollama
+    model: qwen2.5-coder:1.5b
+    roles: [chat, edit, apply, autocomplete]
+    capabilities: [tool_use]
+    defaultCompletionOptions:
+      contextLength: 16384
+      maxTokens: 2048
+      temperature: 0.2
+      topP: 0.9
+      keepAlive: 1800
+    autocompleteOptions:
+      debounceDelay: 350
+      maxPromptTokens: 1024
+      modelTimeout: 5000
+      onlyMyCode: true
+
+  # Чат / агент. Общая (не кодовая) 3B — сильнее в следовании инструкциям, медленнее.
+  - name: Qwen2.5 3B
+    provider: ollama
+    model: qwen2.5:3b
+    roles: [chat, edit, apply]
+    capabilities: [tool_use]
+    defaultCompletionOptions:
+      contextLength: 16384
+      maxTokens: 2048
+      temperature: 0.2
+      topP: 0.9
+      keepAlive: 1800
+
