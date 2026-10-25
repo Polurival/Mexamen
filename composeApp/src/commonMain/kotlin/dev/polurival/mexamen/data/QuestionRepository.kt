@@ -14,6 +14,18 @@ class QuestionDataset(
 ) {
     fun embedding(id: Int): FloatArray =
         vectorsById[id] ?: error("No embedding for question id=$id")
+
+    /**
+     * Единственное место фильтра по теме: виртуальные темы ([QuestionEntry.TOPIC_DATES] и др.)
+     * по классификаторам, остальные — по [QuestionEntry.section]. Используется репозиторием,
+     * квизом и карточками, чтобы все понимали одно и то же имя темы.
+     */
+    fun entriesByTopic(topicName: String): List<QuestionEntry> = when (topicName) {
+        QuestionEntry.TOPIC_DATES -> entries.filter { QuestionEntry.isDate(it) }
+        QuestionEntry.TOPIC_PEOPLE -> entries.filter { QuestionEntry.isPeople(it) }
+        QuestionEntry.TOPIC_EVENTS -> entries.filter { QuestionEntry.isEvent(it) }
+        else -> entries.filter { it.section == topicName }
+    }
 }
 
 /**
@@ -51,15 +63,8 @@ class QuestionRepository(
         )
     }
 
-    suspend fun getQuestionsByTopic(topicName: String): List<QuestionEntry> {
-        val all = dataset().entries
-        return when (topicName) {
-            QuestionEntry.TOPIC_DATES -> all.filter { QuestionEntry.isDate(it) }
-            QuestionEntry.TOPIC_PEOPLE -> all.filter { QuestionEntry.isPeople(it) }
-            QuestionEntry.TOPIC_EVENTS -> all.filter { QuestionEntry.isEvent(it) }
-            else -> all.filter { it.section == topicName }
-        }
-    }
+    suspend fun getQuestionsByTopic(topicName: String): List<QuestionEntry> =
+        dataset().entriesByTopic(topicName)
 
     suspend fun getTotalQuestionsCount(): Int {
         return dataset().entries.size

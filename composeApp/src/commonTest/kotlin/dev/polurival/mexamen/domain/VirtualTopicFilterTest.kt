@@ -47,6 +47,39 @@ class VirtualTopicFilterTest {
     }
 
     @Test
+    fun datasetFilterBySectionAndVirtualTopics() = runTest {
+        val dataset = repository().dataset()
+        assertEquals(listOf(4, 5), dataset.entriesByTopic("Geografía").map { it.id })
+        assertEquals(listOf(1), dataset.entriesByTopic("Fechas").map { it.id })
+        assertEquals(listOf(2), dataset.entriesByTopic("Personajes").map { it.id })
+        assertEquals(listOf(3), dataset.entriesByTopic("Eventos").map { it.id })
+        assertEquals(emptyList(), dataset.entriesByTopic("Desconocida"))
+    }
+
+    @Test
+    fun repositoryDelegatesTopicFilterToDataset() = runTest {
+        val repo = repository()
+        val dataset = repo.dataset()
+        (repo.getTopics() + repo.getVirtualTopics()).forEach { topic ->
+            assertEquals(dataset.entriesByTopic(topic.name), repo.getQuestionsByTopic(topic.name), "topic=${topic.name}")
+        }
+    }
+
+    @Test
+    fun quizAndFlashcardsFilterBySectionTopicLikeRepository() = runTest {
+        val repo = repository()
+        val dataset = repo.dataset()
+        repo.getTopics().forEach { topic ->
+            val expected = repo.getQuestionsByTopic(topic.name).map { it.id }.toSet()
+            val quiz = BuildQuizUseCase(dataset, Random(0)).build(count = topic.questionCount, topic = topic.name)
+            val cards = BuildFlashcardsUseCase(Random(0))
+                .build(dataset, EmptyStatsStore(), count = topic.questionCount, topic = topic.name, nowMillis = 0L)
+            assertEquals(expected, quiz.map { it.entry.id }.toSet(), "quiz topic=${topic.name}")
+            assertEquals(expected, cards.map { it.id }.toSet(), "flashcards topic=${topic.name}")
+        }
+    }
+
+    @Test
     fun quizFiltersByEveryVirtualTopicFromRepository() = runTest {
         val repo = repository()
         val dataset = repo.dataset()

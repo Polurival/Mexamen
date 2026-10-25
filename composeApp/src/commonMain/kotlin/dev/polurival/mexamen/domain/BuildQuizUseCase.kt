@@ -27,13 +27,7 @@ class BuildQuizUseCase(
 
     suspend fun build(count: Int = QUIZ_SIZE, topic: String? = null): List<QuizQuestion> {
         val stats = statsStore?.readAll() ?: emptyMap()
-        val pool = when (topic) {
-            null -> dataset.entries
-            QuestionEntry.TOPIC_DATES -> dataset.entries.filter { QuestionEntry.isDate(it) }
-            QuestionEntry.TOPIC_PEOPLE -> dataset.entries.filter { QuestionEntry.isPeople(it) }
-            QuestionEntry.TOPIC_EVENTS -> dataset.entries.filter { QuestionEntry.isEvent(it) }
-            else -> dataset.entries.filter { it.section == topic }
-        }
+        val pool = if (topic == null) dataset.entries else dataset.entriesByTopic(topic)
         val picked = WeightedQuestionPicker(random).pick(pool, stats, count, nowMillis)
         val ragNeighbors = picked.associate { entry ->
             entry.id to store.topK(entry.id, RAG_TOP_K).map { byId.getValue(it.id) }

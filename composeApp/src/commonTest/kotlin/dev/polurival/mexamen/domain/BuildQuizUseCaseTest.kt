@@ -96,6 +96,13 @@ class BuildQuizUseCaseTest {
     }
 
     @Test
+    fun buildFiltersBySectionTopic() = runTest {
+        val quiz = BuildQuizUseCase(dataset(), Random(1)).build(count = 5, topic = "section-2")
+        assertEquals((6..10).toSet(), quiz.map { it.entry.id }.toSet())
+        assertTrue(quiz.all { it.entry.section == "section-2" })
+    }
+
+    @Test
     fun correctPositionIsUniformlyDistributed() = runTest {
         val data = dataset()
         val positions = IntArray(4)

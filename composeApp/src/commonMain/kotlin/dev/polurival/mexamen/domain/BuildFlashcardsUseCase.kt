@@ -21,13 +21,7 @@ class BuildFlashcardsUseCase(
         nowMillis: Long = currentTimeMillis(),
     ): List<QuestionEntry> {
         val stats = statsStore.readAll()
-        val pool = when (topic) {
-            null -> dataset.entries
-            QuestionEntry.TOPIC_DATES -> dataset.entries.filter { QuestionEntry.isDate(it) }
-            QuestionEntry.TOPIC_PEOPLE -> dataset.entries.filter { QuestionEntry.isPeople(it) }
-            QuestionEntry.TOPIC_EVENTS -> dataset.entries.filter { QuestionEntry.isEvent(it) }
-            else -> dataset.entries.filter { it.section == topic }
-        }
+        val pool = if (topic == null) dataset.entries else dataset.entriesByTopic(topic)
         return WeightedQuestionPicker(random).pick(pool, stats, count, nowMillis)
     }
 
