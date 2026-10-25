@@ -31,7 +31,7 @@ fun LegendsListScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = onBack) {
-                Icon(AppIcons.ArrowBack, contentDescription = "Back")
+                Icon(AppIcons.ArrowBack, contentDescription = "Volver")
             }
             Text(
                 text = "Leyendas Mexicanas",

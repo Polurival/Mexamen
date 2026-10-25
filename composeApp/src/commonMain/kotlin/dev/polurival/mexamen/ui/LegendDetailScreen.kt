@@ -56,7 +56,7 @@ fun LegendDetailScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 IconButton(onClick = onBack) {
-                    Icon(AppIcons.ArrowBack, contentDescription = "Back")
+                    Icon(AppIcons.ArrowBack, contentDescription = "Volver")
                 }
                 Text(
                     text = "Lectura",
@@ -107,7 +107,7 @@ fun LegendDetailScreen(
                             }
                             Icon(
                                 imageVector = icon,
-                                contentDescription = if (state.audioState == AudioState.PLAYING) "Pause Audio" else "Play Audio",
+                                contentDescription = if (state.audioState == AudioState.PLAYING) "Pausar audio" else "Reproducir audio",
                                 tint = MaterialTheme.colorScheme.primary
                             )
                         }
@@ -115,7 +115,7 @@ fun LegendDetailScreen(
                             IconButton(onClick = onStopAudio) {
                                 Icon(
                                     imageVector = AppIcons.Stop,
-                                    contentDescription = "Stop Audio",
+                                    contentDescription = "Detener audio",
                                     tint = MaterialTheme.colorScheme.error
                                 )
                             }
