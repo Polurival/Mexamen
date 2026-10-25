@@ -183,6 +183,7 @@ private fun AppContent() {
                 is Route.LegendResult -> NavEntry(key) {
                     LegendResultScreen(
                         result = key.result,
+                        passed = key.passed,
                         onHome = { 
                             while (backStack.size > 1) {
                                 backStack.removeAt(backStack.size - 1)
@@ -230,6 +231,7 @@ private fun QuizFlow(topic: String?, onExit: () -> Unit) {
         )
         is QuizUiState.Result -> ResultScreen(
             result = current.result,
+            passed = current.passed,
             attempts = current.attempts,
             onRestart = { viewModel.startQuiz(topic) },
             onHome = onExit,

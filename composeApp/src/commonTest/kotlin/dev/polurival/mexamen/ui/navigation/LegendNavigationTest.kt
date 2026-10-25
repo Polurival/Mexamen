@@ -1,9 +1,17 @@
 package dev.polurival.mexamen.ui.navigation
 
 import androidx.navigation3.runtime.NavKey
+import dev.polurival.mexamen.data.QuestionEntry
+import dev.polurival.mexamen.domain.AnsweredQuestion
+import dev.polurival.mexamen.domain.DistractorSource
+import dev.polurival.mexamen.domain.ExamRules
+import dev.polurival.mexamen.domain.QuizQuestion
 import dev.polurival.mexamen.domain.QuizResult
+import kotlinx.serialization.json.Json
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class LegendNavigationTest {
 
@@ -30,4 +38,34 @@ class LegendNavigationTest {
 
         assertEquals(listOf<NavKey>(Route.Home, Route.LegendsList, Route.LegendResult(result)), backStack)
     }
+
+    @Test
+    fun legendResultRouteCarriesPassDecisionByLegendThreshold() {
+        assertTrue(Route.LegendResult(legendResult(correct = ExamRules.LEGEND_PASS_SCORE)).passed)
+        assertFalse(Route.LegendResult(legendResult(correct = ExamRules.LEGEND_PASS_SCORE - 1)).passed)
+    }
+
+    @Test
+    fun savedLegendResultWithoutPassedFieldRestoresDecisionFromResult() {
+        val passing = legendResult(correct = ExamRules.LEGEND_PASS_SCORE)
+        val oldJson = """{"result":${Json.encodeToString(QuizResult.serializer(), passing)}}"""
+
+        val restored = Json.decodeFromString(Route.LegendResult.serializer(), oldJson)
+
+        assertEquals(passing, restored.result)
+        assertTrue(restored.passed)
+    }
+
+    /** Результат легенды из 6 вопросов, первые [correct] отвечены верно. */
+    private fun legendResult(correct: Int) = QuizResult(
+        (1..6).map { id ->
+            val question = QuizQuestion(
+                entry = QuestionEntry(id, "Legend", "q$id", "a$id"),
+                options = listOf("a", "b", "c", "d"),
+                correctIndex = 0,
+                source = DistractorSource.FALLBACK,
+            )
+            AnsweredQuestion(question, chosenIndex = if (id <= correct) 0 else AnsweredQuestion.NOT_ANSWERED)
+        },
+    )
 }

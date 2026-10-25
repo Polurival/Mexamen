@@ -52,7 +52,7 @@ fun QuizScreen(
                 text = formatTime(state.timeLeftSeconds),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
-                color = if (state.timeLeftSeconds < 60) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary,
+                color = if (state.isTimeRunningOut) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary,
                 modifier = Modifier.padding(horizontal = 8.dp)
             )
             //if (state.question.source == DistractorSource.FALLBACK) {

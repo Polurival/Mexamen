@@ -8,6 +8,7 @@ import dev.polurival.mexamen.data.QuestionStatsStore
 import dev.polurival.mexamen.domain.AnsweredQuestion
 import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.BuildQuizUseCase
+import dev.polurival.mexamen.domain.ExamRules
 import dev.polurival.mexamen.domain.GetRelatedQuestionUseCase
 import dev.polurival.mexamen.domain.QuizQuestion
 import dev.polurival.mexamen.domain.QuizResult
@@ -30,12 +31,22 @@ sealed interface QuizUiState {
         val total: Int,
         val question: QuizQuestion,
         val selectedIndex: Int?,
-        val timeLeftSeconds: Int = 600,
+        val timeLeftSeconds: Int = ExamRules.QUIZ_DURATION_SECONDS,
         val relatedEntry: QuestionEntry? = null,
-    ) : QuizUiState
+    ) : QuizUiState {
+        /** Осталось мало времени — таймер подсвечивается. */
+        val isTimeRunningOut: Boolean get() = ExamRules.isTimeRunningOut(timeLeftSeconds)
+    }
 
-    /** [attempts] — кумулятивные счётчики по id вопроса, уже включают ответы этой сессии. */
-    data class Result(val result: QuizResult, val attempts: Map<Int, AttemptCounts> = emptyMap()) : QuizUiState
+    /**
+     * [passed] — квиз сдан по [ExamRules.QUIZ_PASS_SCORE];
+     * [attempts] — кумулятивные счётчики по id вопроса, уже включают ответы этой сессии.
+     */
+    data class Result(
+        val result: QuizResult,
+        val passed: Boolean,
+        val attempts: Map<Int, AttemptCounts> = emptyMap(),
+    ) : QuizUiState
 }
 
 class QuizViewModel(
@@ -92,7 +103,7 @@ class QuizViewModel(
                     total = quiz.size,
                     question = firstQuestion,
                     selectedIndex = null,
-                    timeLeftSeconds = 600,
+                    timeLeftSeconds = ExamRules.QUIZ_DURATION_SECONDS,
                     relatedEntry = related
                 )
                 startTimer()
@@ -154,7 +165,7 @@ class QuizViewModel(
                     total = quiz.size,
                     question = nextQuestion,
                     selectedIndex = null,
-                    timeLeftSeconds = current?.timeLeftSeconds ?: 600,
+                    timeLeftSeconds = current?.timeLeftSeconds ?: ExamRules.QUIZ_DURATION_SECONDS,
                     relatedEntry = related
                 )
             }
@@ -172,7 +183,11 @@ class QuizViewModel(
         val pending = recordJobs.toList()
         viewModelScope.launch {
             pending.forEach { it.join() }
-            _state.value = QuizUiState.Result(result, AttemptCounts.fromAll(statsStore.readAll()))
+            _state.value = QuizUiState.Result(
+                result = result,
+                passed = ExamRules.isQuizPassed(result),
+                attempts = AttemptCounts.fromAll(statsStore.readAll()),
+            )
         }
     }
 

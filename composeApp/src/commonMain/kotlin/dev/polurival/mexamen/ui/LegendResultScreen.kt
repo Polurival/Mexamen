@@ -22,11 +22,10 @@ import dev.polurival.mexamen.domain.QuizResult
 @Composable
 fun LegendResultScreen(
     result: QuizResult,
+    passed: Boolean,
     onHome: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val passed = result.score >= 5
-
     Column(
         modifier = modifier.fillMaxSize().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,

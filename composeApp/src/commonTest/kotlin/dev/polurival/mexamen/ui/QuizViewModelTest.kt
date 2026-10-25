@@ -1,6 +1,7 @@
 package dev.polurival.mexamen.ui
 
 import dev.polurival.mexamen.domain.AttemptCounts
+import dev.polurival.mexamen.domain.ExamRules
 import dev.polurival.mexamen.testing.FakeQuestionStatsStore
 import dev.polurival.mexamen.testing.GatedQuestionStatsStore
 import dev.polurival.mexamen.testing.testQuestionRepository
@@ -162,8 +163,39 @@ class QuizViewModelTest {
         }
     }
 
+    @Test
+    fun allCorrectQuizResultIsPassed() = runTest {
+        val vm = viewModel()
+        vm.ensureStarted(null)
+        runCurrent()
+        while (true) {
+            val question = vm.state.value as? QuizUiState.Question ?: break
+            vm.selectAnswer(question.question.correctIndex)
+            vm.advanceQuestion()
+            runCurrent()
+        }
+
+        val state = assertIs<QuizUiState.Result>(vm.state.value)
+        assertTrue(state.result.score >= ExamRules.QUIZ_PASS_SCORE)
+        assertTrue(state.passed)
+    }
+
+    @Test
+    fun timeoutWithoutAnswersIsNotPassed() = runTest {
+        val vm = viewModel()
+        vm.ensureStarted(null)
+        runCurrent()
+
+        advanceTimeBy(QUIZ_TIMEOUT_MILLIS)
+        runCurrent()
+
+        val state = assertIs<QuizUiState.Result>(vm.state.value)
+        assertEquals(0, state.result.score)
+        assertFalse(state.passed)
+    }
+
     private companion object {
-        /** 600 тиков таймера + тик, на котором срабатывает завершение. */
-        const val QUIZ_TIMEOUT_MILLIS = 601_000L
+        /** Тики таймера на всю длительность квиза + тик, на котором срабатывает завершение. */
+        const val QUIZ_TIMEOUT_MILLIS = (ExamRules.QUIZ_DURATION_SECONDS + 1) * 1_000L
     }
 }

@@ -68,7 +68,7 @@ fun LegendDetailScreen(
                     text = formatTime(state.timeLeftSeconds),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = if (state.timeLeftSeconds < 60) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary
+                    color = if (state.isTimeRunningOut) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary
                 )
             }
 
