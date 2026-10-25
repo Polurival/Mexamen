@@ -49,6 +49,7 @@ import dev.polurival.mexamen.ui.StatsViewModel
 import dev.polurival.mexamen.ui.TopicsListScreen
 import dev.polurival.mexamen.ui.TopicsViewModel
 import dev.polurival.mexamen.ui.navigation.BrowserHistorySync
+import dev.polurival.mexamen.ui.navigation.LegendNavigation
 import dev.polurival.mexamen.ui.navigation.Route
 import dev.polurival.mexamen.ui.navigation.SessionType
 import kotlinx.serialization.modules.SerializersModule
@@ -265,8 +266,7 @@ private fun LegendFlow(legendId: String, backStack: MutableList<NavKey>) {
 
     LaunchedEffect(state.isFinished) {
         if (state.isFinished) {
-            val result = viewModel.getResult()
-            backStack.add(Route.LegendResult(result))
+            LegendNavigation.showResult(backStack, legendId, viewModel.getResult())
         }
     }
 
