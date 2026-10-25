@@ -41,7 +41,7 @@ fun LegendResultScreen(
         Spacer(Modifier.height(16.dp))
         
         Text(
-            text = "Has aprobado el test de español" + if (passed) "" else " (no)",
+            text = if (passed) "Has aprobado el test de español" else "No has aprobado el test de español",
             style = MaterialTheme.typography.titleLarge
         )
 
