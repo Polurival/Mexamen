@@ -264,9 +264,11 @@ private fun LegendFlow(legendId: String, backStack: MutableList<NavKey>) {
     }
 
     LaunchedEffect(state.isFinished) {
-        if (state.isFinished) {
+        if (state.isFinished && backStack.lastOrNull() == Route.LegendDetail(legendId)) {
             val result = viewModel.getResult()
-            backStack.add(Route.LegendResult(result))
+            // Заменяем LegendDetail, а не кладём сверху: иначе back вернёт на детальный экран
+            // с isFinished = true, и эффект снова откроет результат (петля)
+            backStack[backStack.lastIndex] = Route.LegendResult(result)
         }
     }
 
