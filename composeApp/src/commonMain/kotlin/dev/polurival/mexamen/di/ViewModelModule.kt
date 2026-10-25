@@ -3,6 +3,7 @@ package dev.polurival.mexamen.di
 import dev.polurival.mexamen.ui.FlashcardViewModel
 import dev.polurival.mexamen.ui.InterviewViewModel
 import dev.polurival.mexamen.ui.LegendViewModel
+import dev.polurival.mexamen.ui.QuestionBankViewModel
 import dev.polurival.mexamen.ui.QuizViewModel
 import dev.polurival.mexamen.ui.StatsViewModel
 import dev.polurival.mexamen.ui.TopicsViewModel
@@ -16,4 +17,5 @@ val viewModelModule = module {
     viewModel { LegendViewModel(audioPlayer = get()) }
     viewModel { InterviewViewModel(interviewStore = get()) }
     viewModel { TopicsViewModel(repository = get(), statsStore = get()) }
+    viewModel { QuestionBankViewModel(repository = get()) }
 }

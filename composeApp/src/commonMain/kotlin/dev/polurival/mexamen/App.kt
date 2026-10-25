@@ -40,6 +40,8 @@ import dev.polurival.mexamen.ui.LegendResultScreen
 import dev.polurival.mexamen.ui.LegendViewModel
 import dev.polurival.mexamen.ui.LegendsListScreen
 import dev.polurival.mexamen.ui.MexamenTheme
+import dev.polurival.mexamen.ui.QuestionBankScreen
+import dev.polurival.mexamen.ui.QuestionBankViewModel
 import dev.polurival.mexamen.ui.QuizScreen
 import dev.polurival.mexamen.ui.QuizUiState
 import dev.polurival.mexamen.ui.QuizViewModel
@@ -69,6 +71,7 @@ private val navigationSerializersModule = SerializersModule {
         subclass(Route.LegendDetail::class, Route.LegendDetail.serializer())
         subclass(Route.LegendResult::class, Route.LegendResult.serializer())
         subclass(Route.Interview::class, Route.Interview.serializer())
+        subclass(Route.QuestionBank::class, Route.QuestionBank.serializer())
     }
 }
 
@@ -117,6 +120,7 @@ private fun AppContent() {
                         onOpenLegends = { backStack.add(Route.LegendsList) },
                         onOpenInterview = { backStack.add(Route.Interview) },
                         onOpenStats = { backStack.add(Route.Stats) },
+                        onOpenQuestionBank = { backStack.add(Route.QuestionBank) },
                     )
                 }
                 is Route.TopicsList -> NavEntry(key) {
@@ -204,6 +208,21 @@ private fun AppContent() {
                                 backStack.removeAt(backStack.size - 1)
                             }
                         }
+                    )
+                }
+                Route.QuestionBank -> NavEntry(key) {
+                    val viewModel: QuestionBankViewModel = koinViewModel()
+                    val state by viewModel.state.collectAsState()
+                    LaunchedEffect(Unit) { viewModel.load() }
+                    QuestionBankScreen(
+                        state = state,
+                        onQueryChange = viewModel::updateQuery,
+                        onToggleExpanded = viewModel::toggleExpanded,
+                        onBack = {
+                            if (backStack.size > 1) {
+                                backStack.removeAt(backStack.size - 1)
+                            }
+                        },
                     )
                 }
                 else -> error("Unknown key: $key")
