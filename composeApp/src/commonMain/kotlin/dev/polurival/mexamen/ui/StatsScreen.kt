@@ -20,8 +20,6 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,15 +30,18 @@ import androidx.compose.ui.unit.dp
 import dev.polurival.mexamen.domain.StatsSummary
 import dev.polurival.mexamen.domain.TopicStatsSummary
 
+/**
+ * Экран статистики. Stateless: данные приходят в [state], сброс — через [onResetStats]
+ * (вызывается только после подтверждения в диалоге; видимость диалога — локальное UI-состояние).
+ */
 @Composable
 fun StatsScreen(
-    viewModel: StatsViewModel,
+    state: StatsUiState,
+    onResetStats: () -> Unit,
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val state by viewModel.state.collectAsState()
     var showConfirmDialog by remember { mutableStateOf(false) }
-    LaunchedEffect(Unit) { viewModel.load() }
 
     Column(
         modifier = modifier.fillMaxSize().padding(24.dp),
@@ -97,7 +98,7 @@ fun StatsScreen(
             confirmButton = {
                 TextButton(onClick = {
                     showConfirmDialog = false
-                    viewModel.resetStats()
+                    onResetStats()
                 }) { Text("Reiniciar", color = MaterialTheme.colorScheme.error) }
             },
             dismissButton = {
