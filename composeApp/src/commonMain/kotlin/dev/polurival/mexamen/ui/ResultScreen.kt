@@ -82,7 +82,7 @@ internal fun AnswerCard(answered: AnsweredQuestion, stats: QuestionStats? = null
                 style = MaterialTheme.typography.titleSmall,
             )
             Spacer(Modifier.height(8.dp))
-            val chosen = answered.question.options[answered.chosenIndex]
+            val chosen = if (answered.isAnswered) answered.question.options[answered.chosenIndex] else null
             if (answered.isCorrect) {
                 Text(
                     text = "✓ $chosen",
@@ -91,7 +91,7 @@ internal fun AnswerCard(answered: AnsweredQuestion, stats: QuestionStats? = null
                 )
             } else {
                 Text(
-                    text = "✗ $chosen",
+                    text = if (chosen != null) "✗ $chosen" else "✗ Sin respuesta",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.error,
                 )

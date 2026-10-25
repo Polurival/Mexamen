@@ -22,6 +22,23 @@ class QuizResultTest {
     }
 
     @Test
+    fun answeredQuestionIsAnsweredOnlyWhenChosenIndexIsValidOption() {
+        assertTrue(AnsweredQuestion(question(1), chosenIndex = 0).isAnswered)
+        assertFalse(AnsweredQuestion(question(1), chosenIndex = -1).isAnswered)
+        assertFalse(AnsweredQuestion(question(1), chosenIndex = 4).isAnswered)
+    }
+
+    @Test
+    fun unansweredQuestionIsNeverCorrectAndNotScored() {
+        // Легенда с некорректным correctIndex (-1) не должна засчитывать пропущенный вопрос.
+        val unanswered = AnsweredQuestion(question(1, correctIndex = -1), chosenIndex = -1)
+        assertFalse(unanswered.isCorrect)
+        val result = QuizResult(listOf(unanswered, AnsweredQuestion(question(2), chosenIndex = -1)))
+        assertEquals(0, result.score)
+        assertEquals(2, result.total)
+    }
+
+    @Test
     fun resultCountsScoreAndTotal() {
         val result = QuizResult(
             listOf(
