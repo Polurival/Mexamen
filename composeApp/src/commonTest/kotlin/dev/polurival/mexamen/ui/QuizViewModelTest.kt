@@ -1,8 +1,10 @@
 package dev.polurival.mexamen.ui
 
+import dev.polurival.mexamen.data.QuestionStats
 import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.BuildQuizUseCase
 import dev.polurival.mexamen.domain.ExamRules
+import dev.polurival.mexamen.domain.SessionPoolSelector
 import dev.polurival.mexamen.testing.FakeQuestionStatsStore
 import dev.polurival.mexamen.testing.GatedQuestionStatsStore
 import dev.polurival.mexamen.testing.testQuestionRepository
@@ -271,6 +273,37 @@ class QuizViewModelTest {
         val state = assertIs<QuizUiState.Result>(vm.state.value)
         assertEquals(0, state.result.score)
         assertFalse(state.passed)
+    }
+
+    @Test
+    fun mistakesTopicBuildsShorterQuizFromWrongQuestionsOnly() = runTest {
+        val store = FakeQuestionStatsStore()
+        store.update { listOf(2, 7, 11).associateWith { QuestionStats(timesShown = 1, timesWrong = 1) } }
+        val vm = QuizViewModel(testQuestionRepository(), store)
+        vm.ensureStarted(SessionPoolSelector.TOPIC_MISTAKES)
+        runCurrent()
+
+        val first = assertIs<QuizUiState.Question>(vm.state.value)
+        assertEquals(3, first.total)
+        val asked = mutableSetOf<Int>()
+        while (true) {
+            val question = vm.state.value as? QuizUiState.Question ?: break
+            asked += question.question.entry.id
+            vm.selectAnswer(question.question.correctIndex)
+            vm.advanceQuestion()
+            runCurrent()
+        }
+        assertEquals(setOf(2, 7, 11), asked)
+        assertEquals(3, assertIs<QuizUiState.Result>(vm.state.value).result.total)
+    }
+
+    @Test
+    fun mistakesTopicWithoutErrorsShowsSpanishError() = runTest {
+        val vm = viewModel()
+        vm.ensureStarted(SessionPoolSelector.TOPIC_MISTAKES)
+        runCurrent()
+
+        assertEquals("No hay preguntas", assertIs<QuizUiState.Home>(vm.state.value).error)
     }
 
     private companion object {

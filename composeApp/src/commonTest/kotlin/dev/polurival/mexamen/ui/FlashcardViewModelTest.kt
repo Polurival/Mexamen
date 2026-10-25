@@ -3,6 +3,7 @@ package dev.polurival.mexamen.ui
 import dev.polurival.mexamen.data.QuestionStats
 import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.FlashcardGrade
+import dev.polurival.mexamen.domain.SessionPoolSelector
 import dev.polurival.mexamen.testing.FakeQuestionStatsStore
 import dev.polurival.mexamen.testing.GatedQuestionStatsStore
 import dev.polurival.mexamen.testing.testQuestionRepository
@@ -211,5 +212,14 @@ class FlashcardViewModelTest {
         vm.grade(FlashcardGrade.GOOD)
         runCurrent()
         assertEquals(done, vm.state.value)
+    }
+
+    @Test
+    fun mistakesTopicWithoutErrorsShowsNoCards() = runTest {
+        val vm = viewModel()
+        vm.ensureStarted(SessionPoolSelector.TOPIC_MISTAKES)
+        runCurrent()
+
+        assertEquals("No hay tarjetas", assertIs<FlashcardUiState.Error>(vm.state.value).message)
     }
 }

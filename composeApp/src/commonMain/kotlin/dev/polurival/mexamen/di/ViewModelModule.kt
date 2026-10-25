@@ -15,5 +15,5 @@ val viewModelModule = module {
     viewModel { StatsViewModel(repository = get(), statsStore = get()) }
     viewModel { LegendViewModel(audioPlayer = get()) }
     viewModel { InterviewViewModel(interviewStore = get()) }
-    viewModel { TopicsViewModel(repository = get()) }
+    viewModel { TopicsViewModel(repository = get(), statsStore = get()) }
 }

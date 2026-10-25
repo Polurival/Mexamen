@@ -70,6 +70,17 @@ fun TopicsListScreen(
                     )
                     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
                 }
+
+                item {
+                    TopicItem(
+                        title = state.mistakes.name,
+                        count = state.mistakes.questionCount,
+                        enabled = state.hasMistakes,
+                        disabledLabel = "Sin errores todavía",
+                        onClick = { onTopicSelected(state.mistakes.name) }
+                    )
+                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+                }
                 
                 item {
                     Text(
@@ -116,24 +127,27 @@ private fun TopicItem(
     title: String,
     count: Int,
     onClick: () -> Unit,
+    enabled: Boolean = true,
+    disabledLabel: String? = null,
 ) {
     ListItem(
         headlineContent = {
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge,
+                color = if (enabled) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
             )
         },
         supportingContent = {
             Text(
-                text = "$count preguntas",
+                text = if (!enabled && disabledLabel != null) disabledLabel else "$count preguntas",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         },
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            .clickable(enabled = enabled, onClick = onClick)
             .padding(vertical = 4.dp)
     )
 }

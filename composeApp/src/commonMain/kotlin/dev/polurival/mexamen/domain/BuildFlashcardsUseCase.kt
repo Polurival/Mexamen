@@ -2,7 +2,6 @@ package dev.polurival.mexamen.domain
 
 import dev.polurival.mexamen.data.QuestionDataset
 import dev.polurival.mexamen.data.QuestionEntry
-import dev.polurival.mexamen.data.QuestionRepository
 import dev.polurival.mexamen.data.QuestionStatsStore
 import kotlin.random.Random
 
@@ -22,11 +21,8 @@ class BuildFlashcardsUseCase(
         nowMillis: Long = currentTimeMillis(),
     ): List<QuestionEntry> {
         val stats = statsStore.readAll()
-        val pool = when (topic) {
-            null -> dataset.entries
-            else -> QuestionRepository.filterByTopic(dataset.entries, topic)
-        }
-        return WeightedQuestionPicker(random).pick(pool, stats, count, nowMillis)
+        val pool = SessionPoolSelector.select(dataset.entries, stats, topic, count)
+        return WeightedQuestionPicker(random).pick(pool.entries, stats, pool.count, nowMillis)
     }
 
     companion object {

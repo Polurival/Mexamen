@@ -96,7 +96,11 @@ class QuizViewModel(
                 answers = mutableListOf()
                 recordJobs.clear()
                 finished = false
-                val firstQuestion = quiz.first()
+                // Пустой пул возможен у «Repasar errores» (статистику сбросили, а маршрут восстановлен)
+                val firstQuestion = quiz.firstOrNull() ?: run {
+                    _state.value = QuizUiState.Home(error = "No hay preguntas")
+                    return@launch
+                }
                 val related = getRelatedQuestion(firstQuestion.entry)
                 _state.value = QuizUiState.Question(
                     index = 0,
