@@ -53,6 +53,8 @@ class QuizViewModel(
     private var timerJob: Job? = null
     private val recordJobs = mutableListOf<Job>()
     private var started = false
+    /** Итог зафиксирован (последний ответ или таймаут) — ответы и переходы больше не принимаются. */
+    private var finished = false
     private var startedTopic: String? = null
 
     /**
@@ -76,6 +78,7 @@ class QuizViewModel(
                 ).build(topic = topic)
                 answers = mutableListOf()
                 recordJobs.clear()
+                finished = false
                 val firstQuestion = quiz.first()
                 val related = getRelatedQuestion(firstQuestion.entry)
                 _state.value = QuizUiState.Question(
@@ -111,12 +114,11 @@ class QuizViewModel(
 
     private fun finishQuiz() {
         timerJob?.cancel()
-        // If timed out, we might have fewer answers than quiz size.
-        // QuizResult handles a list of AnsweredQuestion.
         showResult()
     }
 
     fun selectAnswer(optionIndex: Int) {
+        if (finished) return
         val current = _state.value as? QuizUiState.Question ?: return
         if (current.selectedIndex != null) return
         val answered = AnsweredQuestion(current.question, optionIndex)
@@ -126,6 +128,7 @@ class QuizViewModel(
     }
 
     fun advanceQuestion() {
+        if (finished) return
         val current = _state.value as? QuizUiState.Question ?: return
         if (current.selectedIndex == null) return
         advance(current.index)
@@ -138,6 +141,7 @@ class QuizViewModel(
             viewModelScope.launch {
                 val nextQuestion = quiz[next]
                 val related = getRelatedQuestion(nextQuestion.entry)
+                if (finished) return@launch
                 _state.value = QuizUiState.Question(
                     index = next,
                     total = quiz.size,
@@ -153,9 +157,13 @@ class QuizViewModel(
         }
     }
 
-    /** Ждёт запись последних ответов, чтобы счётчики в результате включали текущую попытку. */
+    /**
+     * Ждёт запись последних ответов, чтобы счётчики в результате включали текущую попытку.
+     * Итог — по всему квизу: при таймауте неотвеченные идут как «Sin respuesta» и в статистику не пишутся.
+     */
     private fun showResult() {
-        val result = QuizResult(answers.toList())
+        finished = true
+        val result = QuizResult.forQuiz(quiz, answers.toList())
         val pending = recordJobs.toList()
         viewModelScope.launch {
             pending.forEach { it.join() }
