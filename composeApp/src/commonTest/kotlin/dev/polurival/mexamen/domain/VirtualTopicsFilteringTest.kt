@@ -14,6 +14,8 @@ import kotlin.test.assertTrue
 /**
  * Регрессия #10: виртуальные темы показываются по-испански, и имя из списка тем
  * фильтрует вопросы одинаково в репозитории, квизе и карточках.
+ * #14: фильтр тем один ([dev.polurival.mexamen.data.QuestionRepository.filterByTopic]) — реальные
+ * темы и счётчики виртуальных тем тоже должны совпадать с выборкой репозитория.
  */
 class VirtualTopicsFilteringTest {
 
@@ -45,6 +47,31 @@ class VirtualTopicsFilteringTest {
             val quiz = BuildQuizUseCase(dataset, Random(0), nowMillis = 0L)
                 .build(count = topic.questionCount, topic = topic.name)
             assertEquals(expected, quiz.map { it.entry.id }.toSet(), "Topic ${topic.name}")
+        }
+    }
+
+    @Test
+    fun virtualTopicCountsMatchFilteredQuestions() = runTest {
+        repository.getVirtualTopics().forEach { topic ->
+            assertEquals(
+                repository.getQuestionsByTopic(topic.name).size,
+                topic.questionCount,
+                "Topic ${topic.name}",
+            )
+        }
+    }
+
+    @Test
+    fun quizAndFlashcardsFilterBySectionTopicLikeRepository() = runTest {
+        val dataset = repository.dataset()
+        repository.getTopics().forEach { topic ->
+            val expected = repository.getQuestionsByTopic(topic.name).map { it.id }.toSet()
+            val quiz = BuildQuizUseCase(dataset, Random(0), nowMillis = 0L)
+                .build(count = topic.questionCount, topic = topic.name)
+            val cards = BuildFlashcardsUseCase(Random(0))
+                .build(dataset, FakeQuestionStatsStore(), count = topic.questionCount, topic = topic.name, nowMillis = 0L)
+            assertEquals(expected, quiz.map { it.entry.id }.toSet(), "Quiz topic ${topic.name}")
+            assertEquals(expected, cards.map { it.id }.toSet(), "Flashcards topic ${topic.name}")
         }
     }
 

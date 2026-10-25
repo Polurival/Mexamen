@@ -38,17 +38,10 @@ class QuestionRepository(
             .sortedBy { it.name }
     }
 
+    /** Счётчики виртуальных тем — через [filterByTopic], чтобы число в списке совпадало с выборкой. */
     suspend fun getVirtualTopics(): List<Topic> {
         val entries = dataset().entries
-        val dates = entries.filter { QuestionEntry.isDate(it) }
-        val people = entries.filter { QuestionEntry.isPeople(it) }
-        val events = entries.filter { QuestionEntry.isEvent(it) }
-        
-        return listOf(
-            Topic(TOPIC_DATES, dates.size),
-            Topic(TOPIC_PEOPLE, people.size),
-            Topic(TOPIC_EVENTS, events.size)
-        )
+        return VIRTUAL_TOPICS.map { name -> Topic(name, filterByTopic(entries, name).size) }
     }
 
     suspend fun getQuestionsByTopic(topicName: String): List<QuestionEntry> =
@@ -77,6 +70,9 @@ class QuestionRepository(
         const val TOPIC_DATES = "Fechas"
         const val TOPIC_PEOPLE = "Personajes"
         const val TOPIC_EVENTS = "Eventos"
+
+        /** Порядок виртуальных тем в UI. */
+        private val VIRTUAL_TOPICS = listOf(TOPIC_DATES, TOPIC_PEOPLE, TOPIC_EVENTS)
 
         /** Единая фильтрация по теме (виртуальной или `section`) для репозитория и use case'ов. */
         fun filterByTopic(entries: List<QuestionEntry>, topicName: String): List<QuestionEntry> =

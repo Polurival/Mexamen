@@ -129,6 +129,14 @@ class BuildQuizUseCaseTest {
     }
 
     @Test
+    fun buildFiltersBySectionTopic() = runTest {
+        // section-2 = id 6..10; дистракторы при этом берутся из всего датасета
+        val quiz = BuildQuizUseCase(dataset(), Random(4), nowMillis = 0L).build(count = 5, topic = "section-2")
+        assertEquals((6..10).toSet(), quiz.map { it.entry.id }.toSet())
+        quiz.forEach { q -> assertEquals(4, q.options.toSet().size) }
+    }
+
+    @Test
     fun escalatesNeighborCountWhenNearestAnswersDuplicate() = runTest {
         // Половина ответов — дубли: top-8 соседей часто не дают 3 уникальных, нужен добор
         val data = dataset(sections = 2, perSection = 10) { id ->
