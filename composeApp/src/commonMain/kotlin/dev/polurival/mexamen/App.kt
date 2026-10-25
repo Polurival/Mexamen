@@ -28,6 +28,7 @@ import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import androidx.savedstate.serialization.SavedStateConfiguration
 import dev.polurival.mexamen.di.appModules
+import dev.polurival.mexamen.domain.ThemeMode
 import dev.polurival.mexamen.ui.FlashcardCardScreen
 import dev.polurival.mexamen.ui.FlashcardDoneScreen
 import dev.polurival.mexamen.ui.FlashcardUiState
@@ -48,6 +49,7 @@ import dev.polurival.mexamen.ui.QuizViewModel
 import dev.polurival.mexamen.ui.ResultScreen
 import dev.polurival.mexamen.ui.StatsScreen
 import dev.polurival.mexamen.ui.StatsViewModel
+import dev.polurival.mexamen.ui.ThemeViewModel
 import dev.polurival.mexamen.ui.TopicsListScreen
 import dev.polurival.mexamen.ui.TopicsViewModel
 import dev.polurival.mexamen.ui.navigation.BrowserHistorySync
@@ -85,11 +87,17 @@ fun App() {
     KoinApplication(
         configuration = koinConfiguration(declaration = { modules(appModules) }),
         content = {
-            MexamenTheme {
+            // Тема уровня приложения: VM над NavDisplay, чтобы выбор на Home применялся ко всем экранам
+            val themeViewModel: ThemeViewModel = koinViewModel()
+            val themeState by themeViewModel.state.collectAsState()
+            MexamenTheme(themeMode = themeState.mode) {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     // Паддинг внутри Surface: фон уходит под статус-бар (edge-to-edge), контент — нет
                     Box(modifier = Modifier.safeDrawingPadding()) {
-                        AppContent()
+                        AppContent(
+                            themeMode = themeState.mode,
+                            onCycleThemeMode = themeViewModel::cycleMode,
+                        )
                     }
                 }
             }
@@ -97,7 +105,7 @@ fun App() {
 }
 
 @Composable
-private fun AppContent() {
+private fun AppContent(themeMode: ThemeMode, onCycleThemeMode: () -> Unit) {
     val backStack = rememberNavBackStack(configuration = navigationConfig, Route.Home)
     val viewModelStoreDecorator = rememberViewModelStoreNavEntryDecorator<NavKey>()
     val saveableStateDecorator = rememberSaveableStateHolderNavEntryDecorator<NavKey>()
@@ -121,6 +129,8 @@ private fun AppContent() {
                         onOpenInterview = { backStack.add(Route.Interview) },
                         onOpenStats = { backStack.add(Route.Stats) },
                         onOpenQuestionBank = { backStack.add(Route.QuestionBank) },
+                        themeMode = themeMode,
+                        onCycleThemeMode = onCycleThemeMode,
                     )
                 }
                 is Route.TopicsList -> NavEntry(key) {
