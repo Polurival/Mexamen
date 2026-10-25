@@ -46,6 +46,9 @@ class FlashcardViewModel(
     private var started = false
     private var startedTopic: String? = null
 
+    /** Индекс уже оценённой карты: пока следующая не показана, повторный тап не пишет оценку дважды. */
+    private var gradedIndex: Int? = null
+
     /**
      * Старт при входе на экран. ViewModel переживает поворот, а композиция пересоздаётся —
      * повторный вызов для того же [topic] не сбрасывает уже начатую сессию (#6).
@@ -59,6 +62,7 @@ class FlashcardViewModel(
     fun start(topic: String? = null) {
         started = true
         startedTopic = topic
+        gradedIndex = null
         _state.value = FlashcardUiState.Loading
         viewModelScope.launch {
             try {
@@ -90,6 +94,8 @@ class FlashcardViewModel(
     fun grade(grade: FlashcardGrade) {
         val current = _state.value as? FlashcardUiState.Card ?: return
         if (!current.revealed) return
+        if (gradedIndex == current.index) return
+        gradedIndex = current.index
         counts[grade] = (counts[grade] ?: 0) + 1
         val recording = viewModelScope.launch { recordAnswer.recordFlashcardGrade(current.entry.id, grade) }
         val next = current.index + 1
