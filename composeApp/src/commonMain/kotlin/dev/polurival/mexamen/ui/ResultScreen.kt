@@ -18,15 +18,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import dev.polurival.mexamen.data.QuestionStats
 import dev.polurival.mexamen.domain.AnsweredQuestion
+import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.DistractorSource
 import dev.polurival.mexamen.domain.QuizResult
 
 @Composable
 fun ResultScreen(
     result: QuizResult,
-    stats: Map<Int, QuestionStats>,
+    attempts: Map<Int, AttemptCounts>,
     onRestart: () -> Unit,
     onHome: () -> Unit,
     modifier: Modifier = Modifier,
@@ -59,7 +59,7 @@ fun ResultScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             items(result.answers) { answered ->
-                AnswerCard(answered, stats[answered.question.entry.id])
+                AnswerCard(answered, attempts[answered.question.entry.id])
             }
         }
         Spacer(Modifier.height(16.dp))
@@ -74,7 +74,7 @@ fun ResultScreen(
 }
 
 @Composable
-internal fun AnswerCard(answered: AnsweredQuestion, stats: QuestionStats? = null) {
+internal fun AnswerCard(answered: AnsweredQuestion, attempts: AttemptCounts? = null) {
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
@@ -102,10 +102,10 @@ internal fun AnswerCard(answered: AnsweredQuestion, stats: QuestionStats? = null
                     color = MaterialTheme.colorScheme.primary,
                 )
             }
-            if (stats != null) {
+            if (attempts != null) {
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    text = "Pasada ${stats.timesShown} ${if (stats.timesShown == 1) "vez" else "veces"} · Correctas: ${stats.timesCorrect}",
+                    text = attempts.label(),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )

@@ -1,5 +1,7 @@
 package dev.polurival.mexamen.ui
 
+import dev.polurival.mexamen.data.QuestionStats
+import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.FlashcardGrade
 import dev.polurival.mexamen.testing.FakeQuestionStatsStore
 import dev.polurival.mexamen.testing.testQuestionRepository
@@ -84,5 +86,16 @@ class FlashcardViewModelTest {
         runCurrent()
 
         assertEquals(0, assertIs<FlashcardUiState.Card>(vm.state.value).index)
+    }
+
+    @Test
+    fun cardCarriesPersistedAttemptCounts() = runTest {
+        val store = FakeQuestionStatsStore()
+        store.update { (1..12).associateWith { QuestionStats(timesShown = 3, timesCorrect = 2, timesWrong = 1) } }
+        val vm = FlashcardViewModel(testQuestionRepository(), store)
+        vm.ensureStarted(null)
+        runCurrent()
+
+        assertEquals(AttemptCounts(timesShown = 3, timesCorrect = 2), assertIs<FlashcardUiState.Card>(vm.state.value).attempts)
     }
 }

@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import dev.polurival.mexamen.data.QuestionEntry
 import dev.polurival.mexamen.data.QuestionRepository
 import dev.polurival.mexamen.data.QuestionStatsStore
+import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.BuildFlashcardsUseCase
 import dev.polurival.mexamen.domain.FlashcardGrade
 import dev.polurival.mexamen.domain.GetRelatedQuestionUseCase
@@ -25,8 +26,7 @@ sealed interface FlashcardUiState {
         val entry: QuestionEntry,
         val revealed: Boolean,
         val relatedEntry: QuestionEntry? = null,
-        val timesShown: Int = 0,
-        val timesCorrect: Int = 0,
+        val attempts: AttemptCounts = AttemptCounts(),
     ) : FlashcardUiState
     data class Done(val counts: Map<FlashcardGrade, Int>) : FlashcardUiState
 }
@@ -71,10 +71,9 @@ class FlashcardViewModel(
                     return@launch
                 }
                 val related = getRelatedQuestion(firstCard)
-                val prior = statsStore.readAll()[firstCard.id]
+                val attempts = AttemptCounts.from(statsStore.readAll()[firstCard.id])
                 _state.value = FlashcardUiState.Card(
-                    0, cards.size, firstCard, revealed = false, relatedEntry = related,
-                    timesShown = prior?.timesShown ?: 0, timesCorrect = prior?.timesCorrect ?: 0,
+                    0, cards.size, firstCard, revealed = false, relatedEntry = related, attempts = attempts,
                 )
             } catch (e: Exception) {
                 _state.value = FlashcardUiState.Error(e.message ?: "Error al cargar las tarjetas")
@@ -99,10 +98,9 @@ class FlashcardViewModel(
                 val nextCard = cards[next]
                 val related = getRelatedQuestion(nextCard)
                 recording.join()
-                val prior = statsStore.readAll()[nextCard.id]
+                val attempts = AttemptCounts.from(statsStore.readAll()[nextCard.id])
                 _state.value = FlashcardUiState.Card(
-                    next, cards.size, nextCard, revealed = false, relatedEntry = related,
-                    timesShown = prior?.timesShown ?: 0, timesCorrect = prior?.timesCorrect ?: 0,
+                    next, cards.size, nextCard, revealed = false, relatedEntry = related, attempts = attempts,
                 )
             }
         } else {

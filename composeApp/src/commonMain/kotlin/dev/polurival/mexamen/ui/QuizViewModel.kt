@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.polurival.mexamen.data.QuestionEntry
 import dev.polurival.mexamen.data.QuestionRepository
-import dev.polurival.mexamen.data.QuestionStats
 import dev.polurival.mexamen.data.QuestionStatsStore
 import dev.polurival.mexamen.domain.AnsweredQuestion
+import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.BuildQuizUseCase
 import dev.polurival.mexamen.domain.GetRelatedQuestionUseCase
 import dev.polurival.mexamen.domain.QuizQuestion
@@ -34,7 +34,8 @@ sealed interface QuizUiState {
         val relatedEntry: QuestionEntry? = null,
     ) : QuizUiState
 
-    data class Result(val result: QuizResult, val stats: Map<Int, QuestionStats> = emptyMap()) : QuizUiState
+    /** [attempts] — кумулятивные счётчики по id вопроса, уже включают ответы этой сессии. */
+    data class Result(val result: QuizResult, val attempts: Map<Int, AttemptCounts> = emptyMap()) : QuizUiState
 }
 
 class QuizViewModel(
@@ -171,7 +172,7 @@ class QuizViewModel(
         val pending = recordJobs.toList()
         viewModelScope.launch {
             pending.forEach { it.join() }
-            _state.value = QuizUiState.Result(result, statsStore.readAll())
+            _state.value = QuizUiState.Result(result, AttemptCounts.fromAll(statsStore.readAll()))
         }
     }
 

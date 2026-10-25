@@ -1,5 +1,6 @@
 package dev.polurival.mexamen.ui
 
+import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.testing.FakeQuestionStatsStore
 import dev.polurival.mexamen.testing.GatedQuestionStatsStore
 import dev.polurival.mexamen.testing.testQuestionRepository
@@ -141,6 +142,24 @@ class QuizViewModelTest {
         assertTrue(result.answers.first().isAnswered)
         assertTrue(result.answers.drop(1).none { it.isAnswered })
         assertEquals(setOf(result.answers.first().question.entry.id), store.readAll().keys)
+    }
+
+    @Test
+    fun resultAttemptsIncludeAnswersOfFinishedSession() = runTest {
+        val vm = viewModel()
+        vm.ensureStarted(null)
+        runCurrent()
+        while (vm.state.value is QuizUiState.Question) {
+            vm.selectAnswer(0)
+            vm.advanceQuestion()
+            runCurrent()
+        }
+
+        val state = assertIs<QuizUiState.Result>(vm.state.value)
+        state.result.answers.forEach { answered ->
+            val expected = AttemptCounts(timesShown = 1, timesCorrect = if (answered.isCorrect) 1 else 0)
+            assertEquals(expected, state.attempts[answered.question.entry.id])
+        }
     }
 
     private companion object {
