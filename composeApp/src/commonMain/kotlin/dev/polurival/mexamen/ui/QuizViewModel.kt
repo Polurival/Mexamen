@@ -53,6 +53,8 @@ class QuizViewModel(
     private var timerJob: Job? = null
     private val recordJobs = mutableListOf<Job>()
     private var started = false
+    /** Сессия завершена (последний ответ или таймаут): до появления Result новые ответы/переходы игнорируются. */
+    private var finished = false
     private var startedTopic: String? = null
 
     /**
@@ -81,6 +83,7 @@ class QuizViewModel(
                 ).build(topic = topic)
                 answers = mutableListOf()
                 recordJobs.clear()
+                finished = false
                 val firstQuestion = quiz.first()
                 val related = getRelatedQuestion(firstQuestion.entry)
                 _state.value = QuizUiState.Question(
@@ -116,12 +119,12 @@ class QuizViewModel(
 
     private fun finishQuiz() {
         timerJob?.cancel()
-        // If timed out, we might have fewer answers than quiz size.
-        // QuizResult handles a list of AnsweredQuestion.
+        // При таймауте ответов меньше, чем вопросов — неотвеченные дополняет QuizResult.of.
         showResult()
     }
 
     fun selectAnswer(optionIndex: Int) {
+        if (finished) return
         val current = _state.value as? QuizUiState.Question ?: return
         if (current.selectedIndex != null) return
         val answered = AnsweredQuestion(current.question, optionIndex)
@@ -131,6 +134,7 @@ class QuizViewModel(
     }
 
     fun advanceQuestion() {
+        if (finished) return
         val current = _state.value as? QuizUiState.Question ?: return
         if (current.selectedIndex == null) return
         advance(current.index)
@@ -143,6 +147,7 @@ class QuizViewModel(
             viewModelScope.launch {
                 val nextQuestion = quiz[next]
                 val related = getRelatedQuestion(nextQuestion.entry)
+                if (finished) return@launch // таймаут, пока грузился связанный вопрос
                 _state.value = QuizUiState.Question(
                     index = next,
                     total = quiz.size,
@@ -160,7 +165,9 @@ class QuizViewModel(
 
     /** Ждёт запись последних ответов, чтобы счётчики в результате включали текущую попытку. */
     private fun showResult() {
-        val result = QuizResult(answers.toList())
+        if (finished) return
+        finished = true
+        val result = QuizResult.of(quiz, answers.toList())
         val pending = recordJobs.toList()
         viewModelScope.launch {
             pending.forEach { it.join() }

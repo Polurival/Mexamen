@@ -61,6 +61,30 @@ class QuizResultTest {
     }
 
     @Test
+    fun ofFillsUnansweredQuestionsAfterTimeout() {
+        val questions = (1..5).map { question(it) }
+        val answers = listOf(
+            AnsweredQuestion(questions[0], chosenIndex = 1),
+            AnsweredQuestion(questions[1], chosenIndex = 0),
+        )
+
+        val result = QuizResult.of(questions, answers)
+
+        assertEquals(5, result.total)
+        assertEquals(1, result.score)
+        assertEquals(questions, result.answers.map { it.question })
+        assertTrue(result.answers.drop(2).all { it.chosenIndex == AnsweredQuestion.NOT_ANSWERED })
+    }
+
+    @Test
+    fun ofWithAllAnsweredKeepsAnswersAsIs() {
+        val questions = (1..2).map { question(it) }
+        val answers = questions.map { AnsweredQuestion(it, chosenIndex = 1) }
+
+        assertEquals(QuizResult(answers), QuizResult.of(questions, answers))
+    }
+
+    @Test
     fun emptyResultHasZeroScoreAndTotal() {
         val result = QuizResult(emptyList())
         assertEquals(0, result.score)

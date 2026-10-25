@@ -22,4 +22,13 @@ data class AnsweredQuestion(
 data class QuizResult(val answers: List<AnsweredQuestion>) {
     val score: Int = answers.count { it.isCorrect }
     val total: Int = answers.size
+
+    companion object {
+        /**
+         * Итог сессии квиза: [answers] идут по порядку [questions], оставшиеся вопросы (таймаут)
+         * добавляются как [AnsweredQuestion.NOT_ANSWERED] — total = размер квиза, они считаются неверными.
+         */
+        fun of(questions: List<QuizQuestion>, answers: List<AnsweredQuestion>): QuizResult =
+            QuizResult(answers + questions.drop(answers.size).map { AnsweredQuestion(it, AnsweredQuestion.NOT_ANSWERED) })
+    }
 }
