@@ -52,9 +52,23 @@ class QuizViewModel(
     private var answers = mutableListOf<AnsweredQuestion>()
     private var timerJob: Job? = null
     private val recordJobs = mutableListOf<Job>()
+    private var started = false
+    private var startedTopic: String? = null
+
+    /**
+     * Старт при входе на экран. ViewModel переживает поворот, а композиция пересоздаётся —
+     * повторный вызов для того же [topic] не сбрасывает уже начатую сессию (#6).
+     * Явный рестарт («Intentar de nuevo»/«Reintentar») — через [startQuiz].
+     */
+    fun ensureStarted(topic: String? = null) {
+        if (started && startedTopic == topic) return
+        startQuiz(topic)
+    }
 
     fun startQuiz(topic: String? = null) {
         if (_state.value is QuizUiState.Loading) return
+        started = true
+        startedTopic = topic
         timerJob?.cancel()
         _state.value = QuizUiState.Loading
         viewModelScope.launch {

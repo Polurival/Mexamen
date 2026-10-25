@@ -206,7 +206,7 @@ private fun AppContent() {
 private fun QuizFlow(topic: String?, onExit: () -> Unit) {
     val viewModel: QuizViewModel = koinViewModel()
     val state by viewModel.state.collectAsState()
-    LaunchedEffect(topic) { viewModel.startQuiz(topic) }
+    LaunchedEffect(topic) { viewModel.ensureStarted(topic) }
     when (val current = state) {
         is QuizUiState.Home -> QuizErrorScreen(
             error = current.error,
@@ -233,7 +233,7 @@ private fun QuizFlow(topic: String?, onExit: () -> Unit) {
 private fun FlashcardFlow(topic: String?, onExit: () -> Unit) {
     val viewModel: FlashcardViewModel = koinViewModel()
     val state by viewModel.state.collectAsState()
-    LaunchedEffect(topic) { viewModel.start(topic) }
+    LaunchedEffect(topic) { viewModel.ensureStarted(topic) }
     when (val current = state) {
         is FlashcardUiState.Loading -> LoadingScreen()
         is FlashcardUiState.Error -> QuizErrorScreen(
