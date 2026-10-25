@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import dev.polurival.mexamen.domain.AttemptCountsFormatter
 import dev.polurival.mexamen.domain.FlashcardGrade
 
 @Composable
@@ -86,7 +87,7 @@ fun FlashcardCardScreen(
                     )
                     Spacer(Modifier.height(12.dp))
                     Text(
-                        text = "Pasada ${state.timesShown} ${if (state.timesShown == 1) "vez" else "veces"} · Correctas: ${state.timesCorrect}",
+                        text = AttemptCountsFormatter.format(state.attempts),
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center,
