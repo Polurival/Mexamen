@@ -1,6 +1,7 @@
 package dev.polurival.mexamen.ui
 
 import dev.polurival.mexamen.domain.AttemptCounts
+import dev.polurival.mexamen.domain.BuildQuizUseCase
 import dev.polurival.mexamen.domain.ExamRules
 import dev.polurival.mexamen.testing.FakeQuestionStatsStore
 import dev.polurival.mexamen.testing.GatedQuestionStatsStore
@@ -19,9 +20,11 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertIs
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 /**
+ * Базовый поток (#18): старт → первый вопрос, единственный ответ на вопрос, итог и запись статистики.
  * Регрессия #6: пересоздание композиции (поворот) не должно перезапускать идущую сессию.
  * Регрессия #8: при таймауте неотвеченные вопросы входят в итог и не пишутся в статистику.
  */
@@ -39,6 +42,82 @@ class QuizViewModelTest {
     }
 
     private fun viewModel() = QuizViewModel(testQuestionRepository(), FakeQuestionStatsStore())
+
+    @Test
+    fun startShowsFirstQuestionOfFullQuiz() = runTest {
+        val vm = viewModel()
+        vm.ensureStarted(null)
+        runCurrent()
+
+        val question = assertIs<QuizUiState.Question>(vm.state.value)
+        assertEquals(0, question.index)
+        assertEquals(BuildQuizUseCase.QUIZ_SIZE, question.total)
+        assertEquals(10, question.total)
+        assertNull(question.selectedIndex)
+        assertEquals(ExamRules.QUIZ_DURATION_SECONDS, question.timeLeftSeconds)
+    }
+
+    @Test
+    fun selectAnswerSetsSelectedIndexAndIgnoresRepeatedAnswer() = runTest {
+        val store = FakeQuestionStatsStore()
+        val vm = QuizViewModel(testQuestionRepository(), store)
+        vm.ensureStarted(null)
+        runCurrent()
+        val first = assertIs<QuizUiState.Question>(vm.state.value)
+        val wrongIndex = (first.question.correctIndex + 1) % first.question.options.size
+
+        vm.selectAnswer(first.question.correctIndex)
+        runCurrent()
+        vm.selectAnswer(wrongIndex)
+        runCurrent()
+
+        val answered = assertIs<QuizUiState.Question>(vm.state.value)
+        assertEquals(0, answered.index)
+        assertEquals(first.question.correctIndex, answered.selectedIndex)
+        val stats = store.readAll().getValue(first.question.entry.id)
+        assertEquals(1, stats.timesShown)
+        assertEquals(1, stats.timesCorrect)
+        assertEquals(0, stats.timesWrong)
+    }
+
+    @Test
+    fun tenAnswersShowResultWithScoreAndRecordStatsForEachQuestion() = runTest {
+        val store = FakeQuestionStatsStore()
+        val vm = QuizViewModel(testQuestionRepository(), store)
+        vm.ensureStarted(null)
+        runCurrent()
+        val expectedCorrect = mutableMapOf<Int, Boolean>()
+        repeat(BuildQuizUseCase.QUIZ_SIZE) { i ->
+            val question = assertIs<QuizUiState.Question>(vm.state.value)
+            assertEquals(i, question.index)
+            // Чётные — верно, нечётные — неверно: ожидаемый score = половина квиза.
+            val correct = i % 2 == 0
+            val choice = if (correct) {
+                question.question.correctIndex
+            } else {
+                (question.question.correctIndex + 1) % question.question.options.size
+            }
+            expectedCorrect[question.question.entry.id] = correct
+            vm.selectAnswer(choice)
+            vm.advanceQuestion()
+            runCurrent()
+        }
+
+        val state = assertIs<QuizUiState.Result>(vm.state.value)
+        assertEquals(10, state.result.total)
+        assertEquals(5, state.result.score)
+        assertTrue(state.result.answers.all { it.isAnswered })
+        assertFalse(state.passed)
+        val stats = store.readAll()
+        assertEquals(10, stats.size)
+        assertEquals(expectedCorrect.keys, stats.keys)
+        expectedCorrect.forEach { (id, correct) ->
+            val s = stats.getValue(id)
+            assertEquals(1, s.timesShown)
+            assertEquals(if (correct) 1 else 0, s.timesCorrect)
+            assertEquals(if (correct) 0 else 1, s.timesWrong)
+        }
+    }
 
     @Test
     fun repeatedEnsureStartedKeepsCurrentQuestion() = runTest {
