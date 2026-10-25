@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.polurival.mexamen.domain.StatsSummary
+import dev.polurival.mexamen.domain.TopicAccuracyFormatter
 import dev.polurival.mexamen.domain.TopicStatsSummary
 
 /**
@@ -136,6 +137,11 @@ private fun TopicStatCard(topic: TopicStatsSummary) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = topic.topic, style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(4.dp))
+            Text(
+                text = TopicAccuracyFormatter.format(topic.correctRatio),
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.primary,
+            )
             Text(
                 text = "Preguntas intentadas: ${topic.attemptedQuestions} de ${topic.totalQuestions}",
                 style = MaterialTheme.typography.bodyMedium,
