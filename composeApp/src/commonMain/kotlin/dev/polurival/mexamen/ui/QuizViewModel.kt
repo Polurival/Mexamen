@@ -52,9 +52,18 @@ class QuizViewModel(
     private var answers = mutableListOf<AnsweredQuestion>()
     private var timerJob: Job? = null
     private val recordJobs = mutableListOf<Job>()
+    private var started = false
+    private var startedTopic: String? = null
 
-    fun startQuiz(topic: String? = null) {
+    /**
+     * Повторный вызов для того же [topic] при уже начатой сессии игнорируется: ViewModel
+     * переживает поворот, а `LaunchedEffect` в `QuizFlow` срабатывает снова. [restart] — явный рестарт.
+     */
+    fun startQuiz(topic: String? = null, restart: Boolean = false) {
         if (_state.value is QuizUiState.Loading) return
+        if (!restart && started && startedTopic == topic) return
+        started = true
+        startedTopic = topic
         timerJob?.cancel()
         _state.value = QuizUiState.Loading
         viewModelScope.launch {

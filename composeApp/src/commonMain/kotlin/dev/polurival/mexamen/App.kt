@@ -210,7 +210,7 @@ private fun QuizFlow(topic: String?, onExit: () -> Unit) {
     when (val current = state) {
         is QuizUiState.Home -> QuizErrorScreen(
             error = current.error,
-            onRetry = { viewModel.startQuiz(topic) },
+            onRetry = { viewModel.startQuiz(topic, restart = true) },
             onHome = onExit,
         )
         is QuizUiState.Loading -> LoadingScreen()
@@ -223,7 +223,7 @@ private fun QuizFlow(topic: String?, onExit: () -> Unit) {
         is QuizUiState.Result -> ResultScreen(
             result = current.result,
             stats = current.stats,
-            onRestart = { viewModel.startQuiz(topic) },
+            onRestart = { viewModel.startQuiz(topic, restart = true) },
             onHome = onExit,
         )
     }
@@ -238,7 +238,7 @@ private fun FlashcardFlow(topic: String?, onExit: () -> Unit) {
         is FlashcardUiState.Loading -> LoadingScreen()
         is FlashcardUiState.Error -> QuizErrorScreen(
             error = current.message,
-            onRetry = { viewModel.start(topic) },
+            onRetry = { viewModel.start(topic, restart = true) },
             onHome = onExit,
         )
         is FlashcardUiState.Card -> FlashcardCardScreen(

@@ -43,8 +43,17 @@ class FlashcardViewModel(
     private val getRelatedQuestion = GetRelatedQuestionUseCase(repository)
     private var cards: List<QuestionEntry> = emptyList()
     private val counts = mutableMapOf<FlashcardGrade, Int>()
+    private var started = false
+    private var startedTopic: String? = null
 
-    fun start(topic: String? = null) {
+    /**
+     * Повторный вызов для того же [topic] при уже начатой сессии игнорируется: ViewModel
+     * переживает поворот, а `LaunchedEffect` в `FlashcardFlow` срабатывает снова. [restart] — явный рестарт.
+     */
+    fun start(topic: String? = null, restart: Boolean = false) {
+        if (!restart && started && startedTopic == topic) return
+        started = true
+        startedTopic = topic
         _state.value = FlashcardUiState.Loading
         viewModelScope.launch {
             try {
