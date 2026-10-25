@@ -28,6 +28,7 @@ fun HomeScreen(
     onOpenLegends: () -> Unit,
     onOpenInterview: () -> Unit,
     onOpenStats: () -> Unit,
+    onOpenQuestionBank: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -71,6 +72,13 @@ fun HomeScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Estadísticas")
+            }
+            Spacer(Modifier.height(8.dp))
+            OutlinedButton(
+                onClick = onOpenQuestionBank,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Banco de preguntas")
             }
         }
 

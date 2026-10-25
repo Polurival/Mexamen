@@ -25,6 +25,9 @@ sealed class Route : NavKey {
     data object Stats : Route()
 
     @Serializable
+    data object QuestionBank : Route()
+
+    @Serializable
     data object LegendsList : Route()
 
     @Serializable
