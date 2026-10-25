@@ -16,22 +16,20 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.polurival.mexamen.ui.navigation.SessionType
 
+/** Список тем для выбора сессии: только отрисовка [state], выбор темы и «назад» — через лямбды. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopicsListScreen(
-    viewModel: TopicsViewModel,
+    state: TopicsUiState,
     sessionType: SessionType,
     onTopicSelected: (String?) -> Unit,
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val state by viewModel.state.collectAsState()
     val title = when (sessionType) {
         SessionType.QUIZ -> "Temas del Quiz"
         SessionType.FLASHCARDS -> "Temas de Tarjetas"

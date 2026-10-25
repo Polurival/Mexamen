@@ -121,8 +121,9 @@ private fun AppContent() {
                 }
                 is Route.TopicsList -> NavEntry(key) {
                     val viewModel: TopicsViewModel = koinViewModel()
+                    val state by viewModel.state.collectAsState()
                     TopicsListScreen(
-                        viewModel = viewModel,
+                        state = state,
                         sessionType = key.sessionType,
                         onTopicSelected = { topic ->
                             val nextRoute = when (key.sessionType) {
@@ -154,11 +155,17 @@ private fun AppContent() {
                 }
                 Route.Stats -> NavEntry(key) {
                     val viewModel: StatsViewModel = koinViewModel()
-                    StatsScreen(viewModel = viewModel, onBack = { 
-                        if (backStack.size > 1) {
-                            backStack.removeAt(backStack.size - 1)
-                        }
-                    })
+                    val state by viewModel.state.collectAsState()
+                    LaunchedEffect(Unit) { viewModel.load() }
+                    StatsScreen(
+                        state = state,
+                        onResetStats = viewModel::resetStats,
+                        onBack = {
+                            if (backStack.size > 1) {
+                                backStack.removeAt(backStack.size - 1)
+                            }
+                        },
+                    )
                 }
                 Route.LegendsList -> NavEntry(key) {
                     LegendsListScreen(
