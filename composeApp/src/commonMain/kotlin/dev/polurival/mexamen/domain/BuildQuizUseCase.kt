@@ -27,8 +27,9 @@ class BuildQuizUseCase(
 
     suspend fun build(count: Int = QUIZ_SIZE, topic: String? = null): List<QuizQuestion> {
         val stats = statsStore?.readAll() ?: emptyMap()
-        val pool = if (topic == null) dataset.entries else dataset.entriesByTopic(topic)
-        val picked = WeightedQuestionPicker(random).pick(pool, stats, count, nowMillis)
+        val pool = SessionPoolSelector.select(dataset, topic, stats, count)
+        val picked = WeightedQuestionPicker(random).pick(pool.entries, stats, pool.sessionSize, nowMillis)
+        if (picked.isEmpty()) return emptyList()
         val ragNeighbors = picked.associate { entry ->
             entry.id to store.topK(entry.id, RAG_TOP_K).map { byId.getValue(it.id) }
         }

@@ -18,6 +18,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.polurival.mexamen.domain.SessionPoolSelector
 import dev.polurival.mexamen.ui.navigation.SessionType
 
 /** Список тем для выбора перед квизом/карточками. Stateless: данные приходят в [state]. */
@@ -70,6 +71,14 @@ fun TopicsListScreen(
                     )
                     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
                 }
+
+                item {
+                    MistakesItem(
+                        count = state.mistakesCount,
+                        onClick = { onTopicSelected(SessionPoolSelector.TOPIC_MISTAKES) }
+                    )
+                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+                }
                 
                 item {
                     Text(
@@ -117,23 +126,55 @@ private fun TopicItem(
     count: Int,
     onClick: () -> Unit,
 ) {
+    TopicListItem(title = title, subtitle = questionsLabel(count), enabled = true, onClick = onClick)
+}
+
+/** «Repasar errores»: при [count] == 0 неактивен с подписью «Sin errores todavía». */
+@Composable
+private fun MistakesItem(
+    count: Int,
+    onClick: () -> Unit,
+) {
+    val enabled = count > 0
+    TopicListItem(
+        title = SessionPoolSelector.TOPIC_MISTAKES,
+        subtitle = if (enabled) questionsLabel(count) else "Sin errores todavía",
+        enabled = enabled,
+        onClick = onClick,
+    )
+}
+
+@Composable
+private fun TopicListItem(
+    title: String,
+    subtitle: String,
+    enabled: Boolean,
+    onClick: () -> Unit,
+) {
+    val alpha = if (enabled) 1f else DISABLED_ALPHA
     ListItem(
         headlineContent = {
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = alpha)
             )
         },
         supportingContent = {
             Text(
-                text = "$count preguntas",
+                text = subtitle,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = alpha)
             )
         },
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            .clickable(enabled = enabled, onClick = onClick)
             .padding(vertical = 4.dp)
     )
 }
+
+private fun questionsLabel(count: Int): String = "$count preguntas"
+
+/** Прозрачность неактивного пункта (как у отключённых компонентов Material3). */
+private const val DISABLED_ALPHA = 0.38f

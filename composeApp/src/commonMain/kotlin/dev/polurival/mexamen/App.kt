@@ -121,6 +121,7 @@ private fun AppContent() {
                 is Route.TopicsList -> NavEntry(key) {
                     val viewModel: TopicsViewModel = koinViewModel()
                     val state by viewModel.state.collectAsState()
+                    LaunchedEffect(Unit) { viewModel.load() }
                     TopicsListScreen(
                         state = state,
                         sessionType = key.sessionType,

@@ -85,6 +85,10 @@ class QuizViewModel(
                     statsStore = statsStore,
                     distractorGenerator = distractorGenerator
                 ).build(topic = topic)
+                if (quiz.isEmpty()) {
+                    _state.value = QuizUiState.Home(error = "No hay preguntas")
+                    return@launch
+                }
                 answers = mutableListOf()
                 recordJobs.clear()
                 finished = false

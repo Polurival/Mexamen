@@ -9,6 +9,7 @@ launch
 expect: Comenzar quiz
 tap: Comenzar quiz
 expect: Todos los temas
+expect: Sin errores todavía
 tap: Todos los temas
 expect: Pregunta 1 de 10
 repeat 10:
@@ -23,4 +24,4 @@ back
 expect: Prepárate para el examen de naturalización
 ```
 
-**Ожидание:** 10 вопросов подряд, после ответа показан блок «Explicación» и кнопка «Siguiente»; в конце «Resultado: N/10»; «Volver al inicio» закрывает сессию и возвращает к списку тем (штатное поведение), «назад» — на главную.
+**Ожидание:** на чистом состоянии пункт «Repasar errores» неактивен с подписью «Sin errores todavía»; 10 вопросов подряд, после ответа показан блок «Explicación» и кнопка «Siguiente»; в конце «Resultado: N/10»; «Volver al inicio» закрывает сессию и возвращает к списку тем (штатное поведение), «назад» — на главную.

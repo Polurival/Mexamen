@@ -21,8 +21,8 @@ class BuildFlashcardsUseCase(
         nowMillis: Long = currentTimeMillis(),
     ): List<QuestionEntry> {
         val stats = statsStore.readAll()
-        val pool = if (topic == null) dataset.entries else dataset.entriesByTopic(topic)
-        return WeightedQuestionPicker(random).pick(pool, stats, count, nowMillis)
+        val pool = SessionPoolSelector.select(dataset, topic, stats, count)
+        return WeightedQuestionPicker(random).pick(pool.entries, stats, pool.sessionSize, nowMillis)
     }
 
     companion object {
