@@ -82,7 +82,7 @@ val legendMaiz = Legend(
         LegendQuestion(3, "¿Cómo usó Quetzalcóatl su inteligencia y astucia para conseguir el maíz?", listOf("se convirtió en una ave", "subió las montañas", "pidió ayuda a los dioses", "se transformó en una hormiga negra"), 3),
         LegendQuestion(4, "¿Qué hizo Quetzalcóatl en la cima de la montaña?", listOf("cogió entre sus mandíbulas un grano maduro de maíz", "se dio por vencido", "empezó a pensar en su pueblo", "agarró el grano de maíz con sus manos"), 0),
         LegendQuestion(5, "¿Qué hicieron los indígenas después de que Quetzalcóatl les entregara el prometido grano de maíz?", listOf("compartieron la semilla con otros pueblos", "tuvieron maíz para alimentarse", "veneraron a Huitzilopochtli", "hicieron una celebración"), 1),
-        LegendQuestion(6, "¿Por qué los azтеcas veneraron al dios Quetzalcóatl?", listOf("porque provocó la lluvia", "porque les trajo el maíz", "porque los defendió de sus enemigos", "porque les ayudó a construir ciudades, palacios, templos"), 1)
+        LegendQuestion(6, "¿Por qué los aztecas veneraron al dios Quetzalcóatl?", listOf("porque provocó la lluvia", "porque les trajo el maíz", "porque los defendió de sus enemigos", "porque les ayudó a construir ciudades, palacios, templos"), 1)
     )
 )
 
@@ -152,7 +152,7 @@ val legendMayab = Legend(
 
 val legendMujerDormida = Legend(
     id = "mujer-dormida",
-    title = "La Mujer Dormida y el cerро Popocatepetl",
+    title = "La Mujer Dormida y el cerro Popocatepetl",
     text = """
         Tonatiuh, el Dios Sol, vivía con su familia en el cielo allí donde no se conocía la oscuridad, ni la angustia. El hijo del Dios Sol era el príncipe Izcozauhqui a quien le encantaban los jardines. Un día el príncipe oyó hablar de los lindos jardines del señor Tonacatecuhtli así que curioso fue a conocerlos. Las plantas allí parecían más verdes y los prados frescos y cubiertos de rocío. Al descubrir una laguna resplandeciente se acercó a verla y allí se encontró con una mujer que salía de las aguas ataviada con vestidos de plata. Se enamoraron de inmediato ante el beneplácito de los dioses. 
 

@@ -14,7 +14,7 @@ val interviewQuestions = listOf(
     InterviewQuestion("p1", "¿Cuántos años tiene?", "Información Personal y Antecedentes"),
     InterviewQuestion("p2", "¿De dónde es originario?", "Información Personal y Antecedentes"),
     InterviewQuestion("p3", "¿Cuál es su estado civil?", "Información Personal y Antecedentes"),
-    InterviewQuestion("p4", "¿A qué se dedicaba antes и a qué se dedica ahora?", "Información Personal y Antecedentes"),
+    InterviewQuestion("p4", "¿A qué se dedicaba antes y a qué se dedica ahora?", "Información Personal y Antecedentes"),
 
     // Inmigración y Residencia
     InterviewQuestion("i1", "¿Cuándo llegó a México?", "Inmigración y Residencia"),
