@@ -9,3 +9,7 @@ import androidx.compose.runtime.Composable
 actual fun platformColorScheme(darkTheme: Boolean): ColorScheme {
     return if (darkTheme) darkColorScheme() else lightColorScheme()
 }
+
+/** В браузере системных баров нет. */
+@Composable
+actual fun PlatformSystemBarsAppearance(darkTheme: Boolean) = Unit

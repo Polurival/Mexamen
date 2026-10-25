@@ -1,5 +1,6 @@
 package dev.polurival.mexamen.ui
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,15 +11,19 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-
+import dev.polurival.mexamen.data.ThemeMode
+import dev.polurival.mexamen.domain.ThemeModeResolver
 import dev.polurival.mexamen.ui.navigation.SessionType
 
 @Composable
@@ -29,6 +34,8 @@ fun HomeScreen(
     onOpenInterview: () -> Unit,
     onOpenStats: () -> Unit,
     onOpenQuestionBank: () -> Unit,
+    themeMode: ThemeMode,
+    onCycleThemeMode: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -38,7 +45,17 @@ fun HomeScreen(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Spacer(Modifier.height(32.dp))
+        Box(modifier = Modifier.fillMaxWidth()) {
+            IconButton(
+                onClick = onCycleThemeMode,
+                modifier = Modifier.align(Alignment.CenterEnd),
+            ) {
+                Icon(
+                    imageVector = themeModeIcon(themeMode),
+                    contentDescription = ThemeModeResolver.toggleDescription(themeMode),
+                )
+            }
+        }
         Text(
             text = "Mexamen",
             style = MaterialTheme.typography.displayMedium,
@@ -106,6 +123,12 @@ fun HomeScreen(
 
         Spacer(Modifier.height(32.dp))
     }
+}
+
+private fun themeModeIcon(mode: ThemeMode): ImageVector = when (mode) {
+    ThemeMode.SYSTEM -> AppIcons.ThemeSystem
+    ThemeMode.LIGHT -> AppIcons.ThemeLight
+    ThemeMode.DARK -> AppIcons.ThemeDark
 }
 
 @Composable
