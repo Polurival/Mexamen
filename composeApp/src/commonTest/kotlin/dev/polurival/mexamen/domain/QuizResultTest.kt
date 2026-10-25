@@ -35,6 +35,32 @@ class QuizResultTest {
     }
 
     @Test
+    fun answeredQuestionIsAnsweredOnlyForValidOptionIndex() {
+        assertTrue(AnsweredQuestion(question(1), chosenIndex = 0).isAnswered)
+        assertTrue(AnsweredQuestion(question(1), chosenIndex = 3).isAnswered)
+        assertFalse(AnsweredQuestion(question(1), chosenIndex = AnsweredQuestion.NOT_ANSWERED).isAnswered)
+        assertFalse(AnsweredQuestion(question(1), chosenIndex = 4).isAnswered)
+    }
+
+    @Test
+    fun unansweredQuestionIsNeverCorrectEvenWithInvalidCorrectIndex() {
+        val broken = question(1, correctIndex = AnsweredQuestion.NOT_ANSWERED)
+        assertFalse(AnsweredQuestion(broken, chosenIndex = AnsweredQuestion.NOT_ANSWERED).isCorrect)
+    }
+
+    @Test
+    fun resultCountsUnansweredInTotalButNotInScore() {
+        val result = QuizResult(
+            listOf(
+                AnsweredQuestion(question(1), chosenIndex = 1),
+                AnsweredQuestion(question(2), chosenIndex = AnsweredQuestion.NOT_ANSWERED),
+            ),
+        )
+        assertEquals(1, result.score)
+        assertEquals(2, result.total)
+    }
+
+    @Test
     fun emptyResultHasZeroScoreAndTotal() {
         val result = QuizResult(emptyList())
         assertEquals(0, result.score)

@@ -95,6 +95,7 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
     }
 
     fun selectAnswer(questionId: Int, answerIndex: Int) {
+        if (_state.value.isFinished) return // после завершения ответы не меняют результат
         _state.update {
             val newAnswers = it.userAnswers.toMutableMap()
             newAnswers[questionId] = answerIndex
@@ -161,7 +162,7 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
     fun getResult(): QuizResult {
         val legend = _state.value.legend ?: return QuizResult(emptyList())
         val answers = legend.questions.map { question ->
-            val chosenIndex = _state.value.userAnswers[question.id] ?: -1
+            val chosenIndex = _state.value.userAnswers[question.id] ?: AnsweredQuestion.NOT_ANSWERED
             AnsweredQuestion(
                 question = QuizQuestion(
                     entry = QuestionEntry(

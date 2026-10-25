@@ -82,7 +82,8 @@ internal fun AnswerCard(answered: AnsweredQuestion, stats: QuestionStats? = null
                 style = MaterialTheme.typography.titleSmall,
             )
             Spacer(Modifier.height(8.dp))
-            val chosen = answered.question.options[answered.chosenIndex]
+            // Неотвеченный вопрос (легенда) не имеет выбранного варианта — индексировать options нельзя.
+            val chosen = if (answered.isAnswered) answered.question.options[answered.chosenIndex] else "Sin respuesta"
             if (answered.isCorrect) {
                 Text(
                     text = "✓ $chosen",
