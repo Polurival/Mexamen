@@ -48,6 +48,7 @@ import dev.polurival.mexamen.ui.StatsScreen
 import dev.polurival.mexamen.ui.StatsViewModel
 import dev.polurival.mexamen.ui.TopicsListScreen
 import dev.polurival.mexamen.ui.TopicsViewModel
+import dev.polurival.mexamen.ui.navigation.BrowserHistorySync
 import dev.polurival.mexamen.ui.navigation.Route
 import dev.polurival.mexamen.ui.navigation.SessionType
 import kotlinx.serialization.modules.SerializersModule
@@ -96,6 +97,7 @@ private fun AppContent() {
     val backStack = rememberNavBackStack(configuration = navigationConfig, Route.Home)
     val viewModelStoreDecorator = rememberViewModelStoreNavEntryDecorator<NavKey>()
     val saveableStateDecorator = rememberSaveableStateHolderNavEntryDecorator<NavKey>()
+    BrowserHistorySync(backStack)
 
     NavDisplay(
         backStack = backStack,
