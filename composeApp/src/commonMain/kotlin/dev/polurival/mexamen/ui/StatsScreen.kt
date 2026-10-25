@@ -133,6 +133,7 @@ private fun TopicStatCard(topic: TopicStatsSummary) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = topic.topic, style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(4.dp))
+            Text(text = topic.accuracyLabel(), style = MaterialTheme.typography.bodyLarge)
             Text(
                 text = "Preguntas intentadas: ${topic.attemptedQuestions} de ${topic.totalQuestions}",
                 style = MaterialTheme.typography.bodyMedium,

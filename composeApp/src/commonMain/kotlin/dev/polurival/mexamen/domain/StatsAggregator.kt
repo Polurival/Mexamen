@@ -18,10 +18,29 @@ data class TopicStatsSummary(
     val attemptedQuestions: Int,
     val answersGiven: Int,
     val correctAnswers: Int,
-)
+) {
+    /** Доля верных ответов по теме в диапазоне 0..1; `null`, если по теме ещё не было ответов. */
+    val correctRatio: Double? =
+        if (answersGiven == 0) null else correctAnswers.toDouble() / answersGiven
+
+    /**
+     * Подпись точности для карточки темы: «Aciertos: NN %» или «Sin respuestas».
+     * Процент округляется вниз, чтобы не показывать 100 %, пока есть хоть одна ошибка.
+     */
+    fun accuracyLabel(): String =
+        if (answersGiven == 0) NO_ANSWERS_LABEL else "Aciertos: ${correctAnswers * 100 / answersGiven} %"
+
+    companion object {
+        private const val NO_ANSWERS_LABEL = "Sin respuestas"
+    }
+}
 
 /** Агрегация persisted per-question статистики для экрана статистики. Кумулятивно за всё время. */
 object StatsAggregator {
+    /**
+     * Сводка по темам, от слабых к сильным: сначала темы с ответами по возрастанию доли верных
+     * (при равенстве — по имени), затем темы без ответов по имени.
+     */
     fun byTopic(entries: List<QuestionEntry>, stats: Map<Int, QuestionStats>): List<TopicStatsSummary> =
         entries.groupBy { it.section }.map { (topic, group) ->
             val groupStats = group.mapNotNull { stats[it.id] }
@@ -32,7 +51,7 @@ object StatsAggregator {
                 answersGiven = groupStats.sumOf { it.timesShown },
                 correctAnswers = groupStats.sumOf { it.timesCorrect },
             )
-        }
+        }.sortedWith(WEAKEST_FIRST)
 
     fun summarize(datasetSize: Int, stats: Map<Int, QuestionStats>): StatsSummary {
         val attempted = stats.count { (_, s) -> s.timesShown > 0 }
@@ -44,4 +63,9 @@ object StatsAggregator {
             neverAttempted = (datasetSize - attempted).coerceAtLeast(0),
         )
     }
+
+    private val WEAKEST_FIRST: Comparator<TopicStatsSummary> =
+        compareBy<TopicStatsSummary> { it.correctRatio == null }
+            .thenBy { it.correctRatio ?: 0.0 }
+            .thenBy { it.topic }
 }
