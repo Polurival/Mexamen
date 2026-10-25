@@ -81,8 +81,8 @@ class QuestionRepositoryParsingTest {
     @Test
     fun getQuestionsByTopicHandlesVirtualAndRealTopics() = runTest {
         val repo = TestDatasetBytes.repository(entries, vectors)
-        assertEquals(listOf(1), repo.getQuestionsByTopic("Fechas (Даты)").map { it.id })
-        assertEquals(listOf(2), repo.getQuestionsByTopic("Personajes (Люди)").map { it.id })
+        assertEquals(listOf(1), repo.getQuestionsByTopic("Fechas").map { it.id })
+        assertEquals(listOf(2), repo.getQuestionsByTopic("Personajes").map { it.id })
         assertEquals(listOf(3), repo.getQuestionsByTopic("Geografía").map { it.id })
         assertEquals(3, repo.getTotalQuestionsCount())
     }
@@ -90,7 +90,7 @@ class QuestionRepositoryParsingTest {
     @Test
     fun getVirtualTopicsReportsCounts() = runTest {
         val topics = TestDatasetBytes.repository(entries, vectors).getVirtualTopics()
-        assertEquals(listOf("Fechas (Даты)", "Personajes (Люди)", "Eventos (События)"), topics.map { it.name })
+        assertEquals(listOf("Fechas", "Personajes", "Eventos"), topics.map { it.name })
         assertEquals(listOf(1, 1, 1), topics.map { it.questionCount })
     }
 }

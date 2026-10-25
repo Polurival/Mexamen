@@ -57,19 +57,19 @@ class BuildFlashcardsUseCaseTest {
 
     @Test
     fun buildFiltersByVirtualDateTopic() = runTest {
-        val cards = useCase().build(dataset, FlashcardsReadOnlyStore(), count = 2, topic = "Fechas (Даты)", nowMillis = 0L)
+        val cards = useCase().build(dataset, FlashcardsReadOnlyStore(), count = 2, topic = "Fechas", nowMillis = 0L)
         assertEquals(setOf(10, 12), cards.map { it.id }.toSet())
     }
 
     @Test
     fun buildFiltersByVirtualPeopleTopic() = runTest {
-        val cards = useCase().build(dataset, FlashcardsReadOnlyStore(), count = 1, topic = "Personajes (Люди)", nowMillis = 0L)
+        val cards = useCase().build(dataset, FlashcardsReadOnlyStore(), count = 1, topic = "Personajes", nowMillis = 0L)
         assertEquals(listOf(11), cards.map { it.id })
     }
 
     @Test
     fun buildFiltersByVirtualEventTopic() = runTest {
-        val cards = useCase().build(dataset, FlashcardsReadOnlyStore(), count = 1, topic = "Eventos (События)", nowMillis = 0L)
+        val cards = useCase().build(dataset, FlashcardsReadOnlyStore(), count = 1, topic = "Eventos", nowMillis = 0L)
         assertEquals(listOf(12), cards.map { it.id })
     }
 

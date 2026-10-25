@@ -29,9 +29,9 @@ class BuildQuizUseCase(
         val stats = statsStore?.readAll() ?: emptyMap()
         val pool = when (topic) {
             null -> dataset.entries
-            "Fechas (Даты)" -> dataset.entries.filter { QuestionEntry.isDate(it) }
-            "Personajes (Люди)" -> dataset.entries.filter { QuestionEntry.isPeople(it) }
-            "Eventos (События)" -> dataset.entries.filter { QuestionEntry.isEvent(it) }
+            QuestionEntry.TOPIC_DATES -> dataset.entries.filter { QuestionEntry.isDate(it) }
+            QuestionEntry.TOPIC_PEOPLE -> dataset.entries.filter { QuestionEntry.isPeople(it) }
+            QuestionEntry.TOPIC_EVENTS -> dataset.entries.filter { QuestionEntry.isEvent(it) }
             else -> dataset.entries.filter { it.section == topic }
         }
         val picked = WeightedQuestionPicker(random).pick(pool, stats, count, nowMillis)

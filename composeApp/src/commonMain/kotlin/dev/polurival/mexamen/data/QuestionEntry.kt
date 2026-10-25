@@ -14,6 +14,11 @@ data class QuestionEntry(
     val explanation: String? = null,
 ) {
     companion object {
+        /** Названия «виртуальных» тем: показываются в UI как есть и служат ключом фильтра. */
+        const val TOPIC_DATES = "Fechas"
+        const val TOPIC_PEOPLE = "Personajes"
+        const val TOPIC_EVENTS = "Eventos"
+
         fun isDate(entry: QuestionEntry): Boolean {
             val dateRegex = Regex("\\d{4}")
             return entry.question.contains("¿Cuándo", ignoreCase = true) ||

@@ -45,18 +45,18 @@ class QuestionRepository(
         val events = entries.filter { QuestionEntry.isEvent(it) }
         
         return listOf(
-            Topic("Fechas (Даты)", dates.size),
-            Topic("Personajes (Люди)", people.size),
-            Topic("Eventos (События)", events.size)
+            Topic(QuestionEntry.TOPIC_DATES, dates.size),
+            Topic(QuestionEntry.TOPIC_PEOPLE, people.size),
+            Topic(QuestionEntry.TOPIC_EVENTS, events.size)
         )
     }
 
     suspend fun getQuestionsByTopic(topicName: String): List<QuestionEntry> {
         val all = dataset().entries
         return when (topicName) {
-            "Fechas (Даты)" -> all.filter { QuestionEntry.isDate(it) }
-            "Personajes (Люди)" -> all.filter { QuestionEntry.isPeople(it) }
-            "Eventos (События)" -> all.filter { QuestionEntry.isEvent(it) }
+            QuestionEntry.TOPIC_DATES -> all.filter { QuestionEntry.isDate(it) }
+            QuestionEntry.TOPIC_PEOPLE -> all.filter { QuestionEntry.isPeople(it) }
+            QuestionEntry.TOPIC_EVENTS -> all.filter { QuestionEntry.isEvent(it) }
             else -> all.filter { it.section == topicName }
         }
     }
