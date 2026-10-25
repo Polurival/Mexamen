@@ -7,6 +7,7 @@ import dev.polurival.mexamen.data.QuestionEntry
 import dev.polurival.mexamen.data.allLegends
 import dev.polurival.mexamen.domain.AnsweredQuestion
 import dev.polurival.mexamen.domain.DistractorSource
+import dev.polurival.mexamen.domain.PassCriteria
 import dev.polurival.mexamen.domain.QuizQuestion
 import dev.polurival.mexamen.domain.QuizResult
 import kotlinx.coroutines.Job
@@ -37,7 +38,7 @@ enum class AudioState {
 data class LegendUiState(
     val legend: Legend? = null,
     val userAnswers: Map<Int, Int> = emptyMap(), // questionId to optionIndex
-    val timeLeftSeconds: Int = 600, // 10 minutes
+    val timeLeftSeconds: Int = LegendViewModel.TIME_LIMIT_SECONDS,
     val isFinished: Boolean = false,
     val audioState: AudioState = AudioState.STOPPED,
     val currentWordRange: IntRange? = null,
@@ -59,7 +60,7 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
             _state.update { it.copy(
                 legend = legend,
                 userAnswers = emptyMap(),
-                timeLeftSeconds = 600,
+                timeLeftSeconds = TIME_LIMIT_SECONDS,
                 isFinished = false,
                 audioState = AudioState.STOPPED,
                 currentWordRange = null,
@@ -76,7 +77,7 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
             val jsonString = bytes.decodeToString()
             Json.decodeFromString<List<WordTiming>>(jsonString)
         } catch (e: Exception) {
-            println("Error loading metadata for $legendId: ${e.message}")
+            // Нет/битые тайминги — тихий fallback: аудио играет без подсветки слов
             null
         }
     }
@@ -158,6 +159,9 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
         _state.update { it.copy(audioState = AudioState.STOPPED, currentWordRange = null) }
     }
 
+    /** Решение «сдал/не сдал» для итога теста по легенде — по [PassCriteria]. */
+    fun isPassed(result: QuizResult): Boolean = PassCriteria.isLegendPassed(result)
+
     fun getResult(): QuizResult {
         val legend = _state.value.legend ?: return QuizResult(emptyList())
         val answers = legend.questions.map { question ->
@@ -186,5 +190,10 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
         super.onCleared()
         audioPlayer.release()
         timerJob?.cancel()
+    }
+
+    companion object {
+        /** Лимит времени на тест по легенде (10 минут). */
+        const val TIME_LIMIT_SECONDS = 600
     }
 }

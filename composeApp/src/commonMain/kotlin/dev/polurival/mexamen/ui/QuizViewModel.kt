@@ -9,6 +9,7 @@ import dev.polurival.mexamen.domain.AnsweredQuestion
 import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.BuildQuizUseCase
 import dev.polurival.mexamen.domain.GetRelatedQuestionUseCase
+import dev.polurival.mexamen.domain.PassCriteria
 import dev.polurival.mexamen.domain.QuizQuestion
 import dev.polurival.mexamen.domain.QuizResult
 import dev.polurival.mexamen.domain.RecordAnswerUseCase
@@ -30,12 +31,19 @@ sealed interface QuizUiState {
         val total: Int,
         val question: QuizQuestion,
         val selectedIndex: Int?,
-        val timeLeftSeconds: Int = 600,
+        val timeLeftSeconds: Int = QuizViewModel.TIME_LIMIT_SECONDS,
         val relatedEntry: QuestionEntry? = null,
     ) : QuizUiState
 
-    /** [attempts] — счётчики попыток по id вопроса (только для вопросов с сохранённой статистикой). */
-    data class Result(val result: QuizResult, val attempts: Map<Int, AttemptCounts> = emptyMap()) : QuizUiState
+    /**
+     * [attempts] — счётчики попыток по id вопроса (только для вопросов с сохранённой статистикой);
+     * [passed] — решение «сдал/не сдал» по [PassCriteria].
+     */
+    data class Result(
+        val result: QuizResult,
+        val passed: Boolean,
+        val attempts: Map<Int, AttemptCounts> = emptyMap(),
+    ) : QuizUiState
 }
 
 class QuizViewModel(
@@ -87,7 +95,7 @@ class QuizViewModel(
                     total = quiz.size,
                     question = firstQuestion,
                     selectedIndex = null,
-                    timeLeftSeconds = 600,
+                    timeLeftSeconds = TIME_LIMIT_SECONDS,
                     relatedEntry = related
                 )
                 startTimer()
@@ -148,7 +156,7 @@ class QuizViewModel(
                     total = quiz.size,
                     question = nextQuestion,
                     selectedIndex = null,
-                    timeLeftSeconds = current?.timeLeftSeconds ?: 600,
+                    timeLeftSeconds = current?.timeLeftSeconds ?: TIME_LIMIT_SECONDS,
                     relatedEntry = related
                 )
             }
@@ -169,12 +177,17 @@ class QuizViewModel(
         viewModelScope.launch {
             pending.forEach { it.join() }
             val attempts = statsStore.readAll().mapValues { (_, stats) -> AttemptCounts.from(stats) }
-            _state.value = QuizUiState.Result(result, attempts)
+            _state.value = QuizUiState.Result(result, PassCriteria.isQuizPassed(result), attempts)
         }
     }
 
     override fun onCleared() {
         super.onCleared()
         timerJob?.cancel()
+    }
+
+    companion object {
+        /** Лимит времени на квиз (10 минут). */
+        const val TIME_LIMIT_SECONDS = 600
     }
 }

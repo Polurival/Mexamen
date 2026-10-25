@@ -182,6 +182,7 @@ private fun AppContent() {
                 is Route.LegendResult -> NavEntry(key) {
                     LegendResultScreen(
                         result = key.result,
+                        passed = key.passed,
                         onHome = { 
                             while (backStack.size > 1) {
                                 backStack.removeAt(backStack.size - 1)
@@ -229,6 +230,7 @@ private fun QuizFlow(topic: String?, onExit: () -> Unit) {
         )
         is QuizUiState.Result -> ResultScreen(
             result = current.result,
+            passed = current.passed,
             attempts = current.attempts,
             onRestart = { viewModel.startQuiz(topic, restart = true) },
             onHome = onExit,
@@ -275,7 +277,7 @@ private fun LegendFlow(legendId: String, backStack: MutableList<NavKey>) {
             val result = viewModel.getResult()
             // Заменяем LegendDetail, а не кладём сверху: иначе back вернёт на детальный экран
             // с isFinished = true, и эффект снова откроет результат (петля)
-            backStack[backStack.lastIndex] = Route.LegendResult(result)
+            backStack[backStack.lastIndex] = Route.LegendResult(result, passed = viewModel.isPassed(result))
         }
     }
 

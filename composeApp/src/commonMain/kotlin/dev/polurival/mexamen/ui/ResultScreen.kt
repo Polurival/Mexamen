@@ -27,13 +27,12 @@ import dev.polurival.mexamen.domain.QuizResult
 @Composable
 fun ResultScreen(
     result: QuizResult,
+    passed: Boolean,
     attempts: Map<Int, AttemptCounts>,
     onRestart: () -> Unit,
     onHome: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val passed = result.score >= 8
-
     Column(
         modifier = modifier.fillMaxSize().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,

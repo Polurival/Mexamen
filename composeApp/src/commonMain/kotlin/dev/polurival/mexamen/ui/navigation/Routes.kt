@@ -31,7 +31,7 @@ sealed class Route : NavKey {
     data class LegendDetail(val legendId: String) : Route()
 
     @Serializable
-    data class LegendResult(val result: QuizResult) : Route()
+    data class LegendResult(val result: QuizResult, val passed: Boolean) : Route()
 
     @Serializable
     data object Interview : Route()
