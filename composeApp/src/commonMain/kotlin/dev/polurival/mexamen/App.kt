@@ -214,7 +214,7 @@ private fun QuizFlow(topic: String?, onExit: () -> Unit) {
             onRetry = { viewModel.startQuiz(topic) },
             onHome = onExit,
         )
-        is QuizUiState.Loading -> LoadingScreen()
+        is QuizUiState.Loading -> LoadingScreen(message = "Generando preguntas…")
         is QuizUiState.Question -> QuizScreen(
             state = current,
             onSelect = viewModel::selectAnswer,
@@ -236,7 +236,7 @@ private fun FlashcardFlow(topic: String?, onExit: () -> Unit) {
     val state by viewModel.state.collectAsState()
     LaunchedEffect(topic) { viewModel.ensureStarted(topic) }
     when (val current = state) {
-        is FlashcardUiState.Loading -> LoadingScreen()
+        is FlashcardUiState.Loading -> LoadingScreen(message = "Cargando tarjetas…")
         is FlashcardUiState.Error -> QuizErrorScreen(
             error = current.message,
             onRetry = { viewModel.start(topic) },
@@ -307,8 +307,8 @@ private fun QuizErrorScreen(error: String?, onRetry: () -> Unit, onHome: () -> U
 }
 
 @Composable
-private fun LoadingScreen() {
-    // NFR-1: плейсхолдер на время LLM-генерации (до 30 с, дальше fallback)
+private fun LoadingScreen(message: String) {
+    // NFR-1: плейсхолдер на время загрузки сессии (квиз — LLM-генерация до 30 с, дальше fallback)
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -317,7 +317,7 @@ private fun LoadingScreen() {
         CircularProgressIndicator()
         Spacer(Modifier.height(16.dp))
         Text(
-            text = "Generando preguntas…",
+            text = message,
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
