@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -109,6 +110,8 @@ private fun AppContent(themeMode: ThemeMode, onCycleThemeMode: () -> Unit) {
     val backStack = rememberNavBackStack(configuration = navigationConfig, Route.Home)
     val viewModelStoreDecorator = rememberViewModelStoreNavEntryDecorator<NavKey>()
     val saveableStateDecorator = rememberSaveableStateHolderNavEntryDecorator<NavKey>()
+    // NavDisplay не пересоздаёт содержимое entry при новом параметре — читаем режим через State
+    val currentThemeMode by rememberUpdatedState(themeMode)
     BrowserHistorySync(backStack)
 
     NavDisplay(
@@ -129,7 +132,7 @@ private fun AppContent(themeMode: ThemeMode, onCycleThemeMode: () -> Unit) {
                         onOpenInterview = { backStack.add(Route.Interview) },
                         onOpenStats = { backStack.add(Route.Stats) },
                         onOpenQuestionBank = { backStack.add(Route.QuestionBank) },
-                        themeMode = themeMode,
+                        themeMode = currentThemeMode,
                         onCycleThemeMode = onCycleThemeMode,
                     )
                 }
