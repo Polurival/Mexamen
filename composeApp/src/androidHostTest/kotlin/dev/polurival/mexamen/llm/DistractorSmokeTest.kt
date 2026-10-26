@@ -14,7 +14,7 @@ import kotlin.test.assertTrue
 /**
  * Ручной интеграционный smoke (DoD D2): с реальным ключом ≥ 8/10 вопросов
  * получают LLM-дистракторы. Запуск:
- * RUN_GROQ_SMOKE=1 ./gradlew :composeApp:testDebugUnitTest --tests '*DistractorSmokeTest*'
+ * RUN_GROQ_SMOKE=1 ./gradlew :composeApp:testAndroidHostTest --tests '*DistractorSmokeTest*'
  */
 class DistractorSmokeTest {
 
