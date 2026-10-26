@@ -1,0 +1,43 @@
+1792943991 09:59:51 run1 #0 loop-start base=fd4f5b9
+1792944000 10:00:00 run1 #5 start profile=bug-fix
+1792944270 10:04:30 run1 #5 end result=done first_try=yes attempts=1 review=PASS(3 minor) verify=106/0 sha=192a429 note=no-browser-manual-check
+1792944270 10:04:30 run1 #6 start profile=bug-fix
+1792944506 10:08:26 run1 #6 end result=done first_try=yes attempts=1 review=PASS(3 minor: dup fake store in tests) verify=110/0 sha=a495b8f note=no-device-check
+1792944506 10:08:26 run1 #7 start profile=bug-fix
+1792944636 10:10:36 run1 #7 end result=done first_try=yes attempts=1 review=PASS(2 minor: logic in composable, smoke not updated) verify=112/0 sha=a087a40
+1792944636 10:10:36 run1 #8 start profile=bug-fix
+1792944797 10:13:17 run1 #8 attempt 2 reason=review-major: race selectAnswer after timeout writes stats; logic in VM not domain
+1792944968 10:16:08 run1 #8 end result=done first_try=no attempts=2 review=FAIL(major race)->PASS verify=117/0 sha=a2d08f6 intervention=no(self-corrected via reviewer)
+1792944968 10:16:08 run1 #9 start profile=bug-fix
+1792945092 10:18:12 run1 #9 end result=done first_try=yes attempts=1 review=PASS(1 minor: smoke S5 not updated) verify=117/0 sha=a197276
+1792945092 10:18:12 run1 #10 start profile=bug-fix
+1792945275 10:21:15 run1 #10 end result=done first_try=yes attempts=1 review=PASS(3 minor) verify=121/0 sha=1b3c311 note=CLAUDE.md §6.4 example stale
+1792945275 10:21:15 run1 #11 start profile=bug-fix
+1792945390 10:23:10 run1 #11 end result=done first_try=yes attempts=1 review=PASS(2 minor: 'Stop Audio' English missed - narrow spec) verify=122/0 sha=564ef5b
+1792945390 10:23:10 run1 #12 start profile=bug-fix
+1792945464 10:24:24 run1 #12 end result=done first_try=yes attempts=1 review=PASS verify=122/0 sha=5873fd9
+1792945464 10:24:24 run1 #13 start profile=bug-fix
+1792945543 10:25:43 run1 #13 end result=done first_try=yes attempts=1 review=PASS verify=122/0 sha=7414290
+1792945543 10:25:43 run1 #14 start profile=feature/refactor(general-purpose)
+1792945682 10:28:02 run1 #14 end result=done first_try=yes attempts=1 review=PASS(2 minor: CLAUDE.md §2/§6.4 wording stale) verify=126/0 sha=32a4357
+1792945682 10:28:02 run1 #15 start profile=feature/refactor(general-purpose)
+1792945778 10:29:38 run1 #15 end result=done first_try=yes attempts=1 review=PASS verify=126/0 sha=b394d4d
+1792945778 10:29:38 run1 #16 start profile=feature/refactor(general-purpose)
+1792945916 10:31:56 run1 #16 end result=done first_try=yes attempts=1 review=PASS verify=131/0 sha=bb5b2c3
+1792945916 10:31:56 run1 #17 start profile=feature/refactor(general-purpose)
+1792946071 10:34:31 run1 #17 end result=done first_try=yes attempts=1 review=PASS(4 minor: Route field w/o default) verify=134/0 sha=69ea352
+1792946071 10:34:31 run1 #18 start profile=feature/refactor(general-purpose)
+1792946195 10:36:35 run1 #18 end result=done first_try=yes attempts=1 review=PASS(2 minor: 3rd copy of fake store) verify=137/0 sha=41728f9
+1792946195 10:36:35 run1 #19 start profile=feature/refactor(general-purpose)
+1792946324 10:38:44 run1 #19 end result=done first_try=yes attempts=1 review=PASS(2 minor: 6th copy of fake store) verify=140/0 sha=f77e87a note=internal compile fail (fake name clash) self-fixed
+1792946324 10:38:44 run1 #20 start profile=feature/refactor(general-purpose)
+1792946458 10:40:58 run1 #20 end result=done first_try=yes attempts=1 review=PASS(1 minor: smoke S3 not updated) verify=146/0 sha=29785e3
+1792946458 10:40:58 run1 #21 start profile=feature/refactor(general-purpose)
+1792946729 10:45:29 run1 #21 end result=done first_try=yes attempts=1 review=PASS(2 minor: S2 smoke not updated, UI label as key) verify=158/0 sha=812b503
+1792946729 10:45:29 run1 #22 start profile=feature/refactor(general-purpose)
+1792946953 10:49:13 run1 #22 end result=done first_try=yes attempts=1 review=PASS(2 minor: QuestionEntry in UI state, perf) verify=170/0 sha=e30eee9
+1792946953 10:49:13 run1 #23 start profile=feature/refactor(general-purpose)
+1792947289 10:54:49 run1 #23 end result=done first_try=yes attempts=1 review=PASS(3 minor: theme flash on cold start, store bypass Koin in main.kt) verify=179/0 sha=bb5719c
+1792947289 10:54:49 run1 #24 start profile=docs(general-purpose)
+1792947610 11:00:10 run1 #24 end result=done first_try=yes attempts=1 review=PASS(1 minor: ascii box misaligned) verify=179/0 sha=f071e44 note=found quiz not using LLM
+1792947610 11:00:10 run1 #0 loop-end 
