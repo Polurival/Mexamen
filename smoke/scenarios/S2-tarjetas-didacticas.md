@@ -9,6 +9,7 @@ launch
 tap: Comenzar tarjetas didácticas
 expect: Todos los temas
 tap: Todos los temas
+expect_absent: Generando preguntas…
 expect: Tarjeta 1 de 10
 expect: Toca para ver la respuesta
 repeat 10:

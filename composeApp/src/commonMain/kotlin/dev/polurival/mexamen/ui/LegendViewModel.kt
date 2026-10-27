@@ -7,6 +7,7 @@ import dev.polurival.mexamen.data.QuestionEntry
 import dev.polurival.mexamen.data.allLegends
 import dev.polurival.mexamen.domain.AnsweredQuestion
 import dev.polurival.mexamen.domain.DistractorSource
+import dev.polurival.mexamen.domain.ExamRules
 import dev.polurival.mexamen.domain.QuizQuestion
 import dev.polurival.mexamen.domain.QuizResult
 import kotlinx.coroutines.Job
@@ -37,12 +38,15 @@ enum class AudioState {
 data class LegendUiState(
     val legend: Legend? = null,
     val userAnswers: Map<Int, Int> = emptyMap(), // questionId to optionIndex
-    val timeLeftSeconds: Int = 600, // 10 minutes
+    val timeLeftSeconds: Int = ExamRules.LEGEND_DURATION_SECONDS,
     val isFinished: Boolean = false,
     val audioState: AudioState = AudioState.STOPPED,
     val currentWordRange: IntRange? = null,
     val timings: List<WordTiming> = emptyList()
-)
+) {
+    /** Осталось мало времени — таймер подсвечивается. */
+    val isTimeRunningOut: Boolean get() = ExamRules.isTimeRunningOut(timeLeftSeconds)
+}
 
 class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
 
@@ -59,7 +63,7 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
             _state.update { it.copy(
                 legend = legend,
                 userAnswers = emptyMap(),
-                timeLeftSeconds = 600,
+                timeLeftSeconds = ExamRules.LEGEND_DURATION_SECONDS,
                 isFinished = false,
                 audioState = AudioState.STOPPED,
                 currentWordRange = null,
@@ -76,7 +80,7 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
             val jsonString = bytes.decodeToString()
             Json.decodeFromString<List<WordTiming>>(jsonString)
         } catch (e: Exception) {
-            println("Error loading metadata for $legendId: ${e.message}")
+            // Нет/битый файл таймингов — тихий fallback: аудио играет без подсветки слов.
             null
         }
     }
@@ -95,6 +99,7 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
     }
 
     fun selectAnswer(questionId: Int, answerIndex: Int) {
+        if (_state.value.isFinished) return // после завершения ответы не меняют результат
         _state.update {
             val newAnswers = it.userAnswers.toMutableMap()
             newAnswers[questionId] = answerIndex
@@ -161,7 +166,7 @@ class LegendViewModel(private val audioPlayer: AudioPlayer) : ViewModel() {
     fun getResult(): QuizResult {
         val legend = _state.value.legend ?: return QuizResult(emptyList())
         val answers = legend.questions.map { question ->
-            val chosenIndex = _state.value.userAnswers[question.id] ?: -1
+            val chosenIndex = _state.value.userAnswers[question.id] ?: AnsweredQuestion.NOT_ANSWERED
             AnsweredQuestion(
                 question = QuizQuestion(
                     entry = QuestionEntry(

@@ -38,28 +38,14 @@ class QuestionRepository(
             .sortedBy { it.name }
     }
 
+    /** Счётчики виртуальных тем — через [filterByTopic], чтобы число в списке совпадало с выборкой. */
     suspend fun getVirtualTopics(): List<Topic> {
         val entries = dataset().entries
-        val dates = entries.filter { QuestionEntry.isDate(it) }
-        val people = entries.filter { QuestionEntry.isPeople(it) }
-        val events = entries.filter { QuestionEntry.isEvent(it) }
-        
-        return listOf(
-            Topic("Fechas (Даты)", dates.size),
-            Topic("Personajes (Люди)", people.size),
-            Topic("Eventos (События)", events.size)
-        )
+        return VIRTUAL_TOPICS.map { name -> Topic(name, filterByTopic(entries, name).size) }
     }
 
-    suspend fun getQuestionsByTopic(topicName: String): List<QuestionEntry> {
-        val all = dataset().entries
-        return when (topicName) {
-            "Fechas (Даты)" -> all.filter { QuestionEntry.isDate(it) }
-            "Personajes (Люди)" -> all.filter { QuestionEntry.isPeople(it) }
-            "Eventos (События)" -> all.filter { QuestionEntry.isEvent(it) }
-            else -> all.filter { it.section == topicName }
-        }
-    }
+    suspend fun getQuestionsByTopic(topicName: String): List<QuestionEntry> =
+        filterByTopic(dataset().entries, topicName)
 
     suspend fun getTotalQuestionsCount(): Int {
         return dataset().entries.size
@@ -80,6 +66,23 @@ class QuestionRepository(
     }
 
     companion object {
+        /** Имена виртуальных тем — видны в UI, поэтому по-испански. */
+        const val TOPIC_DATES = "Fechas"
+        const val TOPIC_PEOPLE = "Personajes"
+        const val TOPIC_EVENTS = "Eventos"
+
+        /** Порядок виртуальных тем в UI. */
+        private val VIRTUAL_TOPICS = listOf(TOPIC_DATES, TOPIC_PEOPLE, TOPIC_EVENTS)
+
+        /** Единая фильтрация по теме (виртуальной или `section`) для репозитория и use case'ов. */
+        fun filterByTopic(entries: List<QuestionEntry>, topicName: String): List<QuestionEntry> =
+            when (topicName) {
+                TOPIC_DATES -> entries.filter { QuestionEntry.isDate(it) }
+                TOPIC_PEOPLE -> entries.filter { QuestionEntry.isPeople(it) }
+                TOPIC_EVENTS -> entries.filter { QuestionEntry.isEvent(it) }
+                else -> entries.filter { it.section == topicName }
+            }
+
         private val json = Json { ignoreUnknownKeys = true }
 
         fun parseQuestions(bytes: ByteArray): List<QuestionEntry> =

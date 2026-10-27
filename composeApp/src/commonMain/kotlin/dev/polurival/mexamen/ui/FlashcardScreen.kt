@@ -86,7 +86,7 @@ fun FlashcardCardScreen(
                     )
                     Spacer(Modifier.height(12.dp))
                     Text(
-                        text = "Pasada ${state.timesShown} ${if (state.timesShown == 1) "vez" else "veces"} · Correctas: ${state.timesCorrect}",
+                        text = state.attempts.label(),
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center,

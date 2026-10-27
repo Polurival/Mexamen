@@ -9,6 +9,10 @@ launch
 expect: Comenzar quiz
 tap: Comenzar quiz
 expect: Todos los temas
+expect: Fechas
+expect: Personajes
+expect: Eventos
+expect_absent: Даты
 tap: Todos los temas
 expect: Pregunta 1 de 10
 repeat 10:
@@ -23,4 +27,4 @@ back
 expect: Prepárate para el examen de naturalización
 ```
 
-**Ожидание:** 10 вопросов подряд, после ответа показан блок «Explicación» и кнопка «Siguiente»; в конце «Resultado: N/10»; «Volver al inicio» закрывает сессию и возвращает к списку тем (штатное поведение), «назад» — на главную.
+**Ожидание:** в списке тем виртуальные темы подписаны по-испански («Fechas», «Personajes», «Eventos», без русских пометок); 10 вопросов подряд, после ответа показан блок «Explicación» и кнопка «Siguiente»; в конце «Resultado: N/10»; «Volver al inicio» закрывает сессию и возвращает к списку тем (штатное поведение), «назад» — на главную.

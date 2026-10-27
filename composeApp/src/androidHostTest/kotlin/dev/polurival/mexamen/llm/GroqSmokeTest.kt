@@ -7,7 +7,7 @@ import kotlin.test.assertTrue
 
 /**
  * Ручной интеграционный smoke (DoD D1). Реальный вызов Groq — не для CI:
- * RUN_GROQ_SMOKE=1 ./gradlew :composeApp:testDebugUnitTest --tests '*GroqSmokeTest*'
+ * RUN_GROQ_SMOKE=1 ./gradlew :composeApp:testAndroidHostTest --tests '*GroqSmokeTest*'
  */
 class GroqSmokeTest {
 

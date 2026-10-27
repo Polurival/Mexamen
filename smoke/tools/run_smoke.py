@@ -82,6 +82,9 @@ def run_step(step):
         sh(ADBX, "tap", arg); time.sleep(1.2)
     elif cmd == "tap_option":
         wait_for("Pregunta"); tap_option(int(arg)); time.sleep(1.2)
+    elif cmd == "type":
+        # ввод в поле с фокусом (сначала tap по полю); adb input text — только ASCII, пробел = %s
+        sh("adb", "shell", "input", "text", arg.replace(" ", "%s")); time.sleep(1.2)
     elif cmd == "expect":
         if not wait_for(arg):
             raise AssertionError(f"ожидался текст «{arg}», на экране его нет")

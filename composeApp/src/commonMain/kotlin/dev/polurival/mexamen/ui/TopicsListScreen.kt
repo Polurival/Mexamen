@@ -16,22 +16,20 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.polurival.mexamen.ui.navigation.SessionType
 
+/** Список тем для выбора сессии: только отрисовка [state], выбор темы и «назад» — через лямбды. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopicsListScreen(
-    viewModel: TopicsViewModel,
+    state: TopicsUiState,
     sessionType: SessionType,
     onTopicSelected: (String?) -> Unit,
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val state by viewModel.state.collectAsState()
     val title = when (sessionType) {
         SessionType.QUIZ -> "Temas del Quiz"
         SessionType.FLASHCARDS -> "Temas de Tarjetas"
@@ -69,6 +67,17 @@ fun TopicsListScreen(
                         title = "Todos los temas",
                         count = state.totalCount,
                         onClick = { onTopicSelected(null) }
+                    )
+                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+                }
+
+                item {
+                    TopicItem(
+                        title = state.mistakes.name,
+                        count = state.mistakes.questionCount,
+                        enabled = state.hasMistakes,
+                        disabledLabel = "Sin errores todavía",
+                        onClick = { onTopicSelected(state.mistakes.name) }
                     )
                     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
                 }
@@ -118,24 +127,27 @@ private fun TopicItem(
     title: String,
     count: Int,
     onClick: () -> Unit,
+    enabled: Boolean = true,
+    disabledLabel: String? = null,
 ) {
     ListItem(
         headlineContent = {
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge,
+                color = if (enabled) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
             )
         },
         supportingContent = {
             Text(
-                text = "$count preguntas",
+                text = if (!enabled && disabledLabel != null) disabledLabel else "$count preguntas",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         },
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            .clickable(enabled = enabled, onClick = onClick)
             .padding(vertical = 4.dp)
     )
 }

@@ -4,10 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.polurival.mexamen.data.QuestionEntry
 import dev.polurival.mexamen.data.QuestionRepository
-import dev.polurival.mexamen.data.QuestionStats
 import dev.polurival.mexamen.data.QuestionStatsStore
 import dev.polurival.mexamen.domain.AnsweredQuestion
+import dev.polurival.mexamen.domain.AttemptCounts
 import dev.polurival.mexamen.domain.BuildQuizUseCase
+import dev.polurival.mexamen.domain.ExamRules
 import dev.polurival.mexamen.domain.GetRelatedQuestionUseCase
 import dev.polurival.mexamen.domain.QuizQuestion
 import dev.polurival.mexamen.domain.QuizResult
@@ -30,11 +31,22 @@ sealed interface QuizUiState {
         val total: Int,
         val question: QuizQuestion,
         val selectedIndex: Int?,
-        val timeLeftSeconds: Int = 600,
+        val timeLeftSeconds: Int = ExamRules.QUIZ_DURATION_SECONDS,
         val relatedEntry: QuestionEntry? = null,
-    ) : QuizUiState
+    ) : QuizUiState {
+        /** Осталось мало времени — таймер подсвечивается. */
+        val isTimeRunningOut: Boolean get() = ExamRules.isTimeRunningOut(timeLeftSeconds)
+    }
 
-    data class Result(val result: QuizResult, val stats: Map<Int, QuestionStats> = emptyMap()) : QuizUiState
+    /**
+     * [passed] — квиз сдан по [ExamRules.QUIZ_PASS_SCORE];
+     * [attempts] — кумулятивные счётчики по id вопроса, уже включают ответы этой сессии.
+     */
+    data class Result(
+        val result: QuizResult,
+        val passed: Boolean,
+        val attempts: Map<Int, AttemptCounts> = emptyMap(),
+    ) : QuizUiState
 }
 
 class QuizViewModel(
@@ -52,9 +64,25 @@ class QuizViewModel(
     private var answers = mutableListOf<AnsweredQuestion>()
     private var timerJob: Job? = null
     private val recordJobs = mutableListOf<Job>()
+    private var started = false
+    /** Сессия завершена (последний ответ или таймаут): до появления Result новые ответы/переходы игнорируются. */
+    private var finished = false
+    private var startedTopic: String? = null
+
+    /**
+     * Старт при входе на экран. ViewModel переживает поворот, а композиция пересоздаётся —
+     * повторный вызов для того же [topic] не сбрасывает уже начатую сессию (#6).
+     * Явный рестарт («Intentar de nuevo»/«Reintentar») — через [startQuiz].
+     */
+    fun ensureStarted(topic: String? = null) {
+        if (started && startedTopic == topic) return
+        startQuiz(topic)
+    }
 
     fun startQuiz(topic: String? = null) {
         if (_state.value is QuizUiState.Loading) return
+        started = true
+        startedTopic = topic
         timerJob?.cancel()
         _state.value = QuizUiState.Loading
         viewModelScope.launch {
@@ -67,14 +95,19 @@ class QuizViewModel(
                 ).build(topic = topic)
                 answers = mutableListOf()
                 recordJobs.clear()
-                val firstQuestion = quiz.first()
+                finished = false
+                // Пустой пул возможен у «Repasar errores» (статистику сбросили, а маршрут восстановлен)
+                val firstQuestion = quiz.firstOrNull() ?: run {
+                    _state.value = QuizUiState.Home(error = "No hay preguntas")
+                    return@launch
+                }
                 val related = getRelatedQuestion(firstQuestion.entry)
                 _state.value = QuizUiState.Question(
                     index = 0,
                     total = quiz.size,
                     question = firstQuestion,
                     selectedIndex = null,
-                    timeLeftSeconds = 600,
+                    timeLeftSeconds = ExamRules.QUIZ_DURATION_SECONDS,
                     relatedEntry = related
                 )
                 startTimer()
@@ -102,12 +135,12 @@ class QuizViewModel(
 
     private fun finishQuiz() {
         timerJob?.cancel()
-        // If timed out, we might have fewer answers than quiz size.
-        // QuizResult handles a list of AnsweredQuestion.
+        // При таймауте ответов меньше, чем вопросов — неотвеченные дополняет QuizResult.of.
         showResult()
     }
 
     fun selectAnswer(optionIndex: Int) {
+        if (finished) return
         val current = _state.value as? QuizUiState.Question ?: return
         if (current.selectedIndex != null) return
         val answered = AnsweredQuestion(current.question, optionIndex)
@@ -117,6 +150,7 @@ class QuizViewModel(
     }
 
     fun advanceQuestion() {
+        if (finished) return
         val current = _state.value as? QuizUiState.Question ?: return
         if (current.selectedIndex == null) return
         advance(current.index)
@@ -129,12 +163,13 @@ class QuizViewModel(
             viewModelScope.launch {
                 val nextQuestion = quiz[next]
                 val related = getRelatedQuestion(nextQuestion.entry)
+                if (finished) return@launch // таймаут, пока грузился связанный вопрос
                 _state.value = QuizUiState.Question(
                     index = next,
                     total = quiz.size,
                     question = nextQuestion,
                     selectedIndex = null,
-                    timeLeftSeconds = current?.timeLeftSeconds ?: 600,
+                    timeLeftSeconds = current?.timeLeftSeconds ?: ExamRules.QUIZ_DURATION_SECONDS,
                     relatedEntry = related
                 )
             }
@@ -146,11 +181,17 @@ class QuizViewModel(
 
     /** Ждёт запись последних ответов, чтобы счётчики в результате включали текущую попытку. */
     private fun showResult() {
-        val result = QuizResult(answers.toList())
+        if (finished) return
+        finished = true
+        val result = QuizResult.of(quiz, answers.toList())
         val pending = recordJobs.toList()
         viewModelScope.launch {
             pending.forEach { it.join() }
-            _state.value = QuizUiState.Result(result, statsStore.readAll())
+            _state.value = QuizUiState.Result(
+                result = result,
+                passed = ExamRules.isQuizPassed(result),
+                attempts = AttemptCounts.fromAll(statsStore.readAll()),
+            )
         }
     }
 

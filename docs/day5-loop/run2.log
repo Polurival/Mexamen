@@ -1,0 +1,49 @@
+1792947724 11:02:04 run2 #0 loop-start base=f56444c rules=v3
+1792947724 11:02:04 run2 #5 start profile=bug-fix
+1792947989 11:06:29 run2 #5 end result=done first_try=yes attempts=1 review=PASS(2 minor: reload at depth>0, async go race) verify=113/0 sha=7c807d5
+1792947989 11:06:29 run2 #6 start profile=bug-fix
+1792948243 11:10:43 run2 #6 end result=done first_try=yes attempts=1 review=PASS(1 minor: legacy private fake remains) verify=119/0 sha=b30303f
+1792948243 11:10:43 run2 #7 start profile=bug-fix
+1792948497 11:14:57 run2 #7 end result=done first_try=yes attempts=1 review=PASS(1 minor: smoke can't reach legend result) verify=124/0 sha=ce39d52 incident=agent ran git checkout -p (forbidden, no data lost) note=issue spec wrong button name
+1792948497 11:14:57 run2 #8 start profile=bug-fix
+1792948712 11:18:32 run2 #8 end result=done first_try=yes attempts=1 review=PASS(0 findings) verify=128/0 sha=30e9dcf
+1792948712 11:18:32 run2 #9 start profile=bug-fix
+1792948905 11:21:45 run2 #9 end result=done first_try=yes attempts=1 review=PASS(1 minor: smoke runner can't reach legend result) verify=130/0 sha=3b6258b
+1792948905 11:21:45 run2 #10 start profile=bug-fix
+1792949109 11:25:09 run2 #10 pause-start reason=token-limit (agent handback received, loop stalled)
+1792961388 14:49:48 run2 #10 pause-end idle_sec=12270
+1792961456 14:50:56 run2 #10 end result=done first_try=yes attempts=1 review=PASS(0 findings) verify=133/0 sha=c3bb611 note=also fixed 3 cyrillic look-alikes (class-of-problem rule); found cyrillic in questions.json (pipeline asset, reported)
+1792961456 14:50:56 run2 #11 start profile=bug-fix
+1792961626 14:53:46 run2 #11 end result=done first_try=yes attempts=1 review=PASS(1 minor: no interview smoke) verify=133/0 sha=e96553f note=Stop/Play/Pause Audio fixed (missed in run1)
+1792961626 14:53:46 run2 #12 start profile=bug-fix
+1792961713 14:55:13 run2 #12 end result=done first_try=yes attempts=1 review=PASS(0 findings) verify=133/0 sha=b2abaec
+1792961713 14:55:13 run2 #13 start profile=bug-fix
+1792961821 14:57:01 run2 #13 end result=done first_try=yes attempts=1 review=PASS(1 minor: weak smoke expect_absent) verify=133/0 sha=048898f
+1792961821 14:57:01 run2 #14 start profile=feature
+1792961960 14:59:20 run2 #14 end result=done first_try=yes attempts=1 review=PASS(1 minor: test placement) verify=136/0 sha=cef0be9 note=mostly done by #10
+1792961960 14:59:20 run2 #15 start profile=feature
+1792962098 15:01:38 run2 #15 end result=done first_try=yes attempts=1 review=PASS(0 findings) verify=138/0 sha=769a8ad
+1792962098 15:01:38 run2 #16 start profile=feature
+1792962262 15:04:22 run2 #16 end result=done first_try=yes attempts=1 review=PASS(0 findings) verify=146/0 sha=ea6a311
+1792962262 15:04:22 run2 #17 start profile=feature
+1792962507 15:08:27 run2 #17 end result=done first_try=yes attempts=1 review=PASS(2 minor: androidMain println out of scope, dup test builder) verify=154/0 sha=3baaff7
+1792962507 15:08:27 run2 #18 start profile=feature
+1792962615 15:10:15 run2 #18 end result=done first_try=yes attempts=1 review=PASS(0 findings) verify=157/0 sha=3f7d9e7
+1792962615 15:10:15 run2 #19 start profile=feature
+1792962806 15:13:26 run2 #19 end result=done first_try=yes attempts=1 review=PASS(2 minor: prod fix out of test scope -> split commit) verify=161/0 sha=b9b65eb note=found real double-grade bug via v3 rule
+1792962806 15:13:26 run2 #20 start profile=feature
+1792962991 15:16:31 run2 #20 end result=done first_try=yes attempts=1 review=PASS(1 minor: smoke S3 not updated - agent: needs scroll step) verify=166/0 sha=f78a0ce
+1792962991 15:16:31 run2 #21 start profile=feature
+1792963197 15:19:57 run2 #21 pause-start reason=agent stalled after last test run (likely token limit), no handback
+1792968372 16:46:12 run2 #21 pause-end idle_sec=5175
+1792968482 16:48:02 run2 #21 end result=done first_try=yes attempts=1 review=PASS(2 minor: short session never 'passed', count race on mid-quiz exit) verify=178/0 sha=d9699a6 incident=agent stalled ~86min then API connection lost (infra), report delivered
+1792968482 16:48:02 run2 #22 start profile=feature
+1792968796 16:53:16 run2 #22 attempt 2 reason=review-major: QuestionSearch.normalize duplicates RagFallback.normalize (§6.7)
+1792968928 16:55:28 run2 #22 end result=done first_try=no attempts=2 review=FAIL(major dup normalize)->PASS verify=193/0 sha=3d5a087 intervention=no(self-corrected via reviewer)
+1792968928 16:55:28 run2 #23 start profile=feature
+1792969294 17:01:34 run2 #23 end result=done first_try=yes attempts=1 review=PASS(1 minor: wasm outer frame follows system theme) verify=205/0 sha=d52e222
+1792969294 17:01:34 run2 #24 start profile=feature
+1792969294 17:01:34 run2 #24 pause-start reason=agent stalled from start (no file changes; likely token limit), stopped and relaunched
+1792972732 17:58:52 run2 #24 pause-end idle_sec=3438 restart=yes
+1792973106 18:05:06 run2 #24 end result=done first_try=yes attempts=1 review=PASS(0 findings) verify=205/0 sha=80f10fb note=first agent stalled, relaunched (infra)
+1792973106 18:05:06 run2 #0 loop-end 

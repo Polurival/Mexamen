@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -28,6 +29,7 @@ import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import androidx.savedstate.serialization.SavedStateConfiguration
 import dev.polurival.mexamen.di.appModules
+import dev.polurival.mexamen.domain.ThemeMode
 import dev.polurival.mexamen.ui.FlashcardCardScreen
 import dev.polurival.mexamen.ui.FlashcardDoneScreen
 import dev.polurival.mexamen.ui.FlashcardUiState
@@ -40,14 +42,19 @@ import dev.polurival.mexamen.ui.LegendResultScreen
 import dev.polurival.mexamen.ui.LegendViewModel
 import dev.polurival.mexamen.ui.LegendsListScreen
 import dev.polurival.mexamen.ui.MexamenTheme
+import dev.polurival.mexamen.ui.QuestionBankScreen
+import dev.polurival.mexamen.ui.QuestionBankViewModel
 import dev.polurival.mexamen.ui.QuizScreen
 import dev.polurival.mexamen.ui.QuizUiState
 import dev.polurival.mexamen.ui.QuizViewModel
 import dev.polurival.mexamen.ui.ResultScreen
 import dev.polurival.mexamen.ui.StatsScreen
 import dev.polurival.mexamen.ui.StatsViewModel
+import dev.polurival.mexamen.ui.ThemeViewModel
 import dev.polurival.mexamen.ui.TopicsListScreen
 import dev.polurival.mexamen.ui.TopicsViewModel
+import dev.polurival.mexamen.ui.navigation.BrowserHistorySync
+import dev.polurival.mexamen.ui.navigation.LegendNavigation
 import dev.polurival.mexamen.ui.navigation.Route
 import dev.polurival.mexamen.ui.navigation.SessionType
 import kotlinx.serialization.modules.SerializersModule
@@ -67,6 +74,7 @@ private val navigationSerializersModule = SerializersModule {
         subclass(Route.LegendDetail::class, Route.LegendDetail.serializer())
         subclass(Route.LegendResult::class, Route.LegendResult.serializer())
         subclass(Route.Interview::class, Route.Interview.serializer())
+        subclass(Route.QuestionBank::class, Route.QuestionBank.serializer())
     }
 }
 
@@ -80,11 +88,17 @@ fun App() {
     KoinApplication(
         configuration = koinConfiguration(declaration = { modules(appModules) }),
         content = {
-            MexamenTheme {
+            // Тема уровня приложения: VM над NavDisplay, чтобы выбор на Home применялся ко всем экранам
+            val themeViewModel: ThemeViewModel = koinViewModel()
+            val themeState by themeViewModel.state.collectAsState()
+            MexamenTheme(themeMode = themeState.mode) {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     // Паддинг внутри Surface: фон уходит под статус-бар (edge-to-edge), контент — нет
                     Box(modifier = Modifier.safeDrawingPadding()) {
-                        AppContent()
+                        AppContent(
+                            themeMode = themeState.mode,
+                            onCycleThemeMode = themeViewModel::cycleMode,
+                        )
                     }
                 }
             }
@@ -92,10 +106,13 @@ fun App() {
 }
 
 @Composable
-private fun AppContent() {
+private fun AppContent(themeMode: ThemeMode, onCycleThemeMode: () -> Unit) {
     val backStack = rememberNavBackStack(configuration = navigationConfig, Route.Home)
     val viewModelStoreDecorator = rememberViewModelStoreNavEntryDecorator<NavKey>()
     val saveableStateDecorator = rememberSaveableStateHolderNavEntryDecorator<NavKey>()
+    // NavDisplay не пересоздаёт содержимое entry при новом параметре — читаем режим через State
+    val currentThemeMode by rememberUpdatedState(themeMode)
+    BrowserHistorySync(backStack)
 
     NavDisplay(
         backStack = backStack,
@@ -114,12 +131,17 @@ private fun AppContent() {
                         onOpenLegends = { backStack.add(Route.LegendsList) },
                         onOpenInterview = { backStack.add(Route.Interview) },
                         onOpenStats = { backStack.add(Route.Stats) },
+                        onOpenQuestionBank = { backStack.add(Route.QuestionBank) },
+                        themeMode = currentThemeMode,
+                        onCycleThemeMode = onCycleThemeMode,
                     )
                 }
                 is Route.TopicsList -> NavEntry(key) {
                     val viewModel: TopicsViewModel = koinViewModel()
+                    val state by viewModel.state.collectAsState()
+                    LaunchedEffect(Unit) { viewModel.load() }
                     TopicsListScreen(
-                        viewModel = viewModel,
+                        state = state,
                         sessionType = key.sessionType,
                         onTopicSelected = { topic ->
                             val nextRoute = when (key.sessionType) {
@@ -151,11 +173,17 @@ private fun AppContent() {
                 }
                 Route.Stats -> NavEntry(key) {
                     val viewModel: StatsViewModel = koinViewModel()
-                    StatsScreen(viewModel = viewModel, onBack = { 
-                        if (backStack.size > 1) {
-                            backStack.removeAt(backStack.size - 1)
-                        }
-                    })
+                    val state by viewModel.state.collectAsState()
+                    LaunchedEffect(Unit) { viewModel.load() }
+                    StatsScreen(
+                        state = state,
+                        onResetStats = viewModel::resetStats,
+                        onBack = {
+                            if (backStack.size > 1) {
+                                backStack.removeAt(backStack.size - 1)
+                            }
+                        },
+                    )
                 }
                 Route.LegendsList -> NavEntry(key) {
                     LegendsListScreen(
@@ -173,6 +201,7 @@ private fun AppContent() {
                 is Route.LegendResult -> NavEntry(key) {
                     LegendResultScreen(
                         result = key.result,
+                        passed = key.passed,
                         onHome = { 
                             while (backStack.size > 1) {
                                 backStack.removeAt(backStack.size - 1)
@@ -194,6 +223,21 @@ private fun AppContent() {
                         }
                     )
                 }
+                Route.QuestionBank -> NavEntry(key) {
+                    val viewModel: QuestionBankViewModel = koinViewModel()
+                    val state by viewModel.state.collectAsState()
+                    LaunchedEffect(Unit) { viewModel.load() }
+                    QuestionBankScreen(
+                        state = state,
+                        onQueryChange = viewModel::updateQuery,
+                        onToggleExpanded = viewModel::toggleExpanded,
+                        onBack = {
+                            if (backStack.size > 1) {
+                                backStack.removeAt(backStack.size - 1)
+                            }
+                        },
+                    )
+                }
                 else -> error("Unknown key: $key")
             }
         }
@@ -204,14 +248,14 @@ private fun AppContent() {
 private fun QuizFlow(topic: String?, onExit: () -> Unit) {
     val viewModel: QuizViewModel = koinViewModel()
     val state by viewModel.state.collectAsState()
-    LaunchedEffect(topic) { viewModel.startQuiz(topic) }
+    LaunchedEffect(topic) { viewModel.ensureStarted(topic) }
     when (val current = state) {
         is QuizUiState.Home -> QuizErrorScreen(
             error = current.error,
             onRetry = { viewModel.startQuiz(topic) },
             onHome = onExit,
         )
-        is QuizUiState.Loading -> LoadingScreen()
+        is QuizUiState.Loading -> LoadingScreen(message = "Generando preguntas…")
         is QuizUiState.Question -> QuizScreen(
             state = current,
             onSelect = viewModel::selectAnswer,
@@ -220,7 +264,8 @@ private fun QuizFlow(topic: String?, onExit: () -> Unit) {
         )
         is QuizUiState.Result -> ResultScreen(
             result = current.result,
-            stats = current.stats,
+            passed = current.passed,
+            attempts = current.attempts,
             onRestart = { viewModel.startQuiz(topic) },
             onHome = onExit,
         )
@@ -231,9 +276,9 @@ private fun QuizFlow(topic: String?, onExit: () -> Unit) {
 private fun FlashcardFlow(topic: String?, onExit: () -> Unit) {
     val viewModel: FlashcardViewModel = koinViewModel()
     val state by viewModel.state.collectAsState()
-    LaunchedEffect(topic) { viewModel.start(topic) }
+    LaunchedEffect(topic) { viewModel.ensureStarted(topic) }
     when (val current = state) {
-        is FlashcardUiState.Loading -> LoadingScreen()
+        is FlashcardUiState.Loading -> LoadingScreen(message = "Cargando tarjetas…")
         is FlashcardUiState.Error -> QuizErrorScreen(
             error = current.message,
             onRetry = { viewModel.start(topic) },
@@ -263,8 +308,7 @@ private fun LegendFlow(legendId: String, backStack: MutableList<NavKey>) {
 
     LaunchedEffect(state.isFinished) {
         if (state.isFinished) {
-            val result = viewModel.getResult()
-            backStack.add(Route.LegendResult(result))
+            LegendNavigation.showResult(backStack, legendId, viewModel.getResult())
         }
     }
 
@@ -305,8 +349,8 @@ private fun QuizErrorScreen(error: String?, onRetry: () -> Unit, onHome: () -> U
 }
 
 @Composable
-private fun LoadingScreen() {
-    // NFR-1: плейсхолдер на время LLM-генерации (до 30 с, дальше fallback)
+private fun LoadingScreen(message: String) {
+    // NFR-1: плейсхолдер на время загрузки сессии (квиз — LLM-генерация до 30 с, дальше fallback)
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -315,7 +359,7 @@ private fun LoadingScreen() {
         CircularProgressIndicator()
         Spacer(Modifier.height(16.dp))
         Text(
-            text = "Generando preguntas…",
+            text = message,
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )

@@ -20,8 +20,6 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,15 +30,15 @@ import androidx.compose.ui.unit.dp
 import dev.polurival.mexamen.domain.StatsSummary
 import dev.polurival.mexamen.domain.TopicStatsSummary
 
+/** Экран статистики: только отрисовка [state]; загрузка и сброс — снаружи через лямбды. Диалог подтверждения — локальное UI-состояние. */
 @Composable
 fun StatsScreen(
-    viewModel: StatsViewModel,
+    state: StatsUiState,
+    onResetStats: () -> Unit,
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val state by viewModel.state.collectAsState()
     var showConfirmDialog by remember { mutableStateOf(false) }
-    LaunchedEffect(Unit) { viewModel.load() }
 
     Column(
         modifier = modifier.fillMaxSize().padding(24.dp),
@@ -97,7 +95,7 @@ fun StatsScreen(
             confirmButton = {
                 TextButton(onClick = {
                     showConfirmDialog = false
-                    viewModel.resetStats()
+                    onResetStats()
                 }) { Text("Reiniciar", color = MaterialTheme.colorScheme.error) }
             },
             dismissButton = {
@@ -135,6 +133,7 @@ private fun TopicStatCard(topic: TopicStatsSummary) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = topic.topic, style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(4.dp))
+            Text(text = topic.accuracyLabel(), style = MaterialTheme.typography.bodyLarge)
             Text(
                 text = "Preguntas intentadas: ${topic.attemptedQuestions} de ${topic.totalQuestions}",
                 style = MaterialTheme.typography.bodyMedium,
