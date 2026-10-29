@@ -27,8 +27,9 @@ import requests
 from bs4 import BeautifulSoup
 
 OUT_DIR = Path(__file__).parent / "out"
+APP_DATA_DIR = Path(__file__).parent.parent / "composeApp" / "src" / "commonMain" / "composeResources" / "files"
 PAGES_CACHE_DIR = OUT_DIR / "test_pages_cache"
-QUESTIONS_JSON = OUT_DIR / "questions.json"
+QUESTIONS_JSON = APP_DATA_DIR / "questions.json"
 REVIEW_JSON = OUT_DIR / "match_review.json"
 
 TEST_URLS = [f"https://ruspansky.com/test-{i}/" for i in range(1, 11)]

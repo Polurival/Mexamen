@@ -15,8 +15,8 @@ from pathlib import Path
 
 import requests
 
-OUT_DIR = Path(__file__).parent / "out"
-QUESTIONS_JSON = OUT_DIR / "questions.json"
+APP_DATA_DIR = Path(__file__).parent.parent / "composeApp" / "src" / "commonMain" / "composeResources" / "files"
+QUESTIONS_JSON = APP_DATA_DIR / "questions.json"
 REPO_ROOT = Path(__file__).parent.parent
 LOCAL_PROPERTIES = REPO_ROOT / "local.properties"
 
