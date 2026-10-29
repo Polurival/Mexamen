@@ -62,7 +62,7 @@
 │   (DeepSeek) ─► syntheticDistractors, explanation                   │
 │ generate_audio.py (Google Cloud TTS) ─► audio/<легенда>.mp3 + .json │
 └──────────────────────────────┬──────────────────────────────────────┘
-                               │ копируются в composeResources/files
+                               │ пишут напрямую в composeResources/files
 ┌──────────── Приложение (commonMain) ─────────▼──────────────────────┐
 │ QuizViewModel ─► BuildQuizUseCase.build(topic)                      │
 │    ├─ QuestionStatsStore.readAll()                                  │
@@ -101,10 +101,9 @@
 
 ```bash
 pip install -r tools/requirements.txt
-python tools/scrape_guia.py        # гид → tools/out/questions.json (+ кэш HTML)
+python tools/scrape_guia.py        # гид → composeResources/files/questions.json (+ кэш HTML в tools/out); перезапись существующего — только с --force
 ollama pull nomic-embed-text       # нужен запущенный Ollama
-python tools/build_embeddings.py   # → tools/out/embeddings.bin (+ самопроверка top-K)
-# затем скопировать оба файла в composeApp/src/commonMain/composeResources/files/
+python tools/build_embeddings.py   # → composeResources/files/embeddings.bin (+ самопроверка top-K)
 ```
 
 Скриптам `generate_synthetic_distractors.py` и `generate_explanations.py` нужен `DEEPSEEK_API_KEY` (переменная окружения или `local.properties`). Скрипту `generate_audio.py` нужны `google-cloud-texttospeech` (в `requirements.txt` его нет) и `GOOGLE_APPLICATION_CREDENTIALS`.

@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-"""Задача A1: скрейпинг https://ruspansky.com/guia-de-estudios/ -> tools/out/questions.json.
+"""Задача A1: скрейпинг https://ruspansky.com/guia-de-estudios/ -> composeApp/.../composeResources/files/questions.json.
 
 Скачивает страницу (кэширует сырой HTML в tools/out/guia_raw.html, повторно сайт
 не дёргает), парсит тематические разделы (на странице их 11), извлекает пары
 "вопрос -> ответ",
 чистит и сохраняет JSON: [{"id": 1, "section": "...", "question": "...", "answer": "..."}].
+
+Файл в composeResources — рабочий датасет приложения (с ручными правками, distractors,
+explanation), поэтому, если он уже есть, скрипт отказывается его перезаписывать без --force.
 """
 
 import json
@@ -18,8 +21,9 @@ from bs4 import BeautifulSoup
 
 URL = "https://ruspansky.com/guia-de-estudios/"
 OUT_DIR = Path(__file__).parent / "out"
+APP_DATA_DIR = Path(__file__).parent.parent / "composeApp" / "src" / "commonMain" / "composeResources" / "files"
 RAW_HTML = OUT_DIR / "guia_raw.html"
-QUESTIONS_JSON = OUT_DIR / "questions.json"
+QUESTIONS_JSON = APP_DATA_DIR / "questions.json"
 
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
@@ -131,6 +135,11 @@ def dedupe_and_finalize(entries: list[dict]) -> list[dict]:
 
 
 def main() -> None:
+    if QUESTIONS_JSON.exists() and "--force" not in sys.argv[1:]:
+        sys.exit(
+            f"{QUESTIONS_JSON} уже существует и будет полностью перезаписан чистым скрейпом "
+            "(потеряются ручные правки, realDistractors, explanation). Запусти с --force, если так и надо."
+        )
     html = fetch_html()
     raw_entries = parse_qa_pairs(html)
     entries = dedupe_and_finalize(raw_entries)
@@ -142,7 +151,7 @@ def main() -> None:
         count = sum(1 for e in entries if e["section"] == s)
         print(f"  {count:4d}  {s}")
 
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    APP_DATA_DIR.mkdir(parents=True, exist_ok=True)
     QUESTIONS_JSON.write_text(
         json.dumps(entries, ensure_ascii=False, indent=2), encoding="utf-8"
     )

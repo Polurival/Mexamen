@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Задача A2: эмбеддинги для questions.json -> tools/out/embeddings.bin.
+"""Задача A2: эмбеддинги для questions.json -> composeApp/.../composeResources/files/embeddings.bin.
 
 Локальный Ollama, модель nomic-embed-text (768-dim). Эмбеддится строка
 "вопрос + ответ". Формат выходного файла: заголовок из двух uint32
@@ -26,9 +26,9 @@ OLLAMA_URL = "http://localhost:11434/api/embeddings"
 MODEL = "nomic-embed-text"
 DIM = 768
 
-OUT_DIR = Path(__file__).parent / "out"
-QUESTIONS_JSON = OUT_DIR / "questions.json"
-EMBEDDINGS_BIN = OUT_DIR / "embeddings.bin"
+APP_DATA_DIR = Path(__file__).parent.parent / "composeApp" / "src" / "commonMain" / "composeResources" / "files"
+QUESTIONS_JSON = APP_DATA_DIR / "questions.json"
+EMBEDDINGS_BIN = APP_DATA_DIR / "embeddings.bin"
 
 
 def normalize_for_embedding(text: str) -> str:

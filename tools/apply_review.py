@@ -18,7 +18,8 @@ import re
 from pathlib import Path
 
 OUT_DIR = Path(__file__).parent / "out"
-QUESTIONS_JSON = OUT_DIR / "questions.json"
+APP_DATA_DIR = Path(__file__).parent.parent / "composeApp" / "src" / "commonMain" / "composeResources" / "files"
+QUESTIONS_JSON = APP_DATA_DIR / "questions.json"
 REVIEW_JSON = OUT_DIR / "match_review.json"
 
 
