@@ -46,4 +46,7 @@ sealed class Route : NavKey {
 
     @Serializable
     data object QuestionBank : Route()
+
+    @Serializable
+    data object Duel : Route()
 }
