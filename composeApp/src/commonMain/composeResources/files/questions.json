@@ -4866,18 +4866,19 @@
   {
     "id": 316,
     "section": "LA INDEPENDENCIA DE MÉXICO",
-    "question": "¿Cuál fue la Guerra de los 3 años?",
-    "answer": "La Guerra de los 3 años (1857-1860).",
+    "question": "¿Cómo se conoce también a la Guerra de los 3 años (1857-1860)?",
+    "answer": "Guerra de Reforma.",
     "answerVariants": [
-      "La Guerra de los 3 años (1857-1860)."
+      "Guerra de Reforma.",
+      "Guerra de Reforma"
     ],
     "realDistractors": [],
     "syntheticDistractors": [
-      "Guerra de Reforma",
       "Guerra de Independencia",
-      "Guerra Cristera"
+      "Guerra Cristera",
+      "Guerra de Intervención Francesa"
     ],
-    "explanation": "También conocida como Guerra de Reforma, este conflicto civil culminó con la victoria liberal y la consolidación del Estado laico en México."
+    "explanation": "Esta guerra fue entre liberales y conservadores. Este conflicto civil culminó con la victoria liberal y la consolidación del Estado laico en México."
   },
   {
     "id": 317,
