@@ -30,6 +30,10 @@ import androidx.navigation3.ui.NavDisplay
 import androidx.savedstate.serialization.SavedStateConfiguration
 import dev.polurival.mexamen.di.appModules
 import dev.polurival.mexamen.domain.ThemeMode
+import dev.polurival.mexamen.ui.DuelFinishedScreen
+import dev.polurival.mexamen.ui.DuelQuestionScreen
+import dev.polurival.mexamen.ui.DuelUiState
+import dev.polurival.mexamen.ui.DuelViewModel
 import dev.polurival.mexamen.ui.FlashcardCardScreen
 import dev.polurival.mexamen.ui.FlashcardDoneScreen
 import dev.polurival.mexamen.ui.FlashcardUiState
@@ -75,6 +79,7 @@ private val navigationSerializersModule = SerializersModule {
         subclass(Route.LegendResult::class, Route.LegendResult.serializer())
         subclass(Route.Interview::class, Route.Interview.serializer())
         subclass(Route.QuestionBank::class, Route.QuestionBank.serializer())
+        subclass(Route.Duel::class, Route.Duel.serializer())
     }
 }
 
@@ -132,6 +137,7 @@ private fun AppContent(themeMode: ThemeMode, onCycleThemeMode: () -> Unit) {
                         onOpenInterview = { backStack.add(Route.Interview) },
                         onOpenStats = { backStack.add(Route.Stats) },
                         onOpenQuestionBank = { backStack.add(Route.QuestionBank) },
+                        onOpenDuel = { backStack.add(Route.Duel) },
                         themeMode = currentThemeMode,
                         onCycleThemeMode = onCycleThemeMode,
                     )
@@ -238,6 +244,13 @@ private fun AppContent(themeMode: ThemeMode, onCycleThemeMode: () -> Unit) {
                         },
                     )
                 }
+                Route.Duel -> NavEntry(key) {
+                    DuelFlow(onExit = {
+                        if (backStack.size > 1) {
+                            backStack.removeAt(backStack.size - 1)
+                        }
+                    })
+                }
                 else -> error("Unknown key: $key")
             }
         }
@@ -267,6 +280,33 @@ private fun QuizFlow(topic: String?, onExit: () -> Unit) {
             passed = current.passed,
             attempts = current.attempts,
             onRestart = { viewModel.startQuiz(topic) },
+            onHome = onExit,
+        )
+    }
+}
+
+@Composable
+private fun DuelFlow(onExit: () -> Unit) {
+    val viewModel: DuelViewModel = koinViewModel()
+    val state by viewModel.state.collectAsState()
+    LaunchedEffect(Unit) { viewModel.ensureStarted() }
+    when (val current = state) {
+        is DuelUiState.Loading -> LoadingScreen(message = "Preparando el duelo…")
+        is DuelUiState.Error -> QuizErrorScreen(
+            error = current.message,
+            onRetry = viewModel::start,
+            onHome = onExit,
+        )
+        is DuelUiState.Question -> DuelQuestionScreen(
+            state = current,
+            onSelectVariant = viewModel::selectVariant,
+            onSelectAnswer = viewModel::selectAnswer,
+            onNext = viewModel::next,
+            onExit = onExit,
+        )
+        is DuelUiState.Finished -> DuelFinishedScreen(
+            state = current,
+            onRestart = viewModel::start,
             onHome = onExit,
         )
     }

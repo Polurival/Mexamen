@@ -87,7 +87,7 @@ fun QuizScreen(
                 state.question.options.forEachIndexed { index, option ->
                     OptionCard(
                         text = option,
-                        highlight = highlightFor(state, index),
+                        highlight = highlightFor(state.selectedIndex, state.question.correctIndex, index),
                         enabled = state.selectedIndex == null,
                         onClick = { onSelect(index) },
                     )
@@ -163,17 +163,18 @@ private fun formatTime(seconds: Int): String {
     return "${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}"
 }
 
-private enum class OptionHighlight { NONE, CORRECT, WRONG }
+internal enum class OptionHighlight { NONE, CORRECT, WRONG }
 
-private fun highlightFor(state: QuizUiState.Question, index: Int): OptionHighlight = when {
-    state.selectedIndex == null -> OptionHighlight.NONE
-    index == state.question.correctIndex -> OptionHighlight.CORRECT
-    index == state.selectedIndex -> OptionHighlight.WRONG
+/** Подсветка варианта [index] после выбора [selectedIndex]; общая для квиза и «Tú vs IA». */
+internal fun highlightFor(selectedIndex: Int?, correctIndex: Int, index: Int): OptionHighlight = when {
+    selectedIndex == null -> OptionHighlight.NONE
+    index == correctIndex -> OptionHighlight.CORRECT
+    index == selectedIndex -> OptionHighlight.WRONG
     else -> OptionHighlight.NONE
 }
 
 @Composable
-private fun OptionCard(
+internal fun OptionCard(
     text: String,
     highlight: OptionHighlight,
     enabled: Boolean,

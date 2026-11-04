@@ -34,6 +34,7 @@ fun HomeScreen(
     onOpenInterview: () -> Unit,
     onOpenStats: () -> Unit,
     onOpenQuestionBank: () -> Unit,
+    onOpenDuel: () -> Unit,
     themeMode: ThemeMode,
     onCycleThemeMode: () -> Unit,
     modifier: Modifier = Modifier,
@@ -84,6 +85,13 @@ fun HomeScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Banco de preguntas")
+            }
+            Spacer(Modifier.height(8.dp))
+            OutlinedButton(
+                onClick = onOpenDuel,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Tú vs IA")
             }
             Spacer(Modifier.height(8.dp))
             OutlinedButton(
