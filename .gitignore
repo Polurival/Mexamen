@@ -24,3 +24,6 @@ __pycache__/
 /composeApp/mexamen-34f04829d412.json
 
 CLAUDE.local.md
+
+# LLM Gateway (tools/gateway): рабочие логи (демо-логи в results/logs/ — коммитятся)
+tools/gateway/logs/
