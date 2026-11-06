@@ -1,0 +1,134 @@
+{
+ "duration_api_ms": 16176,
+ "stop_reason": "tool_use",
+ "session_id": "b080f1fd-7b8a-4a2c-b032-a5f7fd98c44c",
+ "total_cost_usd": 0.10930799999999999,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 9680,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 1593,
+  "output_tokens_details": {
+   "thinking_tokens": 187
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 9680,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 1593,
+    "cache_read_input_tokens": 0,
+    "cache_creation_input_tokens": 9680,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 9680
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "modelUsage": {
+  "claude-opus-5-5": {
+   "inputTokens": 2,
+   "outputTokens": 1593,
+   "cacheReadInputTokens": 0,
+   "cacheCreationInputTokens": 9680,
+   "webSearchRequests": 0,
+   "costUSD": 0.10930799999999999,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 187,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationEphemeral1hInputTokens": 9680,
+   "canonicalModel": "claude-opus-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "permission_denials": [],
+ "terminal_reason": "completed",
+ "fast_mode_state": "off",
+ "fast_mode_disabled_reason": "sdk_opt_in_required",
+ "subagent_stats": {
+  "spawned": 0,
+  "requested": {
+   "background": 0,
+   "foreground": 0,
+   "unset": 0
+  },
+  "started_in_background": 0,
+  "max_depth": 0,
+  "spawned_by_subagents": 0,
+  "completed": 0,
+  "failed": 0,
+  "killed": {
+   "parent": 0,
+   "user": 0,
+   "system": 0
+  },
+  "refused": {
+   "depth_limit": 0,
+   "concurrency_limit": 0,
+   "budget": 0
+  },
+  "by_type": {}
+ },
+ "safety_stops": 0,
+ "is_error": false,
+ "num_turns": 2,
+ "subtype": "success",
+ "api_error_status": null,
+ "result": "{\"summary\":\"В изменении появилось хранение Bearer-токена авторизации. На обеих платформах токен лежит в открытом виде: в незашифрованном DataStore на Android и в localStorage в wasm. Кроме того, в манифесте не задан allowBackup (по умолчанию true), поэтому токен попадёт в резервные копии.\",\"findings\":[{\"severity\":\"high\",\"category\":\"Insecure Storage (Android)\",\"file\":\"composeApp/src/androidMain/kotlin/dev/polurival/mexamen/data/TokenStore.android.kt\",\"line\":18,\"title\":\"Bearer-токен хранится в DataStore Preferences без шифрования\",\"explanation\":\"DataStoreTokenStore пишет токен как обычную строку в файл auth_token.preferences_pb во внутреннем хранилище. Его можно прочитать на рутованном устройстве, через adb backup или облачный бэкап (allowBackup не отключён), а также при физическом доступе к устройству или при эксплуатации другой уязвимости. Украденный токен даёт полный доступ к аккаунту пользователя.\",\"fix\":\"Шифровать токен перед записью: в androidMain создать AES-256-GCM ключ в AndroidKeyStore (KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, \\\"AndroidKeyStore\\\"), KeyGenParameterSpec с PURPOSE_ENCRYPT|PURPOSE_DECRYPT, BLOCK_MODE_GCM, ENCRYPTION_PADDING_NONE). В saveToken выполнять Cipher.getInstance(\\\"AES/GCM/NoPadding\\\") с IV, который генерирует сам шифр (для каждой записи свой), и сохранять Base64(iv + ciphertext). В readToken расшифровывать, а при ошибке (ключ потерян или инвалидирован) очищать запись и возвращать null. Это платформенные API, новые зависимости не нужны.\"},{\"severity\":\"high\",\"category\":\"Insecure Storage (Web)\",\"file\":\"composeApp/src/wasmJsMain/kotlin/dev/polurival/mexamen/data/TokenStore.wasm.kt\",\"line\":9,\"title\":\"Токен авторизации сохраняется в localStorage\",\"explanation\":\"localStorage доступен любому скрипту на origin. Любая XSS или скомпрометированный сторонний скрипт прочитает mexamen_auth_token и уведёт сессию. Данные остаются там бессрочно, в том числе на общих компьютерах.\",\"fix\":\"Не сохранять токен в localStorage. LocalStorageTokenStore нужно заменить на InMemoryTokenStore (поле var token: String? внутри single из Koin), тогда после перезагрузки страницы потребуется повторный вход. Если сессия должна сохраняться, лучше перейти на HttpOnly; Secure; SameSite cookie, которую выставляет сервер, а клиент токен вообще не хранит. Комментарий в TokenStore.kt тоже нужно обновить.\"},{\"severity\":\"medium\",\"category\":\"Backup Hardening\",\"file\":\"androidApp/src/main/AndroidManifest.xml\",\"line\":4,\"title\":\"allowBackup не отключён, хотя теперь хранится токен авторизации\",\"explanation\":\"В <application> не задан android:allowBackup, а по умолчанию он равен true. С появлением файла auth_token.preferences_pb токен попадёт в Auto Backup (Google Drive) и в adb backup, после чего его можно восстановить на другом устройстве.\",\"fix\":\"Добавить android:allowBackup=\\\"false\\\" в <application>. Если бэкап остальных настроек нужен, можно вместо этого задать android:fullBackupContent и android:dataExtractionRules с правилом <exclude domain=\\\"file\\\" path=\\\"datastore/auth_token.preferences_pb\\\"/> для cloud-backup и device-transfer.\"}]}",
+ "structured_output": {
+  "summary": "В изменении появилось хранение Bearer-токена авторизации. На обеих платформах токен лежит в открытом виде: в незашифрованном DataStore на Android и в localStorage в wasm. Кроме того, в манифесте не задан allowBackup (по умолчанию true), поэтому токен попадёт в резервные копии.",
+  "findings": [
+   {
+    "severity": "high",
+    "category": "Insecure Storage (Android)",
+    "file": "composeApp/src/androidMain/kotlin/dev/polurival/mexamen/data/TokenStore.android.kt",
+    "line": 18,
+    "title": "Bearer-токен хранится в DataStore Preferences без шифрования",
+    "explanation": "DataStoreTokenStore пишет токен как обычную строку в файл auth_token.preferences_pb во внутреннем хранилище. Его можно прочитать на рутованном устройстве, через adb backup или облачный бэкап (allowBackup не отключён), а также при физическом доступе к устройству или при эксплуатации другой уязвимости. Украденный токен даёт полный доступ к аккаунту пользователя.",
+    "fix": "Шифровать токен перед записью: в androidMain создать AES-256-GCM ключ в AndroidKeyStore (KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, \"AndroidKeyStore\"), KeyGenParameterSpec с PURPOSE_ENCRYPT|PURPOSE_DECRYPT, BLOCK_MODE_GCM, ENCRYPTION_PADDING_NONE). В saveToken выполнять Cipher.getInstance(\"AES/GCM/NoPadding\") с IV, который генерирует сам шифр (для каждой записи свой), и сохранять Base64(iv + ciphertext). В readToken расшифровывать, а при ошибке (ключ потерян или инвалидирован) очищать запись и возвращать null. Это платформенные API, новые зависимости не нужны."
+   },
+   {
+    "severity": "high",
+    "category": "Insecure Storage (Web)",
+    "file": "composeApp/src/wasmJsMain/kotlin/dev/polurival/mexamen/data/TokenStore.wasm.kt",
+    "line": 9,
+    "title": "Токен авторизации сохраняется в localStorage",
+    "explanation": "localStorage доступен любому скрипту на origin. Любая XSS или скомпрометированный сторонний скрипт прочитает mexamen_auth_token и уведёт сессию. Данные остаются там бессрочно, в том числе на общих компьютерах.",
+    "fix": "Не сохранять токен в localStorage. LocalStorageTokenStore нужно заменить на InMemoryTokenStore (поле var token: String? внутри single из Koin), тогда после перезагрузки страницы потребуется повторный вход. Если сессия должна сохраняться, лучше перейти на HttpOnly; Secure; SameSite cookie, которую выставляет сервер, а клиент токен вообще не хранит. Комментарий в TokenStore.kt тоже нужно обновить."
+   },
+   {
+    "severity": "medium",
+    "category": "Backup Hardening",
+    "file": "androidApp/src/main/AndroidManifest.xml",
+    "line": 4,
+    "title": "allowBackup не отключён, хотя теперь хранится токен авторизации",
+    "explanation": "В <application> не задан android:allowBackup, а по умолчанию он равен true. С появлением файла auth_token.preferences_pb токен попадёт в Auto Backup (Google Drive) и в adb backup, после чего его можно восстановить на другом устройстве.",
+    "fix": "Добавить android:allowBackup=\"false\" в <application>. Если бэкап остальных настроек нужен, можно вместо этого задать android:fullBackupContent и android:dataExtractionRules с правилом <exclude domain=\"file\" path=\"datastore/auth_token.preferences_pb\"/> для cloud-backup и device-transfer."
+   }
+  ]
+ },
+ "ttft_ms": 16231,
+ "type": "result",
+ "duration_ms": 16316,
+ "uuid": "e6e991eb-c07c-4d08-952b-f144ac09372c",
+ "ttft_stream_ms": 16228,
+ "time_to_request_ms": 139,
+ "first_content_frame_ms": 16229,
+ "queued_turn_count": 0,
+ "result_index": 0,
+ "credential_expires_at": "2026-11-17T17:22:45.145Z"
+}

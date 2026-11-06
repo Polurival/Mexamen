@@ -1,0 +1,197 @@
+diff --git a/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt b/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt
+new file mode 100644
+index 0000000..cf0caab
+--- /dev/null
++++ b/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt
+@@ -0,0 +1,90 @@
++package dev.polurival.mexamen.data
++
++import io.ktor.client.HttpClient
++import io.ktor.client.plugins.HttpTimeout
++import io.ktor.client.request.get
++import io.ktor.client.request.header
++import io.ktor.client.statement.bodyAsText
++import io.ktor.http.isSuccess
++import kotlinx.coroutines.CancellationException
++import kotlinx.serialization.Serializable
++import kotlinx.serialization.json.Json
++
++/** Статус сервиса: [status] — сырое значение поля `status` ответа, [isUp] — сервис работает. */
++data class ServiceStatus(val status: String) {
++    val isUp: Boolean get() = status.equals(STATUS_OK, ignoreCase = true)
++
++    companion object {
++        const val STATUS_OK = "ok"
++    }
++}
++
++/** Сервис статуса недоступен или ответил ошибкой/нечитаемым телом. */
++class StatusUnavailable(message: String, cause: Throwable? = null) : Exception(message, cause)
++
++/**
++ * Клиент `GET /v1/health` API статуса сервиса.
++ * Ключ приходит снаружи ([apiKey]) и в код не зашивается; пустой ключ → [StatusUnavailable] без HTTP-вызова.
++ * Формат ответа предполагается `{"status":"ok"}` — уточнить по документации сервиса.
++ */
++class StatusClient(
++    private val apiKey: String?,
++    private val baseUrl: String = DEFAULT_BASE_URL,
++    private val client: HttpClient = defaultClient(),
++) {
++
++    suspend fun fetchStatus(): ServiceStatus {
++        val key = apiKey?.takeIf { it.isNotBlank() }
++            ?: throw StatusUnavailable("Status API key is not configured")
++        if (!isAllowedBaseUrl(baseUrl)) {
++            throw StatusUnavailable("Status base URL must use https")
++        }
++        val response = try {
++            client.get("$baseUrl$HEALTH_PATH") {
++                header(API_KEY_HEADER, key)
++            }
++        } catch (e: CancellationException) {
++            throw e
++        } catch (e: Exception) {
++            throw StatusUnavailable("Status request failed: ${e.message}", e)
++        }
++        if (!response.status.isSuccess()) {
++            throw StatusUnavailable("Status HTTP ${response.status.value}")
++        }
++        return try {
++            ServiceStatus(json.decodeFromString<HealthResponse>(response.bodyAsText()).status)
++        } catch (e: Exception) {
++            throw StatusUnavailable("Unparseable status response: ${e.message}", e)
++        }
++    }
++
++    @Serializable
++    private data class HealthResponse(val status: String)
++
++    companion object {
++        const val DEFAULT_BASE_URL = "https://status.mexamen-api.example"
++        const val HEALTH_PATH = "/v1/health"
++        const val API_KEY_HEADER = "X-Api-Key"
++        const val TIMEOUT_MILLIS = 10_000L
++
++        private const val HTTPS_PREFIX = "https://"
++        private const val HTTP_PREFIX = "http://"
++        private val LOOPBACK_HOSTS = listOf("localhost", "127.0.0.1", "10.0.2.2")
++
++        private val json = Json { ignoreUnknownKeys = true }
++
++        /** Ключ уходит только по https; обычный http допустим лишь для loopback-хостов (отладка). */
++        internal fun isAllowedBaseUrl(url: String): Boolean {
++            if (url.startsWith(HTTPS_PREFIX, ignoreCase = true)) return true
++            if (!url.startsWith(HTTP_PREFIX, ignoreCase = true)) return false
++            val authority = url.substring(HTTP_PREFIX.length).substringBefore('/')
++            return authority.substringBefore(':').lowercase() in LOOPBACK_HOSTS
++        }
++
++        private fun defaultClient(): HttpClient = HttpClient {
++            install(HttpTimeout) {
++                requestTimeoutMillis = TIMEOUT_MILLIS
++            }
++        }
++    }
++}
+diff --git a/composeApp/src/commonTest/kotlin/dev/polurival/mexamen/data/StatusClientTest.kt b/composeApp/src/commonTest/kotlin/dev/polurival/mexamen/data/StatusClientTest.kt
+new file mode 100644
+index 0000000..b5b7fd8
+--- /dev/null
++++ b/composeApp/src/commonTest/kotlin/dev/polurival/mexamen/data/StatusClientTest.kt
+@@ -0,0 +1,95 @@
++package dev.polurival.mexamen.data
++
++import io.ktor.client.HttpClient
++import io.ktor.client.engine.mock.MockEngine
++import io.ktor.client.engine.mock.respond
++import io.ktor.client.request.HttpRequestData
++import io.ktor.http.HttpHeaders
++import io.ktor.http.HttpMethod
++import io.ktor.http.HttpStatusCode
++import io.ktor.http.headersOf
++import kotlinx.coroutines.test.runTest
++import kotlin.test.Test
++import kotlin.test.assertEquals
++import kotlin.test.assertFailsWith
++import kotlin.test.assertFalse
++import kotlin.test.assertTrue
++import kotlin.test.fail
++
++class StatusClientTest {
++
++    private fun client(
++        apiKey: String? = "test-key",
++        baseUrl: String = StatusClient.DEFAULT_BASE_URL,
++        status: HttpStatusCode = HttpStatusCode.OK,
++        body: String = """{"status":"ok","version":"1.2"}""",
++        capture: (HttpRequestData) -> Unit = {},
++    ) = StatusClient(
++        apiKey = apiKey,
++        baseUrl = baseUrl,
++        client = HttpClient(
++            MockEngine { request ->
++                capture(request)
++                respond(body, status, headersOf(HttpHeaders.ContentType, "application/json"))
++            },
++        ),
++    )
++
++    @Test
++    fun sendsHttpsGetWithKeyHeaderAndNoQueryAndReportsUp() = runTest {
++        var captured: HttpRequestData? = null
++        val result = client(capture = { captured = it }).fetchStatus()
++
++        assertTrue(result.isUp)
++        val request = captured ?: fail("Request was not sent")
++        assertEquals(HttpMethod.Get, request.method)
++        assertEquals("https", request.url.protocol.name)
++        assertEquals("/v1/health", request.url.encodedPath)
++        assertTrue(request.url.parameters.isEmpty(), "No query parameters expected")
++        assertEquals("test-key", request.headers[StatusClient.API_KEY_HEADER])
++    }
++
++    @Test
++    fun plainHttpToRemoteHostIsRejectedWithoutHttpCall() = runTest {
++        var called = false
++        for (url in listOf("http://status.mexamen-api.example", "http://localhost.evil.example", "ftp://x")) {
++            assertFailsWith<StatusUnavailable> {
++                client(baseUrl = url, capture = { called = true }).fetchStatus()
++            }
++        }
++        assertFalse(called, "HTTP must not be called for insecure base URL")
++    }
++
++    @Test
++    fun plainHttpToLoopbackIsAllowed() = runTest {
++        for (url in listOf("http://localhost:8080", "http://127.0.0.1", "http://10.0.2.2:3000")) {
++            assertTrue(client(baseUrl = url).fetchStatus().isUp, url)
++        }
++    }
++
++    @Test
++    fun nonOkStatusIsNotUp() = runTest {
++        assertFalse(client(body = """{"status":"degraded"}""").fetchStatus().isUp)
++    }
++
++    @Test
++    fun missingKeyFailsFastWithoutHttpCall() = runTest {
++        var called = false
++        assertFailsWith<StatusUnavailable> { client(apiKey = null, capture = { called = true }).fetchStatus() }
++        assertFailsWith<StatusUnavailable> { client(apiKey = " ", capture = { called = true }).fetchStatus() }
++        assertFalse(called)
++    }
++
++    @Test
++    fun httpErrorBecomesStatusUnavailable() = runTest {
++        val failure = assertFailsWith<StatusUnavailable> {
++            client(status = HttpStatusCode.Unauthorized).fetchStatus()
++        }
++        assertTrue(failure.message!!.contains("401"))
++    }
++
++    @Test
++    fun unparseableBodyBecomesStatusUnavailable() = runTest {
++        assertFailsWith<StatusUnavailable> { client(body = "not json {").fetchStatus() }
++    }
++}

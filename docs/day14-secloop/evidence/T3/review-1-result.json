@@ -1,0 +1,143 @@
+{
+ "duration_api_ms": 18762,
+ "stop_reason": "tool_use",
+ "session_id": "b2c8358f-e148-495d-abb8-b372f28be390",
+ "total_cost_usd": 0.092196,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 6735,
+  "cache_read_input_tokens": 2640,
+  "output_tokens": 1889,
+  "output_tokens_details": {
+   "thinking_tokens": 294
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 6735,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 1889,
+    "cache_read_input_tokens": 2640,
+    "cache_creation_input_tokens": 6735,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 6735
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "modelUsage": {
+  "claude-opus-5-5": {
+   "inputTokens": 2,
+   "outputTokens": 1889,
+   "cacheReadInputTokens": 2640,
+   "cacheCreationInputTokens": 6735,
+   "webSearchRequests": 0,
+   "costUSD": 0.092196,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 294,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationEphemeral1hInputTokens": 6735,
+   "canonicalModel": "claude-opus-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "permission_denials": [],
+ "terminal_reason": "completed",
+ "fast_mode_state": "off",
+ "fast_mode_disabled_reason": "sdk_opt_in_required",
+ "subagent_stats": {
+  "spawned": 0,
+  "requested": {
+   "background": 0,
+   "foreground": 0,
+   "unset": 0
+  },
+  "started_in_background": 0,
+  "max_depth": 0,
+  "spawned_by_subagents": 0,
+  "completed": 0,
+  "failed": 0,
+  "killed": {
+   "parent": 0,
+   "user": 0,
+   "system": 0
+  },
+  "refused": {
+   "depth_limit": 0,
+   "concurrency_limit": 0,
+   "budget": 0
+  },
+  "by_type": {}
+ },
+ "safety_stops": 0,
+ "is_error": false,
+ "num_turns": 2,
+ "subtype": "success",
+ "api_error_status": null,
+ "result": "{\"summary\":\"В новом StatusClient API-ключ в заголовке `X-Api-Key` по умолчанию уходит по открытому HTTP, а идентификатор пользователя (судя по тесту, email) передаётся в query-строке URL. Тексты исключений вместе с URL и PII тоже передаются дальше, а TLS на Android ничем не ужесточён.\",\"findings\":[{\"severity\":\"high\",\"category\":\"network\",\"file\":\"composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt\",\"line\":64,\"title\":\"Открытый HTTP к удалённому хосту, по которому передаётся API-ключ\",\"explanation\":\"`DEFAULT_BASE_URL = \\\"http://status.mexamen-api.example\\\"` — это не loopback-хост. Каждый запрос несёт заголовок `X-Api-Key` и параметр `user` открытым текстом, поэтому любой MITM в сети (публичный Wi-Fi, прокси) может перехватить ключ и данные пользователя. На Android 9+ cleartext по умолчанию блокируется, так что запрос просто упадёт. На Web запрос со страницы, открытой по HTTPS, будет заблокирован как mixed content, а со страницы по HTTP уйдёт открытым текстом.\",\"fix\":\"Заменить на `https://status.mexamen-api.example`. Дополнительно в `fetchStatus` отклонять `baseUrl`, если он не начинается с `https://`, с исключением для loopback-хостов (localhost/127.0.0.1/10.0.2.2), если они нужны для отладки.\"},{\"severity\":\"high\",\"category\":\"pii\",\"file\":\"composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt\",\"line\":42,\"title\":\"Идентификатор пользователя (email) в query-строке URL\",\"explanation\":\"`parameter(\\\"user\\\", user)` кладёт идентификатор пользователя в URL, а тест передаёт туда email (`user@test`). Query-строки оседают в логах серверов, прокси и CDN, а также в истории браузера на Web. Health-эндпоинту идентификатор пользователя, скорее всего, вообще не нужен.\",\"fix\":\"Убрать параметр `user` из health-запроса. Если серверу он действительно нужен, передавать его в заголовке или теле запроса, а лучше — непрозрачный псевдонимный идентификатор вместо email.\"},{\"severity\":\"medium\",\"category\":\"error-handling\",\"file\":\"composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt\",\"line\":48,\"title\":\"Текст исходного исключения с URL и PII попадает в сообщение StatusUnavailable\",\"explanation\":\"`\\\"Status request failed: ${e.message}\\\"` и `\\\"Unparseable status response: ${e.message}\\\"` (строка 56) переносят внутренние детали в сообщение исключения. Ошибки Ktor, например `HttpRequestTimeoutException`, включают в текст полный URL с `?user=<email>`, а ошибки сериализации — фрагменты ответа. Если сообщение покажут в UI или запишут в лог, туда утекут PII и детали внутреннего устройства.\",\"fix\":\"Использовать фиксированные сообщения без `e.message` (например, `StatusUnavailable(\\\"Status request failed\\\", e)`) и оставить исходное исключение только в `cause`. Наружу в UI отдавать обобщённое состояние «недоступно».\"},{\"severity\":\"medium\",\"category\":\"network\",\"file\":\"composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt\",\"line\":71,\"title\":\"Нет network_security_config и certificate pinning для API, защищённого ключом\",\"explanation\":\"Клиент отправляет API-ключ, но в проекте нет `network_security_config.xml` (cleartext явно не запрещён, pin-set не задан), а `defaultClient()` не настраивает `CertificatePinner`. Если на устройстве установлен пользовательский или подменённый CA, трафик с ключом можно перехватить.\",\"fix\":\"Добавить `res/xml/network_security_config.xml` с `cleartextTrafficPermitted=\\\"false\\\"` в `base-config` и `<pin-set>` для `status.mexamen-api.example` (с резервным пином), подключить его через `android:networkSecurityConfig` в манифесте. Новые зависимости для этого не нужны.\"}]}",
+ "structured_output": {
+  "summary": "В новом StatusClient API-ключ в заголовке `X-Api-Key` по умолчанию уходит по открытому HTTP, а идентификатор пользователя (судя по тесту, email) передаётся в query-строке URL. Тексты исключений вместе с URL и PII тоже передаются дальше, а TLS на Android ничем не ужесточён.",
+  "findings": [
+   {
+    "severity": "high",
+    "category": "network",
+    "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+    "line": 64,
+    "title": "Открытый HTTP к удалённому хосту, по которому передаётся API-ключ",
+    "explanation": "`DEFAULT_BASE_URL = \"http://status.mexamen-api.example\"` — это не loopback-хост. Каждый запрос несёт заголовок `X-Api-Key` и параметр `user` открытым текстом, поэтому любой MITM в сети (публичный Wi-Fi, прокси) может перехватить ключ и данные пользователя. На Android 9+ cleartext по умолчанию блокируется, так что запрос просто упадёт. На Web запрос со страницы, открытой по HTTPS, будет заблокирован как mixed content, а со страницы по HTTP уйдёт открытым текстом.",
+    "fix": "Заменить на `https://status.mexamen-api.example`. Дополнительно в `fetchStatus` отклонять `baseUrl`, если он не начинается с `https://`, с исключением для loopback-хостов (localhost/127.0.0.1/10.0.2.2), если они нужны для отладки."
+   },
+   {
+    "severity": "high",
+    "category": "pii",
+    "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+    "line": 42,
+    "title": "Идентификатор пользователя (email) в query-строке URL",
+    "explanation": "`parameter(\"user\", user)` кладёт идентификатор пользователя в URL, а тест передаёт туда email (`user@test`). Query-строки оседают в логах серверов, прокси и CDN, а также в истории браузера на Web. Health-эндпоинту идентификатор пользователя, скорее всего, вообще не нужен.",
+    "fix": "Убрать параметр `user` из health-запроса. Если серверу он действительно нужен, передавать его в заголовке или теле запроса, а лучше — непрозрачный псевдонимный идентификатор вместо email."
+   },
+   {
+    "severity": "medium",
+    "category": "error-handling",
+    "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+    "line": 48,
+    "title": "Текст исходного исключения с URL и PII попадает в сообщение StatusUnavailable",
+    "explanation": "`\"Status request failed: ${e.message}\"` и `\"Unparseable status response: ${e.message}\"` (строка 56) переносят внутренние детали в сообщение исключения. Ошибки Ktor, например `HttpRequestTimeoutException`, включают в текст полный URL с `?user=<email>`, а ошибки сериализации — фрагменты ответа. Если сообщение покажут в UI или запишут в лог, туда утекут PII и детали внутреннего устройства.",
+    "fix": "Использовать фиксированные сообщения без `e.message` (например, `StatusUnavailable(\"Status request failed\", e)`) и оставить исходное исключение только в `cause`. Наружу в UI отдавать обобщённое состояние «недоступно»."
+   },
+   {
+    "severity": "medium",
+    "category": "network",
+    "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+    "line": 71,
+    "title": "Нет network_security_config и certificate pinning для API, защищённого ключом",
+    "explanation": "Клиент отправляет API-ключ, но в проекте нет `network_security_config.xml` (cleartext явно не запрещён, pin-set не задан), а `defaultClient()` не настраивает `CertificatePinner`. Если на устройстве установлен пользовательский или подменённый CA, трафик с ключом можно перехватить.",
+    "fix": "Добавить `res/xml/network_security_config.xml` с `cleartextTrafficPermitted=\"false\"` в `base-config` и `<pin-set>` для `status.mexamen-api.example` (с резервным пином), подключить его через `android:networkSecurityConfig` в манифесте. Новые зависимости для этого не нужны."
+   }
+  ]
+ },
+ "ttft_ms": 18835,
+ "type": "result",
+ "duration_ms": 18903,
+ "uuid": "1a34eb06-88ce-4f9d-a009-a7be3e7b55a5",
+ "ttft_stream_ms": 18833,
+ "time_to_request_ms": 144,
+ "first_content_frame_ms": 18833,
+ "queued_turn_count": 0,
+ "result_index": 0,
+ "credential_expires_at": "2026-11-17T17:22:45.145Z"
+}
