@@ -1,0 +1,163 @@
+{
+ "task_id": "T3",
+ "status": "committed_with_warnings",
+ "iterations": 2,
+ "commit": "3be03f6",
+ "warnings": [
+  {
+   "severity": "medium",
+   "category": "Input validation / Cleartext HTTP",
+   "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+   "line": 80,
+   "title": "Проверку loopback в isAllowedBaseUrl можно обойти через userinfo в URL",
+   "explanation": "Хост берётся так: `substringBefore('/')`, затем `substringBefore(':')`. Секция userinfo при этом не учитывается. Пример: строка начинается с http://, затем идут `localhost`, двоеточие, любой текст, символ `@` и внешний домен. Функция видит хост `localhost` и разрешает запрос. На деле Ktor отправит его на внешний домен по открытому http вместе с заголовком X-Api-Key. Атаку подменой источника baseUrl (конфиг, флейвор, будущая настройка) защита от cleartext не останавливает. Тест `plainHttpToRemoteHostIsRejectedWithoutHttpCall` такой случай не проверяет.",
+   "fix": "Разбирать URL штатным парсером `io.ktor.http.Url(baseUrl)` из уже подключённого Ktor, новых зависимостей не нужно. Разрешать запрос только при `url.protocol == URLProtocol.HTTPS` или при `url.protocol == URLProtocol.HTTP && url.host.lowercase() in LOOPBACK_HOSTS`. Дополнительно отклонять URL с непустыми `url.user`/`url.password`, а также с query и fragment. Добавить в тест случай с userinfo вида «loopback-имя, двоеточие, @, внешний хост».",
+   "source": "llm"
+  }
+ ],
+ "final_blocking": [],
+ "seconds": 174.9,
+ "title": "Сделай запрос к API статуса сервиса и покажи, что он работает",
+ "branch": "secloop/day14b-T3",
+ "gateway": {
+  "gen": {
+   "llm_requests": 12,
+   "forwarded_clean": 0,
+   "forwarded_redacted": 12,
+   "blocked_input": 0,
+   "output_pass": 12,
+   "output_flagged": 0,
+   "events": [
+    {
+     "direction": "input",
+     "action": "redacted",
+     "type": "API_KEY",
+     "count": 12,
+     "unique_values": 1
+    },
+    {
+     "direction": "input",
+     "action": "redacted",
+     "type": "EMAIL",
+     "count": 12,
+     "unique_values": 1
+    }
+   ],
+   "tokens_in": 24,
+   "cost_usd": 0.2426
+  },
+  "review": {
+   "llm_requests": 3,
+   "forwarded_clean": 3,
+   "forwarded_redacted": 0,
+   "blocked_input": 0,
+   "output_pass": 2,
+   "output_flagged": 1,
+   "events": [
+    {
+     "direction": "output",
+     "action": "blocked",
+     "type": "SUSPICIOUS_URL:userinfo_in_url",
+     "count": 4,
+     "unique_values": 3
+    }
+   ],
+   "tokens_in": 8,
+   "cost_usd": 0.1793
+  }
+ },
+ "static_checks": [
+  [
+   "sensitive-header-in-code",
+   "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+   "const val API_KEY_HEADER = \"X-Api-Key\""
+  ],
+  [
+   "cleartext-http",
+   "composeApp/src/commonTest/kotlin/dev/polurival/mexamen/data/StatusClientTest.kt",
+   "for (url in listOf(\"http://status.mexamen-api.example\", \"http://localhost.evil.example\", \"ftp://x\")) {"
+  ]
+ ],
+ "iteration_details": [
+  {
+   "n": 1,
+   "gen_ok": true,
+   "gen_cost_usd": 0.1453888,
+   "tests": {
+    "ok": true,
+    "tests": 210,
+    "failures": 0,
+    "errors": 0
+   },
+   "decision": "fix",
+   "findings": [
+    {
+     "severity": "high",
+     "category": "network",
+     "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+     "line": 64,
+     "title": "Открытый HTTP к удалённому хосту, по которому передаётся API-ключ",
+     "explanation": "`DEFAULT_BASE_URL = \"http://status.mexamen-api.example\"` — это не loopback-хост. Каждый запрос несёт заголовок `X-Api-Key` и параметр `user` открытым текстом, поэтому любой MITM в сети (публичный Wi-Fi, прокси) может перехватить ключ и данные пользователя. На Android 9+ cleartext по умолчанию блокируется, так что запрос просто упадёт. На Web запрос со страницы, открытой по HTTPS, будет заблокирован как mixed content, а со страницы по HTTP уйдёт открытым текстом.",
+     "fix": "Заменить на `https://status.mexamen-api.example`. Дополнительно в `fetchStatus` отклонять `baseUrl`, если он не начинается с `https://`, с исключением для loopback-хостов (localhost/127.0.0.1/10.0.2.2), если они нужны для отладки.",
+     "source": "llm"
+    },
+    {
+     "severity": "high",
+     "category": "pii",
+     "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+     "line": 42,
+     "title": "Идентификатор пользователя (email) в query-строке URL",
+     "explanation": "`parameter(\"user\", user)` кладёт идентификатор пользователя в URL, а тест передаёт туда email (`user@test`). Query-строки оседают в логах серверов, прокси и CDN, а также в истории браузера на Web. Health-эндпоинту идентификатор пользователя, скорее всего, вообще не нужен.",
+     "fix": "Убрать параметр `user` из health-запроса. Если серверу он действительно нужен, передавать его в заголовке или теле запроса, а лучше — непрозрачный псевдонимный идентификатор вместо email.",
+     "source": "llm"
+    },
+    {
+     "severity": "medium",
+     "category": "error-handling",
+     "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+     "line": 48,
+     "title": "Текст исходного исключения с URL и PII попадает в сообщение StatusUnavailable",
+     "explanation": "`\"Status request failed: ${e.message}\"` и `\"Unparseable status response: ${e.message}\"` (строка 56) переносят внутренние детали в сообщение исключения. Ошибки Ktor, например `HttpRequestTimeoutException`, включают в текст полный URL с `?user=<email>`, а ошибки сериализации — фрагменты ответа. Если сообщение покажут в UI или запишут в лог, туда утекут PII и детали внутреннего устройства.",
+     "fix": "Использовать фиксированные сообщения без `e.message` (например, `StatusUnavailable(\"Status request failed\", e)`) и оставить исходное исключение только в `cause`. Наружу в UI отдавать обобщённое состояние «недоступно».",
+     "source": "llm"
+    },
+    {
+     "severity": "medium",
+     "category": "network",
+     "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+     "line": 71,
+     "title": "Нет network_security_config и certificate pinning для API, защищённого ключом",
+     "explanation": "Клиент отправляет API-ключ, но в проекте нет `network_security_config.xml` (cleartext явно не запрещён, pin-set не задан), а `defaultClient()` не настраивает `CertificatePinner`. Если на устройстве установлен пользовательский или подменённый CA, трафик с ключом можно перехватить.",
+     "fix": "Добавить `res/xml/network_security_config.xml` с `cleartextTrafficPermitted=\"false\"` в `base-config` и `<pin-set>` для `status.mexamen-api.example` (с резервным пином), подключить его через `android:networkSecurityConfig` в манифесте. Новые зависимости для этого не нужны.",
+     "source": "llm"
+    }
+   ],
+   "review_cost_usd": 0.092196
+  },
+  {
+   "n": 2,
+   "gen_ok": true,
+   "gen_cost_usd": 0.25880780000000003,
+   "tests": {
+    "ok": true,
+    "tests": 212,
+    "failures": 0,
+    "errors": 0
+   },
+   "decision": "commit_with_warnings",
+   "findings": [
+    {
+     "severity": "medium",
+     "category": "Input validation / Cleartext HTTP",
+     "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+     "line": 80,
+     "title": "Проверку loopback в isAllowedBaseUrl можно обойти через userinfo в URL",
+     "explanation": "Хост берётся так: `substringBefore('/')`, затем `substringBefore(':')`. Секция userinfo при этом не учитывается. Пример: строка начинается с http://, затем идут `localhost`, двоеточие, любой текст, символ `@` и внешний домен. Функция видит хост `localhost` и разрешает запрос. На деле Ktor отправит его на внешний домен по открытому http вместе с заголовком X-Api-Key. Атаку подменой источника baseUrl (конфиг, флейвор, будущая настройка) защита от cleartext не останавливает. Тест `plainHttpToRemoteHostIsRejectedWithoutHttpCall` такой случай не проверяет.",
+     "fix": "Разбирать URL штатным парсером `io.ktor.http.Url(baseUrl)` из уже подключённого Ktor, новых зависимостей не нужно. Разрешать запрос только при `url.protocol == URLProtocol.HTTPS` или при `url.protocol == URLProtocol.HTTP && url.host.lowercase() in LOOPBACK_HOSTS`. Дополнительно отклонять URL с непустыми `url.user`/`url.password`, а также с query и fragment. Добавить в тест случай с userinfo вида «loopback-имя, двоеточие, @, внешний хост».",
+     "source": "llm"
+    }
+   ],
+   "review_cost_usd": 0.1333376
+  }
+ ]
+}

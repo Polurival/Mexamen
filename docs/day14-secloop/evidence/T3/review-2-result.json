@@ -1,0 +1,116 @@
+{
+ "duration_api_ms": 31518,
+ "stop_reason": "tool_use",
+ "session_id": "943fb39a-42f7-40d1-97ba-2a733b943cbd",
+ "total_cost_usd": 0.1333376,
+ "usage": {
+  "input_tokens": 6,
+  "cache_creation_input_tokens": 8683,
+  "cache_read_input_tokens": 13148,
+  "output_tokens": 3061,
+  "output_tokens_details": {
+   "thinking_tokens": 1424
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 8683,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 4,
+    "output_tokens": 1405,
+    "cache_read_input_tokens": 10508,
+    "cache_creation_input_tokens": 467,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 467
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "modelUsage": {
+  "claude-opus-5-5": {
+   "inputTokens": 6,
+   "outputTokens": 3061,
+   "cacheReadInputTokens": 13148,
+   "cacheCreationInputTokens": 8683,
+   "webSearchRequests": 0,
+   "costUSD": 0.1333376,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 1424,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationEphemeral1hInputTokens": 8683,
+   "canonicalModel": "claude-opus-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "permission_denials": [],
+ "terminal_reason": "completed",
+ "fast_mode_state": "off",
+ "fast_mode_disabled_reason": "sdk_opt_in_required",
+ "subagent_stats": {
+  "spawned": 0,
+  "requested": {
+   "background": 0,
+   "foreground": 0,
+   "unset": 0
+  },
+  "started_in_background": 0,
+  "max_depth": 0,
+  "spawned_by_subagents": 0,
+  "completed": 0,
+  "failed": 0,
+  "killed": {
+   "parent": 0,
+   "user": 0,
+   "system": 0
+  },
+  "refused": {
+   "depth_limit": 0,
+   "concurrency_limit": 0,
+   "budget": 0
+  },
+  "by_type": {}
+ },
+ "safety_stops": 0,
+ "is_error": false,
+ "num_turns": 3,
+ "subtype": "success",
+ "api_error_status": null,
+ "result": "{\"summary\":\"Новый StatusClient в целом сделан аккуратно: ключ не зашит в код, передаётся в заголовке и проверяется на https. Но проверка `isAllowedBaseUrl` разбирает URL вручную через строки, и её можно обойти: X-Api-Key тогда уйдёт по открытому http на внешний хост.\",\"findings\":[{\"severity\":\"medium\",\"category\":\"Input validation / Cleartext HTTP\",\"file\":\"composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt\",\"line\":80,\"title\":\"Проверку loopback в isAllowedBaseUrl можно обойти через userinfo в URL\",\"explanation\":\"Хост берётся так: `substringBefore('/')`, затем `substringBefore(':')`. Секция userinfo при этом не учитывается. Пример: строка начинается с http://, затем идут `localhost`, двоеточие, любой текст, символ `@` и внешний домен. Функция видит хост `localhost` и разрешает запрос. На деле Ktor отправит его на внешний домен по открытому http вместе с заголовком X-Api-Key. Атаку подменой источника baseUrl (конфиг, флейвор, будущая настройка) защита от cleartext не останавливает. Тест `plainHttpToRemoteHostIsRejectedWithoutHttpCall` такой случай не проверяет.\",\"fix\":\"Разбирать URL штатным парсером `io.ktor.http.Url(baseUrl)` из уже подключённого Ktor, новых зависимостей не нужно. Разрешать запрос только при `url.protocol == URLProtocol.HTTPS` или при `url.protocol == URLProtocol.HTTP && url.host.lowercase() in LOOPBACK_HOSTS`. Дополнительно отклонять URL с непустыми `url.user`/`url.password`, а также с query и fragment. Добавить в тест случай с userinfo вида «loopback-имя, двоеточие, @, внешний хост».\"}]}",
+ "structured_output": {
+  "summary": "Новый StatusClient в целом сделан аккуратно: ключ не зашит в код, передаётся в заголовке и проверяется на https. Но проверка `isAllowedBaseUrl` разбирает URL вручную через строки, и её можно обойти: X-Api-Key тогда уйдёт по открытому http на внешний хост.",
+  "findings": [
+   {
+    "severity": "medium",
+    "category": "Input validation / Cleartext HTTP",
+    "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+    "line": 80,
+    "title": "Проверку loopback в isAllowedBaseUrl можно обойти через userinfo в URL",
+    "explanation": "Хост берётся так: `substringBefore('/')`, затем `substringBefore(':')`. Секция userinfo при этом не учитывается. Пример: строка начинается с http://, затем идут `localhost`, двоеточие, любой текст, символ `@` и внешний домен. Функция видит хост `localhost` и разрешает запрос. На деле Ktor отправит его на внешний домен по открытому http вместе с заголовком X-Api-Key. Атаку подменой источника baseUrl (конфиг, флейвор, будущая настройка) защита от cleartext не останавливает. Тест `plainHttpToRemoteHostIsRejectedWithoutHttpCall` такой случай не проверяет.",
+    "fix": "Разбирать URL штатным парсером `io.ktor.http.Url(baseUrl)` из уже подключённого Ktor, новых зависимостей не нужно. Разрешать запрос только при `url.protocol == URLProtocol.HTTPS` или при `url.protocol == URLProtocol.HTTP && url.host.lowercase() in LOOPBACK_HOSTS`. Дополнительно отклонять URL с непустыми `url.user`/`url.password`, а также с query и fragment. Добавить в тест случай с userinfo вида «loopback-имя, двоеточие, @, внешний хост»."
+   }
+  ]
+ },
+ "ttft_ms": 16744,
+ "type": "result",
+ "duration_ms": 31667,
+ "uuid": "3c3518db-c236-41bd-899c-d2facaf7b8f5",
+ "ttft_stream_ms": 16744,
+ "time_to_request_ms": 141,
+ "first_content_frame_ms": 16744,
+ "queued_turn_count": 0,
+ "result_index": 0,
+ "credential_expires_at": "2026-11-17T17:22:45.145Z"
+}

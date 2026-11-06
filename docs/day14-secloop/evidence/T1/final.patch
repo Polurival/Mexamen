@@ -1,0 +1,263 @@
+diff --git a/composeApp/src/androidHostTest/kotlin/dev/polurival/mexamen/data/DataStoreTokenStoreTest.kt b/composeApp/src/androidHostTest/kotlin/dev/polurival/mexamen/data/DataStoreTokenStoreTest.kt
+new file mode 100644
+index 0000000..fefc47e
+--- /dev/null
++++ b/composeApp/src/androidHostTest/kotlin/dev/polurival/mexamen/data/DataStoreTokenStoreTest.kt
+@@ -0,0 +1,71 @@
++package dev.polurival.mexamen.data
++
++import androidx.datastore.core.DataStore
++import androidx.datastore.preferences.core.PreferenceDataStoreFactory
++import androidx.datastore.preferences.core.Preferences
++import androidx.datastore.preferences.core.stringPreferencesKey
++import kotlinx.coroutines.CoroutineScope
++import kotlinx.coroutines.Dispatchers
++import kotlinx.coroutines.SupervisorJob
++import kotlinx.coroutines.cancel
++import kotlinx.coroutines.flow.first
++import kotlinx.coroutines.test.runTest
++import java.io.File
++import kotlin.test.Test
++import kotlin.test.assertEquals
++import kotlin.test.assertNotEquals
++import kotlin.test.assertNull
++
++/** Настоящий DataStore на временном файле; AndroidKeyStore на хосте недоступен — шифр подменён. */
++class DataStoreTokenStoreTest {
++    private val file = File.createTempFile("auth_token", ".preferences_pb").also { it.delete() }
++    private val rawKey = stringPreferencesKey("auth_token")
++
++    private class ReversingCipher : TokenCipher {
++        override fun encrypt(plain: String) = "enc:" + plain.reversed()
++        override fun decrypt(encoded: String): String {
++            require(encoded.startsWith("enc:"))
++            return encoded.removePrefix("enc:").reversed()
++        }
++    }
++
++    private class BrokenCipher : TokenCipher {
++        override fun encrypt(plain: String) = plain
++        override fun decrypt(encoded: String): String = error("key lost")
++    }
++
++    private fun dataStore(scope: CoroutineScope): DataStore<Preferences> =
++        PreferenceDataStoreFactory.create(scope = scope, produceFile = { file })
++
++    @Test
++    fun tokenSurvivesRestartIsEncryptedAndClearRemovesIt() = runTest {
++        val scope1 = CoroutineScope(SupervisorJob() + Dispatchers.IO)
++        val ds1 = dataStore(scope1)
++        val first = DataStoreTokenStore(ds1, ReversingCipher())
++        assertNull(first.readToken())
++        first.saveToken("test-token")
++        assertEquals("test-token", first.readToken())
++        assertNotEquals("test-token", ds1.data.first()[rawKey])
++        scope1.cancel()
++
++        val scope2 = CoroutineScope(SupervisorJob() + Dispatchers.IO)
++        val second = DataStoreTokenStore(dataStore(scope2), ReversingCipher())
++        assertEquals("test-token", second.readToken())
++        second.clearToken()
++        assertNull(second.readToken())
++        scope2.cancel()
++        file.delete()
++    }
++
++    @Test
++    fun undecryptableTokenIsClearedAndReadReturnsNull() = runTest {
++        val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
++        val ds = dataStore(scope)
++        DataStoreTokenStore(ds, ReversingCipher()).saveToken("test-token")
++        val broken = DataStoreTokenStore(ds, BrokenCipher())
++        assertNull(broken.readToken())
++        assertNull(ds.data.first()[rawKey])
++        scope.cancel()
++        file.delete()
++    }
++}
+diff --git a/composeApp/src/androidMain/kotlin/dev/polurival/mexamen/data/TokenStore.android.kt b/composeApp/src/androidMain/kotlin/dev/polurival/mexamen/data/TokenStore.android.kt
+new file mode 100644
+index 0000000..a5aaa7c
+--- /dev/null
++++ b/composeApp/src/androidMain/kotlin/dev/polurival/mexamen/data/TokenStore.android.kt
+@@ -0,0 +1,106 @@
++package dev.polurival.mexamen.data
++
++import android.security.keystore.KeyGenParameterSpec
++import android.security.keystore.KeyProperties
++import android.util.Base64
++import androidx.datastore.core.DataStore
++import androidx.datastore.preferences.core.PreferenceDataStoreFactory
++import androidx.datastore.preferences.core.Preferences
++import androidx.datastore.preferences.core.edit
++import androidx.datastore.preferences.core.stringPreferencesKey
++import androidx.datastore.preferences.preferencesDataStoreFile
++import dev.polurival.mexamen.AppContext
++import kotlinx.coroutines.flow.first
++import java.security.KeyStore
++import javax.crypto.Cipher
++import javax.crypto.KeyGenerator
++import javax.crypto.SecretKey
++import javax.crypto.spec.GCMParameterSpec
++
++private val AUTH_TOKEN_KEY = stringPreferencesKey("auth_token")
++
++/** Шифрование токена перед записью на диск. Ошибка расшифровки = исключение. */
++interface TokenCipher {
++    fun encrypt(plain: String): String
++    fun decrypt(encoded: String): String
++}
++
++/** AES-256-GCM, ключ в AndroidKeyStore (не извлекается из приложения). Формат: Base64(iv + ciphertext). */
++class KeystoreTokenCipher : TokenCipher {
++    override fun encrypt(plain: String): String {
++        val cipher = Cipher.getInstance(TRANSFORMATION)
++        cipher.init(Cipher.ENCRYPT_MODE, getOrCreateKey())
++        val encrypted = cipher.doFinal(plain.toByteArray(Charsets.UTF_8))
++        return Base64.encodeToString(cipher.iv + encrypted, Base64.NO_WRAP)
++    }
++
++    override fun decrypt(encoded: String): String {
++        val data = Base64.decode(encoded, Base64.NO_WRAP)
++        val cipher = Cipher.getInstance(TRANSFORMATION)
++        cipher.init(
++            Cipher.DECRYPT_MODE,
++            getOrCreateKey(),
++            GCMParameterSpec(GCM_TAG_BITS, data, 0, GCM_IV_BYTES),
++        )
++        return String(cipher.doFinal(data, GCM_IV_BYTES, data.size - GCM_IV_BYTES), Charsets.UTF_8)
++    }
++
++    private fun getOrCreateKey(): SecretKey {
++        val keyStore = KeyStore.getInstance(ANDROID_KEYSTORE).apply { load(null) }
++        (keyStore.getKey(KEY_ALIAS, null) as? SecretKey)?.let { return it }
++        val generator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, ANDROID_KEYSTORE)
++        generator.init(
++            KeyGenParameterSpec.Builder(
++                KEY_ALIAS,
++                KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT,
++            )
++                .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
++                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
++                .setKeySize(KEY_SIZE_BITS)
++                .build(),
++        )
++        return generator.generateKey()
++    }
++
++    private companion object {
++        const val ANDROID_KEYSTORE = "AndroidKeyStore"
++        const val KEY_ALIAS = "mexamen_auth_token_key"
++        const val TRANSFORMATION = "AES/GCM/NoPadding"
++        const val KEY_SIZE_BITS = 256
++        const val GCM_TAG_BITS = 128
++        const val GCM_IV_BYTES = 12
++    }
++}
++
++class DataStoreTokenStore(
++    private val dataStore: DataStore<Preferences>,
++    private val cipher: TokenCipher,
++) : TokenStore {
++    override suspend fun saveToken(token: String) {
++        val encrypted = cipher.encrypt(token)
++        dataStore.edit { it[AUTH_TOKEN_KEY] = encrypted }
++    }
++
++    /** При ошибке расшифровки (ключ потерян/инвалидирован) запись очищается, возвращается `null`. */
++    override suspend fun readToken(): String? {
++        val encoded = dataStore.data.first()[AUTH_TOKEN_KEY] ?: return null
++        return try {
++            cipher.decrypt(encoded)
++        } catch (e: Exception) {
++            clearToken()
++            null
++        }
++    }
++
++    override suspend fun clearToken() {
++        dataStore.edit { it.remove(AUTH_TOKEN_KEY) }
++    }
++}
++
++private val tokenDataStore: DataStore<Preferences> by lazy {
++    PreferenceDataStoreFactory.create(
++        produceFile = { AppContext.instance.preferencesDataStoreFile("auth_token") },
++    )
++}
++
++actual fun defaultTokenStore(): TokenStore = DataStoreTokenStore(tokenDataStore, KeystoreTokenCipher())
+diff --git a/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/TokenStore.kt b/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/TokenStore.kt
+new file mode 100644
+index 0000000..fca7bb9
+--- /dev/null
++++ b/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/TokenStore.kt
+@@ -0,0 +1,17 @@
++package dev.polurival.mexamen.data
++
++/**
++ * Хранилище Bearer-токена авторизации.
++ * Android: переживает перезапуск, зашифровано (AES-GCM, AndroidKeyStore).
++ * Web: только в памяти, после перезагрузки страницы нужен повторный вход.
++ */
++interface TokenStore {
++    suspend fun saveToken(token: String)
++
++    /** Сохранённый токен или `null`, если пользователь не входил / токен очищен. */
++    suspend fun readToken(): String?
++    suspend fun clearToken()
++}
++
++/** Продакшн-инстанс; Android — DataStore + шифрование, wasm — память. */
++expect fun defaultTokenStore(): TokenStore
+diff --git a/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/di/DataModule.kt b/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/di/DataModule.kt
+index 868687c..a833ccf 100644
+--- a/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/di/DataModule.kt
++++ b/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/di/DataModule.kt
+@@ -4,10 +4,12 @@ import dev.polurival.mexamen.data.InterviewStore
+ import dev.polurival.mexamen.data.QuestionRepository
+ import dev.polurival.mexamen.data.QuestionStatsStore
+ import dev.polurival.mexamen.data.ThemeModeStore
++import dev.polurival.mexamen.data.TokenStore
+ import dev.polurival.mexamen.data.defaultInterviewStore
+ import dev.polurival.mexamen.data.defaultQuestionRepository
+ import dev.polurival.mexamen.data.defaultQuestionStatsStore
+ import dev.polurival.mexamen.data.defaultThemeModeStore
++import dev.polurival.mexamen.data.defaultTokenStore
+ import dev.polurival.mexamen.ui.AudioPlayer
+ import dev.polurival.mexamen.ui.provideAudioPlayer
+ import org.koin.dsl.module
+@@ -17,5 +19,6 @@ val dataModule = module {
+     single<QuestionStatsStore> { defaultQuestionStatsStore() }
+     single<InterviewStore> { defaultInterviewStore() }
+     single<ThemeModeStore> { defaultThemeModeStore() }
++    single<TokenStore> { defaultTokenStore() }
+     factory<AudioPlayer> { provideAudioPlayer() }
+ }
+diff --git a/composeApp/src/wasmJsMain/kotlin/dev/polurival/mexamen/data/TokenStore.wasm.kt b/composeApp/src/wasmJsMain/kotlin/dev/polurival/mexamen/data/TokenStore.wasm.kt
+new file mode 100644
+index 0000000..44d21a4
+--- /dev/null
++++ b/composeApp/src/wasmJsMain/kotlin/dev/polurival/mexamen/data/TokenStore.wasm.kt
+@@ -0,0 +1,21 @@
++package dev.polurival.mexamen.data
++
++/**
++ * Токен только в памяти вкладки: в localStorage не пишем (читается любым XSS).
++ * После перезагрузки страницы нужен повторный вход.
++ */
++class InMemoryTokenStore : TokenStore {
++    private var token: String? = null
++
++    override suspend fun saveToken(token: String) {
++        this.token = token
++    }
++
++    override suspend fun readToken(): String? = token
++
++    override suspend fun clearToken() {
++        token = null
++    }
++}
++
++actual fun defaultTokenStore(): TokenStore = InMemoryTokenStore()

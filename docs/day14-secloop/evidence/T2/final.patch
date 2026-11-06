@@ -1,0 +1,144 @@
+diff --git a/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/GroqProvider.kt b/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/GroqProvider.kt
+index f938f04..2308e3c 100644
+--- a/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/GroqProvider.kt
++++ b/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/GroqProvider.kt
+@@ -2,10 +2,6 @@ package dev.polurival.mexamen.llm
+ 
+ import io.ktor.client.HttpClient
+ import io.ktor.client.plugins.HttpTimeout
+-import io.ktor.client.plugins.logging.LogLevel
+-import io.ktor.client.plugins.logging.Logger
+-import io.ktor.client.plugins.logging.Logging
+-import io.ktor.client.plugins.logging.SIMPLE
+ import io.ktor.client.request.header
+ import io.ktor.client.request.post
+ import io.ktor.client.request.setBody
+@@ -86,16 +82,14 @@ class GroqProvider(
+ 
+         private val json = Json { ignoreUnknownKeys = true }
+ 
++        /** Лог HTTP-запросов дефолтного клиента (в памяти процесса). */
++        val httpLog = HttpLogBuffer()
++
+         private fun defaultClient(): HttpClient = HttpClient {
+             install(HttpTimeout) {
+                 requestTimeoutMillis = TIMEOUT_MILLIS
+             }
+-            if (isDebugBuild()) {
+-                install(Logging) {
+-                    logger = Logger.SIMPLE
+-                    level = LogLevel.ALL
+-                }
+-            }
++            installHttpLogging(httpLog)
+         }
+     }
+ }
+diff --git a/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/HttpLogBuffer.kt b/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/HttpLogBuffer.kt
+new file mode 100644
+index 0000000..64844df
+--- /dev/null
++++ b/composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/HttpLogBuffer.kt
+@@ -0,0 +1,43 @@
++package dev.polurival.mexamen.llm
++
++import io.ktor.client.HttpClientConfig
++import io.ktor.client.plugins.logging.LogLevel
++import io.ktor.client.plugins.logging.Logger
++import io.ktor.client.plugins.logging.Logging
++import io.ktor.http.HttpHeaders
++import kotlinx.coroutines.flow.MutableStateFlow
++import kotlinx.coroutines.flow.StateFlow
++import kotlinx.coroutines.flow.asStateFlow
++import kotlinx.coroutines.flow.update
++
++/**
++ * Кольцевой буфер строк HTTP-лога (метод, URL, заголовки, тела запроса/ответа) для разбора жалоб.
++ * Хранится только в памяти процесса и ограничен [capacity] строками.
++ * Значение заголовка `Authorization` не попадает в лог (см. [installHttpLogging]) — это секрет,
++ * для воспроизведения запроса он не нужен.
++ */
++class HttpLogBuffer(private val capacity: Int = DEFAULT_CAPACITY) {
++    private val _lines = MutableStateFlow<List<String>>(emptyList())
++    val lines: StateFlow<List<String>> = _lines.asStateFlow()
++
++    fun append(message: String) {
++        _lines.update { (it + message).takeLast(capacity) }
++    }
++
++    fun dump(): String = _lines.value.joinToString("\n")
++
++    companion object {
++        const val DEFAULT_CAPACITY = 2_000
++    }
++}
++
++/** Подключает полное логирование HTTP в [buffer]; значение `Authorization` маскируется. */
++fun HttpClientConfig<*>.installHttpLogging(buffer: HttpLogBuffer) {
++    install(Logging) {
++        logger = object : Logger {
++            override fun log(message: String) = buffer.append(message)
++        }
++        level = LogLevel.ALL
++        sanitizeHeader { header -> header.equals(HttpHeaders.Authorization, ignoreCase = true) }
++    }
++}
+diff --git a/composeApp/src/commonTest/kotlin/dev/polurival/mexamen/llm/HttpLogBufferTest.kt b/composeApp/src/commonTest/kotlin/dev/polurival/mexamen/llm/HttpLogBufferTest.kt
+new file mode 100644
+index 0000000..40eb972
+--- /dev/null
++++ b/composeApp/src/commonTest/kotlin/dev/polurival/mexamen/llm/HttpLogBufferTest.kt
+@@ -0,0 +1,53 @@
++package dev.polurival.mexamen.llm
++
++import io.ktor.client.HttpClient
++import io.ktor.client.engine.mock.MockEngine
++import io.ktor.client.engine.mock.respond
++import io.ktor.http.HttpHeaders
++import io.ktor.http.HttpStatusCode
++import io.ktor.http.headersOf
++import kotlinx.coroutines.test.runTest
++import kotlin.test.Test
++import kotlin.test.assertEquals
++import kotlin.test.assertFalse
++import kotlin.test.assertTrue
++
++private const val TEST_KEY = "test-groq-key-for-masking"
++
++class HttpLogBufferTest {
++
++    @Test
++    fun logsMethodUrlHeadersAndBodiesButMasksAuthorization() = runTest {
++        val buffer = HttpLogBuffer()
++        val provider = GroqProvider(
++            apiKey = TEST_KEY,
++            client = HttpClient(
++                MockEngine {
++                    respond(
++                        """{"choices":[{"message":{"role":"assistant","content":"respuesta-unica"}}]}""",
++                        HttpStatusCode.OK,
++                        headersOf(HttpHeaders.ContentType, "application/json"),
++                    )
++                },
++            ) { installHttpLogging(buffer) },
++        )
++
++        provider.complete("sistema", "pregunta-unica")
++
++        val log = buffer.dump()
++        assertTrue(log.contains("POST"), log)
++        assertTrue(log.contains(GroqProvider.API_URL), log)
++        assertTrue(log.contains("pregunta-unica"), log)
++        assertTrue(log.contains("respuesta-unica"), log)
++        assertTrue(log.contains(HttpHeaders.Authorization), log)
++        assertFalse(log.contains(TEST_KEY), log)
++    }
++
++    @Test
++    fun keepsOnlyLastLinesWithinCapacity() {
++        val buffer = HttpLogBuffer(capacity = 3)
++        (1..5).forEach { buffer.append("line$it") }
++
++        assertEquals(listOf("line3", "line4", "line5"), buffer.lines.value)
++    }
++}

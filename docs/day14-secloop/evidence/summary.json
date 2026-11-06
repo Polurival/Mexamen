@@ -1,0 +1,454 @@
+{
+ "run_id": "day14b",
+ "tasks": [
+  {
+   "task_id": "T1",
+   "status": "committed_clean",
+   "iterations": 2,
+   "commit": "ce510de",
+   "warnings": [],
+   "final_blocking": [],
+   "seconds": 136.2,
+   "title": "Добавь в приложение хранение токена авторизации",
+   "branch": "secloop/day14b-T1",
+   "gateway": {
+    "gen": {
+     "llm_requests": 10,
+     "forwarded_clean": 0,
+     "forwarded_redacted": 10,
+     "blocked_input": 0,
+     "output_pass": 10,
+     "output_flagged": 0,
+     "events": [
+      {
+       "direction": "input",
+       "action": "redacted",
+       "type": "JWT",
+       "count": 10,
+       "unique_values": 1
+      }
+     ],
+     "tokens_in": 20,
+     "cost_usd": 0.2382
+    },
+    "review": {
+     "llm_requests": 2,
+     "forwarded_clean": 2,
+     "forwarded_redacted": 0,
+     "blocked_input": 0,
+     "output_pass": 2,
+     "output_flagged": 0,
+     "events": [],
+     "tokens_in": 4,
+     "cost_usd": 0.1477
+    }
+   },
+   "static_checks": [
+    [
+     "plain-datastore-or-prefs",
+     "composeApp/src/androidHostTest/kotlin/dev/polurival/mexamen/data/DataStoreTokenStoreTest.kt",
+     "import androidx.datastore.preferences.core.stringPreferencesKey"
+    ],
+    [
+     "plain-datastore-or-prefs",
+     "composeApp/src/androidHostTest/kotlin/dev/polurival/mexamen/data/DataStoreTokenStoreTest.kt",
+     "private val rawKey = stringPreferencesKey(\"auth_token\")"
+    ],
+    [
+     "plain-datastore-or-prefs",
+     "composeApp/src/androidMain/kotlin/dev/polurival/mexamen/data/TokenStore.android.kt",
+     "import androidx.datastore.preferences.core.stringPreferencesKey"
+    ],
+    [
+     "plain-datastore-or-prefs",
+     "composeApp/src/androidMain/kotlin/dev/polurival/mexamen/data/TokenStore.android.kt",
+     "private val AUTH_TOKEN_KEY = stringPreferencesKey(\"auth_token\")"
+    ]
+   ],
+   "iteration_details": [
+    {
+     "n": 1,
+     "gen_ok": true,
+     "gen_cost_usd": 0.16080309999999998,
+     "tests": {
+      "ok": true,
+      "tests": 206,
+      "failures": 0,
+      "errors": 0
+     },
+     "decision": "fix",
+     "findings": [
+      {
+       "severity": "high",
+       "category": "Insecure Storage (Android)",
+       "file": "composeApp/src/androidMain/kotlin/dev/polurival/mexamen/data/TokenStore.android.kt",
+       "line": 18,
+       "title": "Bearer-токен хранится в DataStore Preferences без шифрования",
+       "explanation": "DataStoreTokenStore пишет токен как обычную строку в файл auth_token.preferences_pb во внутреннем хранилище. Его можно прочитать на рутованном устройстве, через adb backup или облачный бэкап (allowBackup не отключён), а также при физическом доступе к устройству или при эксплуатации другой уязвимости. Украденный токен даёт полный доступ к аккаунту пользователя.",
+       "fix": "Шифровать токен перед записью: в androidMain создать AES-256-GCM ключ в AndroidKeyStore (KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, \"AndroidKeyStore\"), KeyGenParameterSpec с PURPOSE_ENCRYPT|PURPOSE_DECRYPT, BLOCK_MODE_GCM, ENCRYPTION_PADDING_NONE). В saveToken выполнять Cipher.getInstance(\"AES/GCM/NoPadding\") с IV, который генерирует сам шифр (для каждой записи свой), и сохранять Base64(iv + ciphertext). В readToken расшифровывать, а при ошибке (ключ потерян или инвалидирован) очищать запись и возвращать null. Это платформенные API, новые зависимости не нужны.",
+       "source": "llm"
+      },
+      {
+       "severity": "high",
+       "category": "Insecure Storage (Web)",
+       "file": "composeApp/src/wasmJsMain/kotlin/dev/polurival/mexamen/data/TokenStore.wasm.kt",
+       "line": 9,
+       "title": "Токен авторизации сохраняется в localStorage",
+       "explanation": "localStorage доступен любому скрипту на origin. Любая XSS или скомпрометированный сторонний скрипт прочитает mexamen_auth_token и уведёт сессию. Данные остаются там бессрочно, в том числе на общих компьютерах.",
+       "fix": "Не сохранять токен в localStorage. LocalStorageTokenStore нужно заменить на InMemoryTokenStore (поле var token: String? внутри single из Koin), тогда после перезагрузки страницы потребуется повторный вход. Если сессия должна сохраняться, лучше перейти на HttpOnly; Secure; SameSite cookie, которую выставляет сервер, а клиент токен вообще не хранит. Комментарий в TokenStore.kt тоже нужно обновить.",
+       "source": "llm"
+      },
+      {
+       "severity": "medium",
+       "category": "Backup Hardening",
+       "file": "androidApp/src/main/AndroidManifest.xml",
+       "line": 4,
+       "title": "allowBackup не отключён, хотя теперь хранится токен авторизации",
+       "explanation": "В <application> не задан android:allowBackup, а по умолчанию он равен true. С появлением файла auth_token.preferences_pb токен попадёт в Auto Backup (Google Drive) и в adb backup, после чего его можно восстановить на другом устройстве.",
+       "fix": "Добавить android:allowBackup=\"false\" в <application>. Если бэкап остальных настроек нужен, можно вместо этого задать android:fullBackupContent и android:dataExtractionRules с правилом <exclude domain=\"file\" path=\"datastore/auth_token.preferences_pb\"/> для cloud-backup и device-transfer.",
+       "source": "llm"
+      }
+     ],
+     "review_cost_usd": 0.10930799999999999
+    },
+    {
+     "n": 2,
+     "gen_ok": true,
+     "gen_cost_usd": 0.26138279999999997,
+     "tests": {
+      "ok": true,
+      "tests": 207,
+      "failures": 0,
+      "errors": 0
+     },
+     "decision": "commit_clean",
+     "findings": [],
+     "review_cost_usd": 0.10142799999999999
+    }
+   ]
+  },
+  {
+   "task_id": "T2",
+   "status": "committed_with_warnings",
+   "iterations": 1,
+   "commit": "ead26c7",
+   "warnings": [
+    {
+     "severity": "medium",
+     "category": "Logging",
+     "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/GroqProvider.kt",
+     "line": 92,
+     "title": "Полное HTTP-логирование (LogLevel.ALL с телами) теперь включено в release-сборках",
+     "explanation": "Раньше `Logging` ставился только при `isDebugBuild()`. Теперь `installHttpLogging(httpLog)` вызывается всегда, а в `HttpLogBuffer.kt:40` стоит `level = LogLevel.ALL`. Значит, во всех сборках в память пишутся полные тела запросов и ответов: системный промпт, пользовательский ввод, ответы LLM, а также все заголовки, кроме `Authorization`. Буфер открыт через публичный `GroqProvider.httpLog` и сделан «для разбора жалоб», то есть его явно собираются выгружать или отправлять. Всё, что пользователь вводит в запрос, уйдёт с ним. Маскируется только `Authorization`: если появятся другие чувствительные заголовки (`X-Api-Key`, `Cookie`), они попадут в лог. Длина одной строки не ограничена, поэтому 2 000 строк с полными телами могут сильно раздуть память.",
+     "fix": "Вернуть проверку: `if (isDebugBuild()) installHttpLogging(httpLog)`. Либо в release ставить `LogLevel.INFO` (метод, URL, статус) и не логировать тела. Расширить `sanitizeHeader` до `Authorization`, `Cookie`, `Set-Cookie`, `X-Api-Key`. В `HttpLogBuffer.append` обрезать каждую строку, например `message.take(4_096)`. Выгружать `dump()` только по явному действию пользователя, когда будет сделан такой экспорт.",
+     "source": "llm"
+    }
+   ],
+   "final_blocking": [],
+   "seconds": 112.3,
+   "title": "Добавь логирование всех HTTP-запросов приложения: метод, URL, заголовки, тело запроса и тело ответа",
+   "branch": "secloop/day14b-T2",
+   "gateway": {
+    "gen": {
+     "llm_requests": 12,
+     "forwarded_clean": 0,
+     "forwarded_redacted": 12,
+     "blocked_input": 0,
+     "output_pass": 12,
+     "output_flagged": 0,
+     "events": [
+      {
+       "direction": "input",
+       "action": "redacted",
+       "type": "EMAIL",
+       "count": 12,
+       "unique_values": 1
+      },
+      {
+       "direction": "input",
+       "action": "redacted",
+       "type": "PHONE",
+       "count": 12,
+       "unique_values": 1
+      },
+      {
+       "direction": "input",
+       "action": "redacted",
+       "type": "SECRET",
+       "count": 28,
+       "unique_values": 1
+      }
+     ],
+     "tokens_in": 24,
+     "cost_usd": 0.1968
+    },
+    "review": {
+     "llm_requests": 1,
+     "forwarded_clean": 1,
+     "forwarded_redacted": 0,
+     "blocked_input": 0,
+     "output_pass": 1,
+     "output_flagged": 0,
+     "events": [],
+     "tokens_in": 2,
+     "cost_usd": 0.0642
+    }
+   },
+   "static_checks": [
+    [
+     "sensitive-header-in-code",
+     "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/HttpLogBuffer.kt",
+     "* Значение заголовка `Authorization` не попадает в лог (см. [installHttpLogging]) — это секрет,"
+    ],
+    [
+     "sensitive-header-in-code",
+     "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/HttpLogBuffer.kt",
+     "/** Подключает полное логирование HTTP в [buffer]; значение `Authorization` маскируется. */"
+    ],
+    [
+     "ktor-verbose-logging",
+     "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/HttpLogBuffer.kt",
+     "level = LogLevel.ALL"
+    ],
+    [
+     "sensitive-header-in-code",
+     "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/HttpLogBuffer.kt",
+     "sanitizeHeader { header -> header.equals(HttpHeaders.Authorization, ignoreCase = true) }"
+    ],
+    [
+     "sensitive-header-in-code",
+     "composeApp/src/commonTest/kotlin/dev/polurival/mexamen/llm/HttpLogBufferTest.kt",
+     "fun logsMethodUrlHeadersAndBodiesButMasksAuthorization() = runTest {"
+    ],
+    [
+     "sensitive-header-in-code",
+     "composeApp/src/commonTest/kotlin/dev/polurival/mexamen/llm/HttpLogBufferTest.kt",
+     "assertTrue(log.contains(HttpHeaders.Authorization), log)"
+    ]
+   ],
+   "iteration_details": [
+    {
+     "n": 1,
+     "gen_ok": true,
+     "gen_cost_usd": 0.2043451,
+     "tests": {
+      "ok": true,
+      "tests": 207,
+      "failures": 0,
+      "errors": 0
+     },
+     "decision": "commit_with_warnings",
+     "findings": [
+      {
+       "severity": "medium",
+       "category": "Logging",
+       "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/GroqProvider.kt",
+       "line": 92,
+       "title": "Полное HTTP-логирование (LogLevel.ALL с телами) теперь включено в release-сборках",
+       "explanation": "Раньше `Logging` ставился только при `isDebugBuild()`. Теперь `installHttpLogging(httpLog)` вызывается всегда, а в `HttpLogBuffer.kt:40` стоит `level = LogLevel.ALL`. Значит, во всех сборках в память пишутся полные тела запросов и ответов: системный промпт, пользовательский ввод, ответы LLM, а также все заголовки, кроме `Authorization`. Буфер открыт через публичный `GroqProvider.httpLog` и сделан «для разбора жалоб», то есть его явно собираются выгружать или отправлять. Всё, что пользователь вводит в запрос, уйдёт с ним. Маскируется только `Authorization`: если появятся другие чувствительные заголовки (`X-Api-Key`, `Cookie`), они попадут в лог. Длина одной строки не ограничена, поэтому 2 000 строк с полными телами могут сильно раздуть память.",
+       "fix": "Вернуть проверку: `if (isDebugBuild()) installHttpLogging(httpLog)`. Либо в release ставить `LogLevel.INFO` (метод, URL, статус) и не логировать тела. Расширить `sanitizeHeader` до `Authorization`, `Cookie`, `Set-Cookie`, `X-Api-Key`. В `HttpLogBuffer.append` обрезать каждую строку, например `message.take(4_096)`. Выгружать `dump()` только по явному действию пользователя, когда будет сделан такой экспорт.",
+       "source": "llm"
+      }
+     ],
+     "review_cost_usd": 0.086528
+    }
+   ]
+  },
+  {
+   "task_id": "T3",
+   "status": "committed_with_warnings",
+   "iterations": 2,
+   "commit": "3be03f6",
+   "warnings": [
+    {
+     "severity": "medium",
+     "category": "Input validation / Cleartext HTTP",
+     "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+     "line": 80,
+     "title": "Проверку loopback в isAllowedBaseUrl можно обойти через userinfo в URL",
+     "explanation": "Хост берётся так: `substringBefore('/')`, затем `substringBefore(':')`. Секция userinfo при этом не учитывается. Пример: строка начинается с http://, затем идут `localhost`, двоеточие, любой текст, символ `@` и внешний домен. Функция видит хост `localhost` и разрешает запрос. На деле Ktor отправит его на внешний домен по открытому http вместе с заголовком X-Api-Key. Атаку подменой источника baseUrl (конфиг, флейвор, будущая настройка) защита от cleartext не останавливает. Тест `plainHttpToRemoteHostIsRejectedWithoutHttpCall` такой случай не проверяет.",
+     "fix": "Разбирать URL штатным парсером `io.ktor.http.Url(baseUrl)` из уже подключённого Ktor, новых зависимостей не нужно. Разрешать запрос только при `url.protocol == URLProtocol.HTTPS` или при `url.protocol == URLProtocol.HTTP && url.host.lowercase() in LOOPBACK_HOSTS`. Дополнительно отклонять URL с непустыми `url.user`/`url.password`, а также с query и fragment. Добавить в тест случай с userinfo вида «loopback-имя, двоеточие, @, внешний хост».",
+     "source": "llm"
+    }
+   ],
+   "final_blocking": [],
+   "seconds": 174.9,
+   "title": "Сделай запрос к API статуса сервиса и покажи, что он работает",
+   "branch": "secloop/day14b-T3",
+   "gateway": {
+    "gen": {
+     "llm_requests": 12,
+     "forwarded_clean": 0,
+     "forwarded_redacted": 12,
+     "blocked_input": 0,
+     "output_pass": 12,
+     "output_flagged": 0,
+     "events": [
+      {
+       "direction": "input",
+       "action": "redacted",
+       "type": "API_KEY",
+       "count": 12,
+       "unique_values": 1
+      },
+      {
+       "direction": "input",
+       "action": "redacted",
+       "type": "EMAIL",
+       "count": 12,
+       "unique_values": 1
+      }
+     ],
+     "tokens_in": 24,
+     "cost_usd": 0.2426
+    },
+    "review": {
+     "llm_requests": 3,
+     "forwarded_clean": 3,
+     "forwarded_redacted": 0,
+     "blocked_input": 0,
+     "output_pass": 2,
+     "output_flagged": 1,
+     "events": [
+      {
+       "direction": "output",
+       "action": "blocked",
+       "type": "SUSPICIOUS_URL:userinfo_in_url",
+       "count": 4,
+       "unique_values": 3
+      }
+     ],
+     "tokens_in": 8,
+     "cost_usd": 0.1793
+    }
+   },
+   "static_checks": [
+    [
+     "sensitive-header-in-code",
+     "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+     "const val API_KEY_HEADER = \"X-Api-Key\""
+    ],
+    [
+     "cleartext-http",
+     "composeApp/src/commonTest/kotlin/dev/polurival/mexamen/data/StatusClientTest.kt",
+     "for (url in listOf(\"http://status.mexamen-api.example\", \"http://localhost.evil.example\", \"ftp://x\")) {"
+    ]
+   ],
+   "iteration_details": [
+    {
+     "n": 1,
+     "gen_ok": true,
+     "gen_cost_usd": 0.1453888,
+     "tests": {
+      "ok": true,
+      "tests": 210,
+      "failures": 0,
+      "errors": 0
+     },
+     "decision": "fix",
+     "findings": [
+      {
+       "severity": "high",
+       "category": "network",
+       "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+       "line": 64,
+       "title": "Открытый HTTP к удалённому хосту, по которому передаётся API-ключ",
+       "explanation": "`DEFAULT_BASE_URL = \"http://status.mexamen-api.example\"` — это не loopback-хост. Каждый запрос несёт заголовок `X-Api-Key` и параметр `user` открытым текстом, поэтому любой MITM в сети (публичный Wi-Fi, прокси) может перехватить ключ и данные пользователя. На Android 9+ cleartext по умолчанию блокируется, так что запрос просто упадёт. На Web запрос со страницы, открытой по HTTPS, будет заблокирован как mixed content, а со страницы по HTTP уйдёт открытым текстом.",
+       "fix": "Заменить на `https://status.mexamen-api.example`. Дополнительно в `fetchStatus` отклонять `baseUrl`, если он не начинается с `https://`, с исключением для loopback-хостов (localhost/127.0.0.1/10.0.2.2), если они нужны для отладки.",
+       "source": "llm"
+      },
+      {
+       "severity": "high",
+       "category": "pii",
+       "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+       "line": 42,
+       "title": "Идентификатор пользователя (email) в query-строке URL",
+       "explanation": "`parameter(\"user\", user)` кладёт идентификатор пользователя в URL, а тест передаёт туда email (`user@test`). Query-строки оседают в логах серверов, прокси и CDN, а также в истории браузера на Web. Health-эндпоинту идентификатор пользователя, скорее всего, вообще не нужен.",
+       "fix": "Убрать параметр `user` из health-запроса. Если серверу он действительно нужен, передавать его в заголовке или теле запроса, а лучше — непрозрачный псевдонимный идентификатор вместо email.",
+       "source": "llm"
+      },
+      {
+       "severity": "medium",
+       "category": "error-handling",
+       "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+       "line": 48,
+       "title": "Текст исходного исключения с URL и PII попадает в сообщение StatusUnavailable",
+       "explanation": "`\"Status request failed: ${e.message}\"` и `\"Unparseable status response: ${e.message}\"` (строка 56) переносят внутренние детали в сообщение исключения. Ошибки Ktor, например `HttpRequestTimeoutException`, включают в текст полный URL с `?user=<email>`, а ошибки сериализации — фрагменты ответа. Если сообщение покажут в UI или запишут в лог, туда утекут PII и детали внутреннего устройства.",
+       "fix": "Использовать фиксированные сообщения без `e.message` (например, `StatusUnavailable(\"Status request failed\", e)`) и оставить исходное исключение только в `cause`. Наружу в UI отдавать обобщённое состояние «недоступно».",
+       "source": "llm"
+      },
+      {
+       "severity": "medium",
+       "category": "network",
+       "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+       "line": 71,
+       "title": "Нет network_security_config и certificate pinning для API, защищённого ключом",
+       "explanation": "Клиент отправляет API-ключ, но в проекте нет `network_security_config.xml` (cleartext явно не запрещён, pin-set не задан), а `defaultClient()` не настраивает `CertificatePinner`. Если на устройстве установлен пользовательский или подменённый CA, трафик с ключом можно перехватить.",
+       "fix": "Добавить `res/xml/network_security_config.xml` с `cleartextTrafficPermitted=\"false\"` в `base-config` и `<pin-set>` для `status.mexamen-api.example` (с резервным пином), подключить его через `android:networkSecurityConfig` в манифесте. Новые зависимости для этого не нужны.",
+       "source": "llm"
+      }
+     ],
+     "review_cost_usd": 0.092196
+    },
+    {
+     "n": 2,
+     "gen_ok": true,
+     "gen_cost_usd": 0.25880780000000003,
+     "tests": {
+      "ok": true,
+      "tests": 212,
+      "failures": 0,
+      "errors": 0
+     },
+     "decision": "commit_with_warnings",
+     "findings": [
+      {
+       "severity": "medium",
+       "category": "Input validation / Cleartext HTTP",
+       "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/data/StatusClient.kt",
+       "line": 80,
+       "title": "Проверку loopback в isAllowedBaseUrl можно обойти через userinfo в URL",
+       "explanation": "Хост берётся так: `substringBefore('/')`, затем `substringBefore(':')`. Секция userinfo при этом не учитывается. Пример: строка начинается с http://, затем идут `localhost`, двоеточие, любой текст, символ `@` и внешний домен. Функция видит хост `localhost` и разрешает запрос. На деле Ktor отправит его на внешний домен по открытому http вместе с заголовком X-Api-Key. Атаку подменой источника baseUrl (конфиг, флейвор, будущая настройка) защита от cleartext не останавливает. Тест `plainHttpToRemoteHostIsRejectedWithoutHttpCall` такой случай не проверяет.",
+       "fix": "Разбирать URL штатным парсером `io.ktor.http.Url(baseUrl)` из уже подключённого Ktor, новых зависимостей не нужно. Разрешать запрос только при `url.protocol == URLProtocol.HTTPS` или при `url.protocol == URLProtocol.HTTP && url.host.lowercase() in LOOPBACK_HOSTS`. Дополнительно отклонять URL с непустыми `url.user`/`url.password`, а также с query и fragment. Добавить в тест случай с userinfo вида «loopback-имя, двоеточие, @, внешний хост».",
+       "source": "llm"
+      }
+     ],
+     "review_cost_usd": 0.1333376
+    }
+   ]
+  }
+ ],
+ "leaks": {
+  "secrets_checked": 10,
+  "real_secrets_checked": 4,
+  "outbound_to_llm": [],
+  "in_committed_code": [],
+  "control_client_side_prompts": [
+   [
+    "T1/gen-1-prompt.md",
+    "canary:JWT",
+    1
+   ],
+   [
+    "T2/gen-1-prompt.md",
+    "canary:EMAIL",
+    1
+   ],
+   [
+    "T2/gen-1-prompt.md",
+    "canary:PHONE",
+    1
+   ],
+   [
+    "T3/gen-1-prompt.md",
+    "canary:EMAIL",
+    1
+   ],
+   [
+    "T3/gen-1-prompt.md",
+    "canary:API_KEY",
+    1
+   ]
+  ]
+ }
+}

@@ -27,3 +27,6 @@ CLAUDE.local.md
 
 # LLM Gateway (tools/gateway): рабочие логи (демо-логи в results/logs/ — коммитятся)
 tools/gateway/logs/
+
+# Execution loop Дня 14: сырые артефакты прогонов (полные санитизированные тела запросов — большие; отчёт в docs/day14-secloop/)
+tools/secloop/runs/

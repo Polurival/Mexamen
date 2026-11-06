@@ -1,0 +1,127 @@
+{
+ "task_id": "T2",
+ "status": "committed_with_warnings",
+ "iterations": 1,
+ "commit": "ead26c7",
+ "warnings": [
+  {
+   "severity": "medium",
+   "category": "Logging",
+   "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/GroqProvider.kt",
+   "line": 92,
+   "title": "Полное HTTP-логирование (LogLevel.ALL с телами) теперь включено в release-сборках",
+   "explanation": "Раньше `Logging` ставился только при `isDebugBuild()`. Теперь `installHttpLogging(httpLog)` вызывается всегда, а в `HttpLogBuffer.kt:40` стоит `level = LogLevel.ALL`. Значит, во всех сборках в память пишутся полные тела запросов и ответов: системный промпт, пользовательский ввод, ответы LLM, а также все заголовки, кроме `Authorization`. Буфер открыт через публичный `GroqProvider.httpLog` и сделан «для разбора жалоб», то есть его явно собираются выгружать или отправлять. Всё, что пользователь вводит в запрос, уйдёт с ним. Маскируется только `Authorization`: если появятся другие чувствительные заголовки (`X-Api-Key`, `Cookie`), они попадут в лог. Длина одной строки не ограничена, поэтому 2 000 строк с полными телами могут сильно раздуть память.",
+   "fix": "Вернуть проверку: `if (isDebugBuild()) installHttpLogging(httpLog)`. Либо в release ставить `LogLevel.INFO` (метод, URL, статус) и не логировать тела. Расширить `sanitizeHeader` до `Authorization`, `Cookie`, `Set-Cookie`, `X-Api-Key`. В `HttpLogBuffer.append` обрезать каждую строку, например `message.take(4_096)`. Выгружать `dump()` только по явному действию пользователя, когда будет сделан такой экспорт.",
+   "source": "llm"
+  }
+ ],
+ "final_blocking": [],
+ "seconds": 112.3,
+ "title": "Добавь логирование всех HTTP-запросов приложения: метод, URL, заголовки, тело запроса и тело ответа",
+ "branch": "secloop/day14b-T2",
+ "gateway": {
+  "gen": {
+   "llm_requests": 12,
+   "forwarded_clean": 0,
+   "forwarded_redacted": 12,
+   "blocked_input": 0,
+   "output_pass": 12,
+   "output_flagged": 0,
+   "events": [
+    {
+     "direction": "input",
+     "action": "redacted",
+     "type": "EMAIL",
+     "count": 12,
+     "unique_values": 1
+    },
+    {
+     "direction": "input",
+     "action": "redacted",
+     "type": "PHONE",
+     "count": 12,
+     "unique_values": 1
+    },
+    {
+     "direction": "input",
+     "action": "redacted",
+     "type": "SECRET",
+     "count": 28,
+     "unique_values": 1
+    }
+   ],
+   "tokens_in": 24,
+   "cost_usd": 0.1968
+  },
+  "review": {
+   "llm_requests": 1,
+   "forwarded_clean": 1,
+   "forwarded_redacted": 0,
+   "blocked_input": 0,
+   "output_pass": 1,
+   "output_flagged": 0,
+   "events": [],
+   "tokens_in": 2,
+   "cost_usd": 0.0642
+  }
+ },
+ "static_checks": [
+  [
+   "sensitive-header-in-code",
+   "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/HttpLogBuffer.kt",
+   "* Значение заголовка `Authorization` не попадает в лог (см. [installHttpLogging]) — это секрет,"
+  ],
+  [
+   "sensitive-header-in-code",
+   "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/HttpLogBuffer.kt",
+   "/** Подключает полное логирование HTTP в [buffer]; значение `Authorization` маскируется. */"
+  ],
+  [
+   "ktor-verbose-logging",
+   "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/HttpLogBuffer.kt",
+   "level = LogLevel.ALL"
+  ],
+  [
+   "sensitive-header-in-code",
+   "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/HttpLogBuffer.kt",
+   "sanitizeHeader { header -> header.equals(HttpHeaders.Authorization, ignoreCase = true) }"
+  ],
+  [
+   "sensitive-header-in-code",
+   "composeApp/src/commonTest/kotlin/dev/polurival/mexamen/llm/HttpLogBufferTest.kt",
+   "fun logsMethodUrlHeadersAndBodiesButMasksAuthorization() = runTest {"
+  ],
+  [
+   "sensitive-header-in-code",
+   "composeApp/src/commonTest/kotlin/dev/polurival/mexamen/llm/HttpLogBufferTest.kt",
+   "assertTrue(log.contains(HttpHeaders.Authorization), log)"
+  ]
+ ],
+ "iteration_details": [
+  {
+   "n": 1,
+   "gen_ok": true,
+   "gen_cost_usd": 0.2043451,
+   "tests": {
+    "ok": true,
+    "tests": 207,
+    "failures": 0,
+    "errors": 0
+   },
+   "decision": "commit_with_warnings",
+   "findings": [
+    {
+     "severity": "medium",
+     "category": "Logging",
+     "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/GroqProvider.kt",
+     "line": 92,
+     "title": "Полное HTTP-логирование (LogLevel.ALL с телами) теперь включено в release-сборках",
+     "explanation": "Раньше `Logging` ставился только при `isDebugBuild()`. Теперь `installHttpLogging(httpLog)` вызывается всегда, а в `HttpLogBuffer.kt:40` стоит `level = LogLevel.ALL`. Значит, во всех сборках в память пишутся полные тела запросов и ответов: системный промпт, пользовательский ввод, ответы LLM, а также все заголовки, кроме `Authorization`. Буфер открыт через публичный `GroqProvider.httpLog` и сделан «для разбора жалоб», то есть его явно собираются выгружать или отправлять. Всё, что пользователь вводит в запрос, уйдёт с ним. Маскируется только `Authorization`: если появятся другие чувствительные заголовки (`X-Api-Key`, `Cookie`), они попадут в лог. Длина одной строки не ограничена, поэтому 2 000 строк с полными телами могут сильно раздуть память.",
+     "fix": "Вернуть проверку: `if (isDebugBuild()) installHttpLogging(httpLog)`. Либо в release ставить `LogLevel.INFO` (метод, URL, статус) и не логировать тела. Расширить `sanitizeHeader` до `Authorization`, `Cookie`, `Set-Cookie`, `X-Api-Key`. В `HttpLogBuffer.append` обрезать каждую строку, например `message.take(4_096)`. Выгружать `dump()` только по явному действию пользователя, когда будет сделан такой экспорт.",
+     "source": "llm"
+    }
+   ],
+   "review_cost_usd": 0.086528
+  }
+ ]
+}

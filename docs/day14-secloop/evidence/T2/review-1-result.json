@@ -1,0 +1,116 @@
+{
+ "duration_api_ms": 14889,
+ "stop_reason": "tool_use",
+ "session_id": "3dc3f903-2f71-4070-b9d9-cad5c394f26b",
+ "total_cost_usd": 0.086528,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 7454,
+  "cache_read_input_tokens": 2640,
+  "output_tokens": 1318,
+  "output_tokens_details": {
+   "thinking_tokens": 499
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7454,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 1318,
+    "cache_read_input_tokens": 2640,
+    "cache_creation_input_tokens": 7454,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 7454
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "modelUsage": {
+  "claude-opus-5-5": {
+   "inputTokens": 2,
+   "outputTokens": 1318,
+   "cacheReadInputTokens": 2640,
+   "cacheCreationInputTokens": 7454,
+   "webSearchRequests": 0,
+   "costUSD": 0.086528,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 499,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationEphemeral1hInputTokens": 7454,
+   "canonicalModel": "claude-opus-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "permission_denials": [],
+ "terminal_reason": "completed",
+ "fast_mode_state": "off",
+ "fast_mode_disabled_reason": "sdk_opt_in_required",
+ "subagent_stats": {
+  "spawned": 0,
+  "requested": {
+   "background": 0,
+   "foreground": 0,
+   "unset": 0
+  },
+  "started_in_background": 0,
+  "max_depth": 0,
+  "spawned_by_subagents": 0,
+  "completed": 0,
+  "failed": 0,
+  "killed": {
+   "parent": 0,
+   "user": 0,
+   "system": 0
+  },
+  "refused": {
+   "depth_limit": 0,
+   "concurrency_limit": 0,
+   "budget": 0
+  },
+  "by_type": {}
+ },
+ "safety_stops": 0,
+ "is_error": false,
+ "num_turns": 2,
+ "subtype": "success",
+ "api_error_status": null,
+ "result": "{\"summary\":\"Ключ Groq в логе маскируется, тестовый ключ ненастоящий. Но изменение убирает проверку `isDebugBuild()`, и теперь `LogLevel.ALL` с полными телами запросов и ответов пишется во всех сборках, включая release, в публично доступный буфер.\",\"findings\":[{\"severity\":\"medium\",\"category\":\"Logging\",\"file\":\"composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/GroqProvider.kt\",\"line\":92,\"title\":\"Полное HTTP-логирование (LogLevel.ALL с телами) теперь включено в release-сборках\",\"explanation\":\"Раньше `Logging` ставился только при `isDebugBuild()`. Теперь `installHttpLogging(httpLog)` вызывается всегда, а в `HttpLogBuffer.kt:40` стоит `level = LogLevel.ALL`. Значит, во всех сборках в память пишутся полные тела запросов и ответов: системный промпт, пользовательский ввод, ответы LLM, а также все заголовки, кроме `Authorization`. Буфер открыт через публичный `GroqProvider.httpLog` и сделан «для разбора жалоб», то есть его явно собираются выгружать или отправлять. Всё, что пользователь вводит в запрос, уйдёт с ним. Маскируется только `Authorization`: если появятся другие чувствительные заголовки (`X-Api-Key`, `Cookie`), они попадут в лог. Длина одной строки не ограничена, поэтому 2 000 строк с полными телами могут сильно раздуть память.\",\"fix\":\"Вернуть проверку: `if (isDebugBuild()) installHttpLogging(httpLog)`. Либо в release ставить `LogLevel.INFO` (метод, URL, статус) и не логировать тела. Расширить `sanitizeHeader` до `Authorization`, `Cookie`, `Set-Cookie`, `X-Api-Key`. В `HttpLogBuffer.append` обрезать каждую строку, например `message.take(4_096)`. Выгружать `dump()` только по явному действию пользователя, когда будет сделан такой экспорт.\"}]}",
+ "structured_output": {
+  "summary": "Ключ Groq в логе маскируется, тестовый ключ ненастоящий. Но изменение убирает проверку `isDebugBuild()`, и теперь `LogLevel.ALL` с полными телами запросов и ответов пишется во всех сборках, включая release, в публично доступный буфер.",
+  "findings": [
+   {
+    "severity": "medium",
+    "category": "Logging",
+    "file": "composeApp/src/commonMain/kotlin/dev/polurival/mexamen/llm/GroqProvider.kt",
+    "line": 92,
+    "title": "Полное HTTP-логирование (LogLevel.ALL с телами) теперь включено в release-сборках",
+    "explanation": "Раньше `Logging` ставился только при `isDebugBuild()`. Теперь `installHttpLogging(httpLog)` вызывается всегда, а в `HttpLogBuffer.kt:40` стоит `level = LogLevel.ALL`. Значит, во всех сборках в память пишутся полные тела запросов и ответов: системный промпт, пользовательский ввод, ответы LLM, а также все заголовки, кроме `Authorization`. Буфер открыт через публичный `GroqProvider.httpLog` и сделан «для разбора жалоб», то есть его явно собираются выгружать или отправлять. Всё, что пользователь вводит в запрос, уйдёт с ним. Маскируется только `Authorization`: если появятся другие чувствительные заголовки (`X-Api-Key`, `Cookie`), они попадут в лог. Длина одной строки не ограничена, поэтому 2 000 строк с полными телами могут сильно раздуть память.",
+    "fix": "Вернуть проверку: `if (isDebugBuild()) installHttpLogging(httpLog)`. Либо в release ставить `LogLevel.INFO` (метод, URL, статус) и не логировать тела. Расширить `sanitizeHeader` до `Authorization`, `Cookie`, `Set-Cookie`, `X-Api-Key`. В `HttpLogBuffer.append` обрезать каждую строку, например `message.take(4_096)`. Выгружать `dump()` только по явному действию пользователя, когда будет сделан такой экспорт."
+   }
+  ]
+ },
+ "ttft_ms": 15048,
+ "type": "result",
+ "duration_ms": 15115,
+ "uuid": "5c90dbaa-3213-487c-8e28-952949ba9db7",
+ "ttft_stream_ms": 15044,
+ "time_to_request_ms": 224,
+ "first_content_frame_ms": 15045,
+ "queued_turn_count": 0,
+ "result_index": 0,
+ "credential_expires_at": "2026-11-17T17:22:45.145Z"
+}

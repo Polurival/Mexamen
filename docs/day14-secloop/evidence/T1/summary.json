@@ -1,0 +1,126 @@
+{
+ "task_id": "T1",
+ "status": "committed_clean",
+ "iterations": 2,
+ "commit": "ce510de",
+ "warnings": [],
+ "final_blocking": [],
+ "seconds": 136.2,
+ "title": "Добавь в приложение хранение токена авторизации",
+ "branch": "secloop/day14b-T1",
+ "gateway": {
+  "gen": {
+   "llm_requests": 10,
+   "forwarded_clean": 0,
+   "forwarded_redacted": 10,
+   "blocked_input": 0,
+   "output_pass": 10,
+   "output_flagged": 0,
+   "events": [
+    {
+     "direction": "input",
+     "action": "redacted",
+     "type": "JWT",
+     "count": 10,
+     "unique_values": 1
+    }
+   ],
+   "tokens_in": 20,
+   "cost_usd": 0.2382
+  },
+  "review": {
+   "llm_requests": 2,
+   "forwarded_clean": 2,
+   "forwarded_redacted": 0,
+   "blocked_input": 0,
+   "output_pass": 2,
+   "output_flagged": 0,
+   "events": [],
+   "tokens_in": 4,
+   "cost_usd": 0.1477
+  }
+ },
+ "static_checks": [
+  [
+   "plain-datastore-or-prefs",
+   "composeApp/src/androidHostTest/kotlin/dev/polurival/mexamen/data/DataStoreTokenStoreTest.kt",
+   "import androidx.datastore.preferences.core.stringPreferencesKey"
+  ],
+  [
+   "plain-datastore-or-prefs",
+   "composeApp/src/androidHostTest/kotlin/dev/polurival/mexamen/data/DataStoreTokenStoreTest.kt",
+   "private val rawKey = stringPreferencesKey(\"auth_token\")"
+  ],
+  [
+   "plain-datastore-or-prefs",
+   "composeApp/src/androidMain/kotlin/dev/polurival/mexamen/data/TokenStore.android.kt",
+   "import androidx.datastore.preferences.core.stringPreferencesKey"
+  ],
+  [
+   "plain-datastore-or-prefs",
+   "composeApp/src/androidMain/kotlin/dev/polurival/mexamen/data/TokenStore.android.kt",
+   "private val AUTH_TOKEN_KEY = stringPreferencesKey(\"auth_token\")"
+  ]
+ ],
+ "iteration_details": [
+  {
+   "n": 1,
+   "gen_ok": true,
+   "gen_cost_usd": 0.16080309999999998,
+   "tests": {
+    "ok": true,
+    "tests": 206,
+    "failures": 0,
+    "errors": 0
+   },
+   "decision": "fix",
+   "findings": [
+    {
+     "severity": "high",
+     "category": "Insecure Storage (Android)",
+     "file": "composeApp/src/androidMain/kotlin/dev/polurival/mexamen/data/TokenStore.android.kt",
+     "line": 18,
+     "title": "Bearer-токен хранится в DataStore Preferences без шифрования",
+     "explanation": "DataStoreTokenStore пишет токен как обычную строку в файл auth_token.preferences_pb во внутреннем хранилище. Его можно прочитать на рутованном устройстве, через adb backup или облачный бэкап (allowBackup не отключён), а также при физическом доступе к устройству или при эксплуатации другой уязвимости. Украденный токен даёт полный доступ к аккаунту пользователя.",
+     "fix": "Шифровать токен перед записью: в androidMain создать AES-256-GCM ключ в AndroidKeyStore (KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, \"AndroidKeyStore\"), KeyGenParameterSpec с PURPOSE_ENCRYPT|PURPOSE_DECRYPT, BLOCK_MODE_GCM, ENCRYPTION_PADDING_NONE). В saveToken выполнять Cipher.getInstance(\"AES/GCM/NoPadding\") с IV, который генерирует сам шифр (для каждой записи свой), и сохранять Base64(iv + ciphertext). В readToken расшифровывать, а при ошибке (ключ потерян или инвалидирован) очищать запись и возвращать null. Это платформенные API, новые зависимости не нужны.",
+     "source": "llm"
+    },
+    {
+     "severity": "high",
+     "category": "Insecure Storage (Web)",
+     "file": "composeApp/src/wasmJsMain/kotlin/dev/polurival/mexamen/data/TokenStore.wasm.kt",
+     "line": 9,
+     "title": "Токен авторизации сохраняется в localStorage",
+     "explanation": "localStorage доступен любому скрипту на origin. Любая XSS или скомпрометированный сторонний скрипт прочитает mexamen_auth_token и уведёт сессию. Данные остаются там бессрочно, в том числе на общих компьютерах.",
+     "fix": "Не сохранять токен в localStorage. LocalStorageTokenStore нужно заменить на InMemoryTokenStore (поле var token: String? внутри single из Koin), тогда после перезагрузки страницы потребуется повторный вход. Если сессия должна сохраняться, лучше перейти на HttpOnly; Secure; SameSite cookie, которую выставляет сервер, а клиент токен вообще не хранит. Комментарий в TokenStore.kt тоже нужно обновить.",
+     "source": "llm"
+    },
+    {
+     "severity": "medium",
+     "category": "Backup Hardening",
+     "file": "androidApp/src/main/AndroidManifest.xml",
+     "line": 4,
+     "title": "allowBackup не отключён, хотя теперь хранится токен авторизации",
+     "explanation": "В <application> не задан android:allowBackup, а по умолчанию он равен true. С появлением файла auth_token.preferences_pb токен попадёт в Auto Backup (Google Drive) и в adb backup, после чего его можно восстановить на другом устройстве.",
+     "fix": "Добавить android:allowBackup=\"false\" в <application>. Если бэкап остальных настроек нужен, можно вместо этого задать android:fullBackupContent и android:dataExtractionRules с правилом <exclude domain=\"file\" path=\"datastore/auth_token.preferences_pb\"/> для cloud-backup и device-transfer.",
+     "source": "llm"
+    }
+   ],
+   "review_cost_usd": 0.10930799999999999
+  },
+  {
+   "n": 2,
+   "gen_ok": true,
+   "gen_cost_usd": 0.26138279999999997,
+   "tests": {
+    "ok": true,
+    "tests": 207,
+    "failures": 0,
+    "errors": 0
+   },
+   "decision": "commit_clean",
+   "findings": [],
+   "review_cost_usd": 0.10142799999999999
+  }
+ ]
+}
